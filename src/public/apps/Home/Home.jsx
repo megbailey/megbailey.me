@@ -10,21 +10,21 @@ function Home () {
     return (
         <React.Fragment>
             <section>
-                <Container className="home-section" id="home">
+                <Container className="home-section">
                     <Container className="home-content">
                     <Header />
                     </Container>
                 </Container>
             </section>
             <AboutMe />
-            <Grid container spacing={2} columns={16}>
-                <Grid item xs={5}>
+            <Grid container justifyContent="center" spacing={2} columns={16}>
+                <Grid item xs={4}>
                     <ProjectCard />
                 </Grid>
-                <Grid item xs={5}>
+                <Grid item xs={4}>
                     <ProjectCard />
                 </Grid>
-                <Grid item xs={5}>
+                <Grid item xs={4}>
                     <ProjectCard />
                 </Grid>
             </Grid>
