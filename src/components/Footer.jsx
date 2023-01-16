@@ -11,7 +11,12 @@ const Footer = () => {
                     <Avatar><GitHubIcon /></Avatar>
                 </Grid>
                 <Grid item xs={2} >
-                    MB © 2023{/* todo: make this link to my license*/}
+                    MB © 2023
+                    {/* 
+                        todo: 
+                        - make this link to my license
+                        - fix grid issues I want avatars and copyright to be inline
+                    */}
                 </Grid>
             </Grid>
         </Container>
