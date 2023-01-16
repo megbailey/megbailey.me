@@ -3,7 +3,7 @@ import { Grid, TextField, Button, Typography, Container } from '@mui/material';
 
 const FORM_ENDPOINT = ""; // TODO - fill on the later step
 
-const ContactForm = () => {
+const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const handleSubmit = () => {
     setTimeout(() => {
@@ -48,4 +48,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default Contact;
