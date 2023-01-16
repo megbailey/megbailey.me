@@ -5,7 +5,7 @@ import { Box, Container, Typography } from "@mui/material";
 const AboutMe = () => {
     return  (
         <React.Fragment>
-            <Container className="about-container outlined" maxWidth="sm">
+            <Container className="about-container outlined" maxWidth="lg">
                 <Box className="about-box outlined">
                 <h2>About me</h2> 
                 <p> This is some content about me </p>
