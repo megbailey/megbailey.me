@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Home from "./public/apps/Home/Home";
 import Blog from "./public/apps/Blog/Blog";
 import Projects from "./public/apps/Projects/Projects";
+import Navbar from "./components/Navbar";
+import "./index.css";
 
 import {
   BrowserRouter as Router,
@@ -17,16 +19,17 @@ function App() {
   }, []);
 
   return (
+    <div className="App" id='app'>
+    <Navbar />
     <Router>
-      <div className="App" id='app'>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="*" element={<Navigate to="/"/>} />
         </Routes>
-      </div>
     </Router>
+    </div>
   );
 }
 
