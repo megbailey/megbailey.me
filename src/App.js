@@ -21,8 +21,8 @@ function App() {
 
   return (
     <div className="App" id='app'>
-    <Navbar />
     <Router>
+      <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />

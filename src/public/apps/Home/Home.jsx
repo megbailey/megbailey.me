@@ -19,14 +19,14 @@ function Home () {
             <Typography gutterBottom variant="h2" component="div">
                 Check out some of my work!
             </Typography>
-            <Grid className="project-spotlight outlined" container justifyContent="center" spacing={1} columns={16}>
-                <Grid xs={4}>
+            <Grid container className="project-spotlight outlined" justifyContent="center" spacing={1} columns={16}>
+                <Grid item xs={4}>
                     <ProjectCard />
                 </Grid>
-                <Grid xs={4}>
+                <Grid item xs={4}>
                     <ProjectCard />
                 </Grid>
-                <Grid xs={4}>
+                <Grid item xs={4}>
                     <ProjectCard />
                 </Grid>
             </Grid>
