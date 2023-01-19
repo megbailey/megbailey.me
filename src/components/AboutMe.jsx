@@ -7,8 +7,12 @@ const AboutMe = () => {
         <React.Fragment>
             <Container className="about-container outlined" maxWidth="lg">
                 <Box className="about-box outlined">
-                <h2>About me</h2> 
-                <p> This is some content about me </p>
+                    <Typography gutterBottom variant="h2" component="div">
+                        About Me
+                    </Typography>
+                    <Typography variant="body" color="text">
+                        This is some content about me
+                    </Typography>
                 </Box>
             </Container>
         </React.Fragment>

@@ -5,16 +5,15 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import image from "../assets/img/placeholder.jpeg";
 
 export default function ProjectCard() {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 245 }}>
       <CardMedia
         component="img"
         alt="placeholder"
-        height="140"
-        image={image}
+        sx={{ height: 150 }}
+        image={"https://via.placeholder.com/245x150.png"}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">

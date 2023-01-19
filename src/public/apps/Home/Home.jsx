@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 import AboutMe from "../../../components/AboutMe";
 import ProjectCard from "../../../components/ProjectCard";
 import Footer from "../../../components/Footer";
@@ -16,7 +16,10 @@ function Home () {
                 </Container>
             </section>
             <AboutMe />
-            <Grid container justifyContent="center" spacing={2} columns={16}>
+            <Typography gutterBottom variant="h2" component="div">
+                Check out some of my work!
+            </Typography>
+            <Grid className="project-spotlight outlined" container justifyContent="center" spacing={1} columns={16}>
                 <Grid xs={4}>
                     <ProjectCard />
                 </Grid>
