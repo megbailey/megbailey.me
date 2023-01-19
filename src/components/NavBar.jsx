@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -15,7 +15,24 @@ function Navbar() {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const pages = ["Home", "About", "Projects", "Blog", "Get in touch"]
+  const pages = [
+      {
+        title: "Home",
+        path: '/'
+      }, 
+      {
+        title: "Projects",
+        path: '/projects'
+      },
+      {
+        title: "Blog",
+        path: '/knowledge'
+      },
+      {
+        title: "Contact Me",
+        path: '/hello'
+      }
+    ]
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -67,7 +84,12 @@ function Navbar() {
             >
               {
                 pages.map(( item, index ) => {
-                  return <MenuItem key={`mmenuItem-${index}`}onClick={handleClose}>{item}</MenuItem>
+                  return (
+                    <MenuItem
+                      component={Link}
+                      to={item['path']}
+                      key={`menuItem-${index}`}>{item['title']}</MenuItem>
+                  )
                 })
               }
             </Menu>

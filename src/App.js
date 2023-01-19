@@ -7,7 +7,7 @@ import Navbar from "./components/Navbar";
 import "./index.css";
 
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Route,
   Routes,
   Navigate
@@ -21,16 +21,16 @@ function App() {
 
   return (
     <div className="App" id='app'>
-    <Router>
+    <BrowserRouter>
       <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/blog" element={<Blog />} />
+          <Route path="/knowledge" element={<Blog />} />
           <Route path="/hello" element={<Contact />} />
           <Route path="*" element={<Navigate to="/"/>} />
         </Routes>
-    </Router>
+    </BrowserRouter>
     </div>
   );
 }
