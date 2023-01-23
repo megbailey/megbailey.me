@@ -146,6 +146,17 @@ function Projects () {
                     <Typography gutterBottom variant="h1" component="div">
                         Check out my work
                     </Typography>
+                    <Grid container className="project-spotlight outlined" justifyContent="center" spacing={1} columns={16}>
+                        <Grid item xs={8}>
+                            <ProjectCard />
+                        </Grid>
+                        <Grid item xs={8}>
+                            <ProjectCard />
+                        </Grid>
+                    </Grid>
+                    <Typography gutterBottom variant="h2" component="div">
+                         All Projects
+                    </Typography>
                     <Grid container className="project-grid outlined" justifyContent="center" spacing={1} columns={16}>
                         { projectItems.map(( items, index ) => {
                             return (
