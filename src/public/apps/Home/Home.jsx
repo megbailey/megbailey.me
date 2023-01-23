@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Container, Grid, Typography } from "@mui/material";
-import AboutMe from "../../../components/AboutMe";
-import ProjectCard from "../../../components/ProjectCard";
-import Footer from "../../../components/Footer";
-import Header from "../../../components/Header";
+import AboutMe from "../../../components/about-me/AboutMe";
+import ProjectCard from "../../../components/project/ProjectCard";
+import Footer from "../../../components/footer/src/Footer";
+import Header from "../../../components/header/src/Header";
 
 function Home () {
     return (

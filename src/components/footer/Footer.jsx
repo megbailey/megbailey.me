@@ -1,7 +1,7 @@
 import { Avatar, Container, Grid } from "@mui/material";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import React, { Component } from "react";
-import "../assets/style/footer.css"
+import "./footer.css"
 
 const Footer = () => {
     return (

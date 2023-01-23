@@ -3,7 +3,7 @@ import Home from "./public/apps/Home/Home";
 import Blog from "./public/apps/Blog/Blog";
 import Contact from "./public/apps/Contact/Contact";
 import Projects from "./public/apps/Projects/Projects";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar/Navbar";
 import "./index.css";
 
 import {

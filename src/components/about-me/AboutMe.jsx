@@ -1,17 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 import { Box, Container, Typography } from "@mui/material";
 
 
-const AboutMe = () => {
+const AboutMe = (props) => {
     return  (
         <React.Fragment>
             <Container className="about-container outlined" maxWidth="lg">
                 <Box className="about-box outlined">
                     <Typography gutterBottom variant="h2" component="div">
-                        About Me
+                        {props.title}
                     </Typography>
                     <Typography variant="body" color="text">
-                        This is some content about me
+                        {props.content}
                     </Typography>
                 </Box>
             </Container>

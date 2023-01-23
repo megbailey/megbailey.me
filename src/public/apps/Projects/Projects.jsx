@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Box, Container, Typography, Grid } from "@mui/material";
-import ProjectCard from "../../../components/ProjectCard";
+import ProjectCard from "../../../components/project/ProjectCard";
 function Projects () {
 
     const projectItems = [
