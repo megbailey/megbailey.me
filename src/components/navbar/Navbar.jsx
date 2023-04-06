@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate, Link } from "react-router-dom";
+import { /* useNavigate, */ Link } from "react-router-dom";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -8,11 +8,11 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import logo from '../assets/img/logo-white.png'
+//import logo from '../assets/img/logo-white.png'
 import { Avatar } from '@mui/material';
 
-function Navbar() {
-  const navigate = useNavigate();
+const Navbar = () => {
+  //const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const pages = [
@@ -45,13 +45,13 @@ function Navbar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar>
+        {/* <Toolbar>
           <IconButton
             size="large"
             aria-label="home-button"
             aria-controls="home-button"
             aria-haspopup="true"
-            onClick={() => navigate('/')} //TODO: GO Home
+            //onClick={() => navigate('/')} //TODO: GO Home
             color="inherit"
           >
             <Avatar 
@@ -94,7 +94,7 @@ function Navbar() {
               }
             </Menu>
           </div>
-        </Toolbar>
+        </Toolbar> */}
       </AppBar>
     </Box>
   );

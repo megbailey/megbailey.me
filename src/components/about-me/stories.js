@@ -3,7 +3,7 @@ import AboutMe from "./AboutMe"
 
 const props = {
     title: "About Me",
-    content: "This is some content about me"
+    text: "This is some content about me"
 }
 
 export const AboutMeDemo = () => {

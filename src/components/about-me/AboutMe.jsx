@@ -11,7 +11,7 @@ const AboutMe = (props) => {
                         {props.title}
                     </Typography>
                     <Typography variant="body" color="text">
-                        {props.content}
+                        {props.text}
                     </Typography>
                 </Box>
             </Container>
