@@ -2,16 +2,16 @@ import React from "react";
 import { Box, Container, Typography } from "@mui/material";
 
 
-const AboutMe = (props) => {
+const Project = (props) => {
     return  (
         <React.Fragment>
-            <Container className="about-container outlined" maxWidth="lg">
-                <Box className="about-box outlined">
-                    <Typography gutterBottom variant="h2" component="div">
+            <Container className="project-container outlined" maxWidth="lg">
+                <Box className="project-box outlined">
+                    <Typography gutterBottom variant="h3" component="div">
                         {props.title}
                     </Typography>
                     <Typography variant="body" color="text">
-                        {props.text}
+                        {props.description}
                     </Typography>
                 </Box>
             </Container>
@@ -19,4 +19,4 @@ const AboutMe = (props) => {
     )
 }
 
-export default AboutMe;
+export default Project;
