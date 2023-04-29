@@ -1,11 +1,12 @@
 import React from "react";
-import { Box, Container, Typography } from "@mui/material";
+//import { Box, Container, Typography } from "@mui/material";
 
 
 const AboutMe = (props) => {
     return  (
         <React.Fragment>
-            <Container className="about-container outlined" maxWidth="lg">
+            <p> About Me </p>
+            {/* <Container className="about-container outlined" maxWidth="lg">
                 <Box className="about-box outlined">
                     <Typography gutterBottom variant="h2" component="div">
                         {props.title}
@@ -14,7 +15,7 @@ const AboutMe = (props) => {
                         {props.text}
                     </Typography>
                 </Box>
-            </Container>
+            </Container> */}
         </React.Fragment>
     )
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Grid, TextField, Button, Typography, Container } from '@mui/material';
+//import { Grid, TextField, Button, Typography, Container } from '@mui/material';
 
 const FORM_ENDPOINT = ""; // TODO - fill on the later step
 
@@ -20,8 +20,10 @@ const Contact = () => {
     );
   }
 
-  return (
-    <Container className="contact-form">
+  return (<div></div>);
+};
+
+{/* <Container className="contact-form">
     <form>
         <Grid container spacing={1}>
             <Grid xs={12} sm={6} item>
@@ -44,8 +46,6 @@ const Contact = () => {
             </Grid>
         </Grid>
     </form>
-    </Container>
-  );
-};
+    </Container> */}
 
 export default Contact;

@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Box, Container, Typography, Grid } from "@mui/material";
-import ProjectCard from "../../../components/project/ProjectCard";
 function Projects () {
 
     const projectItems = [
@@ -141,7 +139,7 @@ function Projects () {
 
     return (
         <React.Fragment>
-            <Container className="about-container outlined" maxWidth="lg">
+            {/* <Container className="about-container outlined" maxWidth="lg">
                 <Box className="about-box outlined">
                     <Typography gutterBottom variant="h1" component="div">
                         Check out my work
@@ -169,7 +167,7 @@ function Projects () {
                         }
                     </Grid>
                 </Box>
-            </Container>
+            </Container> */}
         </React.Fragment>
     )
 }
