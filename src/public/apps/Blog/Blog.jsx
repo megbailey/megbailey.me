@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
+import Template from "../../../components/template/Template";
+
 
 function Blog () {
-    return <p> I am a Blog Component</p>
+    return (
+        <Template />
+    )
 }
 
 export default Blog;

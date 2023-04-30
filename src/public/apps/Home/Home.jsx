@@ -1,10 +1,65 @@
 import React, { useState } from "react";
-import Template from "../../../components/template/Template";
+import PropTypes from "prop-types";
 
-function Home () {
+import { 
+    Col, Row, Button, Avatar, Image
+} from 'antd';
+
+import Template from "../../../components/template/Template";
+import CascadeBadge from '../../../assets/img/cascade-badge.png'
+import ThunderBadge from '../../../assets/img/thunder-badge.png'
+import EarthBadge from '../../../assets/img/earth-badge.png'
+
+
+const Home = () => {
     return ( 
-        <Template />
+        <Template 
+            content={ <Content /> }
+        />
     )
 }
 
+const Content = () => {
+    return (
+        <>
+        <Image
+            preview={false}
+            src="http://placehold.it/3000x1000"
+            width={'100%'}
+        />
+        <Row justify={"center"}>
+            <Col xs={{ span: 6 }}>
+            <Button 
+                size={'large'}
+                type="link"
+                shape="circle"
+                href={'/about-me'}
+                icon={<Avatar size={64} src={CascadeBadge} />}
+                block
+            >About Me</Button>
+            </Col>
+            <Col xs={{ span: 6 }} >
+            <Button 
+                size={'large'}
+                type="link"
+                shape="circle"
+                href={'/projects'}
+                icon={<Avatar size={64} src={ThunderBadge} />}
+                block
+            >Projects</Button>
+            </Col>
+            <Col xs={{ span: 6 }}>
+                <Button 
+                    size={'large'}
+                    type="link"
+                    shape="circle"
+                    href={'/knowledge'}
+                    icon={<Avatar size={64} src={EarthBadge} />}
+                    block
+                >Blog</Button>
+            </Col>
+        </Row> 
+        </>
+    )
+}
 export default Home;

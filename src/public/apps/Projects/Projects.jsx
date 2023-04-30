@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+
+import Template from "../../../components/template/Template";
+
 function Projects () {
 
     const projectItems = [
@@ -138,9 +141,7 @@ function Projects () {
     ]
 
     return (
-        <React.Fragment>
-           <p>I am a projects component</p>
-        </React.Fragment>
+        <Template />
     )
 }
 
