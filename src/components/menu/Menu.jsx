@@ -17,7 +17,7 @@ const Menu = (props) => {
         mode="horizontal" 
         items={[
                 {
-                    label: <a href="/" rel="noopener noreferrer">About Me</a>,
+                    label: <a href="/about-me" rel="noopener noreferrer">About Me</a>,
                     key: 'nav-about-me',
                 },
                 {

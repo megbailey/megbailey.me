@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from 'react-dom/client'
+
 import Home from "./public/apps/Home/Home";
+import AboutMe from "./public/apps/AboutMe/AboutMe";
 import Blog from "./public/apps/Blog/Blog";
 import Contact from "./public/apps/Contact/Contact";
 import Projects from "./public/apps/Projects/Projects";
 
-import AboutMe from "./public/apps/AboutMe/AboutMe";
 import "./index.css";
 
 import {

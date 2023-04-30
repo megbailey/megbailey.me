@@ -5,17 +5,7 @@ import React from "react";
 const AboutMe = (props) => {
     return  (
         <React.Fragment>
-            <p> About Me </p>
-            {/* <Container className="about-container outlined" maxWidth="lg">
-                <Box className="about-box outlined">
-                    <Typography gutterBottom variant="h2" component="div">
-                        {props.title}
-                    </Typography>
-                    <Typography variant="body" color="text">
-                        {props.text}
-                    </Typography>
-                </Box>
-            </Container> */}
+            <p>About Me component</p>
         </React.Fragment>
     )
 }
