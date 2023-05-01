@@ -14,15 +14,15 @@ const { Title, Paragraph } = Typography
     expBackgroundColor: '#b19fcb'
   };
 
-const AboutMe = (props) => {
+const About = (props) => {
     return  (
         <Template 
-            content={ <Content /> }
+            content={ <AboutContent /> }
         />
     )
 }
 
-const Content = () => { 
+const AboutContent = () => { 
     return (
         <div>
          <Row justify={"left"}>
@@ -74,4 +74,4 @@ const Content = () => {
     )
 }
 
-export default AboutMe;
+export default About;

@@ -33,7 +33,7 @@ const Content = () => {
                 size={'large'}
                 type="link"
                 shape="circle"
-                href={'/about-me'}
+                href={'/about'}
                 icon={<Avatar size={64} src={CascadeBadge} />}
                 block
             >About Me</Button>

@@ -12,22 +12,22 @@ const styles = {
     projectCardsBackgroundColor: '#ccb6ec',
   };
 
-const Projects = () => {
+const ProjectsAll = () => {
 
     return (
         <Template 
-            content={ <ProjectContent /> }
+            content={ <ProjectsAllContent /> }
         />
     )
 }
 
-const ProjectContent = () => {
+const ProjectsAllContent = () => {
 
     return (
         <>
         <Row justify={"left"}>
             <Col>
-                <Title>Projects</Title>
+                <Title>Projects - All</Title>
             </Col>
         </Row>
         <Divider />
@@ -38,9 +38,9 @@ const ProjectContent = () => {
             }}
         >
             <Col>
-                <Paragraph>
-                    The best part about being a software engineer is dreaming of an idea and having the tools to bring it to life. Below is a showcase of my public projects I’m the proudest of.
-                </Paragraph>
+               <Paragraph>
+               You’ve opted to see the good AND the bad. Cultivating good software practices and skills takes time and experiences. Big and small, each project is a lesson learned.
+               </Paragraph>
             </Col>
         </Row>
         <Row 
@@ -62,18 +62,24 @@ const ProjectContent = () => {
                     Card content
                 </Card>
             </Col>
-        </Row>
-        <Row 
-            justify={"right"} 
-        >
-            <Button 
-                size={'small'}
-                type="link"
-                href={'/projects/all'}
-            >...View All</Button>
+            <Col span={6}>
+                <Card title="Card title" bordered={false}>
+                    Card content
+                </Card>
+            </Col>
+            <Col span={6}>
+                <Card title="Card title" bordered={false}>
+                    Card content
+                </Card>
+            </Col>
+            <Col span={6}>
+                <Card title="Card title" bordered={false}>
+                    Card content
+                </Card>
+            </Col>
         </Row>
         </>
     )
 }
 
-export default Projects;
+export default ProjectsAll;
