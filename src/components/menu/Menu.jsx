@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { PropTypes } from "prop-types";
 import { Menu as AntMenu } from 'antd';
 
 const Menu = (props) => {
   const [currentMenuItem, setCurrentMenuItem] = useState(null);
-  //const { items } = props
+  const { items, theme } = props
+  
   const onMenuClick = (e) => {
       console.log(e)
       setCurrentMenuItem(e.key);
@@ -11,38 +13,30 @@ const Menu = (props) => {
 
   return (
     <AntMenu 
-        theme="dark"
+        className={`ant-menu`}
+        theme={theme}
         onClick={onMenuClick} 
         selectedKeys={[currentMenuItem]}
         mode="horizontal" 
-        items={[
-                {
-                    label: <a href="/about" rel="noopener noreferrer">About Me</a>,
-                    key: 'nav-about',
-                },
-                {
-                    label: <a href="/projects" rel="noopener noreferrer">Projects</a>,
-                    key: 'nav-projects',
-                },
-                {
-                    label: <a href="/knowledge" rel="noopener noreferrer">Blog</a>,
-                    key: 'nav-blog',
-                },
-                {
-                    label: <a href="/hello" rel="noopener noreferrer">Hello</a>,
-                    key: 'nav-contact',
-                }
-            ]} 
-        />
+        items={ items.map( item => {
+            const { text, link, icon } = item
+            return {
+                label: <a href={`${link}`} rel="noopener noreferrer">{text}</a>,
+                key: `nav-${text}`
+            }
+        })} 
+    />
   );
 
- /*  Menu.PropTypes = {
-      items: PropTypes.shape({
-          text: PropTypes.string.isRequired,
-          link: PropTypes.string,
-          icon: PropTypes.string
-        }),
-  } */
+}
+
+Menu.propTypes = {
+    theme: PropTypes.oneOf(['dark', 'light']),
+    items: PropTypes.shape({
+        text: PropTypes.string.isRequired,
+        link: PropTypes.string,
+        //icon: PropTypes.string
+      }),
 }
 
 export default Menu;

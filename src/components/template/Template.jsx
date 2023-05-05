@@ -1,112 +1,45 @@
 import React, { useState } from 'react';
-import { 
-  Layout, Space, Typography, Col, Row,
-  Button, Avatar, Affix 
-} from 'antd';
 import PropTypes from 'prop-types';
-import Menu from '../menu/Menu';
+import { Layout, Space } from 'antd';
 
-import MasterBall from '../../assets/img/master-ball.png'
+import TemplateHeader from '../header/Header';
+import TemplateContent from '../content/Content';
+import TemplateFooter from '../footer/Footer';
 
-import OctocatIcon from '../../assets/img/octocat.png'
-import LinkedInIcon from '../../assets/img/linkedin-icon.png'
+import "./template.css"
 
-const { Header, Footer, Content } = Layout;
 
-const { Text, Link } = Typography;
 
-const headerStyle = {
-  textAlign: 'center',
-  color: '#fff',
-  height: 64,
-  paddingInline: 50,
-  lineHeight: '64px',
-  backgroundColor: '#7dbcea',
-};
+const Template = ({ content }) => { 
+    const [theme, setTheme] = useState('dark');
 
-const contentStyle = {
-  textAlign: 'center',
-  minHeight: 120,
-  lineHeight: '120px',
-  color: '#fff',
-  backgroundColor: '#108ee9',
-};
-
-const footerStyle = {
-  textAlign: 'center',
-  color: '#fff',
-  backgroundColor: '#7dbcea',
-};
-
-const Template = (props) => { 
-
-    const { menuItems, content } = props    
 
     return (
+      <div className={`ant-layout ${theme}`}>
         <Space direction="vertical" style={{ width: '100%' }} size={"small"}>
             <Layout>
-            <Header style={headerStyle}>
-              <Row justify="start">
-                <Col span={1}>
-                  <Space align="center">
-                    <Button 
-                      type="link"
-                      shape="circle"
-                      href={'/'}
-                      icon={<Avatar size={40} src={MasterBall} />}
-                      block
-                    />
-                  </Space>
-                </Col>
-                <Col flex="auto">
-                  <Menu items={menuItems} />
-                </Col>
-              </Row>
-              
-            </Header>
-
-
-            <Content style={contentStyle}>
-              { content }
-            </Content>
-
-            <Affix offsetBottom={0}>
-              <Footer style={footerStyle}>
-                <Row justify={"center"}>
-                <Col xs={{ span: 1 }}>
-                  <Button 
-                      size={'small'}
-                      type="link"
-                      shape="circle"
-                      href={'/'}
-                      icon={<Avatar size={24} src={OctocatIcon} />}
-                      block
-                  />
-                  </Col>
-                  <Col xs={{ span: 1 }} >
-                    <Button 
-                      size={'small'}
-                      type="link"
-                      shape="circle"
-                      href={'/'}
-                      icon={<Avatar size={24} src={LinkedInIcon} />}
-                      block
-                    />
-                  </Col>
-                  <Col xs={{ span: 2 }}>
-                    <Text>© Megan Bailey</Text>
-                  </Col>
-                  </Row>
-              </Footer>
-            </Affix>
+              <TemplateHeader
+                theme={theme} 
+                onThemeChange={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+              />
+              <TemplateContent 
+                content={content}
+                theme={theme}
+              />
+              <TemplateFooter
+                theme={theme} 
+              />
             </Layout>
         </Space>
+      </div>
     )
 }
 
 
 Template.propTypes = {
-  content: PropTypes.element
+  ...TemplateHeader.propTypes,
+  ...TemplateContent.propTypes,
+  ...TemplateFooter.propTypes
 };
 
 export default Template;

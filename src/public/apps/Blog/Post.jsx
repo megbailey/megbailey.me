@@ -8,12 +8,6 @@ import Template from "../../../components/template/Template";
 
 const { Title, Paragraph } = Typography
   
-  const styles = {
-    paragraphBackgroundColor: '#a785db',
-    skillsBackgroundColor: '#ccb6ec',
-    expBackgroundColor: '#b19fcb'
-  };
-
 const Post = (props) => {
     return  (
         <Template 
@@ -31,9 +25,6 @@ const PostContent = () => {
         <Divider />
         <Row 
             justify={"left"} 
-            style={{
-                backgroundColor: styles.paragraphBackgroundColor 
-            }}
         >
             <Col>
                 <Paragraph>

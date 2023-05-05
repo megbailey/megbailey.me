@@ -8,11 +8,6 @@ import Template from "../../../components/template/Template";
 
 const { Title, Paragraph } = Typography
   
-  const styles = {
-    paragraphBackgroundColor: '#a785db',
-    skillsBackgroundColor: '#ccb6ec',
-    expBackgroundColor: '#b19fcb'
-  };
 
 const About = (props) => {
     return  (
@@ -33,9 +28,6 @@ const AboutContent = () => {
         <Divider />
         <Row 
             justify={"left"} 
-            style={{
-                backgroundColor: styles.paragraphBackgroundColor 
-            }}
         >
             <Col>
                 <Paragraph>
@@ -46,9 +38,6 @@ const AboutContent = () => {
         </Row>
         <Row 
             justify={"left"} 
-            style={{
-                backgroundColor:styles.skillsBackgroundColor
-            }}
         >
             <Col>
                <Paragraph>
@@ -59,9 +48,6 @@ const AboutContent = () => {
         </Row>
         <Row 
             justify={"left"} 
-            style={{
-                backgroundColor:styles.expBackgroundColor
-            }} 
         >
             <Col>
                <Paragraph>

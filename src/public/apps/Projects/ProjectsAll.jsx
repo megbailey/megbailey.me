@@ -7,10 +7,6 @@ import Template from "../../../components/template/Template";
 
 const { Title, Paragraph } = Typography
 
-const styles = {
-    paragraphBackgroundColor: '#a785db',
-    projectCardsBackgroundColor: '#ccb6ec',
-  };
 
 const ProjectsAll = () => {
 
@@ -32,10 +28,7 @@ const ProjectsAllContent = () => {
         </Row>
         <Divider />
         <Row 
-            justify={"left"} 
-            style={{
-                backgroundColor: styles.paragraphBackgroundColor 
-            }}
+            justify={"left"}
         >
             <Col>
                <Paragraph>
