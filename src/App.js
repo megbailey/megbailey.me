@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from 'react-dom/client'
 
+import Template from "../src/components/template/Template";
+
 import Home from "./public/apps/Home/Home";
 import About from "./public/apps/About/About";
 import Blog from "./public/apps/Blog/Blog";
@@ -17,6 +19,8 @@ import {
   Navigate
 } from "react-router-dom";
 
+const ThemeContext = React.createContext();
+
 function App() {
 
   useEffect(() => {
@@ -27,12 +31,12 @@ function App() {
     <div className="App" id='app'>
     <BrowserRouter> 
       <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/all" element={<ProjectsAll />} />
-          <Route path="/knowledge" element={<Blog />} />
-          <Route path="/hello" element={<Contact />} />
+          <Route path="/" element={ <Template content={ <Home/> } /> } />
+          <Route path="/about" element={ <Template content={ <About/> } /> } />
+          <Route path="/projects" element={ <Template content={ <Projects/> } /> } />
+          <Route path="/projects/all" element={ <Template content={ <ProjectsAll/> } /> } />
+          <Route path="/knowledge" element={ <Template content={ <Blog/> } /> } />
+          <Route path="/hello" element={ <Template content={ <Contact/> } /> } />
           <Route path="*" element={<Navigate to="/"/>} />
         </Routes>
     </BrowserRouter>

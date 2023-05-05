@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Layout, Space } from 'antd';
 
-import TemplateHeader from '../header/Header';
-import TemplateContent from '../content/Content';
-import TemplateFooter from '../footer/Footer';
+import Header from '../header/Header';
+import Content from '../content/Content';
+import Footer from '../footer/Footer';
 
 import "./template.css"
 
@@ -18,15 +18,14 @@ const Template = ({ content }) => {
       <div className={`ant-layout ${theme}`}>
         <Space direction="vertical" style={{ width: '100%' }} size={"small"}>
             <Layout>
-              <TemplateHeader
+              <Header
                 theme={theme} 
                 onThemeChange={() => setTheme(theme === 'light' ? 'dark' : 'light')}
               />
-              <TemplateContent 
-                content={content}
-                theme={theme}
-              />
-              <TemplateFooter
+              <Content theme={theme}>
+                {content}
+              </Content>
+              <Footer
                 theme={theme} 
               />
             </Layout>
@@ -37,9 +36,9 @@ const Template = ({ content }) => {
 
 
 Template.propTypes = {
-  ...TemplateHeader.propTypes,
-  ...TemplateContent.propTypes,
-  ...TemplateFooter.propTypes
+  ...Header.propTypes,
+  ...Content.propTypes,
+  ...Footer.propTypes
 };
 
 export default Template;

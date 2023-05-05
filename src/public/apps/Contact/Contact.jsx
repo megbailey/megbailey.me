@@ -2,19 +2,11 @@ import React, { useState } from "react";
 import { 
   Button, Form, Space, Input, Row
 } from 'antd';
-import Template from "../../../components/template/Template";
 
 const { TextArea } = Input;
 
 const Contact = () => {
-  return (
-    <Template 
-      content={ <ContactContent /> }
-    />
-  )
-}
-
-const ContactContent = () => {
+  
   return (
     <Row  justify="center" >
     <Form

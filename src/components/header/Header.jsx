@@ -13,7 +13,7 @@ import Sun from '../../assets/img/sun-transparent-pixel.png';
 import Moon from  '../../assets/img/moon-transparent-pixel.png';
 
 
-const { Header } = Layout;
+const { Header: LayoutHeader } = Layout;
 
 const menuItems = [
      {
@@ -34,41 +34,41 @@ const menuItems = [
      }
 ];
 
-const TemplateHeader = ({ theme, onThemeChange }) => {  
- 
-     return (
-          <Header className={`ant-layout-header ant-layout-header-${theme}`}>
-          <Row justify="start">
-            <Col span={1}>
-              <Space align="center">
-                <Button 
-                  type="link"
-                  shape="circle"
-                  href={'/'}
-                  icon={<Avatar size={40} src={MasterBall} />}
-                  block
-                />
-              </Space>
-            </Col>
-            <Col flex="auto">
-              <Menu theme={theme} items={menuItems} />
-            </Col>
-            <Col>
-            <Switch
-              checkedChildren={<Avatar size={20} src={Moon} />}
-              unCheckedChildren={<Avatar size={20} src={Sun} />}
-              defaultChecked
-              onChange={onThemeChange}
+const Header = ({ theme, onThemeChange }) => {  
+
+  return (
+      <LayoutHeader className={`ant-layout-header ant-layout-header-${theme}`}>
+      <Row justify="start">
+        <Col span={1}>
+          <Space align="center">
+            <Button 
+              type="link"
+              shape="circle"
+              href={'/'}
+              icon={<Avatar size={40} src={MasterBall} />}
+              block
             />
-            </Col>
-          </Row>
-          
-        </Header>
-     )
+          </Space>
+        </Col>
+        <Col flex="auto">
+          <Menu theme={theme} items={menuItems} />
+        </Col>
+        <Col>
+        <Switch
+          checkedChildren={<Avatar size={20} src={Moon} />}
+          unCheckedChildren={<Avatar size={20} src={Sun} />}
+          defaultChecked
+          onChange={onThemeChange}
+        />
+        </Col>
+      </Row>
+      
+    </LayoutHeader>
+  )
 }
 
-TemplateHeader.propTypes = {
+Header.propTypes = {
      onThemeChange: PropTypes.func
 };
    
-export default TemplateHeader;
+export default Header;

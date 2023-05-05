@@ -3,24 +3,19 @@ import {
     Row, Col, Typography, Divider, Card, Button
 } from 'antd';
 
+
 import Template from "../../../components/template/Template";
+import { Title, Paragraph } from "../../../components/text/Text";
 
-const { Title } = Typography
-
-const Blog = ()  => {
-    return (
-        <Template 
-            content={ <BlogContent /> }
-        />
-    )
-}
-
-const BlogContent = () => {
+const Blog = ({ theme }) => {
     return (
         <>
         <Row justify={"left"}>
             <Col>
-                <Title>Blog</Title>
+                <Title 
+                    theme={theme}
+                    text={"Blog"} 
+                />
             </Col>
         </Row>
         <Divider />

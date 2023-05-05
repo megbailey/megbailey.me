@@ -2,19 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Layout } from 'antd';
 
-const { Content } = Layout;
+import "./content.css"
 
-const TemplateContent = ({content}) => {  
+const { Content: LayoutContent } = Layout;
+
+const Content = ({theme, children}) => {  
  
      return (
-          <Content>
-               {content}
-          </Content>
+          <LayoutContent 
+               className={`ant-layout-content-${theme}`}
+          >
+             {/*  <ThemeContext.Provider theme={theme}> */}
+                    {children}
+               {/* </ThemeContext.Provider>; */}
+          </LayoutContent>
      )
 }
 
-TemplateContent.propTypes = {
-     content: PropTypes.element
+Content.propTypes = {
+     theme: PropTypes.oneOf([ 'dark', 'light' ]),
 };
    
-export default TemplateContent;
+export default Content;

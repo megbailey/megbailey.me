@@ -1,28 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { 
-    Row, Col, Typography, Divider, Card, Button
+    Row, Col, Divider, Card, Button
 } from 'antd';
 
-import Template from "../../../components/template/Template";
+import { Title, Paragraph } from "../../../components/text/Text";
 
-const { Title, Paragraph } = Typography
 
-const Projects = () => {
-
-    return (
-        <Template 
-            content={ <ProjectContent /> }
-        />
-    )
-}
-
-const ProjectContent = () => {
+const Projects = ({ theme }) => {
 
     return (
         <>
         <Row justify={"left"}>
             <Col>
-                <Title>Projects</Title>
+                <Title 
+                    text="Projects"
+                    theme={theme}
+                />
             </Col>
         </Row>
         <Divider />
@@ -30,9 +23,10 @@ const ProjectContent = () => {
             justify={"left"} 
         >
             <Col>
-                <Paragraph>
-                    The best part about being a software engineer is dreaming of an idea and having the tools to bring it to life. Below is a showcase of my public projects I’m the proudest of.
-                </Paragraph>
+                <Paragraph 
+                    text="The best part about being a software engineer is dreaming of an idea and having the tools to bring it to life. Below is a showcase of my public projects I’m the proudest of."
+                    theme={theme}
+                />
             </Col>
         </Row>
         <Row 

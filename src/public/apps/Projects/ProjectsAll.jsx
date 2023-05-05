@@ -1,29 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { 
-    Row, Col, Typography, Divider, Card, Button
+    Row, Col, Divider, Card, Button
 } from 'antd';
 
-import Template from "../../../components/template/Template";
-
-const { Title, Paragraph } = Typography
+import { Title, Paragraph } from "../../../components/text/Text";
 
 
-const ProjectsAll = () => {
-
-    return (
-        <Template 
-            content={ <ProjectsAllContent /> }
-        />
-    )
-}
-
-const ProjectsAllContent = () => {
+const ProjectsAll = ({theme}) => {
 
     return (
         <>
         <Row justify={"left"}>
             <Col>
-                <Title>Projects - All</Title>
+                <Title 
+                    theme={theme}
+                    text={"Projects - All"} 
+                />
             </Col>
         </Row>
         <Divider />
@@ -31,9 +23,10 @@ const ProjectsAllContent = () => {
             justify={"left"}
         >
             <Col>
-               <Paragraph>
-               You’ve opted to see the good AND the bad. Cultivating good software practices and skills takes time and experiences. Big and small, each project is a lesson learned.
-               </Paragraph>
+               <Paragraph
+                    theme={theme}
+                    text="You’ve opted to see the good AND the bad. Cultivating good software practices and skills takes time and experiences. Big and small, each project is a lesson learned."
+               />   
             </Col>
         </Row>
         <Row 

@@ -3,19 +3,21 @@ import PropTypes from 'prop-types';
 import { 
      Layout, Col, Row, Button, Avatar, Affix, Typography
 } from 'antd';
+import { Text } from '../text/Text';
 
 import "./footer.css"
 
-import OctocatIcon from '../../assets/img/octocat.png'
-import LinkedInIcon from '../../assets/img/linkedin-icon.png'
+import OctocatLight from '../../assets/img/github-48-light.png'
+import OctocatDark from '../../assets/img/github-48-dark.png'
+import LinkedInLight from '../../assets/img/linkedin-50-light.png'
+import LinkedInDark from '../../assets/img/linkedin-50-dark.png'
 
-const { Footer } = Layout;
-const { Text } = Typography;
+const { Footer: LayoutFooter } = Layout;
 
 
-const TemplateFooter = ({ theme }) => {  
+const Footer = ({ theme }) => {  
      return (
-          <Footer className={`ant-layout-footer-${theme}`}>
+          <LayoutFooter className={`ant-layout-footer-${theme}`}>
           <Affix offsetBottom={0}>
                <Row justify={"center"}>
                <Col xs={{ span: 1 }}>
@@ -24,7 +26,7 @@ const TemplateFooter = ({ theme }) => {
                     type="link"
                     shape="circle"
                     href={'/'}
-                    icon={<Avatar size={24} src={OctocatIcon} />}
+                    icon={<Avatar size={24} src={theme === "light" ? OctocatLight: OctocatDark} />}
                     block
                />
                </Col>
@@ -34,20 +36,23 @@ const TemplateFooter = ({ theme }) => {
                     type="link"
                     shape="circle"
                     href={'/'}
-                    icon={<Avatar size={24} src={LinkedInIcon} />}
+                    icon={<Avatar size={24} src={theme === "light" ? LinkedInLight: LinkedInDark} />}
                     block
                />
                </Col>
                <Col xs={{ span: 2 }}>
-               <Text>© Megan Bailey</Text>
+               <Text
+                    theme={theme}
+                    text={'© Megan Bailey'}
+               />
                </Col>
                </Row>
           </Affix>
-          </Footer>
+          </LayoutFooter>
      )
 }
 
-TemplateFooter.propTypes = {
+Footer.propTypes = {
 };
    
-export default TemplateFooter;
+export default Footer;

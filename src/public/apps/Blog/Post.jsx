@@ -1,39 +1,33 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { 
-    Row, Col, Typography, Divider
+    Row, Col, Divider
 } from 'antd';
 
-import Template from "../../../components/template/Template";
+import { Title, Paragraph } from "../../../components/text/Text";
 
-const { Title, Paragraph } = Typography
-  
-const Post = (props) => {
-    return  (
-        <Template 
-            content={ <PostContent /> }
-        />
-    )
-}
-
-const PostContent = () => { 
+const Post = ({ theme }) => { 
     return (
         <>
          <Row justify={"left"}>
-               <Title>Post title</Title>
+               <Title 
+                    theme={theme}
+                    text="Post title" 
+               />
         </Row>
         <Divider />
         <Row 
             justify={"left"} 
         >
             <Col>
-                <Paragraph>
-                    Post text here?
-                </Paragraph>
+                <Paragraph 
+                    theme={theme}
+                    text={"Post text here?"}
+                />
             </Col>
         </Row>
         </>
     )
 }
 
-export default About;
+export default Post;

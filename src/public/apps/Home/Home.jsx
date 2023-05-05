@@ -12,14 +12,6 @@ import EarthBadge from '../../../assets/img/earth-badge.png'
 
 
 const Home = () => {
-    return ( 
-        <Template 
-            content={ <Content /> }
-        />
-    )
-}
-
-const Content = () => {
     return (
         <>
         <Image
