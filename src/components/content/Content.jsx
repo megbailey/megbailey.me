@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children, cloneElement, isValidElement } from 'react';
 import PropTypes from 'prop-types';
 import { Layout } from 'antd';
 
@@ -6,15 +6,19 @@ import "./content.css"
 
 const { Content: LayoutContent } = Layout;
 
-const Content = ({theme, children}) => {  
- 
+const Content = (props) => {  
+     const { theme, children } = props
      return (
-          <LayoutContent 
-               className={`ant-layout-content-${theme}`}
-          >
-             {/*  <ThemeContext.Provider theme={theme}> */}
-                    {children}
-               {/* </ThemeContext.Provider>; */}
+          <LayoutContent className={`ant-layout-content-${theme}`} >
+               { Children.map( children, (child) => {
+                    if (!isValidElement(child))
+                         return null;
+                    // Add theme to children's props
+                    return cloneElement( child, {
+                         ...child.props,
+                         theme: theme
+                    })
+               })}
           </LayoutContent>
      )
 }

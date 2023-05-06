@@ -3,9 +3,11 @@ import {
   Button, Form, Space, Input, Row
 } from 'antd';
 
+import { Text } from "../../../components/text/Text";
+import "./contact.css"
 const { TextArea } = Input;
 
-const Contact = () => {
+const Contact = ({ theme }) => {
   
   return (
     <Row  justify="center" >
@@ -19,23 +21,43 @@ const Contact = () => {
       style={{ maxWidth: 900 }}
     >
       <Space>
-        <Form.Item label="First Name" name="firstname" rules={[{ required: false }]}>
+        <Form.Item 
+          className={`ant-form-item-${theme}`} 
+          label={<Text theme={theme} text="First Name" />}
+          name="firstname" 
+          rules={[{ required: false }]}
+        >
           <Input placeholder="Jane"/>
         </Form.Item>
-        <Form.Item label="Last Name" name="lastname" rules={[{ required: false }]}>
+        <Form.Item 
+          className={`ant-form-item-${theme}`} 
+          label={<Text theme={theme} text="Last Name" />}
+          name="lastname" 
+          rules={[{ required: false }]}
+        >
           <Input placeholder="Doe"/>
         </Form.Item>
       </Space>
 
-      <Form.Item label="Email" name="email" rules={[{ required: false }]}>
+      <Form.Item 
+        className={`ant-form-item-${theme}`}
+        label={<Text theme={theme} text="Email" />}
+        name="email"
+        rules={[{ required: false }]}
+      >
         <Input placeholder="janedoe@null.com" />
       </Form.Item>
     
-      <Form.Item label="Message" name="message" rules={[{ required: true }]}>
+      <Form.Item 
+        className={`ant-form-item-${theme}`} 
+        label={<Text theme={theme} text="Message" /> }
+        name="message"
+        rules={[{ required: true }]}
+      >
         <TextArea rows={4} />
       </Form.Item>
 
-      <Form.Item label=" ">
+      <Form.Item className={`ant-form-item-${theme}`}>
         <Button type="primary" htmlType="submit">
           Submit
         </Button>

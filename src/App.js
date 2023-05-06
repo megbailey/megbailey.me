@@ -19,7 +19,6 @@ import {
   Navigate
 } from "react-router-dom";
 
-const ThemeContext = React.createContext();
 
 function App() {
 

@@ -8,29 +8,29 @@ import Footer from '../footer/Footer';
 
 import "./template.css"
 
-
+const ThemeContext = React.createContext(null);
 
 const Template = ({ content }) => { 
     const [theme, setTheme] = useState('dark');
 
 
     return (
-      <div className={`ant-layout ${theme}`}>
-        <Space direction="vertical" style={{ width: '100%' }} size={"small"}>
-            <Layout>
-              <Header
-                theme={theme} 
-                onThemeChange={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-              />
-              <Content theme={theme}>
-                {content}
-              </Content>
-              <Footer
-                theme={theme} 
-              />
-            </Layout>
-        </Space>
-      </div>
+      
+        <div className={`ant-layout ${theme}`}>
+          <Space direction="vertical" style={{ width: '100%' }} size={"small"}>
+              <Layout>
+                <Header
+                  theme={theme} 
+                  onThemeChange={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+                />
+                <Content theme={theme}>
+                  {content}
+                </Content>
+                <Footer theme={theme} />
+              </Layout>
+          </Space>
+        </div>
+      
     )
 }
 

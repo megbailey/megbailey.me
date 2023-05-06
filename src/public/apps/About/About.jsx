@@ -6,8 +6,8 @@ import {
 
 import { Title, Paragraph } from "../../../components/text/Text";
 
-
 const About = ({ theme }) => { 
+
     return (
         <>
          <Row justify={"left"}>
@@ -19,9 +19,7 @@ const About = ({ theme }) => {
             </Col>
         </Row>
         <Divider />
-        <Row 
-            justify={"left"} 
-        >
+        <Row justify={"left"} >
             <Col>
                 <Paragraph 
                     theme={theme}
@@ -31,9 +29,7 @@ const About = ({ theme }) => {
                    
             </Col>
         </Row>
-        <Row 
-            justify={"left"} 
-        >
+        <Row justify={"left"} >
             <Col>
                <Paragraph 
                     theme={theme}
@@ -43,9 +39,7 @@ const About = ({ theme }) => {
                 
             </Col>
         </Row>
-        <Row 
-            justify={"left"} 
-        >
+        <Row justify={"left"}  >
             <Col>
                <Paragraph
                     theme={theme}
