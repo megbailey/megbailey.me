@@ -10,10 +10,7 @@ import "./template.css"
 
 const ThemeContext = React.createContext(null);
 
-const Template = ({ content }) => { 
-    const [theme, setTheme] = useState('dark');
-
-
+const Template = ({ theme, onThemeChange, content }) => { 
     return (
       
         <div className={`ant-layout ${theme}`}>
@@ -21,7 +18,7 @@ const Template = ({ content }) => {
               <Layout>
                 <Header
                   theme={theme} 
-                  onThemeChange={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+                  onThemeChange={onThemeChange}
                 />
                 <Content theme={theme}>
                   {content}

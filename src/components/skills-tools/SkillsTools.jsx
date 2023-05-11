@@ -7,7 +7,7 @@ import { Segmented } from 'antd';
 import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
 
 import { Title, Paragraph, Text } from "../text/Text";
-
+import { themeStyle } from "../../assets/styles/global.css"
 
 const skillCards = [
     {
@@ -28,23 +28,12 @@ const skillCards = [
     }
 ]
 
-const darkTheme = {
-    color: '#fff',
-    backgroundColor: '#001529'
-}
-
-const lightTheme = {
-    color: '#001529',
-    backgroundColor: '#fff'
-}
-
-
 
 const SkillsCard = ({ theme, title, dataSource }) => {
     return (
         <Card
-            headStyle={ theme === 'light' ? lightTheme : darkTheme } 
-            bodyStyle={ theme === 'light' ? lightTheme : darkTheme }
+            headStyle={ themeStyle(theme) } 
+            bodyStyle={ themeStyle(theme) }
             title={title} 
             bordered={true}
             size={"small"}
@@ -71,8 +60,8 @@ const SkillsCard = ({ theme, title, dataSource }) => {
 const SkillsTools = ({ theme }) => {
 
     return (
-        <Row >
         <List
+            style={{ margin: '10%' }}
             grid={{
                 gutter: [48, 16],
                     xs: 1,
@@ -89,7 +78,6 @@ const SkillsTools = ({ theme }) => {
                 />
             )}
         />
-        </Row>
     );
 
 }
