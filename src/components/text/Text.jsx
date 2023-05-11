@@ -11,12 +11,18 @@ const {
 } = Typography;
 
 
+const propValues = {
+     theme: [ 'dark', 'light' ]
+}
 
 
-const Title = ( { theme, text } ) => {  
+const Title = ( { theme, size, text } ) => {  
  
      return (
-          <TypographyTitle className={`ant-typography-title-${theme}`}>
+          <TypographyTitle 
+               level={size}
+               className={`ant-typography-title-${theme}`}
+          >
                { text }
           </TypographyTitle>
      )
@@ -42,16 +48,17 @@ const Text = ( { theme, text } ) => {
 }
 
 Title.propTypes = {
-     text: PropTypes.element,
-     theme: PropTypes.oneOf([ 'dark', 'light' ])
+     //text: PropTypes.element,
+     size: PropTypes.oneOf([1, 2, 3, 4, 5]),
+     theme: PropTypes.oneOf(propValues.theme)
 };
 Text.propTypes = {
-     text: PropTypes.element,
-     theme: PropTypes.oneOf([ 'dark', 'light' ])
+     //text: PropTypes.element,
+     theme: PropTypes.oneOf(propValues.theme)
 };
 Paragraph.propTypes = {
-     text: PropTypes.element,
-     theme: PropTypes.oneOf([ 'dark', 'light' ])
+     //text: PropTypes.element,
+     theme: PropTypes.oneOf(propValues.theme)
 };
 
    

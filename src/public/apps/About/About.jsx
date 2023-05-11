@@ -5,7 +5,7 @@ import {
 } from 'antd';
 
 import { Title, Paragraph } from "../../../components/text/Text";
-
+import SkillsTools from "../../../components/skills-tools/SkillsTools";
 const About = ({ theme }) => { 
 
     return (
@@ -31,16 +31,13 @@ const About = ({ theme }) => {
         </Row>
         <Row justify={"left"} >
             <Col>
-               <Paragraph 
-                    theme={theme}
-                    text={"This will be a component that can toggle between a custom skill map\
-                            and some sort of list w/ groups"}
-                />
-                
+                <Title theme={theme} size={2} text="Skills & Tools"/>
+                <SkillsTools theme={theme} />
             </Col>
         </Row>
         <Row justify={"left"}  >
             <Col>
+                <Title theme={theme} size={2} text="Experience"/>
                <Paragraph
                     theme={theme}
                     text={"This will be a component that can toggle between a tabs component and a \

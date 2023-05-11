@@ -32,11 +32,11 @@ const Menu = (props) => {
 
 Menu.propTypes = {
     theme: PropTypes.oneOf(['dark', 'light']),
-    items: PropTypes.shape({
+   /*  items: PropTypes.shape({
         text: PropTypes.string.isRequired,
         link: PropTypes.string,
         //icon: PropTypes.string
-      }),
+      }), */
 }
 
 export default Menu;
