@@ -4,13 +4,13 @@ import {
      Layout, Space, Col, Row, Button, Avatar, Switch
 } from 'antd';
 
-import Menu from '../menu/Menu';
+import Menu from '../../components/menu/Menu';
 
 import "./header.css"
 
-import MasterBall from '../../assets/img/master-ball.png';
-import Sun from '../../assets/img/sun-transparent-pixel.png';
-import Moon from  '../../assets/img/moon-transparent-pixel.png';
+import MasterBall from '../../../assets/img/master-ball.png';
+import Sun from '../../../assets/img/sun-transparent-pixel.png';
+import Moon from  '../../../assets/img/moon-transparent-pixel.png';
 
 
 const { Header: LayoutHeader } = Layout;

@@ -20,8 +20,8 @@ const Title = ( { theme, size, text } ) => {
  
      return (
           <TypographyTitle 
-               level={size}
                className={`ant-typography-title-${theme}`}
+               level={size}
           >
                { text }
           </TypographyTitle>
@@ -32,7 +32,7 @@ const Title = ( { theme, size, text } ) => {
 const Paragraph = ( { theme, text } ) => {  
  
      return (
-          <TypographyParagraph className={`ant-typography-paragraph-${theme}`}>
+          <TypographyParagraph className={`ant-typography-paragraph-${theme}`} style={{ margin: '5%' }} >
                { text }
           </TypographyParagraph>
      )

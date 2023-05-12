@@ -5,11 +5,12 @@ import {
     Col, Row, Button, Avatar, Image
 } from 'antd';
 
-import Template from "../../../components/template/Template";
+import Template from "../../components/template/Template";
 import CascadeBadge from '../../../assets/img/cascade-badge.png'
 import ThunderBadge from '../../../assets/img/thunder-badge.png'
 import EarthBadge from '../../../assets/img/earth-badge.png'
 
+import './home.css';
 
 const Home = () => {
     return (

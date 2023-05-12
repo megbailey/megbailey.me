@@ -1,11 +1,66 @@
 import React, { useState, useEffect } from "react";
 import { 
-    Row, Col, Typography, Divider, Card, Button
+    Row, Col, Typography, Divider, Card, Button, List
 } from 'antd';
 
+import { Text, Title, Paragraph } from "../../components/text/Text";
+import { themeStyle } from "../../../assets/styles/global.css"
 
-import Template from "../../../components/template/Template";
-import { Title, Paragraph } from "../../../components/text/Text";
+export const posts = [
+    {
+        "title": "title",
+        "description": "description",
+        "image": "imagesrc",
+        "text": "text",
+        "url": "url",
+    },
+    {
+        "title": "title",
+        "description": "description",
+        "image": "imagesrc",
+        "text": "text",
+        "url": "url",
+    },
+    {
+        "title": "title",
+        "description": "description",
+        "image": "imagesrc",
+        "text": "text",
+        "url": "url",
+    },
+    {
+        "title": "title",
+        "description": "description",
+        "image": "imagesrc",
+        "text": "text",
+        "url": "url",
+    },
+    {
+        "title": "title",
+        "description": "description",
+        "image": "imagesrc",
+        "text": "text",
+        "url": "url",
+    },
+]
+
+const BlogCard = ({ theme, title, description, image, text, url }) => {
+    return (
+        <Card
+            headStyle={ themeStyle(theme) } 
+            bodyStyle={ themeStyle(theme) }
+            title={title} 
+            bordered={true}
+            size={"small"}
+        >     
+            <Text theme={theme} text={title}></Text>
+            <Text theme={theme} text={image}></Text>
+            <Text theme={theme} text={description}></Text>
+            <Text theme={theme} text={text}></Text>
+            <Text theme={theme} text={url}></Text>
+        </Card>
+    )
+}
 
 const Blog = ({ theme }) => {
     return (
@@ -16,29 +71,26 @@ const Blog = ({ theme }) => {
                     theme={theme}
                     text={"Blog"} 
                 />
+                <Divider />
             </Col>
         </Row>
-        <Divider />
-        <Row 
-            justify={"center"} 
-            gutter={16}
-        >
-            <Col span={6}>
-                <Card title="Card title" bordered={false}>
-                    Card content
-                </Card>
-            </Col>
-            <Col span={6}>
-                <Card title="Card title" bordered={false}>
-                    Card content
-                </Card>
-            </Col>
-            <Col span={6}>
-                <Card title="Card title" bordered={false}>
-                    Card content
-                </Card>
-            </Col>
-        </Row>
+        <List
+            style={{ margin: '10%' }}
+            grid={{
+                gutter: [48, 16],
+                    xs: 1,
+                    sm: 2,
+                    med: 3,
+                    lg: 4
+            }}
+            dataSource={posts}
+            renderItem={(item) => (
+                <BlogCard 
+                    theme={theme}
+                    { ...item }
+                />
+            )}
+        />
         </>
     )
 }

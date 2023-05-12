@@ -14,13 +14,27 @@ const Template = ({ theme, onThemeChange, content }) => {
     return (
       
         <div className={`ant-layout ${theme}`}>
-          <Space direction="vertical" style={{ width: '100%' }} size={"small"}>
+          <Space 
+            direction="vertical" 
+            style={{ 
+              width: '100%' 
+            }} 
+            size={"small"}
+          >
               <Layout>
                 <Header
                   theme={theme} 
                   onThemeChange={onThemeChange}
                 />
-                <Content theme={theme}>
+                <Content 
+                  style={{ 
+                    paddingTop: '1%',
+                    paddingLeft: '5%',
+                    paddingRight: '5%',
+                    paddingBottom: '5%'
+                  }} 
+                  theme={theme}
+                >
                   {content}
                 </Content>
                 <Footer theme={theme} />

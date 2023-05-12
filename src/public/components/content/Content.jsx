@@ -7,9 +7,9 @@ import "./content.css"
 const { Content: LayoutContent } = Layout;
 
 const Content = (props) => {  
-     const { theme, children } = props
+     const { theme, style, children } = props
      return (
-          <LayoutContent className={`ant-layout-content-${theme}`} >
+          <LayoutContent className={`ant-layout-content-${theme}`} style={style} >
                { Children.map( children, (child) => {
                     if (!isValidElement(child))
                          return null;

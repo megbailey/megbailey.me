@@ -4,7 +4,7 @@ import {
     Row, Col, Divider
 } from 'antd';
 
-import { Title, Paragraph } from "../../../components/text/Text";
+import { Title, Paragraph } from "../../components/text/Text";
 
 const Post = ({ theme }) => { 
     return (

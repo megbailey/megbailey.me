@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from 'react-dom/client'
 import { Helmet } from 'react-helmet';
 
-import Template from "../src/components/template/Template";
+import Template from "./public/components/template/Template";
 
 import Home from "./public/apps/Home/Home";
 import About from "./public/apps/About/About";
@@ -24,7 +24,7 @@ import {
 
 function App() {
 
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
 
   const onThemeChange = () => {
     setTheme(theme === 'light' ? 'dark' : 'light')
@@ -37,7 +37,7 @@ function App() {
   return (
     <div className="App" id='app' >
       <Helmet>
-          <style>{`body { background-color: ${backgroundColor}; }`}</style>
+        <style>{`body { background-color: ${backgroundColor}; }`}</style>
       </Helmet>
       <BrowserRouter> 
         <Routes>

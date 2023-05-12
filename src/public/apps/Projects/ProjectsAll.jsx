@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { 
-    Row, Col, Divider, Card, Button
+    Row, Col, Divider, Card, Button, List
 } from 'antd';
 
-import { Title, Paragraph } from "../../../components/text/Text";
+import { Title, Paragraph } from "../../components/text/Text";
 
+import { projects, ProjectCard } from "./Projects";
 
 const ProjectsAll = ({theme}) => {
 
     return (
         <>
-        <Row justify={"left"}>
+        <Row>
             <Col>
                 <Title 
                     theme={theme}
@@ -19,9 +20,7 @@ const ProjectsAll = ({theme}) => {
             </Col>
         </Row>
         <Divider />
-        <Row 
-            justify={"left"}
-        >
+        <Row>
             <Col>
                <Paragraph
                     theme={theme}
@@ -29,41 +28,23 @@ const ProjectsAll = ({theme}) => {
                />   
             </Col>
         </Row>
-        <Row 
-            justify={"center"} 
-            gutter={16}
-        >
-            <Col span={6}>
-                <Card title="Card title" bordered={false}>
-                    Card content
-                </Card>
-            </Col>
-            <Col span={6}>
-                <Card title="Card title" bordered={false}>
-                    Card content
-                </Card>
-            </Col>
-            <Col span={6}>
-                <Card title="Card title" bordered={false}>
-                    Card content
-                </Card>
-            </Col>
-            <Col span={6}>
-                <Card title="Card title" bordered={false}>
-                    Card content
-                </Card>
-            </Col>
-            <Col span={6}>
-                <Card title="Card title" bordered={false}>
-                    Card content
-                </Card>
-            </Col>
-            <Col span={6}>
-                <Card title="Card title" bordered={false}>
-                    Card content
-                </Card>
-            </Col>
-        </Row>
+       <List
+            style={{ margin: '10%' }}
+            grid={{
+                gutter: [48, 16],
+                    xs: 1,
+                    sm: 2,
+                    med: 3,
+                    lg: 4
+            }}
+            dataSource={projects}
+            renderItem={(item) => (
+                <ProjectCard 
+                    theme={theme}
+                    { ...item }
+                />
+            )}
+        />
         </>
     )
 }

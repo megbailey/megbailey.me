@@ -3,7 +3,7 @@ import {
   Button, Form, Space, Input, Row
 } from 'antd';
 
-import { Text } from "../../../components/text/Text";
+import { Text } from "../../components/text/Text";
 import "./contact.css"
 const { TextArea } = Input;
 

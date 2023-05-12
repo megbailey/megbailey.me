@@ -2,22 +2,25 @@ import React, { useState } from "react";
 import { PropTypes } from "prop-types";
 import { Menu as AntMenu } from 'antd';
 
+import { themeStyle } from "../../../assets/styles/global.css";
+
+
 const Menu = (props) => {
   const [currentMenuItem, setCurrentMenuItem] = useState(null);
   const { items, theme } = props
   
   const onMenuClick = (e) => {
-      console.log(e)
       setCurrentMenuItem(e.key);
   };
 
+  console.log(theme)
   return (
     <AntMenu 
         className={`ant-menu`}
-        theme={theme}
         onClick={onMenuClick} 
         selectedKeys={[currentMenuItem]}
         mode="horizontal" 
+        style={ themeStyle(theme) }
         items={ items.map( item => {
             const { text, link, icon } = item
             return {

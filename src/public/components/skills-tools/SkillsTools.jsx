@@ -6,8 +6,8 @@ import {
 import { Segmented } from 'antd';
 import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
 
-import { Title, Paragraph, Text } from "../text/Text";
-import { themeStyle } from "../../assets/styles/global.css"
+import { Title, Paragraph, Text } from "../../components/text/Text";
+import { themeStyle } from "../../../assets/styles/global.css"
 
 const skillCards = [
     {
