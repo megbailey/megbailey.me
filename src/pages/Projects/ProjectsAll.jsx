@@ -3,29 +3,25 @@ import {
     Row, Col, Divider, Card, Button, List
 } from 'antd';
 
-import { Title, Paragraph } from "../../components/text/Text";
+import { Title, Paragraph } from "../../components/Text";
 
 import { projects, ProjectCard } from "./Projects";
 
-const ProjectsAll = ({theme}) => {
+const ProjectsAll = () => {
 
     return (
         <>
         <Row>
             <Col>
-                <Title 
-                    theme={theme}
-                    text={"Projects - All"} 
-                />
+                <Title>{"Projects - All"}</Title>
             </Col>
         </Row>
         <Divider />
         <Row>
             <Col>
-               <Paragraph
-                    theme={theme}
-                    text="You’ve opted to see the good AND the bad. Cultivating good software practices and skills takes time and experiences. Big and small, each project is a lesson learned."
-               />   
+               <Paragraph>
+                {"You’ve opted to see the good AND the bad. Cultivating good software practices and skills takes time and experiences. Big and small, each project is a lesson learned."}
+               </Paragraph>
             </Col>
         </Row>
        <List
@@ -40,7 +36,6 @@ const ProjectsAll = ({theme}) => {
             dataSource={projects}
             renderItem={(item) => (
                 <ProjectCard 
-                    theme={theme}
                     { ...item }
                 />
             )}

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext} from 'react';
 import PropTypes from 'prop-types';
 import { Typography } from 'antd';
 
-import "./text.css"
+import "../assets/styles/text.css"
+import { ThemeContext } from '../context/context';
 
 const { 
      Text: TypographyText,
@@ -11,54 +12,46 @@ const {
 } = Typography;
 
 
-const propValues = {
-     theme: [ 'dark', 'light' ]
-}
 
-
-const Title = ( { theme, size, text } ) => {  
- 
+const Title = ( { size, children } ) => {  
+     const theme = useContext(ThemeContext);
+     
      return (
           <TypographyTitle 
                className={`ant-typography-title-${theme}`}
                level={size}
           >
-               { text }
+               { children }
           </TypographyTitle>
      )
 }
 
 
-const Paragraph = ( { theme, text } ) => {  
- 
+const Paragraph = ( { children } ) => {  
+     const theme = useContext(ThemeContext);
      return (
           <TypographyParagraph className={`ant-typography-paragraph-${theme}`} style={{ margin: '5%' }} >
-               { text }
+               { children }
           </TypographyParagraph>
      )
 }
 
-const Text = ( { theme, text } ) => {  
- 
+const Text = ( { children } ) => {  
+     const theme = useContext(ThemeContext);
      return (
           <TypographyText className={`ant-typography-text-${theme}`}>
-               { text }
+               { children }
           </TypographyText>
      )
 }
 
 Title.propTypes = {
-     //text: PropTypes.element,
      size: PropTypes.oneOf([1, 2, 3, 4, 5]),
-     theme: PropTypes.oneOf(propValues.theme)
 };
 Text.propTypes = {
-     //text: PropTypes.element,
-     theme: PropTypes.oneOf(propValues.theme)
 };
 Paragraph.propTypes = {
-     //text: PropTypes.element,
-     theme: PropTypes.oneOf(propValues.theme)
+
 };
 
    

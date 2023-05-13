@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { 
   Button, Form, Space, Input, Row
 } from 'antd';
 
-import { Text } from "../../components/text/Text";
-import "./contact.css"
+import { Text } from "../../components/Text";
+
+import "../../assets/styles/contact.css"
+import { ThemeContext } from "../../context/context";
+
 const { TextArea } = Input;
 
-const Contact = ({ theme }) => {
-  
+const Contact = () => {
+  const theme = useContext(ThemeContext)
+
   return (
     <Row  justify="center" >
     <Form
@@ -23,7 +27,7 @@ const Contact = ({ theme }) => {
       <Space>
         <Form.Item 
           className={`ant-form-item-${theme}`} 
-          label={<Text theme={theme} text="First Name" />}
+          label={<Text >First Name</Text>}
           name="firstname" 
           rules={[{ required: false }]}
         >
@@ -31,7 +35,7 @@ const Contact = ({ theme }) => {
         </Form.Item>
         <Form.Item 
           className={`ant-form-item-${theme}`} 
-          label={<Text theme={theme} text="Last Name" />}
+          label={<Text >Last Name</Text>}
           name="lastname" 
           rules={[{ required: false }]}
         >
@@ -41,7 +45,7 @@ const Contact = ({ theme }) => {
 
       <Form.Item 
         className={`ant-form-item-${theme}`}
-        label={<Text theme={theme} text="Email" />}
+        label={<Text >Email</Text>}
         name="email"
         rules={[{ required: false }]}
       >
@@ -50,7 +54,7 @@ const Contact = ({ theme }) => {
     
       <Form.Item 
         className={`ant-form-item-${theme}`} 
-        label={<Text theme={theme} text="Message" /> }
+        label={<Text >Message</Text> }
         name="message"
         rules={[{ required: true }]}
       >

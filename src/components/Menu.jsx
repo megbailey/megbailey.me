@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { PropTypes } from "prop-types";
 import { Menu as AntMenu } from 'antd';
 
-import { themeStyle } from "../../../assets/styles/global.css";
+import { ThemeContext } from "../context/context";
+import { themeStyle } from "../assets/styles/global.css";
 
 
 const Menu = (props) => {
   const [currentMenuItem, setCurrentMenuItem] = useState(null);
-  const { items, theme } = props
+  const { items } = props
+
+  const theme = useContext(ThemeContext);
   
   const onMenuClick = (e) => {
       setCurrentMenuItem(e.key);
   };
 
-  console.log(theme)
+  
   return (
     <AntMenu 
         className={`ant-menu`}

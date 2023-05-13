@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import ReactDOM from 'react-dom/client'
 import { Helmet } from 'react-helmet';
 
-import Template from "./public/components/template/Template";
+import Template from "./components/Template";
 
-import Home from "./public/apps/Home/Home";
-import About from "./public/apps/About/About";
-import Blog from "./public/apps/Blog/Blog";
-import Contact from "./public/apps/Contact/Contact";
-import Projects from "./public/apps/Projects/Projects";
-import ProjectsAll from "./public/apps/Projects/ProjectsAll";
+import Home from "./pages/Home/Home";
+import About from "./pages/About/About";
+import Blog from "./pages/Blog/Blog";
+import Contact from "./pages/Contact/Contact";
+import Projects from "./pages/Projects/Projects";
+import ProjectsAll from "./pages/Projects/ProjectsAll";
 
 import "./index.css";
+import { ThemeContext } from "./context/context";
 import { themeStyle } from "./assets/styles/global.css";
 
 import {
@@ -23,9 +24,8 @@ import {
 
 
 function App() {
-
-  const [theme, setTheme] = useState('light');
-
+  const [theme, setTheme] = useState('dark');
+  
   const onThemeChange = () => {
     setTheme(theme === 'light' ? 'dark' : 'light')
   }
@@ -39,38 +39,40 @@ function App() {
       <Helmet>
         <style>{`body { background-color: ${backgroundColor}; }`}</style>
       </Helmet>
-      <BrowserRouter> 
-        <Routes>
-            <Route 
-              path="/" 
-              element={ <Template onThemeChange={onThemeChange} theme={theme} content={ <Home/> } />  } 
-            />
-            <Route 
-              path="/about" 
-              element={ <Template onThemeChange={onThemeChange} theme={theme} content={ <About/> } /> } 
-            />
-            <Route 
-              path="/projects" 
-              element={ <Template onThemeChange={onThemeChange} theme={theme} content={ <Projects/> } /> } 
-            />
-            <Route 
-              path="/projects/all" 
-              element={ <Template onThemeChange={onThemeChange} theme={theme} content={ <ProjectsAll/> } /> } 
-            />
-            <Route 
-              path="/knowledge" 
-              element={ <Template onThemeChange={onThemeChange} theme={theme} content={ <Blog/> } /> } 
-            />
-            <Route 
-              path="/hello" 
-              element={ <Template onThemeChange={onThemeChange} theme={theme} content={ <Contact/> } /> } 
-            />
-            <Route 
-              path="*" 
-              element={<Navigate to="/"/>} 
-            />
-          </Routes>
-      </BrowserRouter>
+      <ThemeContext.Provider value={theme}>
+        <BrowserRouter> 
+          <Routes>
+              <Route 
+                path="/" 
+                element={ <Template onThemeChange={onThemeChange} content={ <Home/> } />  } 
+              />
+              <Route 
+                path="/about" 
+                element={ <Template onThemeChange={onThemeChange} content={ <About/> } /> } 
+              />
+              <Route 
+                path="/projects" 
+                element={ <Template onThemeChange={onThemeChange} content={ <Projects/> } /> } 
+              />
+              <Route 
+                path="/projects/all" 
+                element={ <Template onThemeChange={onThemeChange} content={ <ProjectsAll/> } /> } 
+              />
+              <Route 
+                path="/knowledge" 
+                element={ <Template onThemeChange={onThemeChange} content={ <Blog/> } /> } 
+              />
+              <Route 
+                path="/hello" 
+                element={ <Template onThemeChange={onThemeChange} content={ <Contact/> } /> } 
+              />
+              <Route 
+                path="*" 
+                element={<Navigate to="/"/>} 
+              />
+            </Routes>
+        </BrowserRouter>
+      </ThemeContext.Provider>
     </div>
   );
 }

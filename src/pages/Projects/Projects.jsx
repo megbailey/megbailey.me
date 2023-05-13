@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { 
     Row, Col, Divider, Card, Button, List
 } from 'antd';
 
-import { Title, Paragraph, Text } from "../../components/text/Text";
-import { themeStyle } from "../../../assets/styles/global.css"
+import { Title, Paragraph, Text } from "../../components/Text";
+
+import { ThemeContext } from "../../context/context";
+import { themeStyle } from "../../assets/styles/global.css"
 
 export const projects = [
     {
@@ -49,7 +51,8 @@ export const projects = [
     }
 ]
 
-export const ProjectCard = ({ theme, name, description, image, githubURL, liveDemoURL }) => {
+export const ProjectCard = ({ name, description, image, githubURL, liveDemoURL }) => {
+    const theme = useContext(ThemeContext);
     return (
         <Card
             headStyle={ themeStyle(theme) } 
@@ -58,34 +61,29 @@ export const ProjectCard = ({ theme, name, description, image, githubURL, liveDe
             bordered={true}
             size={"small"}
         >     
-            <Text theme={theme} text={image}></Text>
-            <Text theme={theme} text={description}></Text>
-            <Text theme={theme} text={githubURL}></Text>
-            <Text theme={theme} text={liveDemoURL}></Text>
+            <Text >{image}</Text>
+            <Text >{description}</Text>
+            <Text >{githubURL}</Text>
+            <Text >{liveDemoURL}</Text>
 
         </Card>
     )
 }
 
-const Projects = ({ theme }) => {
-
+const Projects = () => {
     return (
         <>
         <Row >
             <Col>
-                <Title 
-                    text="Projects"
-                    theme={theme}
-                />
+                <Title>{"Projects"}</Title>
             </Col>
         </Row>
         <Divider />
         <Row >
             <Col>
-                <Paragraph 
-                    text="The best part about being a software engineer is dreaming of an idea and having the tools to bring it to life. Below is a showcase of my public projects I’m the proudest of."
-                    theme={theme}
-                />
+                <Paragraph>
+                    {"The best part about being a software engineer is dreaming of an idea and having the tools to bring it to life. Below is a showcase of my public projects I’m the proudest of."}
+                </Paragraph>
             </Col>
         </Row >
         <List
@@ -100,7 +98,6 @@ const Projects = ({ theme }) => {
             dataSource={projects}
             renderItem={(item) => (
                 <ProjectCard 
-                    theme={theme}
                     { ...item }
                 />
             )}

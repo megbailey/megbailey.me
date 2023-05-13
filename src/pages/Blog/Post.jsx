@@ -1,29 +1,26 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import { 
     Row, Col, Divider
 } from 'antd';
 
 import { Title, Paragraph } from "../../components/text/Text";
+import { ThemeContext } from "../../context/context";
 
-const Post = ({ theme }) => { 
+const Post = () => { 
+    const theme = useContext(ThemeContext)
+    
     return (
         <>
          <Row justify={"left"}>
-               <Title 
-                    theme={theme}
-                    text="Post title" 
-               />
+               <Title>{"Post title"}</Title>
         </Row>
         <Divider />
         <Row 
             justify={"left"} 
         >
             <Col>
-                <Paragraph 
-                    theme={theme}
-                    text={"Post text here?"}
-                />
+                <Paragraph>{"Post text here?"}</Paragraph>
             </Col>
         </Row>
         </>

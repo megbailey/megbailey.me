@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { 
      Layout, Space, Col, Row, Button, Avatar, Switch
 } from 'antd';
 
-import Menu from '../../components/menu/Menu';
+import Menu from './Menu';
 
-import "./header.css"
+import { ThemeContext } from '../context/context';
+import "../assets/styles/header.css"
 
-import MasterBall from '../../../assets/img/master-ball.png';
-import Sun from '../../../assets/img/sun-transparent-pixel.png';
-import Moon from  '../../../assets/img/moon-transparent-pixel.png';
+import MasterBall from '../assets/img/master-ball.png';
+import Sun from '../assets/img/sun-transparent-pixel.png';
+import Moon from  '../assets/img/moon-transparent-pixel.png';
 
 
 const { Header: LayoutHeader } = Layout;
@@ -34,10 +35,11 @@ const menuItems = [
      }
 ];
 
-const Header = ({ theme, onThemeChange }) => {  
+const Header = ({ onThemeChange }) => {  
+const theme = useContext(ThemeContext);
 
   return (
-      <LayoutHeader className={`ant-layout-header ant-layout-header-${theme}`}>
+      <LayoutHeader className={`ant-layout-header-${theme}`}>
       <Row justify="start">
         <Col span={1}>
           <Space align="center">
@@ -51,7 +53,7 @@ const Header = ({ theme, onThemeChange }) => {
           </Space>
         </Col>
         <Col flex="auto">
-          <Menu theme={theme} items={menuItems} />
+          <Menu items={menuItems} />
         </Col>
         <Col>
         <Switch

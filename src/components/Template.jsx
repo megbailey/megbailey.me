@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Layout, Space } from 'antd';
 
-import Header from '../header/Header';
-import Content from '../content/Content';
-import Footer from '../footer/Footer';
+import { ThemeContext } from '../context/context';
+import Header from './Header';
+import Content from './Content';
+import Footer from './Footer';
 
-import "./template.css"
+import "../assets/styles/template.css"
 
-const ThemeContext = React.createContext(null);
 
-const Template = ({ theme, onThemeChange, content }) => { 
+const Template = ({ onThemeChange, content }) => { 
+
+    const theme = useContext( ThemeContext );
+    
     return (
       
         <div className={`ant-layout ${theme}`}>
@@ -22,10 +25,7 @@ const Template = ({ theme, onThemeChange, content }) => {
             size={"small"}
           >
               <Layout>
-                <Header
-                  theme={theme} 
-                  onThemeChange={onThemeChange}
-                />
+                <Header onThemeChange={onThemeChange} />
                 <Content 
                   style={{ 
                     paddingTop: '1%',
@@ -33,11 +33,10 @@ const Template = ({ theme, onThemeChange, content }) => {
                     paddingRight: '5%',
                     paddingBottom: '5%'
                   }} 
-                  theme={theme}
                 >
                   {content}
                 </Content>
-                <Footer theme={theme} />
+                <Footer />
               </Layout>
           </Space>
         </div>

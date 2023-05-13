@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { PropTypes } from "prop-types";
 import {
-    Col, Row, Space, Avatar, Image, Divider, Tooltip, Card, List
+    Col, Row, Space, Avatar, Image, Divider, Tooltip, Card, List, Segmented
 } from 'antd';
-import { Segmented } from 'antd';
 import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
 
-import { Title, Paragraph, Text } from "../../components/text/Text";
-import { themeStyle } from "../../../assets/styles/global.css"
+import { Title, Paragraph, Text } from "./Text";
+
+import { themeStyle } from "../assets/styles/global.css"
+import { ThemeContext } from "../context/context";
 
 const skillCards = [
     {
@@ -29,7 +30,8 @@ const skillCards = [
 ]
 
 
-const SkillsCard = ({ theme, title, dataSource }) => {
+const SkillsCard = ({ title, dataSource }) => {
+    const theme = useContext(ThemeContext);
     return (
         <Card
             headStyle={ themeStyle(theme) } 
@@ -49,7 +51,7 @@ const SkillsCard = ({ theme, title, dataSource }) => {
                 dataSource={dataSource}
                 renderItem={(item) => (
                     <List.Item>
-                        <Text theme={theme} text={item}></Text>
+                        <Text>{item}</Text>
                     </List.Item>
                 )}
             />
@@ -57,7 +59,7 @@ const SkillsCard = ({ theme, title, dataSource }) => {
     )
 }
 
-const SkillsTools = ({ theme }) => {
+const SkillsTools = () => {
 
     return (
         <List
@@ -72,7 +74,6 @@ const SkillsTools = ({ theme }) => {
             dataSource={skillCards}
             renderItem={(item) => (
                 <SkillsCard 
-                    theme={theme}
                     title={item.title}
                     dataSource={item.dataSource}
                 />

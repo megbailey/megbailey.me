@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { 
     Row, Col, Typography, Divider, Card, Button, List
 } from 'antd';
 
-import { Text, Title, Paragraph } from "../../components/text/Text";
-import { themeStyle } from "../../../assets/styles/global.css"
+import { Text, Title, Paragraph } from "../../components/Text";
+import { themeStyle } from "../../assets/styles/global.css"
+import { ThemeContext } from "../../context/context";
 
 export const posts = [
     {
@@ -44,7 +45,8 @@ export const posts = [
     },
 ]
 
-const BlogCard = ({ theme, title, description, image, text, url }) => {
+const BlogCard = ({ title, description, image, text, url }) => {
+    const theme = useContext(ThemeContext);
     return (
         <Card
             headStyle={ themeStyle(theme) } 
@@ -53,24 +55,24 @@ const BlogCard = ({ theme, title, description, image, text, url }) => {
             bordered={true}
             size={"small"}
         >     
-            <Text theme={theme} text={title}></Text>
-            <Text theme={theme} text={image}></Text>
-            <Text theme={theme} text={description}></Text>
-            <Text theme={theme} text={text}></Text>
-            <Text theme={theme} text={url}></Text>
+        
+            <Text>{title}</Text>
+            <Text>{image}</Text>
+            <Text>{description}</Text>
+            <Text>{text}</Text>
+            <Text>{url}</Text>
         </Card>
     )
 }
 
-const Blog = ({ theme }) => {
+const Blog = () => {
+    
+
     return (
         <>
         <Row justify={"left"}>
             <Col>
-                <Title 
-                    theme={theme}
-                    text={"Blog"} 
-                />
+                <Title>Blog</Title>
                 <Divider />
             </Col>
         </Row>
@@ -86,7 +88,6 @@ const Blog = ({ theme }) => {
             dataSource={posts}
             renderItem={(item) => (
                 <BlogCard 
-                    theme={theme}
                     { ...item }
                 />
             )}
