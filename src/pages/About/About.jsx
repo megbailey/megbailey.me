@@ -4,9 +4,11 @@ import {
     Row, Col, Divider
 } from 'antd';
 
+import { themeStyle } from "../../assets/styles/global.css";
+
 import { Title, Paragraph } from "../../components/Text";
 import SkillsTools from "../../components/SkillsTools";
-import { themeStyle } from "../../assets/styles/global.css";
+import Experience from "../../components/Experience";
 
 
 const About = ({ theme }) => { 
@@ -15,13 +17,13 @@ const About = ({ theme }) => {
 
     return (
         <>
-         <Row justify={"left"}>
+         <Row >
             <Col>
                 <Title>{"About me"}</Title> 
                 <Divider style={{backgroundColor: color }}/>
             </Col>
         </Row>
-        <Row justify={"left"} >
+        <Row >
             <Col>
                 <Paragraph>
                     {"I’m a software engineer, and I specialize in back-end architecture and web application development. I have wide range of skills ranging from CI/CD, infrastructure, to web applications. I am a life-long learner, and I enjoy utilizing software to solving complex problems and expressing my creativity through my work.\
@@ -29,29 +31,26 @@ const About = ({ theme }) => {
                 </Paragraph>
             </Col>
         </Row>
-        <Row justify={"left"} >
+        <Row >
             <Col>
                 <Title size={2}>{"Skills & Tools"}</Title>
                 <Divider style={{backgroundColor: color }}/>
             </Col>
         </Row>
-        <Row justify={"left"} >
+        <Row >
             <Col>
                 <SkillsTools />
             </Col>
         </Row>
-        <Row justify={"left"}  >
+        <Row  >
             <Col>
                 <Title size={2}>{"Experience"}</Title>
                 <Divider style={{backgroundColor: color }}/>
             </Col>
         </Row>
-        <Row justify={"left"}  >
+        <Row >
             <Col>
-               <Paragraph>
-                {"This will be a component that can toggle between a tabs component and a \
-                 likely timeline component"}
-                </Paragraph>
+              <Experience />
             </Col>
         </Row>
         </>
