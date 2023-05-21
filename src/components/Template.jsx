@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
+//import PropTypes from 'prop-types';
 import { Layout, Space } from 'antd';
 
 import { ThemeContext } from '../context/context';

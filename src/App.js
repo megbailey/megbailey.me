@@ -1,5 +1,4 @@
-import React, { useState, useEffect, createContext } from "react";
-import ReactDOM from 'react-dom/client'
+import React, { useState } from "react";
 import { Helmet } from 'react-helmet';
 
 import Template from "./components/Template";
@@ -30,7 +29,7 @@ function App() {
     setTheme(theme === 'light' ? 'dark' : 'light')
   }
 
-  const { backgroundColor, color } = themeStyle(theme)
+  const { backgroundColor } = themeStyle(theme)
 
   
   

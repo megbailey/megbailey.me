@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { 
-    Row, Col, Typography, Divider, Card, Button, List
+    Row, Col, Divider, Card, List
 } from 'antd';
 
-import { Text, Title, Paragraph } from "../../components/Text";
+import { Text, Title } from "../../components/Text";
 import { themeStyle } from "../../assets/styles/global.css"
 import { ThemeContext } from "../../context/context";
 

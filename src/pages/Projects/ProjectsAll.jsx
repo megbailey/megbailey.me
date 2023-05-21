@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { 
-    Row, Col, Divider, Card, Button, List
+    Row, Col, Divider, List
 } from 'antd';
 
 import { Title, Paragraph } from "../../components/Text";
