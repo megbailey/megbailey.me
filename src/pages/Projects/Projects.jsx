@@ -1,12 +1,17 @@
 import React, { useContext } from "react";
 import { 
-    Row, Col, Divider, Card, Button, List
+    Row, Col, Divider, Card, Button, List, Image, Avatar
 } from 'antd';
+import { DesktopOutlined, FormOutlined } from '@ant-design/icons';
 
 import { Title, Paragraph, Text } from "../../components/Text";
 
 import { ThemeContext } from "../../context/context";
 import { themeStyle } from "../../assets/styles/global.css"
+
+import OctocatLight from '../../assets/img/github-48-light.png'
+import OctocatDark from '../../assets/img/github-48-dark.png'
+
 
 export const projects = [
     {
@@ -51,7 +56,7 @@ export const projects = [
     }
 ]
 
-export const ProjectCard = ({ name, description, image, githubURL, liveDemoURL }) => {
+export const ProjectCard = ({ name, description, image, githubURL, liveDemoURL, blogPost }) => {
     const theme = useContext(ThemeContext);
     return (
         <Card
@@ -61,10 +66,48 @@ export const ProjectCard = ({ name, description, image, githubURL, liveDemoURL }
             bordered={true}
             size={"small"}
         >     
-            <Text >{image}</Text>
+            <Image
+                preview={false}
+                src="http://placehold.it/200x100"
+                width={'100%'}
+            />
             <Text >{description}</Text>
-            <Text >{githubURL}</Text>
-            <Text >{liveDemoURL}</Text>
+            <Row>
+                <Col xs={{ span: 6 }}>
+                    <Button 
+                        size={'small'}
+                        type="link"
+                        shape="circle"
+                        href={githubURL}
+                        icon={<Avatar size={24} src={theme === "light" ? OctocatLight: OctocatDark} />}
+                        block
+                    />
+                </Col>
+                {liveDemoURL && (
+                    <Col xs={{ span: 6 }}>
+                        <Button 
+                            size={'small'}
+                            type="link"
+                            shape="circle"
+                            href={liveDemoURL}
+                            icon={<DesktopOutlined/>}
+                            block
+                        />
+                    </Col>
+                )}
+                {blogPost && (
+                    <Col xs={{ span: 6 }}>
+                        <Button 
+                            size={'small'}
+                            type="link"
+                            shape="circle"
+                            href={blogPost}
+                            icon={<FormOutlined />}
+                            block
+                        />
+                    </Col>
+                )}
+            </Row>
 
         </Card>
     )
@@ -97,16 +140,14 @@ const Projects = () => {
             }}
             dataSource={projects}
             renderItem={(item) => (
-                <ProjectCard 
-                    { ...item }
-                />
+                <ProjectCard { ...item } />
             )}
         />
         <Button 
             size={'small'}
             type="link"
             href={'/projects/all'}
-            style={{ justifyContent: 'end' }}
+            style={{ float: 'right' }}
         >...View All</Button>
         </>
     )
