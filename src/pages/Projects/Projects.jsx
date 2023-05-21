@@ -101,7 +101,7 @@ export const ProjectCard = ({ name, description, image, githubURL, liveDemoURL, 
                             size={'small'}
                             type="link"
                             shape="circle"
-                            href={liveDemoURL}
+                            href={blogPost}
                             icon={<FormOutlined />}
                             block
                         />

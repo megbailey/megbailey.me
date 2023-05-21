@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 import { 
-    Row, Col, Divider, Card, List
+    Row, Col, Divider, Card, List, Button, Image
 } from 'antd';
+import { FormOutlined } from '@ant-design/icons';
+
 
 import { Text, Title } from "../../components/Text";
 import { themeStyle } from "../../assets/styles/global.css"
@@ -45,7 +47,7 @@ export const posts = [
     },
 ]
 
-const BlogCard = ({ title, description, image, text, url }) => {
+const BlogCard = ({ title, description, image, url }) => {
     const theme = useContext(ThemeContext);
     return (
         <Card
@@ -54,13 +56,23 @@ const BlogCard = ({ title, description, image, text, url }) => {
             title={title} 
             bordered={true}
             size={"small"}
-        >     
-        
-            <Text>{title}</Text>
-            <Text>{image}</Text>
-            <Text>{description}</Text>
-            <Text>{text}</Text>
-            <Text>{url}</Text>
+        >             
+            <Image
+                preview={false}
+                src="http://placehold.it/200x100"
+                width={'100%'}
+            />
+            <Text >{description}</Text>
+            <Col xs={{ span: 6 }}>
+                <Button 
+                    size={'small'}
+                    type="link"
+                    shape="circle"
+                    href={url}
+                    icon={<FormOutlined />}
+                    block
+                />
+            </Col>
         </Card>
     )
 }
