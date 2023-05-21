@@ -14,7 +14,7 @@ import '../../assets/styles/home.css';
 const Home = () => {
 
     return (
-        <>
+        <div className="home">
         <Image
             preview={false}
             src="http://placehold.it/3000x1000"
@@ -52,7 +52,7 @@ const Home = () => {
                 >Blog</Button>
             </Col>
         </Row> 
-        </>
+        </div>
     )
 }
 export default Home;

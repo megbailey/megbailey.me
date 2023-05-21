@@ -1,0 +1,15 @@
+.home .ant-avatar {
+    display: flex;
+    align-items: center;
+}
+
+.home .ant-btn {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home .ant-btn span {
+    margin-top: 15px; /* Adjust the margin as needed to control the spacing between the avatar and text */
+}
