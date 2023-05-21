@@ -1,11 +1,10 @@
-import React, { useContext, useState } from "react";
-import { PropTypes } from "prop-types";
+import React, { useContext } from "react";
+//import { PropTypes } from "prop-types";
 import {
-    Col, Row, Space, Avatar, Image, Divider, Tooltip, Card, List, Segmented
+    Card, List,
 } from 'antd';
-import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
 
-import { Title, Paragraph, Text } from "./Text";
+import { Text } from "./Text";
 
 import { themeStyle } from "../assets/styles/global.css"
 import { ThemeContext } from "../context/context";

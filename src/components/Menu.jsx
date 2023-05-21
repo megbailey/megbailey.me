@@ -25,7 +25,7 @@ const Menu = (props) => {
         mode="horizontal" 
         style={ themeStyle(theme) }
         items={ items.map( item => {
-            const { text, link, icon } = item
+            const { text, link } = item
             return {
                 label: <a href={`${link}`} rel="noopener noreferrer">{text}</a>,
                 key: `nav-${text}`

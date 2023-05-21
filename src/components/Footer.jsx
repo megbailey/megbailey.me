@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import { 
-     Layout, Col, Row, Button, Avatar, Affix, Typography
+     Layout, Col, Row, Button, Avatar, Affix
 } from 'antd';
 
 import { Text } from './Text';

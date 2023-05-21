@@ -1,5 +1,5 @@
 import React, { useContext, Children, cloneElement, isValidElement } from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import { Layout } from 'antd';
 import { ThemeContext } from '../context/context';
 import "../assets/styles/content.css"

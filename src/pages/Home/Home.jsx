@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
-import PropTypes from "prop-types";
+//import PropTypes from "prop-types";
 
 import { 
     Col, Row, Button, Avatar, Image
 } from 'antd';
 
 import { ThemeContext } from "../../context/context";
-import Template from "../../components/Template";
 import CascadeBadge from '../../assets/img/cascade-badge.png'
 import ThunderBadge from '../../assets/img/thunder-badge.png'
 import EarthBadge from '../../assets/img/earth-badge.png'

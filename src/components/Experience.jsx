@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import { isMatch, parse, format } from 'date-fns'
 
 import { Tabs } from 'antd';
-import { Title, Text, Paragraph } from './Text';
+import { Title, Paragraph } from './Text';
 import { ThemeContext } from '../context/context';
 import { themeStyle } from '../assets/styles/global.css';
 
@@ -75,8 +75,7 @@ const jobPositions = [
         languageList: [ 'Java', 'Python', 'C', 'C++' ],
         environmentList: [ 'Docker', 'MacOS', 'Linux (RH)' ],
         descriptionList: [
-            'Summer Undergrad Reseach Expereince (S.U.R.E) Scholar. Deep dive into GDPR, its effect on users and design an \
-            application that allows users to analyze the data that makes up their online footprint.',
+            'Summer Undergrad Reseach Expereince (S.U.R.E) Scholar. Deep dive into GDPR, its effect on users and design an application that allows users to analyze the data that makes up their online footprint.',
             'Vice President (2019) and marketing (2018) of USD local student chapter of ACM.',
             '3.9 major GPA'
         ]
@@ -85,24 +84,25 @@ const jobPositions = [
 
 const group = () => {
     let groupedByEmployer = []
-    jobPositions.map(( item, index ) => {
-        if (groupedByEmployer[item.employer] === undefined) {
-            groupedByEmployer[item.employer] = []
-        }
+    for (const item of jobPositions) {
         
+        if ( groupedByEmployer[item.employer] === undefined )
+            groupedByEmployer[item.employer] = []
         groupedByEmployer[item.employer] = [
             ...groupedByEmployer[item.employer],
             item
         ]
-    })
+    }
+   
     return groupedByEmployer;
 }
 
 const TabContent = (items) => {
-    const theme = useContext(ThemeContext)
+    //const theme = useContext(ThemeContext)
     const formatDate = (date) => format( parse( date, 'yyyy-mm-dd', new Date() ), 'MMM yyyy');
     const isValid = (dateStr) => isMatch(dateStr, 'yyyy-mm-dd');
 
+    console.log(items)
     return (
         <>
             { Object.keys(items).map(( index ) => {
@@ -120,8 +120,8 @@ const TabContent = (items) => {
                         { descriptionList.length !== 0 && (
                             <Paragraph>
                                 <ul>
-                                { descriptionList.map((item) => {
-                                    return <li>{item}</li>
+                                { descriptionList.map((item, descriptIndex ) => {
+                                    return <li key={`${employer}-description-item-${descriptIndex}`}>{item}</li>
                                 })}
                                 </ul>
                             </Paragraph>
@@ -147,12 +147,12 @@ const Experience = (props) => {
             tabPosition={"left"}
             tabBarStyle={ themeStyle(theme) }
             items={Object.keys(grouped).map(index => {
-            return {
-                label: `${index}`,
-                key: index,
-                children: <TabContent {...grouped[index]} />,
-            };
-        })}
+                return {
+                    label: `${index}`,
+                    key: index,
+                    children: <TabContent {...grouped[index]} />,
+                };
+            })}
         />
      )
 }
