@@ -2,14 +2,8 @@
     Global CSS
 */
 
-/* .App {
-    background-color: #282c34;
-    color: white;
-    font-family: Arial;
-    text-align: center;
-}
+html, body {
+    margin: 0;
+    padding: 0;
+}  
 
-.outlined {
-    border-style: solid;
-    border-color: red;
-} */

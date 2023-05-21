@@ -1,23 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { PropTypes } from "prop-types";
 import { Menu as AntMenu } from 'antd';
 
+import { ThemeContext } from "../context/context";
+import { themeStyle } from "../assets/styles/global.css";
+
+
 const Menu = (props) => {
   const [currentMenuItem, setCurrentMenuItem] = useState(null);
-  const { items, theme } = props
+  const { items } = props
+
+  const theme = useContext(ThemeContext);
   
   const onMenuClick = (e) => {
-      console.log(e)
       setCurrentMenuItem(e.key);
   };
 
+  
   return (
     <AntMenu 
         className={`ant-menu`}
-        theme={theme}
         onClick={onMenuClick} 
         selectedKeys={[currentMenuItem]}
         mode="horizontal" 
+        style={ themeStyle(theme) }
         items={ items.map( item => {
             const { text, link, icon } = item
             return {
@@ -32,11 +38,11 @@ const Menu = (props) => {
 
 Menu.propTypes = {
     theme: PropTypes.oneOf(['dark', 'light']),
-    items: PropTypes.shape({
+   /*  items: PropTypes.shape({
         text: PropTypes.string.isRequired,
         link: PropTypes.string,
         //icon: PropTypes.string
-      }),
+      }), */
 }
 
 export default Menu;
