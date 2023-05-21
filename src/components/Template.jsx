@@ -1,8 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 //import PropTypes from 'prop-types';
 import { Layout, Space } from 'antd';
 
-import { ThemeContext } from '../context/context';
 import Header from './Header';
 import Content from './Content';
 import Footer from './Footer';
@@ -11,12 +10,10 @@ import "../assets/styles/template.css"
 
 
 const Template = ({ onThemeChange, content }) => { 
-
-    const theme = useContext( ThemeContext );
     
     return (
       
-        <div className={`ant-layout ${theme}`}>
+        <div className={`ant-layout-container`}>
           <Space 
             direction="vertical" 
             style={{ 
@@ -27,6 +24,7 @@ const Template = ({ onThemeChange, content }) => {
               <Layout>
                 <Header onThemeChange={onThemeChange} />
                 <Content 
+                  className={`ant-layout-content`}
                   style={{ 
                     paddingTop: '1%',
                     paddingLeft: '5%',
