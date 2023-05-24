@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import { 
   Button, Form, Input, Row, Col, Divider
 } from 'antd';
 
-import { Text, Title, Paragraph } from "../../components/Text";
+import { Text, Title } from "../../components/Text";
 
 import { themeStyle } from "../../assets/styles/global.css"
 import "../../assets/styles/contact.css"

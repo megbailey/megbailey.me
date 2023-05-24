@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { 
     Row, Col, Divider, Card, List, Button, Image
 } from 'antd';
@@ -7,7 +7,6 @@ import { FormOutlined } from '@ant-design/icons';
 
 import { Text, Title } from "../../components/Text";
 import { themeStyle } from "../../assets/styles/global.css"
-import { ThemeContext } from "../../context/context";
 
 export const posts = [
     {
