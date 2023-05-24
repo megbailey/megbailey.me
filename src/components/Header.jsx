@@ -59,7 +59,7 @@ const theme = useContext(ThemeContext);
         <Switch
           checkedChildren={<Avatar size={20} src={Moon} />}
           unCheckedChildren={<Avatar size={20} src={Sun} />}
-          defaultChecked
+          defaultChecked={ theme === 'dark' ? true : false }
           onChange={onThemeChange}
         />
         </Col>
