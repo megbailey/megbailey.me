@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { 
     Row, Col, Divider, Card, Button, List, Image, Avatar
 } from 'antd';
@@ -6,7 +6,6 @@ import { DesktopOutlined, FormOutlined } from '@ant-design/icons';
 
 import { Title, Paragraph, Text } from "../../components/Text";
 
-import { ThemeContext } from "../../context/context";
 import { themeStyle } from "../../assets/styles/global.css"
 
 import OctocatLight from '../../assets/img/github-48-light.png'
@@ -56,8 +55,7 @@ export const projects = [
     }
 ]
 
-export const ProjectCard = ({ name, description, image, githubURL, liveDemoURL, blogPost }) => {
-    const theme = useContext(ThemeContext);
+export const ProjectCard = ({ name, description, image, githubURL, liveDemoURL, blogPost, theme }) => {    //const theme = useContext(ThemeContext);
     return (
         <Card
             headStyle={ themeStyle(theme) } 
@@ -65,6 +63,9 @@ export const ProjectCard = ({ name, description, image, githubURL, liveDemoURL, 
             title={name} 
             bordered={true}
             size={"small"}
+            style={{ 
+                margin: '3%',
+            }}
         >     
             <Image
                 preview={false}
@@ -113,15 +114,16 @@ export const ProjectCard = ({ name, description, image, githubURL, liveDemoURL, 
     )
 }
 
-const Projects = () => {
+const Projects = ({theme}) => {
+    const { color } = themeStyle(theme)
     return (
         <>
         <Row >
             <Col>
                 <Title>{"Projects"}</Title>
+                <Divider style={{backgroundColor: color }}/>
             </Col>
         </Row>
-        <Divider />
         <Row >
             <Col>
                 <Paragraph>
@@ -130,7 +132,7 @@ const Projects = () => {
             </Col>
         </Row >
         <List
-            style={{ margin: '10%' }}
+            style={{ margin: '2%' }}
             grid={{
                 gutter: [48, 16],
                     xs: 1,
@@ -140,7 +142,10 @@ const Projects = () => {
             }}
             dataSource={projects}
             renderItem={(item) => (
-                <ProjectCard { ...item } />
+                <ProjectCard 
+                    theme={theme}
+                    { ...item }
+                />
             )}
         />
         <Button 

@@ -35,6 +35,7 @@ const SkillsCard = ({ title, dataSource }) => {
         <Card
             headStyle={ themeStyle(theme) } 
             bodyStyle={ themeStyle(theme) }
+            style={{ margin: '2%' }}
             title={title} 
             bordered={true}
             size={"small"}
@@ -62,7 +63,7 @@ const SkillsTools = () => {
 
     return (
         <List
-            style={{ margin: '10%' }}
+            style={{ margin: '2%' }}
             grid={{
                 gutter: [48, 16],
                     xs: 1,

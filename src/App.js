@@ -21,18 +21,21 @@ import {
   Navigate
 } from "react-router-dom";
 
+/* prior to app load */
+let themeState = localStorage.getItem('theme')
+themeState = themeState === null ? 'dark' : themeState
 
 function App() {
-  const [theme, setTheme] = useState('dark');
-  
+  const [theme, setTheme] = useState(themeState);
+
   const onThemeChange = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light')
+    const newTheme = theme === 'light' ? 'dark' : 'light'
+    setTheme(newTheme)
+    localStorage.setItem('theme', newTheme)
   }
 
   const { backgroundColor } = themeStyle(theme)
 
-  
-  
   return (
     <div className="App" id='app' >
       <Helmet>
@@ -69,7 +72,7 @@ function App() {
                 path="*" 
                 element={<Navigate to="/"/>} 
               />
-            </Routes>
+          </Routes>
         </BrowserRouter>
       </ThemeContext.Provider>
     </div>

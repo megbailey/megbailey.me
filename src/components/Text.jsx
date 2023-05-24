@@ -30,7 +30,7 @@ const Title = ( { size, children } ) => {
 const Paragraph = ( { children } ) => {  
      const theme = useContext(ThemeContext);
      return (
-          <TypographyParagraph className={`ant-typography-paragraph-${theme}`} style={{ margin: '5%' }} >
+          <TypographyParagraph className={`ant-typography-paragraph-${theme}`} >
                { children }
           </TypographyParagraph>
      )
