@@ -25,7 +25,7 @@ const ProjectsAll = () => {
             </Col>
         </Row>
        <List
-            style={{ margin: '10%' }}
+            style={{ margin: '2%' }}
             grid={{
                 gutter: [48, 16],
                     xs: 1,

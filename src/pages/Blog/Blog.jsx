@@ -47,8 +47,8 @@ export const posts = [
     },
 ]
 
-const BlogCard = ({ title, description, image, url }) => {
-    const theme = useContext(ThemeContext);
+const BlogCard = ({ title, description, image, url, theme }) => {
+//onst theme = useContext(ThemeContext);
     return (
         <Card
             headStyle={ themeStyle(theme) } 
@@ -56,6 +56,9 @@ const BlogCard = ({ title, description, image, url }) => {
             title={title} 
             bordered={true}
             size={"small"}
+            style={{ 
+                margin: '3%'
+            }}
         >             
             <Image
                 preview={false}
@@ -77,19 +80,18 @@ const BlogCard = ({ title, description, image, url }) => {
     )
 }
 
-const Blog = () => {
-    
-
+const Blog = ({ theme }) => {
+    const { color } = themeStyle(theme)
     return (
         <>
         <Row justify={"left"}>
             <Col>
                 <Title>Blog</Title>
-                <Divider />
+                <Divider style={{backgroundColor: color }} />
             </Col>
         </Row>
         <List
-            style={{ margin: '10%' }}
+            style={{ margin: '2%' }}
             grid={{
                 gutter: [48, 16],
                     xs: 1,
@@ -99,9 +101,7 @@ const Blog = () => {
             }}
             dataSource={posts}
             renderItem={(item) => (
-                <BlogCard 
-                    { ...item }
-                />
+                <BlogCard theme={theme} { ...item } />
             )}
         />
         </>
