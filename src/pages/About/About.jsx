@@ -4,7 +4,7 @@ import {
     Row, Col, Divider
 } from 'antd';
 
-import { themeStyle } from "../../assets/styles/global.css";
+import { themeStyle } from "../../utils/style.js";
 
 import { Title, Paragraph } from "../../components/Text";
 import SkillsTools from "../../components/SkillsTools";

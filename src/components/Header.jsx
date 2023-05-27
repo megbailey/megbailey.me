@@ -7,7 +7,7 @@ import {
 import Menu from './Menu';
 
 import { ThemeContext } from '../context/context';
-import "../assets/styles/header.css"
+import { themeStyle } from '../utils/style';
 
 import MasterBall from '../assets/img/master-ball.png';
 import Sun from '../assets/img/sun-transparent-pixel.png';
@@ -39,7 +39,7 @@ const Header = ({ onThemeChange }) => {
 const theme = useContext(ThemeContext);
 
   return (
-      <LayoutHeader className={`ant-layout-header-${theme}`}>
+      <LayoutHeader style={ themeStyle(theme) }>
       <Row justify="start">
         <Col span={1}>
           <Space align="center">

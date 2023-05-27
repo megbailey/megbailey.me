@@ -6,7 +6,7 @@ import { FormOutlined } from '@ant-design/icons';
 
 
 import { Text, Title } from "../../components/Text";
-import { themeStyle } from "../../assets/styles/global.css"
+import { themeStyle } from "../../utils/style.js";
 import { ThemeContext } from "../../context/context";
 
 export const posts = [

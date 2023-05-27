@@ -10,9 +10,9 @@ import Contact from "./pages/Contact/Contact";
 import Projects from "./pages/Projects/Projects";
 import ProjectsAll from "./pages/Projects/ProjectsAll";
 
-import "./index.css";
+import "./assets/styles/app.css";
 import { ThemeContext } from "./context/context";
-import { themeStyle } from "./assets/styles/global.css";
+import { themeStyle } from "./utils/style.js";
 
 import {
   BrowserRouter,

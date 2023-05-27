@@ -1,6 +1,5 @@
 import React from "react";
 //import PropTypes from "prop-types";
-
 import { 
     Col, Row, Button, Avatar, Image
 } from 'antd';
@@ -10,11 +9,12 @@ import ThunderBadge from '../../assets/img/thunder-badge.png'
 import EarthBadge from '../../assets/img/earth-badge.png'
 
 import '../../assets/styles/home.css';
+import { themeStyle } from "../../utils/style.js";
 
-const Home = () => {
-
+const Home = ({ theme }) => {
+    const { color } = themeStyle(theme)
     return (
-        <div className="home">
+        <div className={`home`}>
         <Image
             preview={false}
             src="http://placehold.it/3000x1000"
@@ -22,10 +22,11 @@ const Home = () => {
         />
         <Row justify={"center"}>
             <Col xs={{ span: 6 }}>
-            <Button 
+            <Button
+                style={{ color: color }}
                 size={'large'}
-                type="link"
-                shape="circle"
+                type={'link'}
+                shape={'circle'}
                 href={'/about'}
                 icon={<Avatar size={64} src={CascadeBadge} />}
                 block
@@ -33,9 +34,10 @@ const Home = () => {
             </Col>
             <Col xs={{ span: 6 }} >
             <Button 
+                style={{ color: color }}
                 size={'large'}
-                type="link"
-                shape="circle"
+                type='link'
+                shape='circle'
                 href={'/projects'}
                 icon={<Avatar size={64} src={ThunderBadge} />}
                 block
@@ -43,9 +45,10 @@ const Home = () => {
             </Col>
             <Col xs={{ span: 6 }}>
                 <Button 
+                    style={{ color: color }}
                     size={'large'}
-                    type="link"
-                    shape="circle"
+                    type={'link'}
+                    shape={'circle'}
                     href={'/knowledge'}
                     icon={<Avatar size={64} src={EarthBadge} />}
                     block

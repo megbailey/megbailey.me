@@ -5,24 +5,23 @@ import {
 
 import { Text, Title, Paragraph } from "../../components/Text";
 
-import { themeStyle } from "../../assets/styles/global.css"
-import "../../assets/styles/contact.css"
+import { themeStyle } from "../../utils/style.js";
 import "../../assets/styles/wave.css"
 
 const { TextArea } = Input;
 
 const Contact = ({theme}) => {
   const { color } = themeStyle(theme)
+  const formItemStyle = { color: color, width:'100%' }
   return (
     <>
     <Row >
       <Col>
         <Title>Say Hi <span className="wave" role="img" aria-labelledby="wave">👋🏻</span></Title>
-        <Divider style={{backgroundColor: color }}/>
+        <Divider style={{ backgroundColor: color }}/>
       </Col>
     </Row>
   
-    <Row justify="center" >
       <Form
         name="wrap"
         labelCol={{ span: 5 }}
@@ -33,9 +32,8 @@ const Contact = ({theme}) => {
       >
         
           <Form.Item 
-            className={`ant-form-item-${theme}`} 
             label={<Text >First Name</Text>}
-            style={{width:'100%'}}
+            style={formItemStyle}
             name="firstname" 
             rules={[{ required: false }]}
           >
@@ -44,6 +42,7 @@ const Contact = ({theme}) => {
           <Form.Item 
             className={`ant-form-item-${theme}`} 
             label={<Text >Last Name</Text>}
+            style={formItemStyle}
             name="lastname" 
             rules={[{ required: false }]}
           >
@@ -53,6 +52,7 @@ const Contact = ({theme}) => {
         <Form.Item 
           className={`ant-form-item-${theme}`}
           label={<Text >Email</Text>}
+          style={formItemStyle}
           name="email"
           rules={[{ required: true }]}
         >
@@ -63,6 +63,7 @@ const Contact = ({theme}) => {
         <Form.Item 
           className={`ant-form-item-${theme}`} 
           label={<Text >Message</Text> }
+          style={formItemStyle}
           name="message"
           rules={[{ required: true }]}
         >
@@ -70,13 +71,13 @@ const Contact = ({theme}) => {
         </Form.Item>
 
 
-        <Form.Item className={`ant-form-item-${theme}`}  wrapperCol={{span: 16, offset: 12 }}>
+        <Form.Item  style={formItemStyle}  wrapperCol={{span: 16, offset: 12 }}>
           <Button type="primary" htmlType="submit">
             Submit
           </Button>
         </Form.Item>
     </Form>
-  </Row>
+  
   </>
   )
 }

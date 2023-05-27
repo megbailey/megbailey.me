@@ -7,12 +7,12 @@ import {
 import { Text } from './Text';
 
 import { ThemeContext } from '../context/context';
-import "../assets/styles/footer.css"
 
 import OctocatLight from '../assets/img/github-48-light.png'
 import OctocatDark from '../assets/img/github-48-dark.png'
 import LinkedInLight from '../assets/img/linkedin-50-light.png'
 import LinkedInDark from '../assets/img/linkedin-50-dark.png'
+import { themeStyle } from '../utils/style';
 
 const { Footer: LayoutFooter } = Layout;
 
@@ -20,7 +20,7 @@ const { Footer: LayoutFooter } = Layout;
 const Footer = () => {  
      const theme = useContext(ThemeContext);
      return (
-          <LayoutFooter className={`ant-layout-footer-${theme}`}>
+          <LayoutFooter style={ themeStyle(theme) }>
           <Affix offsetBottom={0}>
                <Row justify={"center"}>
                <Col xs={{ span: 1 }}>

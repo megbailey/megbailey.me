@@ -6,7 +6,7 @@ import { DesktopOutlined, FormOutlined } from '@ant-design/icons';
 
 import { Title, Paragraph, Text } from "../../components/Text";
 
-import { themeStyle } from "../../assets/styles/global.css"
+import { themeStyle } from "../../utils/style.js";
 
 import OctocatLight from '../../assets/img/github-48-light.png'
 import OctocatDark from '../../assets/img/github-48-dark.png'

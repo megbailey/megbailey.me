@@ -3,7 +3,7 @@ import { PropTypes } from "prop-types";
 import { Menu as AntMenu } from 'antd';
 
 import { ThemeContext } from "../context/context";
-import { themeStyle } from "../assets/styles/global.css";
+import { themeStyle } from "../utils/style.js";
 
 
 const Menu = (props) => {

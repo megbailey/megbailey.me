@@ -5,7 +5,7 @@ import { isMatch, parse, format } from 'date-fns'
 import { Tabs } from 'antd';
 import { Title, Paragraph } from './Text';
 import { ThemeContext } from '../context/context';
-import { themeStyle } from '../assets/styles/global.css';
+import { themeStyle } from "../utils/style.js";
 
 
 const jobPositions = [
