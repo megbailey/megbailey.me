@@ -41,7 +41,7 @@ const theme = useContext(ThemeContext);
   return (
       <LayoutHeader style={ themeStyle(theme) }>
       <Row justify="start">
-        <Col xs={4} sm={4} md={2} lg={1} xl={1} xxl={1}>
+        <Col xs={3} sm={2} md={2} lg={1} xl={1} xxl={1}>
           <Button 
             type="link"
             shape="circle"
@@ -50,10 +50,10 @@ const theme = useContext(ThemeContext);
             block
           />
         </Col>
-        <Col xs={18} sm={18} md={20} lg={21} xl={21} xxl={21}>
+        <Col xs={16} sm={16} md={20} lg={21} xl={21} xxl={21}>
           <Menu items={menuItems} />
         </Col>
-        <Col xs={1} sm={1} md={1} lg={1} xl={1} xxl={1}>
+        <Col xs={2} sm={2} md={1} lg={1} xl={1} xxl={1}>
         <Switch
           checkedChildren={<Avatar size={20} src={Moon} />}
           unCheckedChildren={<Avatar size={20} src={Sun} />}
