@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 //import PropTypes from 'prop-types';
 import { 
-     Layout, Col, Row, Button, Avatar, Affix
+     Layout, Button, Avatar, Space, Divider
 } from 'antd';
 
 import { Text } from './Text';
@@ -21,19 +21,18 @@ const Footer = () => {
      const theme = useContext(ThemeContext);
      return (
           <LayoutFooter style={ themeStyle(theme) }>
-          <Affix offsetBottom={0}>
-               <Row justify={"center"}>
-               <Col xs={{ span: 1 }}>
-               <Button 
-                    size={'small'}
-                    type="link"
-                    shape="circle"
-                    href={'/'}
-                    icon={<Avatar size={24} src={theme === "light" ? OctocatLight: OctocatDark} />}
-                    block
-               />
-               </Col>
-               <Col xs={{ span: 1 }} >
+                <Space 
+                    style={{ display: 'flex' , justifyContent: 'center' }}
+                    split={<Divider type="vertical" />}
+               >
+                    <Button 
+                         size={'small'}
+                         type="link"
+                         shape="circle"
+                         href={'/'}
+                         icon={<Avatar size={24} src={theme === "light" ? OctocatLight: OctocatDark} />}
+                         block
+                    />
                     <Button 
                          size={'small'}
                          type="link"
@@ -42,12 +41,8 @@ const Footer = () => {
                          icon={<Avatar size={24} src={theme === "light" ? LinkedInLight: LinkedInDark} />}
                          block
                     />
-               </Col>
-               <Col xs={{ span: 2 }}>
                     <Text>© Megan Bailey</Text>
-               </Col>
-               </Row>
-          </Affix>
+                </Space>
           </LayoutFooter>
      )
 }
