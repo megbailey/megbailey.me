@@ -9,6 +9,7 @@ import Blog from "./pages/Blog/Blog";
 import Contact from "./pages/Contact/Contact";
 import Projects from "./pages/Projects/Projects";
 import ProjectsAll from "./pages/Projects/ProjectsAll";
+import Post from "./pages/Post/Post";
 
 import "./assets/styles/app.css";
 import { ThemeContext } from "./context/context";
@@ -60,10 +61,18 @@ function App() {
                 path="/projects/all" 
                 element={ <Template onThemeChange={onThemeChange} content={ <ProjectsAll/> } /> } 
               />
+             {/*  <Route 
+                path="/projects/post" 
+                element={ <Template onThemeChange={onThemeChange} content={ <Post type={'project'} /> } /> } 
+              /> */}
               <Route 
                 path="/knowledge" 
                 element={ <Template onThemeChange={onThemeChange} content={ <Blog/> } /> } 
               />
+              {/*  <Route 
+                path="/blog/post" 
+                element={ <Template onThemeChange={onThemeChange} content={ <Post type={'blog'} /> } /> } 
+              /> */}
               <Route 
                 path="/hello" 
                 element={ <Template onThemeChange={onThemeChange} content={ <Contact/> } /> } 

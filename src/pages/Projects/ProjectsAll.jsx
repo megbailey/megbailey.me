@@ -5,7 +5,16 @@ import {
 
 import { Title, Paragraph } from "../../components/Text";
 
-import { projects, ProjectCard } from "./Projects";
+import { ProjectCard } from "./Projects";
+
+const postsConfig = require(`../../assets/posts.json`);
+let projects = []
+Object.keys(postsConfig).map(( key ) => {
+    console.log(key)
+    const item = postsConfig[key]
+    if ( item.type && item.type === 'project')
+        projects.push(item)
+})
 
 const ProjectsAll = () => {
 
