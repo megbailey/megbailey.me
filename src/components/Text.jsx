@@ -2,8 +2,8 @@ import React, { useContext} from 'react';
 import PropTypes from 'prop-types';
 import { Typography } from 'antd';
 
-import "../assets/styles/text.css"
 import { ThemeContext } from '../context/context';
+import { themeStyle } from '../utils/style';
 
 const { 
      Text: TypographyText,
@@ -18,7 +18,7 @@ const Title = ( { size, children } ) => {
      
      return (
           <TypographyTitle 
-               className={`ant-typography-title-${theme}`}
+               style={ themeStyle(theme) }
                level={size}
           >
                { children }
@@ -30,7 +30,7 @@ const Title = ( { size, children } ) => {
 const Paragraph = ( { children } ) => {  
      const theme = useContext(ThemeContext);
      return (
-          <TypographyParagraph className={`ant-typography-paragraph-${theme}`} >
+          <TypographyParagraph style={ themeStyle(theme) } >
                { children }
           </TypographyParagraph>
      )
@@ -39,7 +39,7 @@ const Paragraph = ( { children } ) => {
 const Text = ( { children } ) => {  
      const theme = useContext(ThemeContext);
      return (
-          <TypographyText className={`ant-typography-text-${theme}`}>
+          <TypographyText style={ themeStyle(theme) } >
                { children }
           </TypographyText>
      )

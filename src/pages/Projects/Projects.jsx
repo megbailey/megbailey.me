@@ -1,61 +1,26 @@
 import React from "react";
 import { 
-    Row, Col, Divider, Card, Button, List, Image, Avatar
+    Row, Col, Divider, Card, Button, List, Image, Avatar, Space
 } from 'antd';
 import { DesktopOutlined, FormOutlined } from '@ant-design/icons';
 
 import { Title, Paragraph, Text } from "../../components/Text";
 
-import { themeStyle } from "../../assets/styles/global.css"
+import { themeStyle } from "../../utils/style.js";
 
 import OctocatLight from '../../assets/img/github-48-light.png'
 import OctocatDark from '../../assets/img/github-48-dark.png'
 
+const postsConfig = require(`../../assets/posts.json`);
+let projects = []
+postsConfig['_projectSpotlight'].map(( item ) => {
+    if (postsConfig[item])
+    projects.push(postsConfig[item])
+})
 
-export const projects = [
-    {
-        "name": "name",
-        "description": "description",
-        "image": "imagesrc",
-        "githubURL": "http://github",
-        "liveDemoURL": "liveDemoURL",
-        "blogPost": "blogPost",
-    },
-    {
-        "name": "name",
-        "description": "description",
-        "image": "imagesrc",
-        "githubURL": "http://github",
-        "liveDemoURL": "liveDemoURL",
-        "blogPost": "blogPost",
-    },
-    {
-        "name": "name",
-        "description": "description",
-        "image": "imagesrc",
-        "githubURL": "http://github",
-        "liveDemoURL": "liveDemoURL",
-        "blogPost": "blogPost", 
-    },
-    {
-        "name": "name",
-        "description": "description",
-        "image": "imagesrc",
-        "githubURL": "http://github",
-        "liveDemoURL": "liveDemoURL",
-        "blogPost": "blogPost",
-    },
-    {
-        "name": "name",
-        "description": "description",
-        "image": "imagesrc",
-        "githubURL": "http://github",
-        "liveDemoURL": "liveDemoURL",
-        "blogPost": "blogPost", 
-    }
-]
-
-export const ProjectCard = ({ name, description, image, githubURL, liveDemoURL, blogPost, theme }) => {    //const theme = useContext(ThemeContext);
+export const ProjectCard = ( props ) => { 
+    const { name, description, image: { src, width, height }, githubURL, liveDemoURL, postURL, theme } = props
+    console.log(src, height)
     return (
         <Card
             headStyle={ themeStyle(theme) } 
@@ -67,14 +32,15 @@ export const ProjectCard = ({ name, description, image, githubURL, liveDemoURL, 
                 margin: '3%',
             }}
         >     
+        <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
             <Image
                 preview={false}
-                src="http://placehold.it/200x100"
-                width={'100%'}
-            />
+                src={src}
+                width={width}
+                height={height}
+            ></Image>
             <Text >{description}</Text>
-            <Row>
-                <Col xs={{ span: 6 }}>
+                 <Space direction="horizontal" size="middle" style={{ display: 'flex' }}>
                     <Button 
                         size={'small'}
                         type="link"
@@ -83,33 +49,29 @@ export const ProjectCard = ({ name, description, image, githubURL, liveDemoURL, 
                         icon={<Avatar size={24} src={theme === "light" ? OctocatLight: OctocatDark} />}
                         block
                     />
-                </Col>
+                
                 {liveDemoURL && (
-                    <Col xs={{ span: 6 }}>
-                        <Button 
-                            size={'small'}
-                            type="link"
-                            shape="circle"
-                            href={liveDemoURL}
-                            icon={<DesktopOutlined/>}
-                            block
-                        />
-                    </Col>
+                    <Button 
+                        size={'small'}
+                        type="link"
+                        shape="circle"
+                        href={liveDemoURL}
+                        icon={<DesktopOutlined/>}
+                        block
+                    />
                 )}
-                {blogPost && (
-                    <Col xs={{ span: 6 }}>
-                        <Button 
-                            size={'small'}
-                            type="link"
-                            shape="circle"
-                            href={blogPost}
-                            icon={<FormOutlined />}
-                            block
-                        />
-                    </Col>
+                {postURL && (
+                    <Button 
+                        size={'small'}
+                        type="link"
+                        shape="circle"
+                        href={postURL}
+                        icon={<FormOutlined />}
+                        block
+                    />
                 )}
-            </Row>
-
+                </Space>
+            </Space>
         </Card>
     )
 }

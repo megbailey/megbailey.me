@@ -1,9 +1,6 @@
-.ant-layout-content-light {
-     color: #001529;
-     background-color: #fff;
-}
-
-.ant-layout-content-dark {
-     color: #fff;
-     background-color: #001529
+.ant-layout-content {
+     padding-top: 1%;
+     padding-left: 5%;
+     padding-right: 5%;
+     padding-bottom: 5%;
 }

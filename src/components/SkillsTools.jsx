@@ -6,7 +6,7 @@ import {
 
 import { Text } from "./Text";
 
-import { themeStyle } from "../assets/styles/global.css"
+import { themeStyle } from "../utils/style.js";
 import { ThemeContext } from "../context/context";
 
 const skillCards = [

@@ -1,0 +1,60 @@
+{
+    "_blogPostsPath": "../../assets/blog/",
+    "_projectPostsPath": "../../assets/project/",
+    "_projectSpotlight": [
+        0, 1, 2
+    ],
+    "0": {
+        "name": "ButterDB",
+        "type": "project",
+        "filename": "butterdb",
+        "description": "An ORM for using Google Sheets as a relational database",
+        "image":{ 
+            "src": "/img/posts/25673_adobe_express.svg",
+            "height": "100",
+            "width": "200"
+        },
+        "postURL": "projects/post?id=0",
+        "githubURL": "https://github.com/megbailey/ButterDB"  
+    },
+    "1": {
+        "name": "Project Name",
+        "type": "project",
+        "filename": "projectName.md",
+        "description": "A meaningful short description",
+        "image":{ 
+            "src": "http://placehold.it/200x100"
+        },
+        "githubURL": "https://github.com/megbailey/ProjectName"        
+    },
+    "2": {
+        "name": "Project Name",
+        "type": "project",
+        "filename": "projectName.md",
+        "description": "A meaningful short description",
+        "image":{ 
+            "src": "http://placehold.it/200x100"
+        },
+        "githubURL": "https://github.com/megbailey/ProjectName"        
+    },
+    "3": {
+        "name": "Project Name",
+        "type": "project",
+        "filename": "projectName.md",
+        "description": "A meaningful short description",
+        "image":{ 
+            "src": "http://placehold.it/200x100"
+        },
+        "githubURL": "https://github.com/megbailey/ProjectName"        
+    },
+    "4": {
+        "name": "Project Name",
+        "type": "project",
+        "filename": "projectName.md",
+        "description": "A meaningful short description",
+        "image":{ 
+            "src": "http://placehold.it/200x100"
+        },
+        "githubURL": "https://github.com/megbailey/ProjectName"        
+    }
+}
