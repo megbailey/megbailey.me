@@ -61,18 +61,18 @@ function App() {
                 path="/projects/all" 
                 element={ <Template onThemeChange={onThemeChange} content={ <ProjectsAll/> } /> } 
               />
-             {/*  <Route 
+              <Route 
                 path="/projects/post" 
                 element={ <Template onThemeChange={onThemeChange} content={ <Post type={'project'} /> } /> } 
-              /> */}
+              />
               <Route 
                 path="/knowledge" 
                 element={ <Template onThemeChange={onThemeChange} content={ <Blog/> } /> } 
               />
-              {/*  <Route 
+              <Route 
                 path="/blog/post" 
                 element={ <Template onThemeChange={onThemeChange} content={ <Post type={'blog'} /> } /> } 
-              /> */}
+              />
               <Route 
                 path="/hello" 
                 element={ <Template onThemeChange={onThemeChange} content={ <Contact/> } /> } 

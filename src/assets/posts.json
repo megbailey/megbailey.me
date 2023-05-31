@@ -7,7 +7,7 @@
     "0": {
         "name": "ButterDB",
         "type": "project",
-        "filename": "butterdb.md",
+        "filename": "butterdb",
         "description": "An ORM for using Google Sheets as a relational database",
         "image":{ 
             "src": "/img/posts/25673_adobe_express.svg",

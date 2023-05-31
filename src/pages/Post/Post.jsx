@@ -1,42 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 
-console.log(window.location.href)
 //const id = new URLSearchParams(window.location.href).search.get('id');
 const postsConfig = require('../../assets/posts.json');
 const id = 0
+/* the posts id must exist in posts.json and have a valid asset path */
+const post = postsConfig[id];
+
 const Post = ( props ) => {
     const { type } = props
+    const [ md, setMd ] = useState('')
 
-    let assetPath
-    switch ( type ) {
-        case 'project': 
-            assetPath = postsConfig['_projectPostsPath']
-            break;
-        case 'blog': 
-            assetPath = postsConfig['_blogPostsPath']
-            break;
-    }
-
-   
-
-    /* the posts id must exist in posts.json and have a valid asset path */
-    if ( !postsConfig[id] )
-        return null
-    const filename = postsConfig[id]
-    const mdFile = React.lazy(() => import(`${assetPath}/${filename}`));
-
-    return (
-        <ReactMarkdown>{mdFile}</ReactMarkdown>
-    )
+    useEffect(() => {
+        import(`../../assets/posts/${type}/${post.filename}.md`)
+            .then( result => {
+                fetch( result.default )
+                    .then( res => res.text() )
+                    .then( text => setMd(text))
+            })
+            .catch( error => console.log(error) )
+    }, []);
+    
+    return <ReactMarkdown>{md}</ReactMarkdown>
     
 }
 
 
 Post.propTypes = {
     type: PropTypes.oneOf([ 'blog', 'project' ]).isRequired,
-    filename: PropTypes.string.isRequired
 }
 
 export default Post
