@@ -9,11 +9,11 @@ import { ProjectCard } from "./Projects";
 
 const postsConfig = require(`../../assets/posts.json`);
 let projects = []
-Object.keys(postsConfig).map(( key ) => {
+for ( const key of Object.keys(postsConfig)) {
     const item = postsConfig[key]
     if ( item.type && item.type === 'project')
         projects.push(item)
-})
+}
 
 const ProjectsAll = () => {
 

@@ -20,10 +20,10 @@ const Post = ( props ) => {
                     .then( text => setMd(text))
             })
             .catch( error => console.log(error) )
-    }, []);
+    }, [type]);
     
     return <ReactMarkdown>{md}</ReactMarkdown>
-    
+
 }
 
 

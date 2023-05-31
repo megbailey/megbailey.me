@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { 
-     Layout, Space, Col, Row, Button, Avatar, Switch
+     Layout, Col, Row, Button, Avatar, Switch
 } from 'antd';
 
 import Menu from './Menu';
