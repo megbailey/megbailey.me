@@ -13,10 +13,11 @@ import OctocatDark from '../../assets/img/github-48-dark.png'
 
 const postsConfig = require(`../../assets/posts.json`);
 let projects = []
-postsConfig['_projectSpotlight'].map(( item ) => {
-    if (postsConfig[item])
-    projects.push(postsConfig[item])
-})
+
+for (const id of postsConfig['_projectSpotlight']) {
+    if (postsConfig[id])
+        projects.push(postsConfig[id])
+}
 
 export const ProjectCard = ( props ) => { 
     const { name, description, image: { src, width, height }, githubURL, liveDemoURL, postURL, theme } = props
