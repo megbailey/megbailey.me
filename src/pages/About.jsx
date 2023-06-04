@@ -4,11 +4,11 @@ import {
     Row, Col, Divider
 } from 'antd';
 
-import { themeStyle } from "../../utils/style.js";
+import { themeStyle } from "../utils/style.js";
 
-import { Title, Paragraph } from "../../components/Text";
-import SkillsTools from "../../components/SkillsTools";
-import Experience from "../../components/Experience";
+import { Title, Paragraph } from "../components/Text.jsx";
+import SkillsTools from "../components/SkillsTools.jsx";
+import Experience from "../components/Experience.jsx";
 
 
 const About = ({ theme }) => { 

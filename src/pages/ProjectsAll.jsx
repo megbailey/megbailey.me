@@ -3,11 +3,11 @@ import {
     Row, Col, Divider, List
 } from 'antd';
 
-import { Title, Paragraph } from "../../components/Text";
+import { Title, Paragraph } from "../components/Text";
 
 import { ProjectCard } from "./Projects";
 
-const postsConfig = require(`../../assets/posts.json`);
+const postsConfig = require(`../assets/posts.json`);
 let projects = []
 for ( const key of Object.keys(postsConfig)) {
     const item = { id: key, ...postsConfig[key] }

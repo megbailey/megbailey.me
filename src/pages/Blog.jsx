@@ -3,10 +3,10 @@ import {
     Row, Col, Divider, Card, List, Button, Image
 } from 'antd';
 import { FormOutlined } from '@ant-design/icons';
-import { Text, Title } from "../../components/Text";
-import { themeStyle } from "../../utils/style.js";
+import { Text, Title } from "../components/Text";
+import { themeStyle } from "../utils/style.js";
 
-const postsConfig = require(`../../assets/posts.json`);
+const postsConfig = require(`../assets/posts.json`);
 let blogPosts = []
 for ( const key of Object.keys(postsConfig)) {
     const item = { id: key, ...postsConfig[key] }

@@ -3,12 +3,12 @@ import { Helmet } from 'react-helmet';
 
 import Template from "./components/Template";
 
-import Home from "./pages/Home/Home";
-import About from "./pages/About/About";
-import Blog from "./pages/Blog/Blog";
-import Projects from "./pages/Projects/Projects";
-import ProjectsAll from "./pages/Projects/ProjectsAll";
-import Post from "./pages/Post/Post";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Blog from "./pages/Blog";
+import Projects from "./pages/Projects";
+import ProjectsAll from "./pages/ProjectsAll";
+import Post from "./pages/Post";
 
 import "./assets/styles/app.css";
 import { ThemeContext } from "./context/context";

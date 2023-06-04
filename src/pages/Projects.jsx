@@ -3,13 +3,13 @@ import {
     Row, Col, Divider, Card, Button, List, Image, Avatar, Space
 } from 'antd';
 import { DesktopOutlined, FormOutlined } from '@ant-design/icons';
-import { Title, Paragraph, Text } from "../../components/Text";
-import { themeStyle } from "../../utils/style.js";
+import { Title, Paragraph, Text } from "../components/Text";
+import { themeStyle } from "../utils/style.js";
 
-import OctocatLight from '../../assets/img/github-48-light.png'
-import OctocatDark from '../../assets/img/github-48-dark.png'
+import OctocatLight from '../assets/img/github-48-light.png'
+import OctocatDark from '../assets/img/github-48-dark.png'
 
-const postsConfig = require(`../../assets/posts.json`);
+const postsConfig = require(`../assets/posts.json`);
 let projects = []
 
 for (const id of postsConfig['_projectSpotlight']) {
