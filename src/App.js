@@ -6,7 +6,6 @@ import Template from "./components/Template";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Blog from "./pages/Blog/Blog";
-import Contact from "./pages/Contact/Contact";
 import Projects from "./pages/Projects/Projects";
 import ProjectsAll from "./pages/Projects/ProjectsAll";
 import Post from "./pages/Post/Post";
@@ -72,10 +71,6 @@ function App() {
               <Route 
                 path="/blog/post" 
                 element={ <Template onThemeChange={onThemeChange} content={ <Post type={'blog'} /> } /> } 
-              />
-              <Route 
-                path="/hello" 
-                element={ <Template onThemeChange={onThemeChange} content={ <Contact/> } /> } 
               />
               <Route 
                 path="*" 

@@ -31,7 +31,7 @@ const menuItems = [
      },
      {
        text: 'Hello',
-       link: '/hello'
+       link: 'mailto:meganbailey@sandiego.edu'
      }
 ];
 
