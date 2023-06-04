@@ -4,12 +4,12 @@ import {
     Row, Button, Avatar, Image, Space
 } from 'antd';
 
-import CascadeBadge from '../../assets/img/cascade-badge.png'
-import ThunderBadge from '../../assets/img/thunder-badge.png'
-import EarthBadge from '../../assets/img/earth-badge.png'
+import CascadeBadge from '../assets/img/cascade-badge.png'
+import ThunderBadge from '../assets/img/thunder-badge.png'
+import EarthBadge from '../assets/img/earth-badge.png'
 
-import '../../assets/styles/home.css';
-import { themeStyle } from "../../utils/style.js";
+import '../assets/styles/home.css';
+import { themeStyle } from "../utils/style.js";
 
 const Home = ({ theme }) => {
     const { color } = themeStyle(theme)

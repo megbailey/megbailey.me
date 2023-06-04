@@ -24,6 +24,7 @@ const Menu = (props) => {
         selectedKeys={[currentMenuItem]}
         mode="horizontal" 
         style={ themeStyle(theme) }
+        theme={theme}
         items={ items.map( item => {
             const { text, link } = item
             return {

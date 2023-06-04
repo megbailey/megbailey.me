@@ -29,7 +29,7 @@ const Footer = () => {
                          size={'small'}
                          type="link"
                          shape="circle"
-                         href={'/'}
+                         href={'https://github.com/megbailey'}
                          icon={<Avatar size={24} src={theme === "light" ? OctocatLight: OctocatDark} />}
                          block
                     />
