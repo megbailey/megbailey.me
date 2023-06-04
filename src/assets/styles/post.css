@@ -23,17 +23,16 @@
 .reactmd p {
     margin: 16px 0;
     font-size: 14px;
-    word-break: break-word;
     line-height: 1.5714285714285714;
   }
   
 .reactmd th,
 .reactmd td {
-padding: 8px 16px;
-border: 1px solid #f0f0f0;
+    padding: 8px 16px;
+    border: 1px solid #f0f0f0;
 }
 
 .reactmd li {
-margin-bottom: 8px;
-font-size: 14px;
+    margin-bottom: 8px;
+    font-size: 14px;
 }

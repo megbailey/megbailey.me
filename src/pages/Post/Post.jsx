@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from "remark-gfm";
-
 import '../../assets/styles/post.css'
-//const id = new URLSearchParams(window.location.href).search.get('id');
+
 const postsConfig = require('../../assets/posts.json');
-const id = 0
+let params = new URLSearchParams(document.location.search);
+let id = parseInt(params.get("id"));
 /* the posts id must exist in posts.json and have a valid asset path */
 const post = postsConfig[id];
 
@@ -15,7 +15,9 @@ const Post = ( props ) => {
     const [ md, setMd ] = useState('')
 
     useEffect(() => {
-        import(`../../assets/posts/${type}/${post.filename}.md`)
+        if (!post) return;
+
+        import(`../../assets/posts/${type}/${post.filename}`)
             .then( result => {
                 fetch( result.default )
                     .then( res => res.text() )
@@ -24,6 +26,8 @@ const Post = ( props ) => {
             .catch( error => console.log(error) )
     }, [type]);
     
+    
+
     return (
         <ReactMarkdown 
             className='reactmd'

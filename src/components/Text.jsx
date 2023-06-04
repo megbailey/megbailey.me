@@ -30,7 +30,11 @@ const Title = ( { size, children } ) => {
 const Paragraph = ( { children } ) => {  
      const theme = useContext(ThemeContext);
      return (
-          <TypographyParagraph style={ themeStyle(theme) } >
+          <TypographyParagraph 
+               style={{ 
+                    ...themeStyle(theme),
+                    wordBreak: 'normal'
+               }} >
                { children }
           </TypographyParagraph>
      )
@@ -39,7 +43,10 @@ const Paragraph = ( { children } ) => {
 const Text = ( { children } ) => {  
      const theme = useContext(ThemeContext);
      return (
-          <TypographyText style={ themeStyle(theme) } >
+          <TypographyText style={{ 
+               ...themeStyle(theme),
+               wordBreak: 'normal'
+          }} >
                { children }
           </TypographyText>
      )

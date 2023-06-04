@@ -10,9 +10,10 @@ import { ProjectCard } from "./Projects";
 const postsConfig = require(`../../assets/posts.json`);
 let projects = []
 for ( const key of Object.keys(postsConfig)) {
-    const item = postsConfig[key]
-    if ( item.type && item.type === 'project')
+    const item = { id: key, ...postsConfig[key] }
+    if ( item.type && item.type === 'project') {
         projects.push(item)
+    }
 }
 
 const ProjectsAll = () => {
@@ -42,8 +43,9 @@ const ProjectsAll = () => {
                     lg: 4
             }}
             dataSource={projects}
-            renderItem={(item) => (
+            renderItem={(item, key) => (
                 <ProjectCard 
+                    id={key}
                     { ...item }
                 />
             )}
