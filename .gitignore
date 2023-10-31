@@ -12,6 +12,7 @@ notes-and-inspo.txt
 
 # production
 /build
+/game_build
 
 # misc
 .DS_Store
