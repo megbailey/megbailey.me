@@ -1,7 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { PropTypes } from "prop-types";
-import { Row, Col, Radio } from 'antd';
-import { RadarChartOutlined, UnorderedListOutlined } from '@ant-design/icons';
+import { Row, Col } from 'antd';
+//import { RadarChartOutlined, UnorderedListOutlined } from '@ant-design/icons';
 import {
     Chart as ChartJS,
     RadialLinearScale,
