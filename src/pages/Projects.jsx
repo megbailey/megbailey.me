@@ -9,17 +9,6 @@ import { themeStyle } from "../utils/style.js";
 import OctocatLight from '../assets/img/github-48-light.png'
 import OctocatDark from '../assets/img/github-48-dark.png'
 
-const postsConfig = require(`../assets/posts.json`);
-let projects = []
-
-for (const id of postsConfig['_projectSpotlight']) {
-    if (postsConfig[id])
-        projects.push({
-            id: id,
-            ...postsConfig[id]
-        })
-}
-
 export const ProjectCard = ( props ) => { 
     const { id, name, description, image: { src, width, height }, githubURL, liveDemoURL, theme } = props
     return (
@@ -76,21 +65,29 @@ export const ProjectCard = ( props ) => {
     )
 }
 
-const Projects = ({theme}) => {
+const Projects = ({ theme, title, text, projectSpotlight, posts }) => {
     const { color } = themeStyle(theme)
+    let spotlightedProjects = []
+
+    for (const id of projectSpotlight) {
+        if (posts[id])
+            spotlightedProjects.push({
+                id: id,
+                ...posts[id]
+            })
+    }
+
     return (
         <>
         <Row >
             <Col>
-                <Title>{"Projects"}</Title>
+                <Title>{title}</Title>
                 <Divider style={{backgroundColor: color }}/>
             </Col>
         </Row>
         <Row >
             <Col>
-                <Paragraph>
-                    {"The best part about being a software engineer is dreaming of an idea and having the tools to bring it to life. Below is a showcase of my public projects I’m the proudest of."}
-                </Paragraph>
+                <Paragraph>{text}</Paragraph>
             </Col>
         </Row >
         <List
@@ -102,7 +99,7 @@ const Projects = ({theme}) => {
                     med: 3,
                     lg: 4
             }}
-            dataSource={projects}
+            dataSource={spotlightedProjects}
             renderItem={(item, key) => (
                 <ProjectCard 
                     id={key}

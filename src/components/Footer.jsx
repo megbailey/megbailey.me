@@ -6,7 +6,7 @@ import {
 
 import { Text } from './Text';
 
-import { ThemeContext } from '../context/context';
+import { ThemeContext } from '../utils/context';
 
 import OctocatLight from '../assets/img/github-48-light.png'
 import OctocatDark from '../assets/img/github-48-dark.png'

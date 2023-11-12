@@ -6,15 +6,6 @@ import { FormOutlined } from '@ant-design/icons';
 import { Text, Title } from "../components/Text";
 import { themeStyle } from "../utils/style.js";
 
-const postsConfig = require(`../assets/posts.json`);
-let blogPosts = []
-for ( const key of Object.keys(postsConfig)) {
-    const item = { id: key, ...postsConfig[key] }
-    if ( item.type && item.type === 'blog') {
-        blogPosts.push(item)
-    }
-}
-
 const BlogCard = (props) => {
     const { id, name, description, image: { src, width, height }, theme } = props
     return (
@@ -49,13 +40,13 @@ const BlogCard = (props) => {
     )
 }
 
-const Blog = ({ theme }) => {
+const Blog = ({ title, posts, theme }) => {
     const { color } = themeStyle(theme)
     return (
         <>
         <Row justify={"left"}>
             <Col>
-                <Title>Blog</Title>
+                <Title>{title}</Title>
                 <Divider style={{backgroundColor: color }} />
             </Col>
         </Row>
@@ -68,7 +59,7 @@ const Blog = ({ theme }) => {
                     med: 3,
                     lg: 4
             }}
-            dataSource={blogPosts}
+            dataSource={posts}
             renderItem={(item) => (
                 <BlogCard 
                     theme={theme} 

@@ -2,7 +2,7 @@ import React, { useContext} from 'react';
 import PropTypes from 'prop-types';
 import { Typography } from 'antd';
 
-import { ThemeContext } from '../context/context';
+import { ThemeContext } from '../utils/context';
 import { themeStyle } from '../utils/style';
 
 const { 

@@ -6,7 +6,7 @@ import {
 
 import Menu from './Menu';
 
-import { ThemeContext } from '../context/context';
+import { ThemeContext } from '../utils/context';
 import { themeStyle } from '../utils/style';
 
 import MasterBall from '../assets/img/master-ball.png';

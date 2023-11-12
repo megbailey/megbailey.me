@@ -1,9 +1,5 @@
-{
-    "_blogPostsPath": "../../assets/blog/",
-    "_blogSpotlight": [ 5 ],
-    "_projectPostsPath": "../../assets/project/",
-    "_projectSpotlight": [ 0, 1, 2 ],
-    "0": {
+[
+    {
         "name": "ButterDB",
         "type": "project",
         "filename": "butterdb.md",
@@ -15,7 +11,7 @@
         },
         "githubURL": "https://github.com/megbailey/ButterDB"  
     },
-    "1": {
+    {
         "name": "Project Name",
         "type": "project",
         "filename": "projectPost.md",
@@ -25,7 +21,7 @@
         },
         "githubURL": "https://github.com/megbailey/ProjectName"        
     },
-    "2": {
+    {
         "name": "Project Name",
         "type": "project",
         "filename": "projectPost.md",
@@ -35,7 +31,7 @@
         },
         "githubURL": "https://github.com/megbailey/ProjectName"        
     },
-    "3": {
+    {
         "name": "Project Name",
         "type": "project",
         "filename": "projectPost.md",
@@ -45,7 +41,7 @@
         },
         "githubURL": "https://github.com/megbailey/ProjectName"        
     },
-    "4": {
+    {
         "name": "Project Name",
         "type": "project",
         "filename": "projectPost.md",
@@ -55,7 +51,7 @@
         },
         "githubURL": "https://github.com/megbailey/ProjectName"        
     },
-    "5": {
+    {
         "name": "Blog Post Name",
         "type": "blog",
         "filename": "blogPost.md",
@@ -65,7 +61,7 @@
         },
         "githubURL": "https://github.com/megbailey/ProjectName"        
     },
-    "6": {
+    {
         "name": "Blog Post Name",
         "type": "blog",
         "filename": "blogPost.md",
@@ -75,7 +71,7 @@
         },
         "githubURL": "https://github.com/megbailey/ProjectName"        
     },
-    "7": {
+    {
         "name": "Blog Post Name",
         "type": "blog",
         "filename": "blogPost.md",
@@ -85,4 +81,4 @@
         },
         "githubURL": "https://github.com/megbailey/ProjectName"        
     }
-}
+]
