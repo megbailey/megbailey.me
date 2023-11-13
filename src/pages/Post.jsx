@@ -5,12 +5,14 @@ import remarkGfm from "remark-gfm";
 import '../assets/styles/post.css'
 
 let params = new URLSearchParams(document.location.search);
-let id = parseInt(params.get("id"));
+let id = parseInt( params.get("id") );
 
 const Post = ({ type, posts }) => {
     const [ md, setMd ] = useState('')
+    
     /* the post's id must exist in posts.json and have markdown file in the path*/
     const post = posts[id]
+
     useEffect(() => {
         if (!post) return;
 

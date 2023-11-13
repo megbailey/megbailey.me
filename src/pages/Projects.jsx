@@ -39,9 +39,9 @@ const Projects = ({ theme, title, text, projectSpotlight, posts }) => {
                     lg: 4
             }}
             dataSource={spotlightedProjects}
-            renderItem={(item, key) => (
+            renderItem={(item, index) => (
                 <ProjectCard 
-                    id={key}
+                    id={index}
                     theme={theme}
                     { ...item }
                 />

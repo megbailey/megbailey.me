@@ -11,7 +11,7 @@ const Blog = ({ title, posts, theme }) => {
         <Row justify={"left"}>
             <Col>
                 <Title>{title}</Title>
-                <Divider style={{backgroundColor: color }} />
+                <Divider style={{ backgroundColor: color }} />
             </Col>
         </Row>
         <List
@@ -24,8 +24,9 @@ const Blog = ({ title, posts, theme }) => {
                     lg: 4
             }}
             dataSource={posts}
-            renderItem={(item) => (
+            renderItem={(item, index) => (
                 <BlogCard 
+                    id={index}
                     theme={theme} 
                     { ...item }
                 />
