@@ -1,62 +1,17 @@
 import React from "react";
-import { 
-    Row, Col, Divider, Card, List, Button, Image
-} from 'antd';
-import { FormOutlined } from '@ant-design/icons';
-import { Text, Title } from "../components/Text";
+import {  Row, Col, Divider, List } from 'antd';
+import { Title } from "../components/Text";
 import { themeStyle } from "../utils/style.js";
+import BlogCard from "../components/BlogCard";
 
-const postsConfig = require(`../assets/posts.json`);
-let blogPosts = []
-for ( const key of Object.keys(postsConfig)) {
-    const item = { id: key, ...postsConfig[key] }
-    if ( item.type && item.type === 'blog') {
-        blogPosts.push(item)
-    }
-}
-
-const BlogCard = (props) => {
-    const { id, name, description, image: { src, width, height }, theme } = props
-    return (
-        <Card
-            headStyle={ themeStyle(theme) } 
-            bodyStyle={ themeStyle(theme) }
-            title={name} 
-            bordered={true}
-            size={"small"}
-            style={{ 
-                margin: '3%'
-            }}
-        >             
-            <Image
-                preview={false}
-                src={src}
-                width={width ? width : '100%'}
-                height={height ? height : '100%'}
-            />
-            <Text>{description}</Text>
-            <Col xs={{ span: 6 }}>
-                <Button 
-                    size={'small'}
-                    type="link"
-                    shape="circle"
-                    href={`/blog/post?id=${id}`}
-                    icon={<FormOutlined />}
-                    block
-                />
-            </Col>
-        </Card>
-    )
-}
-
-const Blog = ({ theme }) => {
+const Blog = ({ title, posts, theme }) => {
     const { color } = themeStyle(theme)
     return (
         <>
         <Row justify={"left"}>
             <Col>
-                <Title>Blog</Title>
-                <Divider style={{backgroundColor: color }} />
+                <Title>{title}</Title>
+                <Divider style={{ backgroundColor: color }} />
             </Col>
         </Row>
         <List
@@ -68,9 +23,10 @@ const Blog = ({ theme }) => {
                     med: 3,
                     lg: 4
             }}
-            dataSource={blogPosts}
-            renderItem={(item) => (
+            dataSource={posts}
+            renderItem={(item, index) => (
                 <BlogCard 
+                    id={index}
                     theme={theme} 
                     { ...item }
                 />

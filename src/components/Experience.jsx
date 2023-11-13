@@ -4,87 +4,12 @@ import { isMatch, parse, format } from 'date-fns'
 
 import { Tabs } from 'antd';
 import { Title, Paragraph } from './Text';
-import { ThemeContext } from '../context/context';
+import { ThemeContext } from '../utils/context';
 import { themeStyle } from "../utils/style.js";
 
-
-const jobPositions = [
-    {
-        position: 'Web Developer / Programmer',
-        employer: 'University of San Diego',
-        startDate: '2022-10-01',
-        endDate: null,
-        languageList: [ 'PHP', 'Javascript', 'SQL' ],
-        libraryFrameworkList: [ 'React', 'Storybook' ],
-        environmentList: [ 'Docker', 'MacOS', 'Linux' ],
-        descriptionList: [
-            'Maintain and contribute to the Camino library of React components.',
-            'Utilize & maintain are use of open source projects such as Storybook.',
-            'Scope, plan, and implement custom web applications for departments.',
-            'Architect and develop web applications that are used by all maintainers like the MP2 system',
-            'Contributed to developing a set of containers that reflect build, staging, and production environments'
-        ]
-    },
-    {
-        position: 'Web Developer, Contractor',
-        employer: 'University of San Diego',
-        startDate: '2022-06-10',
-        endDate: '2022-10-01',
-        languageList: [ 'PHP', 'Javascript', 'SQL', 'GraphQL' ],
-        libraryFrameworkList: [ 'React' ],
-        toolsList: [ 'Github', 'postman', 'Jenkins' ],
-        environmentList: [ 'Docker', 'MacOS', 'Linux' ],
-        descriptionList: [  ]
-    },
-    {
-        position: 'Solutions Architect, Research Scientist I',
-        employer: 'Georgia Tech Research Institute',
-        startDate: '2020-06-20',
-        endDate: '2022-6-10',
-        languageList: [ 'Ansible', 'bash', 'Java', 'Python', 'Rego' ],
-        libraryFrameworkList: [ 'KIE', 'Apache JMeter', 'protobuf' ],
-        toolsList: [ 'Gitlab', 'Gitlab Actions', 'Apache JMeter', 'packer' ],
-        environmentList: [ 'Docker', 'Podman', 'VMWare VSphere', 'AWS EC2', 'MacOS', 'Linux (RH)', 'Windows', 'KVM' ],
-        descriptionList: [ ]
-    },
-    {
-        position: 'Visting Research Student / Tech Temp',
-        employer: 'Georgia Tech Research Institute',
-        startDate: '2019-06-01',
-        endDate: '2020-06-20',
-        languageList: [ 'Ansible', 'Python', 'Powershell' ],
-        toolsList: [ 'Bitbucket', 'Jira' ],
-        environmentList: [ 'MacOS', 'Linux', 'Windows' ],
-        descriptionList: [ ]
-    },
-    {
-        position: 'Assistant Student Web Developer',
-        employer: 'University of San Diego',
-        startDate: '2017-06-10',
-        endDate: '2022-10-1',
-        languageList: [ 'PHP', 'Javascript', 'SQL' ],
-        toolsList: [ 'Jira' ],
-        environmentList: [ 'MacOS', 'Linux' ],
-        descriptionList: [ ]
-    },
-    {
-        position: 'Student, Computer Science',
-        employer: 'University of San Diego',
-        startDate: '2016-06-10',
-        endDate: '2020-5-30',
-        languageList: [ 'Java', 'Python', 'C', 'C++' ],
-        environmentList: [ 'Docker', 'MacOS', 'Linux (RH)' ],
-        descriptionList: [
-            'Summer Undergrad Reseach Expereince (S.U.R.E) Scholar. Deep dive into GDPR, its effect on users and design an application that allows users to analyze the data that makes up their online footprint.',
-            'Vice President (2019) and marketing (2018) of USD local student chapter of ACM.',
-            '3.9 major GPA'
-        ]
-    },
-]
-
-const group = () => {
+const group = ( data ) => {
     let groupedByEmployer = []
-    for (const item of jobPositions) {
+    for (const item of data) {
         
         if ( groupedByEmployer[item.employer] === undefined )
             groupedByEmployer[item.employer] = []
@@ -138,9 +63,9 @@ const TabContent = (items) => {
 
 }
 
-const Experience = (props) => {  
+const Experience = ({ data }) => {  
      const theme = useContext(ThemeContext)
-     const grouped = group()
+     const grouped = group(data)
 
      return (
         <Tabs

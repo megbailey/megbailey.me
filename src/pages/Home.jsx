@@ -4,15 +4,13 @@ import {
     Row, Button, Avatar, Image, Space
 } from 'antd';
 
-import CascadeBadge from '../assets/img/cascade-badge.png'
-import ThunderBadge from '../assets/img/thunder-badge.png'
-import EarthBadge from '../assets/img/earth-badge.png'
-
 import '../assets/styles/home.css';
+import { images } from '../utils/assets.js'
 import { themeStyle } from "../utils/style.js";
 
-const Home = ({ theme }) => {
+const Home = ({ links, theme }) => {
     const { color } = themeStyle(theme)
+    
     return (
         <div className={`home`}>
         <Image
@@ -22,33 +20,21 @@ const Home = ({ theme }) => {
         />
         <Row justify={"space-evenly"}>
             <Space size={25} wrap>
-            <Button
-                style={{ color: color }}
-                size={'large'}
-                type={'link'}
-                shape={'circle'}
-                href={'/about'}
-                icon={<Avatar size={64} src={CascadeBadge} />}
-                block
-            >About Me</Button>
-            <Button 
-                style={{ color: color }}
-                size={'large'}
-                type='link'
-                shape='circle'
-                href={'/projects'}
-                icon={<Avatar size={64} src={ThunderBadge} />}
-                block
-            >Projects</Button>
-            <Button 
-                style={{ color: color }}
-                size={'large'}
-                type={'link'}
-                shape={'circle'}
-                href={'/knowledge'}
-                icon={<Avatar size={64} src={EarthBadge} />}
-                block
-            >Blog</Button>
+            { links.map(( item ) => {
+                const { text, img: { src, size }, url } = item
+                return (
+                    <Button
+                        key={url}
+                        style={{ color: color }}
+                        size={'large'}
+                        type={'link'}
+                        shape={'circle'}
+                        href={url}
+                        icon={<Avatar size={size} src={ images(`./${src}`) } />}
+                        block
+                    >{text}</Button>
+                )
+            }) }
             </Space>
         </Row> 
         </div>
