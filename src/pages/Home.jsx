@@ -7,17 +7,13 @@ import {
 import '../assets/styles/home.css';
 import { images } from '../utils/assets.js'
 import { themeStyle } from "../utils/style.js";
+import Game from 'poke-platformer'
 
 const Home = ({ links, theme }) => {
     const { color } = themeStyle(theme)
-    
     return (
         <div className={`home`}>
-        <Image
-            preview={false}
-            src="http://placehold.it/3000x1000"
-            width={'100%'}
-        />
+       <Game/>
         <Row justify={"space-evenly"}>
             <Space size={25} wrap>
             { links.map(( item ) => {

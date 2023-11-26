@@ -25,6 +25,7 @@
     "antd": "^5.10.3",
     "chart.js": "^4.4.0",
     "date-fns": "^2.30.0",
+    "poke-platformer": "file:game_build/poke-platformer",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
