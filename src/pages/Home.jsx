@@ -13,7 +13,7 @@ const Home = ({ links, theme }) => {
     const { color } = themeStyle(theme)
     return (
         <div className={`home`}>
-       <Game/>
+       <Game width={900} height={400}/>
         <Row justify={"space-evenly"}>
             <Space size={25} wrap>
             { links.map(( item ) => {
