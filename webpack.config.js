@@ -21,9 +21,7 @@ const config = {
     devServer: {
         port: port,
         hot: true,
-        historyApiFallback: {
-            index: './public/index.html'
-        }
+        historyApiFallback: true
     },
     plugins: [
         new HtmlWebpackPlugin({
