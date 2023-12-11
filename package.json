@@ -5,13 +5,11 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build --branch deployed",
-    "storybook": "npm install && storybook dev -p 6006 -s public",
-    "build-storybook": "npm install && storybook build -s public"
+    "start:webpack": "webpack-dev-server --config webpack.config.js",
+    "build": "npm i && webpack --mode=production",
+    "build:dev": "npm i && webpack --mode=development",
+    "storybook": "npm i && storybook dev -p 6006 -s public",
+    "build-storybook": "npm i && storybook build -s public"
   },
   "engines": {
     "npm": ">=8.0.0",
@@ -25,6 +23,7 @@
     "antd": "^5.10.3",
     "chart.js": "^4.4.0",
     "date-fns": "^2.30.0",
+    "poke-platformer": "file:../react-poke-platformer/lib/poke-platformer",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
@@ -52,9 +51,9 @@
     "@storybook/testing-library": "^0.1.0",
     "babel-plugin-named-exports-order": "^0.0.2",
     "check-dependencies": "^1.1.0",
-    "gh-pages": "^5.0.0",
     "storybook": "^7.5.2",
-    "webpack": "^5.89.0"
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
   },
   "eslintConfig": {
     "extends": [
