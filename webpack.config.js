@@ -14,7 +14,7 @@ const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader
 const config = {
     entry: './src/index.js',
     output: {
-        path: path.resolve(__dirname, `build/${project}`),
+        path: path.resolve(__dirname, `build`),
         filename: `${filename}`,
         umdNamedDefine: true
     },
