@@ -1,8 +1,8 @@
 import React from "react";
 import {  Row, Col, Divider, List } from 'antd';
 
-import { Title, Paragraph } from "../components/Text";
-import ProjectCard from "../components/ProjectCard";
+import { Title, Paragraph } from "../components/Text.jsx";
+import ProjectCard from "../components/ProjectCard.jsx";
 
 const ProjectsAll = ({ viewAll: { title, text }, posts }) => {
 

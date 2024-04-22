@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 //import PropTypes from "prop-types";
 import { 
     Row, Button, Avatar, Image, Space
@@ -7,14 +7,28 @@ import {
 import '../assets/styles/home.css';
 import { images } from '../utils/assets.js'
 import { themeStyle } from "../utils/style.js";
-import Game from 'poke-platformer'
+import PokePlatformer from 'poke-platformer';
 
 const Home = ({ links, theme }) => {
     const { color } = themeStyle(theme)
-    
+    const [ windowSize, setWindowSize ] = useState({ width: window.innerWidth, height: window.innerHeight })
+    const gameRef = useRef(null);
+
+    useEffect(() => {
+        window.addEventListener('resize', updateDimensions);
+      },[])
+
+    function updateDimensions() {
+        setWindowSize({ width: window.innerWidth, height: window.innerHeight })
+    } 
+
     return (
         <div className={`home`}>
-       <Game width={900} height={400}/>
+       <PokePlatformer 
+            //ref={gameRef}
+            width={windowSize.width * .90 } 
+            height={windowSize.height * .333 }
+        />
         <Row justify={"space-evenly"}>
             <Space size={25} wrap>
             { links.map(( item ) => {

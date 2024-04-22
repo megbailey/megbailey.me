@@ -1,8 +1,8 @@
 import React from "react";
 import { Row, Col, Divider, Button, List } from 'antd';
-import { Title, Paragraph } from "../components/Text";
+import { Title, Paragraph } from "../components/Text.jsx";
 import { themeStyle } from "../utils/style.js";
-import ProjectCard from "../components/ProjectCard";
+import ProjectCard from "../components/ProjectCard.jsx";
 
 const Projects = ({ theme, title, text, projectSpotlight, posts }) => {
     const { color } = themeStyle(theme)

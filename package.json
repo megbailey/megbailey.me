@@ -8,9 +8,7 @@
     "start": "react-scripts start",
     "start:webpack": "webpack-dev-server --config webpack.config.js",
     "build": "npm i && webpack --mode=production && echo '/* /index.html  200' | cat > build/_redirects",
-    "build:dev": "npm i && webpack --mode=development",
-    "storybook": "npm i && storybook dev -p 6006 -s public",
-    "build-storybook": "npm i && storybook build -s public"
+    "build:dev": "npm i && webpack --mode=development"
   },
   "engines": {
     "npm": ">=8.0.0",
@@ -24,7 +22,7 @@
     "antd": "^5.10.3",
     "chart.js": "^4.4.0",
     "date-fns": "^2.30.0",
-    "poke-platformer": "https://github.com/megbailey/react-poke-platformer.git",
+    "poke-platformer": "file:../react-poke-platformer/",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
@@ -34,25 +32,21 @@
     "react-router-dom": "^6.18.0",
     "react-scripts": "5.0.1",
     "remark-gfm": "^3.0.1",
+    "require-from-string": "^2.0.2",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.21.8",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@storybook/addon-actions": "^7.5.2",
-    "@storybook/addon-docs": "^7.5.2",
-    "@storybook/addon-essentials": "^7.5.2",
-    "@storybook/addon-interactions": "^7.5.2",
-    "@storybook/addon-links": "^7.5.2",
-    "@storybook/addon-mdx-gfm": "^7.5.2",
-    "@storybook/node-logger": "^7.5.2",
-    "@storybook/preset-create-react-app": "^7.5.2",
-    "@storybook/react": "^7.5.2",
-    "@storybook/react-webpack5": "^7.5.2",
-    "@storybook/testing-library": "^0.1.0",
-    "babel-plugin-named-exports-order": "^0.0.2",
+    "@babel/plugin-transform-class-properties": "^7.24.1",
+    "@babel/plugin-transform-runtime": "^7.24.3",
+    "@babel/preset-env": "^7.24.4",
+    "@babel/preset-react": "^7.24.1",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/user-event": "^13.5.0",
     "check-dependencies": "^1.1.0",
-    "storybook": "^7.5.2",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
   },
@@ -60,16 +54,6 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ],
-    "overrides": [
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
-      }
     ]
   },
   "browserslist": {

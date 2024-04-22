@@ -2,7 +2,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
 const isProduction = process.env.NODE_ENV == 'production';
 const port = process.env.PORT || 3000;
 
@@ -10,13 +9,11 @@ const project = 'dev-portfolio'
 const filename = 'index.js'
 const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader';
 
-
 const config = {
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, `build`),
         filename: `${filename}`,
-        umdNamedDefine: true
     },
     devServer: {
         port: port,
@@ -50,9 +47,9 @@ const config = {
                             "@babel/preset-react"
                         ],
                         plugins:[
-                            "@babel/syntax-dynamic-import", 
-                            "@babel/plugin-syntax-jsx", 
-                            "@babel/plugin-transform-class-properties"
+                            "@babel/plugin-transform-class-properties",
+                            "@babel/plugin-transform-runtime",
+                            "@babel/plugin-proposal-private-property-in-object"
                         ],
                     }
                 },

@@ -1,8 +1,8 @@
 import React from "react";
 import {  Row, Col, Divider, List } from 'antd';
-import { Title } from "../components/Text";
+import { Title } from "../components/Text.jsx";
 import { themeStyle } from "../utils/style.js";
-import BlogCard from "../components/BlogCard";
+import BlogCard from "../components/BlogCard.jsx";
 
 const Blog = ({ title, posts, theme }) => {
     const { color } = themeStyle(theme)
