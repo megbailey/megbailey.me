@@ -1,33 +1,41 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 //import PropTypes from "prop-types";
-import { 
-    Row, Button, Avatar, Image, Space
-} from 'antd';
+import { Row, Button, Avatar,  Space } from 'antd';
 
 import '../assets/styles/home.css';
 import { images } from '../utils/assets.js'
 import { themeStyle } from "../utils/style.js";
 import PokePlatformer from 'poke-platformer';
 
-const Home = ({ links, theme }) => {
+const Home = ({ links, theme, parentRef }) => {
     const { color } = themeStyle(theme)
-    const [ windowSize, setWindowSize ] = useState({ width: window.innerWidth, height: window.innerHeight })
-    const gameRef = useRef(null);
+    const [ windowWidth, setWindowWidth ] = useState(window.innerWidth)
+    const [ windowHeight, setWindowHeight ] = useState(window.innerHeight)
+    const [ topOffset, setTopOffset ] = useState(0)
 
     useEffect(() => {
+        const updateDimensions = () => {
+            setWindowWidth(window.innerWidth)
+            setWindowHeight(window.innerHeight)
+        } 
         window.addEventListener('resize', updateDimensions);
-      },[])
 
-    function updateDimensions() {
-        setWindowSize({ width: window.innerWidth, height: window.innerHeight })
-    } 
+        const resizeObserver = new ResizeObserver((event) => {
+            setTopOffset(event[0].contentRect.top)
+        });
+
+        resizeObserver.observe(parentRef.current);
+    }, []);
 
     return (
         <div className={`home`}>
-       <PokePlatformer 
-            //ref={gameRef}
-            width={windowSize.width * .90 } 
-            height={windowSize.height * .333 }
+        <PokePlatformer 
+            key={ topOffset + windowWidth + windowHeight}
+            offsetY={64 + topOffset }
+            offsetX={windowWidth * 0.05}
+            width={windowWidth* .90 } 
+            height={windowHeight * .333 }
+            //debug={true}
         />
         <Row justify={"space-evenly"}>
             <Space size={25} wrap>

@@ -1,8 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef} from 'react';
 import PropTypes from 'prop-types';
 import { 
      Layout, Col, Row, Button, Avatar, Switch
 } from 'antd';
+/* import store from '../utils/store.js'
+import { header } from '../utils/reducers.js'; */
 
 import Menu from './Menu';
 
@@ -37,9 +39,13 @@ const menuItems = [
 
 const Header = ({ onThemeChange }) => {  
 const theme = useContext(ThemeContext);
+const ref = useRef(null);
 
   return (
-      <LayoutHeader style={ themeStyle(theme) }>
+      <LayoutHeader 
+        ref={ref}
+        style={ themeStyle(theme) }
+      >
       <Row justify="start">
         <Col xs={3} sm={2} md={2} lg={1} xl={1} xxl={1}>
           <Button 
