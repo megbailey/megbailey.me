@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
-//import PropTypes from "prop-types";
 import { Row, Button, Avatar,  Space } from 'antd';
+import { useSelector } from 'react-redux';
 
 import '../assets/styles/home.css';
 import { images } from '../utils/assets.js'
-import { themeStyle } from "../utils/style.js";
 import PokePlatformer from 'poke-platformer';
 
-const Home = ({ links, theme, parentRef }) => {
-    const { color } = themeStyle(theme)
+const Home = ({ links, parentRef }) => {
     const [ windowWidth, setWindowWidth ] = useState(window.innerWidth)
     const [ windowHeight, setWindowHeight ] = useState(window.innerHeight)
     const [ topOffset, setTopOffset ] = useState(0)
+
+    const theme = useSelector(state => state.theme.value)
+    const { color } = theme.style
 
     useEffect(() => {
         const updateDimensions = () => {
@@ -31,8 +32,6 @@ const Home = ({ links, theme, parentRef }) => {
         <div className={`home`}>
         <PokePlatformer 
             key={ topOffset + windowWidth + windowHeight}
-            offsetY={64 + topOffset }
-            offsetX={windowWidth * 0.05}
             width={windowWidth* .90 } 
             height={windowHeight * .333 }
             //debug={true}

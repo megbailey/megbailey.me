@@ -1,11 +1,9 @@
-import React, { useContext } from 'react';
-//import PropTypes from 'prop-types';
-import { isMatch, parse, format } from 'date-fns'
-
+import React from 'react';
 import { Tabs } from 'antd';
+import { isMatch, parse, format } from 'date-fns'
+import { useSelector } from 'react-redux';
+
 import { Title, Paragraph } from './Text';
-import { ThemeContext } from '../utils/context';
-import { themeStyle } from "../utils/style.js";
 
 const group = ( data ) => {
     let groupedByEmployer = []
@@ -23,11 +21,10 @@ const group = ( data ) => {
 }
 
 const TabContent = (items) => {
-    //const theme = useContext(ThemeContext)
     const formatDate = (date) => format( parse( date, 'yyyy-mm-dd', new Date() ), 'MMM yyyy');
     const isValid = (dateStr) => isMatch(dateStr, 'yyyy-mm-dd');
 
-    console.log(items)
+    //console.log(items)
     return (
         <>
             { Object.keys(items).map(( index ) => {
@@ -64,13 +61,13 @@ const TabContent = (items) => {
 }
 
 const Experience = ({ data }) => {  
-     const theme = useContext(ThemeContext)
-     const grouped = group(data)
+    const theme = useSelector(state => state.theme.value)
+    const grouped = group(data)
 
-     return (
+    return (
         <Tabs
             tabPosition={"left"}
-            tabBarStyle={ themeStyle(theme) }
+            tabBarStyle={theme.style}
             items={Object.keys(grouped).map(index => {
                 return {
                     label: `${index}`,

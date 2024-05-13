@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Row, Col } from 'antd';
+import React from "react";
+import { Row, Col, Card, List } from 'antd';
 import {
     Chart as ChartJS,
     RadialLinearScale,
@@ -10,15 +10,9 @@ import {
     Legend,
 } from 'chart.js';
 import { Radar } from 'react-chartjs-2';
-
-import {
-    Card, List,
-} from 'antd';
+import { useSelector } from 'react-redux';
 
 import { Text } from "./Text";
-
-import { themeStyle } from "../utils/style.js";
-import { ThemeContext } from "../utils/context";
 
 import '../assets/styles/skillsNtools.css';
 
@@ -33,12 +27,12 @@ ChartJS.register(
 
 
 const SkillsCard = ({ title, items }) => {
-    const theme = useContext(ThemeContext);
+    const theme = useSelector(state => state.theme.value)
 
     return (
         <Card
-            headStyle={ themeStyle(theme) } 
-            bodyStyle={ themeStyle(theme) }
+            headStyle={theme.style} 
+            bodyStyle={theme.style}
             style={{ margin: '2%' }}
             title={title} 
             bordered={true}
@@ -64,7 +58,7 @@ const SkillsCard = ({ title, items }) => {
 }
 
 const SkillsRadarChart = ({ label, showLabel, dataLabels, data, tooltip: { afterBodyContent } }) => {
-    const theme = useContext(ThemeContext);
+    const theme = useSelector(state => state.theme.value)
     
     return (
         <div>
@@ -92,13 +86,13 @@ const SkillsRadarChart = ({ label, showLabel, dataLabels, data, tooltip: { after
                         r :{
                             beginAtZero: true,
                             grid: {
-                                color: theme === 'light' ? 'black': 'white'
+                                color: theme.mode === 'light' ? 'black': 'white'
                             },
                             angleLines: {
-                                color: theme === 'light' ? 'black': 'white'
+                                color: theme.mode === 'light' ? 'black': 'white'
                             },
                             pointLabels: {
-                                color: theme === 'light' ? 'black': '#FF00FF'
+                                color: theme.mode === 'light' ? 'black': '#FF00FF'
                             },
                             ticks: {
                                 color: 'black'
@@ -152,15 +146,6 @@ const SkillsAndTools = (props) => {
     </>
     )
 
-}
-
-SkillsAndTools.propTypes = {
-   /*  data: PropTypes.arrayOf(PropTypes.shape({
-        type: PropTypes.string,
-        name: PropTypes.string.isRequired,
-        tag: PropTypes.arrayOf(PropTypes.string),
-        level: PropTypes.number
-    })) */
 }
 
 export default SkillsAndTools;

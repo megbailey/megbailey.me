@@ -1,15 +1,19 @@
 import React from "react";
 import { Col, Card, Button, Image } from 'antd';
 import { FormOutlined } from '@ant-design/icons';
+import { useSelector } from 'react-redux';
+
 import { Text } from "../components/Text";
-import { themeStyle } from "../utils/style.js";
+
 
 const BlogCard = (props) => {
-    const { id, name, description, image: { src, width, height }, theme } = props
+    const { id, name, description, image: { src, width, height } } = props
+    const theme = useSelector(state => state.theme.value)
+
     return (
         <Card
-            headStyle={ themeStyle(theme) } 
-            bodyStyle={ themeStyle(theme) }
+            headStyle={theme.style} 
+            bodyStyle={theme.style}
             title={name} 
             bordered={true}
             size={"small"}

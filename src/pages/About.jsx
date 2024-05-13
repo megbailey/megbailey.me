@@ -1,19 +1,16 @@
 import React from "react";
-//import PropTypes from "prop-types";
-import { 
-    Row, Col, Divider
-} from 'antd';
+import { Row, Col, Divider } from 'antd';
+import { useSelector } from 'react-redux';
 
-import { themeStyle } from "../utils/style.js";
 
 import { Title, Paragraph } from "../components/Text.jsx";
 import SkillsAndTools from "../components/SkillsAndTools.jsx";
 import Experience from "../components/Experience.jsx";
 
 
-const About = ({ title, text, skillsAndTools, experience, theme }) => { 
-
-    const { color } = themeStyle(theme)
+const About = ({ title, text, skillsAndTools, experience }) => { 
+    const theme = useSelector(state => state.theme.value)
+    const { color } = theme.style
 
     return (
         <>

@@ -2,17 +2,20 @@ import React from "react";
 import {  Card, Button, Image, Avatar, Space } from 'antd';
 import { DesktopOutlined, FormOutlined } from '@ant-design/icons';
 import { Text } from "../components/Text";
-import { themeStyle } from "../utils/style.js";
+import { useSelector } from 'react-redux';
 
 import OctocatLight from '../assets/img/github-48-light.png'
 import OctocatDark from '../assets/img/github-48-dark.png'
 
 const ProjectCard = ( props ) => { 
-    const { id, name, description, image: { src, width, height }, githubURL, liveDemoURL, theme } = props
+    const { id, name, description, image: { src, width, height }, githubURL, liveDemoURL } = props
+    
+    const theme = useSelector(state => state.theme.value)
+
     return (
         <Card
-            headStyle={ themeStyle(theme) } 
-            bodyStyle={ themeStyle(theme) }
+            headStyle={ theme.style } 
+            bodyStyle={ theme.style }
             title={name} 
             bordered={true}
             size={"small"}
@@ -35,7 +38,7 @@ const ProjectCard = ( props ) => {
                         shape="circle"
                         href={githubURL}
                         target={'_blank'}
-                        icon={<Avatar size={24} src={theme === "light" ? OctocatLight: OctocatDark} />}
+                        icon={<Avatar size={24} src={theme.mode === "light" ? OctocatLight: OctocatDark} />}
                         block
                     />
                 {liveDemoURL && (

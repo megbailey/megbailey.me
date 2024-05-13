@@ -1,9 +1,6 @@
-import React, { useContext} from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { Typography } from 'antd';
-
-import { ThemeContext } from '../utils/context';
-import { themeStyle } from '../utils/style';
+import { useSelector } from 'react-redux';
 
 const { 
      Text: TypographyText,
@@ -14,11 +11,10 @@ const {
 
 
 const Title = ( { size, children } ) => {  
-     const theme = useContext(ThemeContext);
-     
+     const theme = useSelector(state => state.theme.value)
      return (
           <TypographyTitle 
-               style={ themeStyle(theme) }
+               style={theme.style}
                level={size}
           >
                { children }
@@ -28,11 +24,11 @@ const Title = ( { size, children } ) => {
 
 
 const Paragraph = ( { children } ) => {  
-     const theme = useContext(ThemeContext);
+     const theme = useSelector(state => state.theme.value)
      return (
           <TypographyParagraph 
                style={{ 
-                    ...themeStyle(theme),
+                    ...theme.style,
                     wordBreak: 'normal'
                }} >
                { children }
@@ -41,25 +37,15 @@ const Paragraph = ( { children } ) => {
 }
 
 const Text = ( { children } ) => {  
-     const theme = useContext(ThemeContext);
+     const theme = useSelector(state => state.theme.value)
      return (
           <TypographyText style={{ 
-               ...themeStyle(theme),
+               ...theme.style,
                wordBreak: 'normal'
           }} >
                { children }
           </TypographyText>
      )
 }
-
-Title.propTypes = {
-     size: PropTypes.oneOf([1, 2, 3, 4, 5]),
-};
-Text.propTypes = {
-};
-Paragraph.propTypes = {
-
-};
-
    
 export { Title, Paragraph, Text };

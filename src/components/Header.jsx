@@ -1,19 +1,15 @@
-import React, { useContext, useRef} from 'react';
-import PropTypes from 'prop-types';
-import { 
-     Layout, Col, Row, Button, Avatar, Switch
-} from 'antd';
-/* import store from '../utils/store.js'
-import { header } from '../utils/reducers.js'; */
+import React, { useRef } from 'react';
+import { Layout, Col, Row, Button, Avatar, Switch } from 'antd';
+import { useSelector } from 'react-redux'
 
 import Menu from './Menu';
-
-import { ThemeContext } from '../utils/context';
-import { themeStyle } from '../utils/style';
 
 import MasterBall from '../assets/img/master-ball.png';
 import Sun from '../assets/img/sun-transparent-pixel.png';
 import Moon from  '../assets/img/moon-transparent-pixel.png';
+
+import { updateTheme } from '../utils/reducers';
+import store from '../utils/store';
 
 
 const { Header: LayoutHeader } = Layout;
@@ -37,14 +33,14 @@ const menuItems = [
      }
 ];
 
-const Header = ({ onThemeChange }) => {  
-const theme = useContext(ThemeContext);
+const Header = () => { 
+const theme =  useSelector(state => state.theme.value)
 const ref = useRef(null);
 
   return (
       <LayoutHeader 
         ref={ref}
-        style={ themeStyle(theme) }
+        style={theme.style}
       >
       <Row justify="start">
         <Col xs={3} sm={2} md={2} lg={1} xl={1} xxl={1}>
@@ -63,17 +59,13 @@ const ref = useRef(null);
         <Switch
           checkedChildren={<Avatar size={20} src={Moon} />}
           unCheckedChildren={<Avatar size={20} src={Sun} />}
-          defaultChecked={ theme === 'dark' ? true : false }
-          onChange={onThemeChange}
+          defaultChecked={ theme.mode === 'dark' ? true : false }
+          onChange={ () => store.dispatch( updateTheme( theme.mode === 'light' ? `dark` : `light`) ) }
         />
         </Col>
       </Row>
     </LayoutHeader>
   )
 }
-
-Header.propTypes = {
-     onThemeChange: PropTypes.func
-};
    
 export default Header;

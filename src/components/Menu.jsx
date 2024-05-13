@@ -1,16 +1,13 @@
-import React, { useState, useContext } from "react";
-import { PropTypes } from "prop-types";
+import React, { useState } from "react";
 import { Menu as AntMenu } from 'antd';
-
-import { ThemeContext } from "../utils/context";
-import { themeStyle } from "../utils/style.js";
+import { useSelector } from 'react-redux';
 
 
 const Menu = (props) => {
   const [currentMenuItem, setCurrentMenuItem] = useState(null);
   const { items } = props
 
-  const theme = useContext(ThemeContext);
+  const theme = useSelector(state => state.theme.value)
   
   const onMenuClick = (e) => {
       setCurrentMenuItem(e.key);
@@ -23,8 +20,8 @@ const Menu = (props) => {
         onClick={onMenuClick} 
         selectedKeys={[currentMenuItem]}
         mode="horizontal" 
-        style={ themeStyle(theme) }
-        theme={theme}
+        style={theme.style}
+        theme={theme.mode}
         items={ items.map( item => {
             const { text, link } = item
             return {
@@ -35,15 +32,6 @@ const Menu = (props) => {
     />
   );
 
-}
-
-Menu.propTypes = {
-    theme: PropTypes.oneOf(['dark', 'light']),
-   /*  items: PropTypes.shape({
-        text: PropTypes.string.isRequired,
-        link: PropTypes.string,
-        //icon: PropTypes.string
-      }), */
 }
 
 export default Menu;

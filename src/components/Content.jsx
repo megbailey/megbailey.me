@@ -1,8 +1,6 @@
-import React, { useContext, Children, cloneElement, isValidElement, useRef } from 'react';
-//import PropTypes from 'prop-types';
+import React, { Children, cloneElement, isValidElement, useRef } from 'react';
 import { Layout } from 'antd';
-import { ThemeContext } from '../utils/context';
-import { themeStyle } from '../utils/style';
+import { useSelector, shallowEqual } from 'react-redux';
 
 import "../assets/styles/content.css"
 
@@ -10,13 +8,14 @@ const { Content: LayoutContent } = Layout;
 
 const Content = (props) => {  
      const { children } = props
-     const theme = useContext(ThemeContext)
+
+     const theme = useSelector(state => state.theme.value)
      const ref = useRef(null)
      return (
           <LayoutContent 
                ref={ref}
                className='ant-layout-content'
-               style={themeStyle(theme)}
+               style={theme.style}
           >
                { Children.map( children, (child) => {
                     if (!isValidElement(child))
@@ -25,7 +24,6 @@ const Content = (props) => {
                     return cloneElement( child, {
                          ...child.props,
                          parentRef: ref,
-                         theme: theme
                     })
                })}
           </LayoutContent>

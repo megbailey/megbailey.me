@@ -1,11 +1,14 @@
 import React from "react";
-import {  Row, Col, Divider, List } from 'antd';
+import { Row, Col, Divider, List } from 'antd';
+import { useSelector } from 'react-redux';
+
 import { Title } from "../components/Text.jsx";
-import { themeStyle } from "../utils/style.js";
 import BlogCard from "../components/BlogCard.jsx";
 
-const Blog = ({ title, posts, theme }) => {
-    const { color } = themeStyle(theme)
+const Blog = ({ title, posts }) => {
+    const theme = useSelector(state => state.theme.value)
+    const { color } = theme.style
+
     return (
         <>
         <Row justify={"left"}>
@@ -26,8 +29,7 @@ const Blog = ({ title, posts, theme }) => {
             dataSource={posts}
             renderItem={(item, index) => (
                 <BlogCard 
-                    id={index}
-                    theme={theme} 
+                    id={index}                    
                     { ...item }
                 />
             )}
