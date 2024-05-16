@@ -3,7 +3,7 @@ import { Row, Button, Avatar,  Space } from 'antd';
 import { useSelector } from 'react-redux';
 
 import '../assets/styles/home.css';
-import { images } from '../utils/assets.js'
+import useImage from "../utils/useImage.js";
 import PokePlatformer from 'poke-platformer';
 
 const Home = ({ links, parentRef }) => {
@@ -40,6 +40,8 @@ const Home = ({ links, parentRef }) => {
             <Space size={25} wrap>
             { links.map(( item ) => {
                 const { text, img: { src, size }, url } = item
+                const asyncImage = useImage(src)
+
                 return (
                     <Button
                         key={url}
@@ -48,7 +50,12 @@ const Home = ({ links, parentRef }) => {
                         type={'link'}
                         shape={'circle'}
                         href={url}
-                        icon={<Avatar size={size} src={ images(`./${src}`) } />}
+                        icon={
+                            <Avatar 
+                                size={size} 
+                                src={asyncImage.image} 
+                            />
+                        }
                         block
                     >{text}</Button>
                 )

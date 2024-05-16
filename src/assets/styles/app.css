@@ -5,6 +5,8 @@
 html, body {
     margin: 0;
     padding: 0;
+    /* App is responsive until client is smaller than 480px in width */
+    min-width: 480px;
 }  
 
 html, body, #root {

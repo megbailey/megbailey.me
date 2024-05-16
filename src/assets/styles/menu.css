@@ -1,0 +1,4 @@
+/* menu items should be more white if dark mode */
+ul.ant-menu.ant-menu-dark li.ant-menu-item span.ant-menu-title-content a {
+    color: white;
+}

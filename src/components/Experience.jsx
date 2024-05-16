@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 
 import { Title, Paragraph } from './Text';
 import '../assets/styles/experience.css'
+import useDevice from '../utils/useDevice';
 
 const group = ( data ) => {
     let groupedByEmployer = []
@@ -64,14 +65,12 @@ const TabContent = (items) => {
 const Experience = ({ data }) => {  
     const theme = useSelector(state => state.theme.value)
     const grouped = group(data)
+    const device = useDevice();
 
-    console.log(theme)
     return (
         <Tabs
             className={`tabs--${theme.mode}`}
-            tabPosition={"left"}
-            //itemColor={ theme.mode === 'light' ? 'black' : 'white'}
-            //tabBarStyle={theme.style}
+            tabPosition={device === 'mobile' ? 'top' : 'left'}
             items={Object.keys(grouped).map(index => {
                 return {
                     label: `${index}`,
@@ -80,7 +79,7 @@ const Experience = ({ data }) => {
                 };
             })}
         />
-     )
+    )
 }
    
 export default Experience;

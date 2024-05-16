@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Menu as AntMenu } from 'antd';
 import { useSelector } from 'react-redux';
+import '../assets/styles/menu.css'
 
 
 const Menu = (props) => {
