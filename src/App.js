@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Helmet } from 'react-helmet';
 import {
   BrowserRouter,
@@ -26,6 +26,8 @@ import projectContent from './assets/content/projects.js'
 import Post from "./pages/Post.jsx";
 import postContent from './assets/content/posts/posts.json'
 
+import { updateTheme } from './utils/reducers';
+import store from './utils/store';
 import "./assets/styles/app.css";
 
 /* prior to app load get previosly loaded theme if stored on client */
@@ -33,18 +35,20 @@ let prevTheme = localStorage.getItem('theme')
 
 function App() {
   const theme = useSelector(state => state.theme.value)
-  //const [theme, setTheme] = useState( prevTheme !== null ? prevTheme : "dark");
 
   const { backgroundColor } = theme.style
 
+  /* persist chosen theme between page loads */
+  useEffect(() => {
+    /* get previosly loaded theme if stored on client */
+    let prevTheme = localStorage.getItem('theme')
+    store.dispatch( updateTheme( prevTheme) )
+  }, [])
 
- /*  const onThemeChange = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light'
-    setTheme(newTheme)
-    localStorage.setItem('theme', newTheme)
-  } */
+  useEffect(() => {
+    localStorage.setItem('theme', theme.mode)
+  }, [theme.mode])
 
-  //const { backgroundColor } = themeStyle
 
   return (
     <div className="App" id='app' >
@@ -77,7 +81,6 @@ function App() {
               path="/projects/all" 
               element={ 
                 <Template 
-                  //onThemeChange={onThemeChange} 
                   content={ <ProjectsAll {...projectContent} posts={postContent.filter((post) => post.type === 'project')} /> } 
                 /> 
               } 
@@ -86,7 +89,6 @@ function App() {
               path="/projects/post" 
               element={ 
                 <Template 
-                  //onThemeChange={onThemeChange} 
                   content={ <Post type={'project'} posts={postContent.filter((post) => post.type === 'project')} /> } 
                 /> 
               } 
@@ -95,7 +97,6 @@ function App() {
               path="/knowledge" 
               element={ 
                 <Template 
-                  //onThemeChange={onThemeChange} 
                   content={ <Blog {...blogContent} posts={postContent.filter((post) => post.type === 'blog')}/> } 
                 /> 
               } 
@@ -104,7 +105,6 @@ function App() {
               path="/blog/post" 
               element={ 
                 <Template 
-                  //onThemeChange={onThemeChange} 
                   content={ <Post type={'blog'} posts={postContent.filter((post) => post.type === 'blog')} /> } 
                 /> 
               } 

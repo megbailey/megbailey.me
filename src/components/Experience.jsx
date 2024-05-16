@@ -4,6 +4,7 @@ import { isMatch, parse, format } from 'date-fns'
 import { useSelector } from 'react-redux';
 
 import { Title, Paragraph } from './Text';
+import '../assets/styles/experience.css'
 
 const group = ( data ) => {
     let groupedByEmployer = []
@@ -64,10 +65,13 @@ const Experience = ({ data }) => {
     const theme = useSelector(state => state.theme.value)
     const grouped = group(data)
 
+    console.log(theme)
     return (
         <Tabs
+            className={`tabs--${theme.mode}`}
             tabPosition={"left"}
-            tabBarStyle={theme.style}
+            //itemColor={ theme.mode === 'light' ? 'black' : 'white'}
+            //tabBarStyle={theme.style}
             items={Object.keys(grouped).map(index => {
                 return {
                     label: `${index}`,
