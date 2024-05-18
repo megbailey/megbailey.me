@@ -27,17 +27,6 @@ const About = ({ title, text, skillsAndTools, experience }) => {
                 </Paragraph>
             </Col>
         </Row>
-        <Row >
-            <Col>
-                <Title size={2}>{skillsAndTools.title}</Title>
-                <Divider style={{backgroundColor: color }}/>
-            </Col>
-        </Row>
-        <Row >
-            <Col>
-                <SkillsAndTools {...skillsAndTools} />
-            </Col>
-        </Row>
         <Row  >
             <Col>
                 <Title size={2}>{experience.title}</Title>
@@ -47,6 +36,17 @@ const About = ({ title, text, skillsAndTools, experience }) => {
         <Row >
             <Col>
               <Experience {...experience} />
+            </Col>
+        </Row>
+        <Row >
+            <Col>
+                <Title size={2}>{skillsAndTools.title}</Title>
+                <Divider style={{backgroundColor: color }}/>
+            </Col>
+        </Row>
+        <Row >
+            <Col>
+                <SkillsAndTools {...skillsAndTools} />
             </Col>
         </Row>
         </>

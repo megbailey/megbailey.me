@@ -1,11 +1,12 @@
 import React from 'react';
-import { Tabs } from 'antd';
+import { Tabs, List, Avatar } from 'antd';
 import { isMatch, parse, format } from 'date-fns'
 import { useSelector } from 'react-redux';
 
-import { Title, Paragraph } from './Text';
-import '../assets/styles/experience.css'
+import { Text, Title, Paragraph } from './Text';
+import useImage from "../utils/useImage.js";
 import useDevice from '../utils/useDevice';
+import '../assets/styles/experience.css'
 
 const group = ( data ) => {
     let groupedByEmployer = []
@@ -20,6 +21,40 @@ const group = ( data ) => {
     }
    
     return groupedByEmployer;
+}
+
+const IconList = ({ items }) => {
+    console.log(items)
+   return (
+        <List
+            grid={{
+                gutter: [16, 8],
+                xs: 1,
+                sm: 2,
+                med: 3,
+                lg: 4
+            }}
+            dataSource={items}
+            renderItem={(item) => {
+                const asyncImage = useImage(item.imageSrc)
+                return (
+                    <List.Item 
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column'
+                        }}
+                    >
+                        <Avatar 
+                            size={48} 
+                            src={asyncImage.image} 
+                        />
+                        <Text>{item.name}</Text>
+                    </List.Item>
+                )
+            }}
+        />
+   )
+    
 }
 
 const TabContent = (items) => {
@@ -50,10 +85,30 @@ const TabContent = (items) => {
                                 </ul>
                             </Paragraph>
                         )}
-                        { languageList && <Paragraph>Languages:  {languageList.join(", ")}</Paragraph> }
-                        { toolsList && <Paragraph>Tools: {toolsList.join(", ")}</Paragraph>}
-                        { libraryFrameworkList && <Paragraph>Libraries & Frameworks: {libraryFrameworkList.join(", ")}</Paragraph>}
-                        { environmentList && <Paragraph>Environments:  {environmentList.join(", ")}</Paragraph>}
+                        { languageList && (
+                            <>
+                            <Paragraph>Languages</Paragraph>
+                            <IconList items={languageList}/>
+                            </>
+                        )}
+                        { toolsList && (
+                            <>
+                            <Paragraph>Tools</Paragraph>
+                            <IconList items={toolsList}/>
+                            </>
+                        )}
+                        { libraryFrameworkList && (
+                            <>
+                            <Paragraph>Libraries & Frameworks</Paragraph>
+                            <IconList items={libraryFrameworkList}/>
+                            </>
+                        )}
+                        { environmentList && (
+                            <>
+                            <Paragraph>Environments</Paragraph>
+                            <IconList items={environmentList}/>
+                            </>
+                        )}
                     </div>
                 )
             })}

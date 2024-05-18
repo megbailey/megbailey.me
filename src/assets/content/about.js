@@ -1,120 +1,163 @@
 
 
-const toolsData = [
-    {
+const toolsData = {
+    /* Langauges */
+    'Java': {
         type: 'Languages',
         name: 'Java',
         tag: [ 'Backend' ],
-        level: 7
+        level: 7,
+        imageSrc: 'java-logo.png'
     },
-    {
+    'PHP': {
         type: 'Languages',
         name: 'PHP',
         tag: [ 'Backend', 'Scripting' ],
-        level: 9
+        level: 9,
+        imageSrc: 'php-logo.png'
     },
-    {
+    'Javascript': {
         type: 'Languages',
         name: 'Javascript',
         tag: [ 'Frontend' ],
-        level: 8
+        level: 8,
+        imageSrc: 'javascript-logo.png'
     },
-    {
+    'Python': {
         type: 'Languages',
         name: 'Python',
         tag: [ 'Scripting' ],
-        level: 6
+        level: 6,
+        imageSrc: 'python-logo.png'
     },
-    {
+    'SQL': {
         type: 'Languages',
         name: 'SQL',
         tag: [ 'Backend' ],
-        level: 8
+        level: 8,
+        imageSrc: 'sql-logo.png'
     },
-    {
+    'Bash': {
         type: 'Languages',
-        name: 'Bash',
+        name: 'Bash / ZSH',
         tag: [ 'Scripting' ],
-        level: 5
+        level: 5,
+        imageSrc: 'cmdline-logo.png'
     },
-    {
+    /* Tools */
+    'Jira': {
         type: 'Tools',
-        name: 'Gitlab CI',
-        tag: [ 'CI/CD' ],
-        level: 6
+        name: 'Jira',
+        tag: [ ],
+        imageSrc: 'jira-logo.png'
     },
-    {
+    'Gitlab Jobs': {
+        type: 'Tools',
+        name: 'Gitlab Jobs',
+        tag: [ 'CI/CD' ],
+        level: 6,
+        imageSrc: 'gitlab-logo.png'
+    },
+    'Github Actions': {
         type: 'Tools',
         name: 'Github Actions',
         tag: [ 'CI/CD' ],
-        level: 5
+        level: 5,
+        imageSrc: 'github-lord-logo.png'
     },
-    {
+    'Apache JMeter': {
         type: 'Tools',
         name: 'Apache JMeter',
         tag: [ 'Backend', 'Infrastructure' ],
-        level: 7
+        level: 7,
+        imageSrc: 'apache-logo.png'
     },
-    {
+    'Postman': {
         type: 'Tools',
         name: 'Postman',
         tag: [ 'Backend' ],
-        level: 7
+        level: 8,
+        imageSrc: 'postman-logo.png'
     },
-    {
+    'Packer': {
         type: 'Tools',
         name: 'Packer',
         tag: [ 'Infrastructure' ],
-        level: 7
+        level: 7,
+        imageSrc: 'hashicorp-packer-logo.png'
     },
-    {
+    'Ansible': {
+        type: 'Tools',
+        name: 'Ansible',
+        tag: [ 'Infrastructure', 'Scripting' ],
+        level: 6,
+        imageSrc: 'ansible-logo.png'
+    },
+    /* Libraries */
+    'React': {
         type: 'Libraries',
         name: 'React',
         tag: [ 'Frontend' ],
-        level: 8
+        level: 9,
+        imageSrc: 'react-logo.png'
     },
-    {
+    'GraphQL': {
+        type: 'Libraries',
+        name: 'GraphQL',
+        tag: [ 'Backend' ],
+        level: 10,
+        imageSrc: 'graphql-logo.png'
+    },
+    'Storybook': {
         type: 'Libraries',
         name: 'Storybook',
         tag: [ 'Frontend' ],
-        level: 9
+        level: 9,
+        imageSrc: 'storybook-logo.png'
     },
-    {
+    'Google Protobuf': {
         type: 'Libraries',
         name: 'Google Protobuf',
         tag: [ 'Backend' ],
-        level: 7
+        level: 7,
+        imageSrc: 'google-logo.png'
     },
-    {
+    /* Running environments */
+    'Docker': {
         type: 'Platforms',
         name: 'Docker',
         tag: [ 'Infrastructure' ],
-        level: 9
+        level: 8,
+        imageSrc: 'docker-logo.png'
     },
-    {
+    'AWS EC2': {
         type: 'Platforms',
         name: 'AWS EC2',
         tag: [ 'Infrastructure' ],
-        level: 6
+        level: 6,
+        imageSrc: 'aws-logo.png'
     },
-    {
+    'VMWare VSphere / ESXI': {
         type: 'Platforms',
-        name: 'VMWare ESXI',
+        name: 'VMWare VSphere / ESXI',
         tag: [ 'Infrastructure' ],
-        level: 7
+        level: 7,
+        imageSrc: 'vmware-logo.png'
     },
-    {
+    'Linux / Unix': {
         type: 'Platforms',
         name: 'Linux / Unix',
         tag: [ 'Infrastructure' ],
-        level: 10
+        level: 10,
+        imageSrc: 'linux-logo.png'
     },
-    {
+    'Teamwork': {
         name: 'Teamwork',
         tag: [ 'Teamwork' ],
-        level: 10
+        level: 10,
     },
-]
+}
+
 
 const positionsHeld = [
     {
@@ -122,12 +165,27 @@ const positionsHeld = [
         employer: 'University of San Diego',
         startDate: '2022-10-01',
         endDate: null,
-        languageList: [ 'PHP', 'Javascript', 'SQL' ],
-        libraryFrameworkList: [ 'React', 'Storybook' ],
-        environmentList: [ 'Docker', 'MacOS', 'Linux' ],
+        languageList: [ 
+            toolsData['PHP'], 
+            toolsData['Javascript'], 
+            toolsData['SQL'] 
+        ],
+        libraryFrameworkList: [ 
+            toolsData['React'], 
+            toolsData['Storybook'], 
+            toolsData['GraphQL'] 
+        ],
+        toolsList: [ 
+            toolsData['Postman'],
+            { name: 'Rich Results Test', imageSrc: 'google-logo.png' }
+        ],
+        environmentList: [ 
+            toolsData['Docker'], 
+            toolsData['Linux / Unix'] 
+        ],
         descriptionList: [
             'Maintain and contribute to the Camino library of React components.',
-            'Utilize & maintain are use of open source projects such as Storybook.',
+            'Utilize & maintain team\'s use of open source projects such as Storybook.',
             'Scope, plan, and implement custom web applications for departments.',
             'Architect and develop web applications that are used by all maintainers like the MP2 system',
             'Contributed to developing a set of containers that reflect build, staging, and production environments'
@@ -138,10 +196,19 @@ const positionsHeld = [
         employer: 'University of San Diego',
         startDate: '2022-06-10',
         endDate: '2022-10-01',
-        languageList: [ 'PHP', 'Javascript', 'SQL', 'GraphQL' ],
-        libraryFrameworkList: [ 'React' ],
-        toolsList: [ 'Github', 'postman', 'Jenkins' ],
-        environmentList: [ 'Docker', 'MacOS', 'Linux' ],
+        languageList: [ 
+            toolsData['PHP'], 
+            toolsData['Javascript'], 
+            toolsData['SQL'] 
+        ],
+        libraryFrameworkList: [ 
+            toolsData['React'], 
+            toolsData['Storybook'] 
+        ],
+        environmentList: [ 
+            toolsData['Docker'], 
+            toolsData['Linux / Unix'] 
+        ],
         descriptionList: [  ]
     },
     {
@@ -149,10 +216,30 @@ const positionsHeld = [
         employer: 'Georgia Tech Research Institute',
         startDate: '2020-06-20',
         endDate: '2022-6-10',
-        languageList: [ 'Ansible', 'bash', 'Java', 'Python', 'Rego' ],
-        libraryFrameworkList: [ 'KIE', 'Apache JMeter', 'protobuf' ],
-        toolsList: [ 'Gitlab', 'Gitlab Actions', 'Apache JMeter', 'packer' ],
-        environmentList: [ 'Docker', 'Podman', 'VMWare VSphere', 'AWS EC2', 'MacOS', 'Linux (RH)', 'Windows', 'KVM' ],
+        languageList: [ 
+            toolsData['Bash'], 
+            toolsData['Java'], 
+            toolsData['Python'] 
+        ],
+        libraryFrameworkList: [ 
+            toolsData['Ansible'],
+            toolsData['Apache JMeter'], 
+            toolsData['Google Protobuf'] 
+        ],
+        toolsList: [ 
+            toolsData['Gitlab Jobs'], 
+            toolsData['Github Actions'], 
+            toolsData['Apache JMeter'], 
+            toolsData['Packer'] 
+        ],
+        environmentList: [ 
+            toolsData['Docker'], 
+            toolsData['VMWare VSphere / ESXI'], 
+            toolsData['AWS EC2'], 
+            toolsData['Linux / Unix'], 
+            { name: 'Windows', imageSrc: 'windows-logo.png'},
+            { name: 'KVM', imageSrc: 'linux-logo.png'} 
+        ],
         descriptionList: [ ]
     },
     {
@@ -160,9 +247,18 @@ const positionsHeld = [
         employer: 'Georgia Tech Research Institute',
         startDate: '2019-06-01',
         endDate: '2020-06-20',
-        languageList: [ 'Ansible', 'Python', 'Powershell' ],
-        toolsList: [ 'Bitbucket', 'Jira' ],
-        environmentList: [ 'MacOS', 'Linux', 'Windows' ],
+        languageList: [ 
+            toolsData['Ansible'], 
+            toolsData['Python'], 
+            { name: 'Powershell', imageSrc: 'powershell-logo.png' } 
+        ],
+        toolsList: [ 
+            toolsData['Jira'],
+        ],
+        environmentList: [ 
+            toolsData['Linux / Unix'], 
+            { name: 'Windows', imageSrc: 'windows-logo.png' }
+        ],
         descriptionList: [ ]
     },
     {
@@ -170,9 +266,9 @@ const positionsHeld = [
         employer: 'University of San Diego',
         startDate: '2017-06-10',
         endDate: '2022-10-1',
-        languageList: [ 'PHP', 'Javascript', 'SQL' ],
-        toolsList: [ 'Jira' ],
-        environmentList: [ 'MacOS', 'Linux' ],
+        languageList: [ toolsData['PHP'], toolsData['Javascript'], toolsData['SQL'] ],
+        toolsList: [ toolsData['Jira'] ],
+        environmentList: [ toolsData['Linux / Unix'] ],
         descriptionList: [ ]
     },
     {
@@ -180,8 +276,16 @@ const positionsHeld = [
         employer: 'University of San Diego',
         startDate: '2016-06-10',
         endDate: '2020-5-30',
-        languageList: [ 'Java', 'Python', 'C', 'C++' ],
-        environmentList: [ 'Docker', 'MacOS', 'Linux (RH)' ],
+        languageList: [ 
+            toolsData['Java'], 
+            toolsData['Python'], 
+            { name: 'C', imageSrc: 'c-logo.png' }, 
+            { name: 'C++', imageSrc: 'c++-logo.png' } 
+        ],
+        environmentList: [ 
+            toolsData['Docker'], 
+            toolsData['Linux / Unix'] 
+        ],
         descriptionList: [
             'Summer Undergrad Reseach Expereince (S.U.R.E) Scholar. Deep dive into GDPR, its effect on users and design an application that allows users to analyze the data that makes up their online footprint.',
             'Vice President (2019) and marketing (2018) of USD local student chapter of ACM.',
@@ -192,7 +296,8 @@ const positionsHeld = [
 
 function groupItemsByType( items ) {
     let cardData = []
-    items.forEach( (item, index) => {
+    
+    Object.values(items).forEach((item) => {
         const type = item.type
         if ( type && cardData[type] ) 
             cardData[type] = {
@@ -215,7 +320,7 @@ function groupItemsByType( items ) {
 
 function groupItemsByTag( items ) {
     let chartData = { }
-    items.forEach( item => {
+    Object.values(items).forEach((item) => {
         item.tag.forEach( tagItem => {
             if ( chartData[tagItem] === undefined ) {
                 chartData[tagItem] = [ ]
