@@ -24,7 +24,6 @@ const group = ( data ) => {
 }
 
 const IconList = ({ items }) => {
-    console.log(items)
    return (
         <List
             grid={{

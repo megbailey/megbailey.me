@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Row, Col, Card, List } from 'antd';
 import {
     Chart as ChartJS,
@@ -15,6 +15,7 @@ import { useSelector } from 'react-redux';
 import { Text } from "./Text";
 
 import '../assets/styles/skillsNtools.css';
+import useDevice from "../utils/useDevice";
 
 ChartJS.register(
     RadialLinearScale,
@@ -31,8 +32,10 @@ const SkillsCard = ({ title, items }) => {
 
     return (
         <Card
-            headStyle={theme.style} 
-            bodyStyle={theme.style}
+            styles={{
+                header: theme.style,
+                body: theme.style
+            }}
             style={{ margin: '2%' }}
             title={title} 
             bordered={true}
@@ -57,7 +60,7 @@ const SkillsCard = ({ title, items }) => {
     )
 }
 
-const SkillsRadarChart = ({ label, showLabel, dataLabels, data, tooltip: { afterBodyContent } }) => {
+export const SkillsRadarChart = ({ label, showLabel, dataLabels, data, tooltip: { afterBodyContent } }) => {
     const theme = useSelector(state => state.theme.value)
     
     return (
@@ -103,15 +106,15 @@ const SkillsRadarChart = ({ label, showLabel, dataLabels, data, tooltip: { after
                 data={{
                     labels: dataLabels,
                     datasets: [
-                    {
-                        label: label,
-                        data: data,
-                        //['8', '7', '5', '6', '6', '10'],
-                        backgroundColor: 'rgba(153, 102, 255, 0.4)',
-                        borderColor: 'rgba(255, 0, 255, 1)',
-                        borderWidth: 1,
-                        fill: true
-                    },
+                        {
+                            label: label,
+                            data: data,
+                            //['8', '7', '5', '6', '6', '10'],
+                            backgroundColor: 'rgba(153, 102, 255, 0.4)',
+                            borderColor: 'rgba(255, 0, 255, 1)',
+                            borderWidth: 1,
+                            fill: true
+                        },
                     ],
                 }}
             />
@@ -120,7 +123,7 @@ const SkillsRadarChart = ({ label, showLabel, dataLabels, data, tooltip: { after
 }
 
 
-const SkillsAndTools = (props) => {
+export const SkillsAndTools = (props) => {
     const { 
         list: { data : listData, ...otherList }, 
         chart
@@ -147,5 +150,3 @@ const SkillsAndTools = (props) => {
     )
 
 }
-
-export default SkillsAndTools;

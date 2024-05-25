@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 
 import { Title, Paragraph } from "../components/Text.jsx";
-import SkillsAndTools from "../components/SkillsAndTools.jsx";
+import {SkillsAndTools, SkillsRadarChart} from "../components/SkillsAndTools.jsx";
 import Experience from "../components/Experience.jsx";
 
 
@@ -20,11 +20,14 @@ const About = ({ title, text, skillsAndTools, experience }) => {
                 <Divider style={{backgroundColor: color }}/>
             </Col>
         </Row>
-        <Row >
-            <Col>
+        <Row gutter={100}>
+            <Col span={6} xs={12} >
                 <Paragraph>
                     {text}
                 </Paragraph>
+            </Col>
+            <Col span={6} xs={12}>
+                <SkillsRadarChart {...skillsAndTools.chart} />
             </Col>
         </Row>
         <Row  >
@@ -36,17 +39,6 @@ const About = ({ title, text, skillsAndTools, experience }) => {
         <Row >
             <Col>
               <Experience {...experience} />
-            </Col>
-        </Row>
-        <Row >
-            <Col>
-                <Title size={2}>{skillsAndTools.title}</Title>
-                <Divider style={{backgroundColor: color }}/>
-            </Col>
-        </Row>
-        <Row >
-            <Col>
-                <SkillsAndTools {...skillsAndTools} />
             </Col>
         </Row>
         </>

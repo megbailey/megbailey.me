@@ -30,12 +30,14 @@ const Home = ({ links, parentRef }) => {
 
     return (
         <div className={`home`}>
-        <PokePlatformer 
-            key={ topOffset + windowWidth + windowHeight}
-            width={windowWidth* .90 } 
-            height={windowHeight * .333 }
-            //debug={true}
-        />
+        <Row justify={"center"}>
+            <PokePlatformer 
+                key={ topOffset + windowWidth + windowHeight}
+                width={windowWidth* .90 } 
+                height={windowHeight * .333 }
+                //debug={true}
+            />
+        </Row>
         <Row justify={"space-evenly"}>
             <Space size={25} wrap>
             { links.map(( item ) => {
