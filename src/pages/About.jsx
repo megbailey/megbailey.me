@@ -4,12 +4,14 @@ import { useSelector } from 'react-redux';
 
 
 import { Title, Paragraph } from "../components/Text.jsx";
-import {SkillsAndTools, SkillsRadarChart} from "../components/SkillsAndTools.jsx";
+import {SkillsRadarChart} from "../components/SkillsAndTools.jsx";
 import Experience from "../components/Experience.jsx";
+import useDevice from "../utils/useDevice.js";
 
 
 const About = ({ title, text, skillsAndTools, experience }) => { 
     const theme = useSelector(state => state.theme.value)
+    const device = useDevice();
     const { color } = theme.style
 
     return (
@@ -20,7 +22,7 @@ const About = ({ title, text, skillsAndTools, experience }) => {
                 <Divider style={{backgroundColor: color }}/>
             </Col>
         </Row>
-        <Row gutter={100}>
+        <Row gutter={device === "mobile" ? 10 : "tablet" ? 50 : 100}>
             <Col span={6} xs={12} >
                 <Paragraph>
                     {text}

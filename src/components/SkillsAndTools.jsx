@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Row, Col, Card, List } from 'antd';
+import React, { useEffect, useState } from "react";
+//import { Row, Col, Card, List } from 'antd';
 import {
     Chart as ChartJS,
     RadialLinearScale,
@@ -12,10 +12,10 @@ import {
 import { Radar } from 'react-chartjs-2';
 import { useSelector } from 'react-redux';
 
-import { Text } from "./Text";
+//import { Text } from "./Text";
 
 import '../assets/styles/skillsNtools.css';
-import useDevice from "../utils/useDevice";
+//import useDevice from "../utils/useDevice";
 
 ChartJS.register(
     RadialLinearScale,
@@ -27,7 +27,7 @@ ChartJS.register(
   );
 
 
-const SkillsCard = ({ title, items }) => {
+/* const SkillsCard = ({ title, items }) => {
     const theme = useSelector(state => state.theme.value)
 
     return (
@@ -58,17 +58,33 @@ const SkillsCard = ({ title, items }) => {
             />
         </Card>
     )
-}
+} */
 
 export const SkillsRadarChart = ({ label, showLabel, dataLabels, data, tooltip: { afterBodyContent } }) => {
     const theme = useSelector(state => state.theme.value)
+    const [dimensions, setDimensions] = useState({ 
+        height: window.innerHeight,
+        width: window.innerWidth
+      })
+
+      useEffect(() => {
+        function handleResize() {
+          setDimensions({
+            height: window.innerHeight,
+            width: window.innerWidth
+          })
+        }
+        window.addEventListener('resize', handleResize)
+    }, [])
     
     return (
-        <div>
+        <div  
+            style={{
+                width: dimensions.width *.4 + 'px'
+            }} 
+         >
             <Radar
-                style={{
-                    width: '550px'
-                }}
+                key={dimensions.width}
                 options={{
                     plugins: {
                         legend: {
@@ -123,7 +139,7 @@ export const SkillsRadarChart = ({ label, showLabel, dataLabels, data, tooltip: 
 }
 
 
-export const SkillsAndTools = (props) => {
+/* export const SkillsAndTools = (props) => {
     const { 
         list: { data : listData, ...otherList }, 
         chart
@@ -149,4 +165,4 @@ export const SkillsAndTools = (props) => {
     </>
     )
 
-}
+} */

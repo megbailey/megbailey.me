@@ -86,25 +86,25 @@ const TabContent = (items) => {
                         )}
                         { languageList && (
                             <>
-                            <Paragraph>Languages</Paragraph>
+                            <Title size={4}>Languages</Title>
                             <IconList items={languageList}/>
                             </>
                         )}
                         { toolsList && (
                             <>
-                            <Paragraph>Tools</Paragraph>
+                            <Title size={4}>Tools</Title>
                             <IconList items={toolsList}/>
                             </>
                         )}
                         { libraryFrameworkList && (
                             <>
-                            <Paragraph>Libraries & Frameworks</Paragraph>
+                            <Title size={4}>Libraries & Frameworks</Title>
                             <IconList items={libraryFrameworkList}/>
                             </>
                         )}
                         { environmentList && (
                             <>
-                            <Paragraph>Environments</Paragraph>
+                            <Title size={4}>Environments</Title>
                             <IconList items={environmentList}/>
                             </>
                         )}
