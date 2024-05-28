@@ -184,11 +184,18 @@ const positionsHeld = [
             toolsData['Linux / Unix'] 
         ],
         descriptionList: [
-            'Maintain and contribute to the Camino library of React components.',
-            'Utilize & maintain team\'s use of open source projects such as Storybook.',
-            'Scope, plan, and implement custom web applications for departments.',
-            'Architect and develop web applications that are used by all maintainers like the MP2 system',
-            'Contributed to developing a set of containers that reflect build, staging, and production environments'
+            'I contribute to our React monorepo, <a href="https://camino.sandiego.edu/storybook/">Camino</a>, that contains the library of React components used throughout the <a href="https://sandiego.edu">sandiego.edu domain</a>. I am responsible for about half of our 60 components, and I address any feature requests or bugs found.', 
+            'I work with my team to maintain our usage of open source technology such as Storybook and Webpack including performing version updates, bug fixes, and staying up-to-date with the open source community on Github.',
+            'I assist in the integration of Camino and custom applications with our vendor, Hannon Hill, and their Content Management System, Cascade. We utilize <a href="https://velocity.apache.org/engine/1.7/user-guide.html">Velocity scripts</a> for most of the user-side integration and <a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/velocity-tools.html">Java features that Hannon Hill provides.</a>',
+            'I design, develop, and maintain custom web applications, both public and private, for the USD community. I am responsible for both frontend React work as well as APIs and database design. My notable projects include' + 
+                '<ul>' +
+                '<li><a href="https://www.sandiego.edu/osp/research-expertise/">Expertise Database</a>\'s gives the ability for USD Staff and Faculty to create a profile to promote collaboration for research at USD.' +
+                    ' It has receive highly compliments, and Dr. Truc Ngo and I authored and submitted an abstract of our development plan to <a href="https://nordp.org/?">NRODP</a>, but it was not selected.</li>' +
+                '<li>Component Inventory app which utilizes Hannon Hill\'s APIs to scrape the entire <a href="https://sandiego.edu">sandiego.edu</a> website ( about 160 individual sites ) and coalesce data on the Camino components used on each page ( ~60,000 components ). The inventory application is an internal tool for the team, but its been game changing for quality assurance and data-backed decision making</li>' + 
+                '<li>The Sidebar redesign where I implemented the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/">Disclosure pattern</a> to allow for users to navigate any given USD site more intiutaively so that users can find like-pages. The pattern was chosen and tested after weeks of user research. The sidebar is both a Camino component and an app. As a component, it is used by other web applications we make. As an app, it can be turned on or off by CMS users and will show either sibling or children pages of the current page as an interactive tree.</li>' +
+                '<li>MyPostings 2.0 (in progress) is an unified publish and subscribe application that enables News, Events, Announcements, etc ( i.e. Posts ) to be posted on any page on any sites by any USD One user. The MyPostings system in production now is at least 10 years old and in need of a full re-development. We meet frequently with our stakeholders, and there have been many lessons learned that the new system will address including but not limited to a live preview, diverse drag-n-drop content modules, robust management features, timely notifications, re-skin of all \'feeds\', a new <a href="https://www.sandiego.edu/news/">Newscenter</a>, and so much more. Stay tuned for launch details. </li>' + 
+                '</ul>',
+            'I spearheaded the development and continue to maintain a set of development containers that reflect our build, staging, and production environments that myself and others use for projects.'
         ]
     },
     {
@@ -209,7 +216,11 @@ const positionsHeld = [
             toolsData['Docker'], 
             toolsData['Linux / Unix'] 
         ],
-        descriptionList: [  ]
+        descriptionList: [ 
+            'In a moderate career change, I was rehired to re-vamp and add new features to the Summer and Intersession Office\'s Courses application that I built as a student. It was surreal having to breakdown the code I had written 3 years prior and see how far I had come as a developer.' ,
+            'I worked with our server admin to develop a set of containers that reflect our build, staging, and production environments so that I could develop more easily.',
+            'I learned React!'
+        ]
     },
     {
         position: 'Solutions Architect, Research Scientist I',
@@ -259,7 +270,11 @@ const positionsHeld = [
             toolsData['Linux / Unix'], 
             { name: 'Windows', imageSrc: 'windows-logo.png' }
         ],
-        descriptionList: [ ]
+        descriptionList: [ 
+            'I developed a Powershell script that analyzed the company\'s users in Active Directory comparing it to a spreadsheet in shared via Box. The script would produce a report that had entries if a users AD entry differed from the data ( phone, email, etc ) in the spreadsheet so that it could be rectified.',
+            'I worked as a Research temp where I assited FTEs in performing OS updates for about 150 VMs in an on-prem environment. I would contribute to and create new ansible scripts to speed to up our tasks.',
+            'I assited in deploying new work machines to FTEs and assited with any technology problems in office.'
+        ]
     },
     {
         position: 'Assistant Student Web Developer',
@@ -269,7 +284,11 @@ const positionsHeld = [
         languageList: [ toolsData['PHP'], toolsData['Javascript'], toolsData['SQL'] ],
         toolsList: [ toolsData['Jira'] ],
         environmentList: [ toolsData['Linux / Unix'] ],
-        descriptionList: [ ]
+        descriptionList: [ 
+            'I interfaced with USD site maintainers via tickets and assisted with web content updates, workflow, and several redeisgns.',
+            'I developed an app which interfaces with vendor APIs to fetch user activity data for the Content Management Systemt (CMS)',
+            'I developed the Summer and Intersession Office\'s database driven Courses application utilizing data from internal enterpise APIs'
+        ]
     },
     {
         position: 'Student, Computer Science',
@@ -287,9 +306,10 @@ const positionsHeld = [
             toolsData['Linux / Unix'] 
         ],
         descriptionList: [
-            'Summer Undergrad Reseach Expereince (S.U.R.E) Scholar. Deep dive into GDPR, its effect on users and design an application that allows users to analyze the data that makes up their online footprint.',
-            'Vice President (2019) and marketing (2018) of USD local student chapter of ACM.',
-            '3.9 major GPA'
+            '3.9 major GPA and 3.7 overall GPA',
+            'Minors in Mathematics and Classical Studies (Latin and Ancient Western history)',
+            'I participated in the Summer Undergrad Reseach Expereince (S.U.R.E) Scholar program. Between semesters, I met frequently with Dr. Saturnino Garcia and did a deep dive into GDPR, and its effect on users in the USA. I designed and began developing a web application that would analyze data that makes up a user\'s online footprint and present it to the user in such a way that the user could learn about the importance of digital privacy.',
+            'I served as the Vice President (2019) and marketing chair (2018) of USD\'s student chapter of Association for Computing Machinery (ACM).',
         ]
     },
 ]

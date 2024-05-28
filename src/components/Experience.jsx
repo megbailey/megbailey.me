@@ -79,7 +79,11 @@ const TabContent = (items) => {
                             <Paragraph>
                                 <ul>
                                 { descriptionList.map((item, descriptIndex ) => {
-                                    return <li key={`${employer}-description-item-${descriptIndex}`}>{item}</li>
+                                    return (
+                                        <li 
+                                            key={`${employer}-description-item-${descriptIndex}`}
+                                            dangerouslySetInnerHTML={{__html: item}}/>
+                                    )
                                 })}
                                 </ul>
                             </Paragraph>
