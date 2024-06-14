@@ -251,7 +251,19 @@ const positionsHeld = [
             { name: 'Windows', imageSrc: 'windows-logo.png'},
             { name: 'KVM', imageSrc: 'linux-logo.png'} 
         ],
-        descriptionList: [ ]
+        descriptionList: [ 
+            'Most of my time was spent contributing to a project out of San Diego Field Office. The project\'s mission is to build, deploy and maintain a multi-level security (MLS) environment to protect and streamline data produced at USAF live training events. The MLS environment is the backbone of a larger set of warfighter software tools called WarRoom. The MLS project and WarRoom is funded by Live Mission Operations Capabilities (LMOC) Program Office.',
+            'I designed and implemented networks of machines configuring routers and adpaters with subnets and subinterfaces.',
+            'I contributed to a monorepo of Ansible Playbooks and Bash scripts to configure linux and Windows machines. My more notable contributions were:' 
+            + '<ul>' 
+            + '<li>Ansible Playbook to configure a linux host as a KVM (Kernal Virtual Machine) Hypervisor </li>'
+            + '<li>Ansible Playbook to configure a linux host with Nexus OSS Repository Manager with local yum (Linux), pypi (Python), containers (Docker) and custom executable package repositories</li>'
+            + '</ul>',
+            'I developed a Docker-In-Docker build pipeline that builds custom Docker images inside a containerized Gitlab runner andpushes the new image to a private repository on success.',
+            'I partipated in a Red Team for an Independent Research and Development (IRAD) project, aptly nammed Red Lighting, that explored the effects and militiary implications of Terrestial Gamma-Ray Flashes (TGFs).',
+            'I was the lead developer for the live classifcation engine for the MLS environment, and I created a methodology to translate Security Classification Guides (SCGs) to a machine readable format to be digest by the engine.',
+            'I met with stakeholders (USAF, Navy, and other government agencies) frequently and participated in and lead multi-day technical discussions. From these instructions, we developed technical requirements for a government-owned, re-configufrable, re-deployable MLS Cross Domain Solution (CDS)'
+        ]
     },
     {
         position: 'Visting Research Student / Tech Temp',
