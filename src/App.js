@@ -11,24 +11,24 @@ import { useSelector } from 'react-redux';
 import Template from "./components/Template.jsx";
 /* Home */
 import Home from "./pages/Home.jsx";
-import homeContent from "./assets/content/home.js";
+import homeContent from "../assets/content/home.js";
 /* About */
 import About from "./pages/About.jsx";
-import aboutContent from "./assets/content/about.js";
+import aboutContent from "../assets/content/about.js";
 /* Blog */
 import Blog from "./pages/Blog.jsx";
-import blogContent from './assets/content/blog.js'
+import blogContent from '../assets/content/blog.js'
 /* Projects */
 import Projects from "./pages/Projects.jsx";
 import ProjectsAll from "./pages/ProjectsAll.jsx";
-import projectContent from './assets/content/projects.js'
+import projectContent from '../assets/content/projects.js'
 /* Posts */
 import Post from "./pages/Post.jsx";
-import postContent from './assets/content/posts/posts.json'
+import postContent from '../assets/content/posts/posts.json'
 
 import { updateTheme } from './utils/reducers';
 import store from './utils/store';
-import "./assets/styles/app.css";
+import "../assets/styles/app.css";
 
 /* prior to app load get previosly loaded theme if stored on client */
 let prevTheme = localStorage.getItem('theme')

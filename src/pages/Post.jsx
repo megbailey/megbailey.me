@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from "remark-gfm";
-import '../assets/styles/post.css'
+import '../../assets/styles/post.css';
 
 let params = new URLSearchParams(document.location.search);
 let id = parseInt( params.get("id") );
@@ -16,7 +16,7 @@ const Post = ({ type, posts }) => {
     useEffect(() => {
         if (!post) return;
 
-        import(`../assets/content/posts/${type}/${post.filename}`)
+        import(`../../assets/content/posts/${type}/${post.filename}`)
             .then( result => {
                 fetch( result.default )
                     .then( res => res.text() )

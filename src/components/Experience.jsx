@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { Text, Title, Paragraph } from './Text';
 import useImage from "../utils/useImage.js";
 import useDevice from '../utils/useDevice';
-import '../assets/styles/experience.css'
+import '../../assets/styles/experience.css'
 
 const group = ( data ) => {
     let groupedByEmployer = []

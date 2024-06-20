@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Row, Button, Avatar,  Space } from 'antd';
 import { useSelector } from 'react-redux';
 
-import '../assets/styles/home.css';
+import '../../assets/styles/home.css';
 import useImage from "../utils/useImage.js";
 import PokePlatformer from 'poke-platformer';
 

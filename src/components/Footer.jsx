@@ -4,10 +4,10 @@ import { useSelector } from 'react-redux';
 
 import { Text } from './Text';
 
-import OctocatLight from '../assets/img/github-48-light.png'
-import OctocatDark from '../assets/img/github-48-dark.png'
-import LinkedInLight from '../assets/img/linkedin-50-light.png'
-import LinkedInDark from '../assets/img/linkedin-50-dark.png'
+import OctocatLight from '../../assets/img/github-48-light.png'
+import OctocatDark from '../../assets/img/github-48-dark.png'
+import LinkedInLight from '../../assets/img/linkedin-50-light.png'
+import LinkedInDark from '../../assets/img/linkedin-50-dark.png'
 
 const { Footer: LayoutFooter } = Layout;
 

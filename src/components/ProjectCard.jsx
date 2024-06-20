@@ -4,8 +4,8 @@ import { DesktopOutlined, FormOutlined } from '@ant-design/icons';
 import { Text } from "../components/Text";
 import { useSelector } from 'react-redux';
 
-import OctocatLight from '../assets/img/github-48-light.png'
-import OctocatDark from '../assets/img/github-48-dark.png'
+import OctocatLight from '../../assets/img/github-48-light.png'
+import OctocatDark from '../../assets/img/github-48-dark.png'
 
 const ProjectCard = ( props ) => { 
     const { id, name, description, image: { src, width, height }, githubURL, liveDemoURL } = props

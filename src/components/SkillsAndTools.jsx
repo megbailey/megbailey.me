@@ -14,7 +14,7 @@ import { useSelector } from 'react-redux';
 
 //import { Text } from "./Text";
 
-import '../assets/styles/skillsNtools.css';
+import '../../assets/styles/skillsNtools.css';
 //import useDevice from "../utils/useDevice";
 
 ChartJS.register(

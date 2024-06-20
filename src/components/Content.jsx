@@ -2,7 +2,7 @@ import React, { Children, cloneElement, isValidElement, useRef } from 'react';
 import { Layout } from 'antd';
 import { useSelector, shallowEqual } from 'react-redux';
 
-import "../assets/styles/content.css"
+import "../../assets/styles/content.css"
 
 const { Content: LayoutContent } = Layout;
 

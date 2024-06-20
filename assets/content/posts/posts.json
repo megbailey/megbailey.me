@@ -5,54 +5,44 @@
         "filename": "butterdb.md",
         "description": "An ORM for using Google Sheets as a relational database",
         "image":{ 
-            "src": "/img/posts/25673_adobe_express.svg",
+            "src": "../../img/25673_adobe_express.svg",
             "height": "100",
             "width": "200"
         },
         "githubURL": "https://github.com/megbailey/ButterDB"  
     },
     {
-        "name": "Project Name",
+        "name": "megbailey.me",
         "type": "project",
-        "filename": "projectPost.md",
-        "description": "A meaningful short description",
+        "filename": "medbaileyme.md",
+        "description": "my developer portfolio (this website!",
         "image":{ 
             "src": "http://placehold.it/200x100"
         },
         "githubURL": "https://github.com/megbailey/ProjectName"        
     },
     {
-        "name": "Project Name",
+        "name": "React Poke-Platformer",
         "type": "project",
-        "filename": "projectPost.md",
-        "description": "A meaningful short description",
+        "filename": "react-poke-platformer.md",
+        "description": "16-bit pokemon-inspired platformer built with javscript",
         "image":{ 
             "src": "http://placehold.it/200x100"
         },
         "githubURL": "https://github.com/megbailey/ProjectName"        
     },
     {
-        "name": "Project Name",
+        "name": "React Links Tree",
         "type": "project",
-        "filename": "projectPost.md",
-        "description": "A meaningful short description",
+        "filename": "react-accessible-links-tree.md",
+        "description": "Accessible Tree of links",
         "image":{ 
             "src": "http://placehold.it/200x100"
         },
         "githubURL": "https://github.com/megbailey/ProjectName"        
     },
     {
-        "name": "Project Name",
-        "type": "project",
-        "filename": "projectPost.md",
-        "description": "A meaningful short description",
-        "image":{ 
-            "src": "http://placehold.it/200x100"
-        },
-        "githubURL": "https://github.com/megbailey/ProjectName"        
-    },
-    {
-        "name": "Blog Post Name",
+        "name": "All About Relational DBs",
         "type": "blog",
         "filename": "blogPost.md",
         "description": "A meaningful short description",
@@ -62,20 +52,30 @@
         "githubURL": "https://github.com/megbailey/ProjectName"        
     },
     {
-        "name": "Blog Post Name",
+        "name": "LocalHost Docker with TLS!",
         "type": "blog",
-        "filename": "blogPost.md",
-        "description": "A meaningful short description",
+        "filename": "localhost-docker-with-tls.md",
+        "description": "Guide to setting up a local development environment with docker and TLS certifications",
         "image":{ 
             "src": "http://placehold.it/200x100"
         },
         "githubURL": "https://github.com/megbailey/ProjectName"        
     },
     {
-        "name": "Blog Post Name",
+        "name": "Setting up Webpack",
         "type": "blog",
-        "filename": "blogPost.md",
-        "description": "A meaningful short description",
+        "filename": "webpack-setup.md",
+        "description": "Guide to setting up a local development environment with docker and TLS certifications",
+        "image":{ 
+            "src": "http://placehold.it/200x100"
+        },
+        "githubURL": "https://github.com/megbailey/ProjectName"        
+    },
+    {
+        "name": "Protecting yourself on the web",
+        "type": "blog",
+        "filename": "stay-safe-online.md",
+        "description": "A guide to taking precautions online for a paranoia-types",
         "image":{ 
             "src": "http://placehold.it/200x100"
         },

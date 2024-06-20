@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux'
 
 import Menu from './Menu';
 
-import MasterBall from '../assets/img/master-ball.png';
-import Sun from '../assets/img/sun-transparent-pixel.png';
-import Moon from  '../assets/img/moon-transparent-pixel.png';
+import MasterBall from '../../assets/img/master-ball.png';
+import Sun from '../../assets/img/sun-transparent-pixel.png';
+import Moon from  '../../assets/img/moon-transparent-pixel.png';
 
 import { updateTheme } from '../utils/reducers';
 import store from '../utils/store';
