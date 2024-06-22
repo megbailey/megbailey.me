@@ -5,7 +5,7 @@
         "filename": "butterdb.md",
         "description": "An ORM for using Google Sheets as a relational database",
         "image":{ 
-            "src": "../../img/25673_adobe_express.svg",
+            "src": "25673_adobe_express.svg",
             "height": "100",
             "width": "200"
         },

@@ -1,16 +1,26 @@
 import React from "react";
-import {  Card, Button, Image, Avatar, Space } from 'antd';
-import { DesktopOutlined, FormOutlined } from '@ant-design/icons';
-import { Text } from "../components/Text";
 import { useSelector } from 'react-redux';
+import { Card, Button, Image, Avatar, Space } from 'antd';
+import { DesktopOutlined, FormOutlined } from '@ant-design/icons';
+
+import { Text } from "../components/Text";
+import useImage from "../utils/useImage.js";
 
 import OctocatLight from '../../assets/img/github-48-light.png'
 import OctocatDark from '../../assets/img/github-48-dark.png'
 
 const ProjectCard = ( props ) => { 
-    const { id, name, description, image: { src, width, height }, githubURL, liveDemoURL } = props
+    const { 
+        id, 
+        name, 
+        description, 
+        image: { src, width, height }, 
+        githubURL, 
+        liveDemoURL,
+    } = props
     
     const theme = useSelector(state => state.theme.value)
+    const asyncImage = useImage(src)
 
     return (
         <Card
@@ -26,7 +36,7 @@ const ProjectCard = ( props ) => {
         <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
             <Image
                 preview={false}
-                src={src}
+                src={src.includes('http') ? src : asyncImage.image}
                 width={width}
                 height={height}
             ></Image>
