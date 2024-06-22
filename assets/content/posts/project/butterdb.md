@@ -78,7 +78,3 @@ application permission to use your Google account.
 - Rename the downloaded file to client_secret.json and place in src/main/resources in this project.
 - Navigate back to Google Drive to the new spreadsheet and share the new spreadsheet (with editor rights) with the 
 service account email from GCP console.
-
-### Configuration file (this section is //TODO)
-- Copy the ID of the spreadsheet in the URL and set the (//TODO: config file) [spreadsheetID in the getGSpreadsheet @Bean](./src/main/java/com/github/megbailey/butter/ButterDBApp). 
-- (optional) change the path of client_secret
