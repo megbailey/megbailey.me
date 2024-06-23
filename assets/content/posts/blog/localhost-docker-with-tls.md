@@ -9,6 +9,7 @@ If you have a pre-existing docker-compose.yml, you can skip to step 3 to start s
 If you need a deep dive into containers, their uses, and comparison to VMs, I recommend these sources:
 
 - <https://www.docker.com/resources/what-container/>
+- <https://aws.amazon.com/compare/the-difference-between-docker-vm/>
 
 ## Docker commands
 
@@ -192,11 +193,17 @@ Next, we will create private keys for each container using the new root CA. For 
 
 ## 8. Adding certificates to containers
 
-Next, we need to add the generated certificates and rootCA to each container. You can accomplish this either by using volumes like in step 2 or through steps in another Dockerfile to configure the image more before the compose. Different images have specific TLS configuration requirements which means you'll need to research how to add certs for your chosen image, but I can give a few tips.
+Next, we need to add the generated certificates and rootCA to each container. You can accomplish this either by using volumes like in step 2 or create a new Dockerfile to configure the image more before the its used in the docker-compose. Different images have specific TLS configuration requirements which means you'll need to research how to add certs for your chosen image, but I can give a few tips.
 
-For this last step, I recommend using an additional DockerFile because we can also do any configuring that maybe application or image-specific. Volumes will put the file in the correct place, but it may persist things, we are unable to dictate the keys permissions, and we can't do more configuration.
+I recommend using an additional DockerFile because we can also do any configuring that maybe application or image-specific. Volumes will put the file in the correct place, but it may persist things we don't want, we are unable to dictate the keys permissions, and we can't easily do more configuration for the volume.
 
-Start by creating folders and Dockerfile for each image you're using. Then, update the docker compose to reference your custom build of each image.
+Start by creating folders and Dockerfile for each unique image you're using.
+
+```docker
+FROM httpd
+```
+
+Then, update the docker compose to reference your custom build/ Dockerfile of each image. Also, add an ARG, a local variable, to each service that requires a TLS certificate. This ARG will hold the name of the certificate (without any extensions like .pem, .crt, etc). My TLS artifacts almost always the same name as the hostname of the machine, but yours will be different if you decided not use the container hostname in step 7.
 
 ```yaml
 version: '3.2'
@@ -245,21 +252,23 @@ networks:
         driver: default
 ```
 
-You can use the ARG TLSFilename withith the Dockerfile to copy the cert for each container.
+Now, within the Dockerfile for each image, You can use the ARG TLSFilename to copy the cert for each container.
 
 ```docker
-ARG TLSFilename
+ARG TLSFilename # the variable set in the compose file
+
 # Copy private key and cert created with a development root CA
 COPY --chmod=600 "tls/${TLSFilename:-localhost}.key" /etc/ssl/private/
 COPY "tls/${TLSFilename:-localhost}.pem" /etc/ssl/certs/
+
 # Copy the development root CA and update cert store
 COPY tls/rootCA.pem  /usr/local/share/ca-certificates/rootCA.crt
 RUN chmod 644 /usr/local/share/ca-certificates/rootCA.crt && update-ca-certificates
 ```
 
-If using an Apache container, you might need to modify the configuration to enable HTTPS with your certificates.
+Continuing with our example, apache requires additional configiration for HTTPS specifically updating default-ssl.conf file to contain a path to the certs.
 
-```
+```docker
 ADD 000-default.conf /etc/apache2/sites-available/000-default.conf
 ADD default-ssl.conf /etc/apache2/sites-enabled/default-ssl.conf
 RUN sed -i "s/localhost.key/${TLSFilename:-localhost}.key/" /etc/apache2/sites-enabled/default-ssl.conf && \
