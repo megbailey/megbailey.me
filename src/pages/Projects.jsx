@@ -40,7 +40,9 @@ const Projects = ({ title, text, projectSpotlight, posts }) => {
                     xs: 1,
                     sm: 2,
                     med: 3,
-                    lg: 4
+                    lg: 3,
+                    xl: 3,
+                    xxl: 4
             }}
             dataSource={spotlightedProjects}
             renderItem={(item, index) => (
@@ -54,7 +56,13 @@ const Projects = ({ title, text, projectSpotlight, posts }) => {
             size={'small'}
             type="link"
             href={'/projects/all'}
-            style={{ float: 'right' }}
+            style={{ 
+                justifySelf: 'right',
+                padding: 16,
+                border: 1,
+                borderColor: "black",
+                ...theme.style
+            }}
         >...View All</Button>
         </>
     )

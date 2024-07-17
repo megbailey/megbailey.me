@@ -1,0 +1,23 @@
+
+.ant-card .ant-card-head .ant-card-head-title .ant-typography {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    white-space: nowrap; /* Prevents title from wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adds ellipsis if the text overflows */
+  }
+
+.ant-card  .ant-card-body .ant-space-item {
+    overflow: hidden;
+}
+
+.ant-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  /*border: 1px solid #f0f0f0; */
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s;
+}

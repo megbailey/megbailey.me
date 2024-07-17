@@ -10,11 +10,14 @@ const {
 
 
 
-const Title = ( { size, children } ) => {  
+const Title = ( { size, style, children } ) => {  
      const theme = useSelector(state => state.theme.value)
      return (
           <TypographyTitle 
-               style={theme.style}
+               style={{
+                    ...theme.style,
+                    ...style
+               }}
                level={size}
           >
                { children }
@@ -23,12 +26,13 @@ const Title = ( { size, children } ) => {
 }
 
 
-const Paragraph = ( { children } ) => {  
+const Paragraph = ( { style, children } ) => {  
      const theme = useSelector(state => state.theme.value)
      return (
           <TypographyParagraph 
                style={{ 
                     ...theme.style,
+                    ...style,
                     wordBreak: 'normal'
                }} >
                { children }

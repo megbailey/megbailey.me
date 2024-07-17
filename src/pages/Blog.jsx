@@ -11,7 +11,7 @@ const Blog = ({ title, posts }) => {
 
     return (
         <>
-        <Row justify={"left"}>
+        <Row>
             <Col>
                 <Title>{title}</Title>
                 <Divider style={{ backgroundColor: color }} />
@@ -24,7 +24,9 @@ const Blog = ({ title, posts }) => {
                     xs: 1,
                     sm: 2,
                     med: 3,
-                    lg: 4
+                    lg: 3,
+                    xl: 3,
+                    xxl: 4
             }}
             dataSource={posts}
             renderItem={(item, index) => (

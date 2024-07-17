@@ -1,44 +1,44 @@
 import React from "react";
-import { Col, Card, Button, Image } from 'antd';
-import { FormOutlined } from '@ant-design/icons';
+import { Card, Image, Space } from 'antd';
 import { useSelector } from 'react-redux';
 
-import { Text } from "../components/Text";
+import { Title, Text } from "../components/Text";
+import useImage from "../utils/useImage.js";
 
+import '../../assets/styles/cards.css'
 
 const BlogCard = (props) => {
     const { id, name, description, image: { src, width, height } } = props
     const theme = useSelector(state => state.theme.value)
+    const asyncImage = useImage(src)
 
     return (
-        <Card
-            headStyle={theme.style} 
-            bodyStyle={theme.style}
-            title={name} 
-            bordered={true}
-            size={"small"}
-            style={{ 
-                margin: '3%'
-            }}
-        >             
-            <Image
-                preview={false}
-                src={src}
-                width={width ? width : '100%'}
-                height={height ? height : '100%'}
-            />
-            <Text>{description}</Text>
-            <Col xs={{ span: 6 }}>
-                <Button 
-                    size={'small'}
-                    type="link"
-                    shape="circle"
-                    href={`/blog/post?id=${id}`}
-                    icon={<FormOutlined />}
-                    block
-                />
-            </Col>
-        </Card>
+        <a href={`/blog/post?id=${id}`}>
+            <Card
+                title={ <Title size={2}>{name}</Title> } 
+                bordered={true}
+                size={"medium"}
+                styles={{
+                    width: 300,
+                    height: 400,
+                    header: theme.style,
+                    body: theme.style
+                }}
+                style={{ 
+                    margin: '5%',
+                }}
+            >      
+                <Space direction="vertical" size="middle" style={{ display: 'flex' }}>  
+                    <Image
+                        preview={false}
+                        src={src.includes('http') ? src : asyncImage.image}
+                        width={width ? width : '100%'}
+                        height={height ? height : '100%'}
+                    />
+                <Text>{description}</Text>
+                </Space>  
+            </Card>
+        </a>
     )
 }
 

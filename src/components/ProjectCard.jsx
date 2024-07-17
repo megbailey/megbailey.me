@@ -3,11 +3,14 @@ import { useSelector } from 'react-redux';
 import { Card, Button, Image, Avatar, Space } from 'antd';
 import { DesktopOutlined, FormOutlined } from '@ant-design/icons';
 
-import { Text } from "../components/Text";
+import { Title, Text } from "../components/Text";
 import useImage from "../utils/useImage.js";
 
 import OctocatLight from '../../assets/img/github-48-light.png'
 import OctocatDark from '../../assets/img/github-48-dark.png'
+
+import '../../assets/styles/cards.css'
+
 
 const ProjectCard = ( props ) => { 
     const { 
@@ -23,14 +26,19 @@ const ProjectCard = ( props ) => {
     const asyncImage = useImage(src)
 
     return (
+        <a href={`/projects/post?id=${id}`}>
         <Card
-            headStyle={ theme.style } 
-            bodyStyle={ theme.style }
-            title={name} 
+            title={ <Title size={2}>{name}</Title> } 
             bordered={true}
             size={"small"}
+            styles={{
+                width: 300,
+                height: 400,
+                header: theme.style,
+                body: theme.style
+            }}
             style={{ 
-                margin: '3%',
+                margin: '5%',
             }}
         >     
         <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
@@ -73,6 +81,7 @@ const ProjectCard = ( props ) => {
                 </Space>
             </Space>
         </Card>
+        </a>
     )
 }
 
