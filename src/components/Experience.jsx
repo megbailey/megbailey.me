@@ -28,7 +28,7 @@ const IconList = ({ items }) => {
         <List
             grid={{
                 gutter: [16, 8],
-                xs: 1,
+                xs: 2,
                 sm: 2,
                 med: 3,
                 lg: 4

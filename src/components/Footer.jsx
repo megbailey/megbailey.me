@@ -29,14 +29,14 @@ const Footer = () => {
                          icon={<Avatar size={24} src={theme.mode === "light" ? OctocatLight: OctocatDark} />}
                          block
                     />
-                    <Button 
+                    {/* <Button 
                          size={'small'}
                          type="link"
                          shape="circle"
                          href={'/'}
                          icon={<Avatar size={24} src={theme.mode === "light" ? LinkedInLight: LinkedInDark} />}
                          block
-                    />
+                    /> */}
                     <Text>© Megan Bailey</Text>
                </Space>
           </LayoutFooter>
