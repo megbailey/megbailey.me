@@ -1,69 +1,76 @@
-import React, { useEffect, useState } from "react";
-import { Row, Button, Avatar,  Space } from 'antd';
+import React from "react";
+import { Row, Button, Avatar,  Space, Image } from 'antd';
 import { useSelector } from 'react-redux';
 
 import '../../assets/styles/home.css';
-import useImage from "../utils/useImage.js";
-import PokePlatformer from 'poke-platformer';
+import Illustration from '../../assets/img/Illustration.png'
 
-const Home = ({ links, parentRef }) => {
-    const [ windowWidth, setWindowWidth ] = useState(window.innerWidth)
-    const [ windowHeight, setWindowHeight ] = useState(window.innerHeight)
-    const [ topOffset, setTopOffset ] = useState(0)
+import aboutLight from '../../assets/img/MeganLogo_icons-49.png'
+import aboutDark from '../../assets/img/MeganLogo_icons-46.png'
+import blogLight from '../../assets/img/MeganLogo_icons-48.png'
+import blogDark from '../../assets/img/MeganLogo_icons-45.png'
+import projectsLight from '../../assets/img/MeganLogo_icons-47.png'
+import projectsDark from '../../assets/img/MeganLogo_icons-44.png'
 
+const Home = () => {
     const theme = useSelector(state => state.theme.value)
     const { color } = theme.style
 
-    useEffect(() => {
-        const updateDimensions = () => {
-            setWindowWidth(window.innerWidth)
-            setWindowHeight(window.innerHeight)
-        } 
-        window.addEventListener('resize', updateDimensions);
-
-        const resizeObserver = new ResizeObserver((event) => {
-            setTopOffset(event[0].contentRect.top)
-        });
-
-        resizeObserver.observe(parentRef.current);
-    }, []);
-
     return (
         <div className={`home`}>
-        <Row justify={"center"}>
-            <PokePlatformer 
-                key={ topOffset + windowWidth + windowHeight}
-                width={windowWidth* .90 } 
-                height={windowHeight * .333 }
-                //debug={true}
-            />
-        </Row>
-        <Row justify={"space-evenly"}>
-            <Space size={25} wrap>
-            { links.map(( item ) => {
-                const { text, img: { src, size }, url } = item
-                const asyncImage = useImage(src)
-
-                return (
+            <Row justify={"center"}>
+                <Image
+                    src={Illustration}
+                    preview={false}
+                    height={window.innerHeight * .55 } 
+                />
+            </Row>
+            <Row justify={"space-evenly"}>
+                <Space size={25} wrap>
                     <Button
-                        key={url}
                         style={{ color: color }}
                         size={'large'}
                         type={'link'}
                         shape={'circle'}
-                        href={url}
+                        href={'/about'}
                         icon={
                             <Avatar 
-                                size={size} 
-                                src={asyncImage.image} 
+                                size={64} 
+                                src={theme.mode === 'dark' ? aboutLight : aboutDark} 
                             />
                         }
                         block
-                    >{text}</Button>
-                )
-            }) }
-            </Space>
-        </Row> 
+                    >{'About Me'}</Button>
+                    <Button
+                        style={{ color: color }}
+                        size={'large'}
+                        type={'link'}
+                        shape={'circle'}
+                        href={'/projects'}
+                        icon={
+                            <Avatar 
+                                size={64} 
+                                src={theme.mode === 'dark' ? projectsLight : projectsDark} 
+                            />
+                        }
+                        block
+                    >{'Projects'}</Button>
+                    <Button
+                        style={{ color: color }}
+                        size={'large'}
+                        type={'link'}
+                        shape={'circle'}
+                        href={'/knowledge'}
+                        icon={
+                            <Avatar 
+                                size={64} 
+                                src={theme.mode === 'dark' ? blogLight : blogDark} 
+                            />
+                        }
+                        block
+                    >{'Blog'}</Button>
+                </Space>
+            </Row>
         </div>
     )
 }

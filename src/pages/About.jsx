@@ -25,7 +25,7 @@ const About = ({ title, text, skillsAndTools, experience }) => {
                     {text}
                 </Paragraph>
             </Col>
-            <Col flex="1 0 25%">
+            <Col flex="1 0 15%">
                 <RadarChart {...skillsAndTools.chart} />
             </Col>
         </Row>

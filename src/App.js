@@ -11,7 +11,6 @@ import { useSelector } from 'react-redux';
 import Template from "./components/Template.jsx";
 /* Home */
 import Home from "./pages/Home.jsx";
-import homeContent from "../assets/content/home.js";
 /* About */
 import About from "./pages/About.jsx";
 import aboutContent from "../assets/content/about.js";
@@ -60,7 +59,7 @@ function App() {
             <Route 
               path="/" 
               element={ 
-                <Template content={ <Home {...homeContent} /> } />  
+                <Template content={ <Home /> } />  
               } 
             />
             <Route 
