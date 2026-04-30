@@ -22,20 +22,20 @@ const BlogCard = (props) => {
                     width: 300,
                     height: 400,
                     header: theme.style,
-                    body: theme.style
+                    body: theme.styl
                 }}
                 style={{ 
                     margin: '5%',
                 }}
             >      
-                <Space direction="vertical" size="middle" style={{ display: 'flex' }}>  
+                <Space direction="vertical" size="middle">  
                     <Image
                         preview={false}
                         src={src.includes('http') ? src : asyncImage.image}
-                        width={width ? width : '100%'}
+                        width={'inherit'}
                         height={height ? height : '100%'}
                     />
-                <Text>{description}</Text>
+                    <Text>{description}</Text>
                 </Space>  
             </Card>
         </a>

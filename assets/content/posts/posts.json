@@ -19,7 +19,7 @@
         "publish_date": "",
         "description": "my developer portfolio (this website!!)",
         "image":{ 
-            "src": "http://placehold.it/200x100"
+            "src": "website-preview.png"
         },
         "githubURL": "https://github.com/megbailey/ProjectName"        
     },

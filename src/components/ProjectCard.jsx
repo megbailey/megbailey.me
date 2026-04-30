@@ -8,6 +8,8 @@ import useImage from "../utils/useImage.js";
 
 import OctocatLight from '../../assets/img/github-48-light.png'
 import OctocatDark from '../../assets/img/github-48-dark.png'
+import blogLight from '../../assets/img/MeganLogo_icons-48.png'
+import blogDark from '../../assets/img/MeganLogo_icons-45.png'
 
 import '../../assets/styles/cards.css'
 
@@ -28,12 +30,11 @@ const ProjectCard = ( props ) => {
     return (
         <a href={`/projects/post?id=${id}`}>
         <Card
+            className={`ant-card--${theme.mode}`}
             title={ <Title size={2}>{name}</Title> } 
             bordered={true}
             size={"small"}
             styles={{
-                width: 300,
-                height: 400,
                 header: theme.style,
                 body: theme.style
             }}
@@ -43,42 +44,60 @@ const ProjectCard = ( props ) => {
         >     
         <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
             <Image
+                style={{
+                    
+                }}
                 preview={false}
                 src={src.includes('http') ? src : asyncImage.image}
-                width={width}
-                height={height}
             ></Image>
-            <Text >{description}</Text>
-                 <Space direction="horizontal" size="middle" style={{ display: 'flex' }}>
+            <div>
+                <Text>{description}</Text>
+                <hr 
+                    style={{ 
+                        border: `1px double ${theme.mode === 'dark' ? 'white': 'black'}`
+                    }}
+                />
+                <Space 
+                    direction="horizontal" 
+                    size="middle" 
+                    style={{ display: 'flex', height: '50px' }}
+                >
                     <Button 
                         size={'small'}
                         type="link"
                         shape="circle"
                         href={githubURL}
                         target={'_blank'}
-                        icon={<Avatar size={24} src={theme.mode === "light" ? OctocatLight: OctocatDark} />}
+                        icon={<Avatar 
+                            size={50} 
+                            src={theme.mode === "light" ? OctocatLight: OctocatDark} 
+                        />}
                         block
                     />
-                {liveDemoURL && (
+                    {liveDemoURL && (
+                        <Button 
+                            size={'small'}
+                            type="link"
+                            shape="circle"
+                            href={liveDemoURL}
+                            target={'_blank'}
+                            icon={<DesktopOutlined/>}
+                            block
+                        />
+                    )}
                     <Button 
                         size={'small'}
                         type="link"
                         shape="circle"
-                        href={liveDemoURL}
-                        target={'_blank'}
-                        icon={<DesktopOutlined/>}
+                        href={`/projects/post?id=${id}`}
+                        icon={<Avatar 
+                            size={64} 
+                            src={theme.mode === 'dark' ? blogLight : blogDark} 
+                        />}
                         block
                     />
-                )}
-                <Button 
-                    size={'small'}
-                    type="link"
-                    shape="circle"
-                    href={`/projects/post?id=${id}`}
-                    icon={<FormOutlined />}
-                    block
-                />
                 </Space>
+                </div>
             </Space>
         </Card>
         </a>
