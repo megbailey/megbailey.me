@@ -19,7 +19,6 @@ import Blog from "./pages/Blog.jsx";
 import blogContent from '../assets/content/blog.js'
 /* Projects */
 import Projects from "./pages/Projects.jsx";
-import ProjectsAll from "./pages/ProjectsAll.jsx";
 import projectContent from '../assets/content/projects.js'
 /* Posts */
 import Post from "./pages/Post.jsx";
@@ -73,14 +72,6 @@ function App() {
               element={ 
                 <Template 
                   content={ <Projects {...projectContent} posts={postContent.filter((post) => post.type === 'project')} /> } 
-                /> 
-              } 
-            />
-            <Route 
-              path="/projects/all" 
-              element={ 
-                <Template 
-                  content={ <ProjectsAll {...projectContent} posts={postContent.filter((post) => post.type === 'project')} /> } 
                 /> 
               } 
             />

@@ -15,19 +15,19 @@
     {
         "name": "megbailey.me",
         "type": "project",
-        "filename": "medbaileyme.md",
-        "publish_date": "",
-        "description": "my developer portfolio (this website!!)",
+        "filename": "megbaileyme.md",
+        "publish_date": "04/30/26",
+        "description": "Developer's portfolio built with React",
         "image":{ 
             "src": "website-preview.png"
         },
-        "githubURL": "https://github.com/megbailey/ProjectName"        
+        "githubURL": "https://github.com/megbailey/megbailey.me"        
     },
     {
         "name": "React Poke-Platformer",
         "type": "project",
         "filename": "react-poke-platformer.md",
-        "publish_date": "",
+        "publish_date": "04/30/26",
         "description": "16-bit pokemon-inspired platformer built with javscript",
         "image":{ 
             "src": "http://placehold.it/200x100"

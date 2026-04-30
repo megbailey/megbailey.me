@@ -21,12 +21,12 @@ const Blog = ({ title, posts }) => {
             style={{ margin: '2%' }}
             grid={{
                 gutter: [48, 16],
-                    xs: 1,
-                    sm: 2,
-                    med: 3,
-                    lg: 3,
-                    xl: 3,
-                    xxl: 4
+                xs: 1,
+                sm: 2,
+                md: 2,
+                lg: 3,
+                xl: 3,
+                xxl: 4
             }}
             dataSource={posts}
             renderItem={(item, index) => (

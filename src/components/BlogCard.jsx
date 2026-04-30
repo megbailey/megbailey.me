@@ -29,12 +29,12 @@ const BlogCard = (props) => {
                 }}
             >      
                 <Space direction="vertical" size="middle">  
-                    <Image
-                        preview={false}
-                        src={src.includes('http') ? src : asyncImage.image}
-                        width={'inherit'}
-                        height={height ? height : '100%'}
-                    />
+                    <div className="card-image-container">
+                        <Image
+                            preview={false}
+                            src={src.includes('http') ? src : asyncImage.image}
+                        />
+                    </div>
                     <Text>{description}</Text>
                 </Space>  
             </Card>

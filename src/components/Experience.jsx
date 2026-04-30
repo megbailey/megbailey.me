@@ -57,7 +57,7 @@ const IconList = ({ items }) => {
 }
 
 const TabContent = (items) => {
-    const formatDate = (date) => format( parse( date, 'yyyy-mm-dd', new Date() ), 'MMM yyyy');
+    const formatDate = (date) => format( parse( date, 'yyyy-mm-dd', new Date() ), 'MMMM yyyy');
     const isValid = (dateStr) => isMatch(dateStr, 'yyyy-mm-dd');
 
     //console.log(items)

@@ -22,7 +22,7 @@ const About = ({ title, text, skillsAndTools, experience }) => {
         <Row>
             <Col flex="1 0 25%" >
                 <Paragraph>
-                    {text}
+                    <div dangerouslySetInnerHTML={{ __html: text }} ></div>
                 </Paragraph>
             </Col>
             <Col flex="1 0 15%">

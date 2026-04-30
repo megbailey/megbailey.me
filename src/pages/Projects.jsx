@@ -12,13 +12,13 @@ const Projects = ({ title, text, projectSpotlight, posts }) => {
 
     let spotlightedProjects = []
 
-    for (const id of projectSpotlight) {
+    /* for (const id of projectSpotlight) {
         if (posts[id])
             spotlightedProjects.push({
                 id: id,
                 ...posts[id]
             })
-    }
+    } */
 
     return (
         <>
@@ -37,14 +37,14 @@ const Projects = ({ title, text, projectSpotlight, posts }) => {
             style={{ margin: '2%' }}
             grid={{
                 gutter: [48, 16],
-                    xs: 1,
-                    sm: 2,
-                    med: 3,
-                    lg: 3,
-                    xl: 3,
-                    xxl: 4
+                xs: 1,
+                sm: 2,
+                md: 2,
+                lg: 3,
+                xl: 3,
+                xxl: 4
             }}
-            dataSource={spotlightedProjects}
+            dataSource={posts}
             renderItem={(item, index) => (
                 <ProjectCard 
                     id={index}
@@ -52,18 +52,6 @@ const Projects = ({ title, text, projectSpotlight, posts }) => {
                 />
             )}
         />
-        <Button 
-            size={'small'}
-            type="link"
-            href={'/projects/all'}
-            style={{ 
-                justifySelf: 'right',
-                padding: 16,
-                border: 1,
-                borderColor: "black",
-                ...theme.style
-            }}
-        >...View All</Button>
         </>
     )
 }

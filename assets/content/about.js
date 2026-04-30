@@ -1,7 +1,7 @@
 
 
 const toolsData = {
-    /* Langauges */
+    /* Languages */
     'Java': {
         type: 'Languages',
         name: 'Java',
@@ -163,7 +163,7 @@ const positionsHeld = [
     {
         position: 'Web Developer / Programmer',
         employer: 'University of San Diego',
-        startDate: '2022-10-01',
+        startDate: '2022-06-10',
         endDate: null,
         languageList: [ 
             toolsData['PHP'], 
@@ -184,42 +184,17 @@ const positionsHeld = [
             toolsData['Linux / Unix'] 
         ],
         descriptionList: [
-            'I contribute to our React monorepo, <a href="https://camino.sandiego.edu/storybook/">Camino</a>, that contains the library of React components used throughout the <a href="https://sandiego.edu">sandiego.edu domain</a>. I am responsible for about half of our 60 components, and I address any feature requests or bugs found.', 
-            'I work with my team to maintain our usage of open source technology such as Storybook and Webpack including performing version updates, bug fixes, and staying up-to-date with the open source community on Github.',
-            'I assist in the integration of Camino and custom applications with our vendor, Hannon Hill, and their Content Management System, Cascade. We utilize <a href="https://velocity.apache.org/engine/1.7/user-guide.html">Velocity scripts</a> for most of the user-side integration and <a href="https://www.hannonhill.com/cascadecms/latest/developing-in-cascade/script-formats/velocity-tools.html">Java features that Hannon Hill provides.</a>',
-            'I design, develop, and maintain custom web applications, both public and private, for the USD community. I am responsible for both frontend React work as well as APIs and database design. My notable projects include' + 
+            'I contribute to our React monorepo, Camino, which provides React components for the sandiego.edu domain. I\'m responsible for half of our 60 components and handle feature requests and bug fixes.',
+            'I collaborate with my team to maintain open-source technologies like Storybook and Webpack, performing updates, fixes, and staying current with GitHub communities.',
+            'I assist in integrating Camino and custom web applications with Hannon Hill\'s Cascade CMS, using Velocity scripts for user-side integration and Hannon Hill\'s Java features.',
+            'I design, develop, and maintain custom web applications for the USD community, handling frontend React, APIs, and database design. Notable projects include:' +
                 '<ul>' +
-                '<li><a href="https://www.sandiego.edu/osp/research-expertise/">Expertise Database</a>\'s gives the ability for USD Staff and Faculty to create a profile to promote collaboration for research at USD.' +
-                    ' It has receive highly compliments, and Dr. Truc Ngo and I authored and submitted an abstract of our development plan to <a href="https://nordp.org/?">NRODP</a>, but it was not selected.</li>' +
-                '<li>Component Inventory app which utilizes Hannon Hill\'s APIs to scrape the entire <a href="https://sandiego.edu">sandiego.edu</a> website ( about 160 individual sites ) and coalesce data on the Camino components used on each page ( ~60,000 components ). The inventory application is an internal tool for the team, but its been game changing for quality assurance and data-backed decision making</li>' + 
-                '<li>The Sidebar redesign where I implemented the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/">Disclosure pattern</a> to allow for users to navigate any given USD site more intiutaively so that users can find like-pages. The pattern was chosen and tested after weeks of user research. The sidebar is both a Camino component and an app. As a component, it is used by other web applications we make. As an app, it can be turned on or off by CMS users and will show either sibling or children pages of the current page as an interactive tree.</li>' +
-                '<li>MyPostings 2.0 (in progress) is an unified publish and subscribe application that enables News, Events, Announcements, etc ( i.e. Posts ) to be posted on any page on any sites by any USD One user. The MyPostings system in production now is at least 10 years old and in need of a full re-development. We meet frequently with our stakeholders, and there have been many lessons learned that the new system will address including but not limited to a live preview, diverse drag-n-drop content modules, robust management features, timely notifications, re-skin of all \'feeds\', a new <a href="https://www.sandiego.edu/news/">Newscenter</a>, and so much more. Stay tuned for launch details. </li>' + 
+                '<li><a href="https://www.sandiego.edu/osp/research-expertise/">Expertise Database</a>: Enables USD staff and faculty to create profiles promoting research collaboration. It received high praise; Dr. Truc Ngo and I submitted an abstract to NORDP, though not selected.</li>' +
+                '<li>Component Inventory app: Uses Hannon Hill\'s APIs to scrape the sandiego.edu website (160 sites) and collect data on Camino components (~60,000). This internal tool has transformed quality assurance and decision-making.</li>' +
+                '<li>Sidebar redesign: Implemented the Disclosure pattern for intuitive navigation after user research. It\'s a reusable component and app for CMS users.</li>' +
+                '<li>MyPostings 2.0 (in progress): A unified publish-subscribe app for posting news, events, etc., across sites. Replacing a 10-year-old system with features like live preview, drag-and-drop modules, notifications, and a new Newscenter.</li>' +
                 '</ul>',
-            'I spearheaded the development and continue to maintain a set of development containers that reflect our build, staging, and production environments that myself and others use for projects.'
-        ]
-    },
-    {
-        position: 'Web Developer, Contractor',
-        employer: 'University of San Diego',
-        startDate: '2022-06-10',
-        endDate: '2022-10-01',
-        languageList: [ 
-            toolsData['PHP'], 
-            toolsData['Javascript'], 
-            toolsData['SQL'] 
-        ],
-        libraryFrameworkList: [ 
-            toolsData['React'], 
-            toolsData['Storybook'] 
-        ],
-        environmentList: [ 
-            toolsData['Docker'], 
-            toolsData['Linux / Unix'] 
-        ],
-        descriptionList: [ 
-            'In a moderate career change, I was rehired to re-vamp and add new features to the Summer and Intersession Office\'s Courses application that I built as a student. It was surreal having to breakdown the code I had written 3 years prior and see how far I had come as a developer.' ,
-            'I worked with our server admin to develop a set of containers that reflect our build, staging, and production environments so that I could develop more easily.',
-            'I learned React!'
+            'I spearheaded and maintain development containers mirroring our build, staging, and production environments for project use.'
         ]
     },
     {
@@ -252,17 +227,19 @@ const positionsHeld = [
             { name: 'KVM', imageSrc: 'linux-logo.png'} 
         ],
         descriptionList: [ 
-            'Most of my time was spent contributing to a project out of San Diego Field Office. The project\'s mission is to build, deploy and maintain a multi-level security (MLS) environment to protect and streamline data produced at USAF live training events. The MLS environment is the backbone of a larger set of warfighter software tools called WarRoom. The MLS project and WarRoom is funded by Live Mission Operations Capabilities (LMOC) Program Office.',
-            'I designed and implemented networks of machines configuring routers and adpaters with subnets and subinterfaces.',
-            'I contributed to a monorepo of Ansible Playbooks and Bash scripts to configure linux and Windows machines. My more notable contributions were:' 
+            'I contributed to a San Diego Field Office project building and maintaining a multi-level security (MLS) environment for USAF live training data. This MLS environment supports WarRoom software tools, funded by the LMOC Program Office.',
+            'I designed and implemented networks, configuring routers, adapters, subnets and subinterfaces.',
+            'I contributed to a monorepo of Ansible playbooks and Bash scripts for Linux and Windows configuration. Notable contributions:' 
             + '<ul>' 
-            + '<li>Ansible Playbook to configure a linux host as a KVM (Kernal Virtual Machine) Hypervisor </li>'
-            + '<li>Ansible Playbook to configure a linux host with Nexus OSS Repository Manager with local yum (Linux), pypi (Python), containers (Docker) and custom executable package repositories</li>'
+            + '<li>Ansible playbook for configuring a Linux host as a KVM Hypervisor.</li>'
+            + '<li>Ansible playbook for setting up a Linux host with Nexus OSS Repository Manager for yum, PyPI, Docker, and custom repositories.</li>'
+            + '<li>Ansible playbook for scanning for and remediating security vulnerabilities.</li>'
+            + '<li>Ansible playbook to systematically snapshot and update Windows machines in a virtual environment.</li>'
             + '</ul>',
-            'I developed a Docker-In-Docker build pipeline that builds custom Docker images inside a containerized Gitlab runner andpushes the new image to a private repository on success.',
-            'I partipated in a Red Team for an Independent Research and Development (IRAD) project, aptly nammed Red Lighting, that explored the effects and militiary implications of Terrestial Gamma-Ray Flashes (TGFs).',
-            'I was the lead developer for the live classifcation engine for the MLS environment, and I created a methodology to translate Security Classification Guides (SCGs) to a machine readable format to be digest by the engine.',
-            'I met with stakeholders (USAF, Navy, and other government agencies) frequently and participated in and lead multi-day technical discussions. From these instructions, we developed technical requirements for a government-owned, re-configufrable, re-deployable MLS Cross Domain Solution (CDS)'
+            'I developed a Docker-in-Docker build pipeline that creates custom images in a containerized GitLab runner and pushes them to a private repository on success.',
+            'I participated in a Red Team for the IRAD project \'Red Lighting,\' exploring the effects and military implications of Terrestrial Gamma-Ray Flashes (TGFs).',
+            'I led development of the live classification engine for the MLS environment, creating a method to translate Security Classification Guides into machine-readable formats.',
+            'I met frequently with stakeholders from USAF, Navy, and other agencies, leading technical discussions to develop requirements for a government-owned, re-configurable, re-deployable MLS Cross Domain Solution.'
         ]
     },
     {
@@ -283,23 +260,23 @@ const positionsHeld = [
             { name: 'Windows', imageSrc: 'windows-logo.png' }
         ],
         descriptionList: [ 
-            'I developed a Powershell script that analyzed the company\'s users in Active Directory comparing it to a spreadsheet in shared via Box. The script would produce a report that had entries if a users AD entry differed from the data ( phone, email, etc ) in the spreadsheet so that it could be rectified.',
-            'I worked as a Research temp where I assited FTEs in performing OS updates for about 150 VMs in an on-prem environment. I would contribute to and create new ansible scripts to speed to up our tasks.',
-            'I assited in deploying new work machines to FTEs and assited with any technology problems in office.'
+            'I developed custom PowerShell scripts such as one to analyze company users in Windows Active Directory against a Box-shared spreadsheet generating reports on discrepancies in data like-phone and like-email for rectification.',
+            'As a research temp, I assisted FTEs with OS updates for 150 VMs in an on-prem environment, contributing to and creating Ansible scripts to accelerate tasks.',
+            'I assisted in deploying new workstations to FTEs and resolved office technology issues.'
         ]
     },
     {
         position: 'Assistant Student Web Developer',
         employer: 'University of San Diego',
         startDate: '2017-06-10',
-        endDate: '2022-10-1',
+        endDate: '2020-5-30',
         languageList: [ toolsData['PHP'], toolsData['Javascript'], toolsData['SQL'] ],
         toolsList: [ toolsData['Jira'] ],
         environmentList: [ toolsData['Linux / Unix'] ],
         descriptionList: [ 
-            'I interfaced with USD site maintainers via tickets and assisted with web content updates, workflow, and several redeisgns.',
-            'I developed an app which interfaces with vendor APIs to fetch user activity data for the Content Management Systemt (CMS)',
-            'I developed the Summer and Intersession Office\'s database driven Courses application utilizing data from internal enterpise APIs'
+            'I assisted USD site maintainers via tickets with content updates, workflows, and redesigns.',
+            'I developed an app interfacing with vendor APIs to fetch user activity data for the CMS.',
+            'I developed the Summer and Intersession Office\'s database-driven Courses application using internal enterprise APIs.'
         ]
     },
     {
@@ -320,8 +297,8 @@ const positionsHeld = [
         descriptionList: [
             '3.9 major GPA and 3.7 overall GPA',
             'Minors in Mathematics and Classical Studies (Latin and Ancient Western history)',
-            'I participated in the Summer Undergrad Reseach Expereince (S.U.R.E) Scholar program. Between semesters, I met frequently with Dr. Saturnino Garcia and did a deep dive into GDPR, and its effect on users in the USA. I designed and began developing a web application that would analyze data that makes up a user\'s online footprint and present it to the user in such a way that the user could learn about the importance of digital privacy.',
-            'I served as the Vice President (2019) and marketing chair (2018) of USD\'s student chapter of Association for Computing Machinery (ACM).',
+            'I participated in the Summer Undergraduate Research Experience (S.U.R.E.) Scholar program. I met with Dr. Saturnino Garcia to explore GDPR\'s impact on US users and began developing a web app to analyze users\' online footprints for digital privacy education.',
+            'I served as Vice President (2019) and Marketing Chair (2018) of USD\'s ACM student chapter.',
         ]
     },
 ]
@@ -403,7 +380,10 @@ const itemsGroupedByTag = groupItemsByTag( toolsData )
 
 const aboutContent = {
     title: "About Me",
-    text: "I’m a software engineer, and I specialize in backend services and web application development. I am a life-long learner, and I enjoy utilizing software to solving complex problems and expressing my creativity through my work. I graduated from the University of San Diego, and I never left the area. I enjoy walking around my bustling neighborhood and through the many San Diego parks on the weekends.",
+    text: "I’m a software engineer, and I specialize in backend services and web application development. \n \
+    I am a life-long learner, and I enjoy utilizing software to solving complex problems and expressing my creativity through my work. \n \
+    I graduated from the University of San Diego, and I lived in San Diego for about 5-years post-college. \n \
+    Now, I'm giving Bay-area a try! I enjoy walking around my bustling neighborhood and <a href='https://en.wikipedia.org/wiki/Guadalupe_River_(California)' target='_blank'>Guadalupe River</a>, antique shopping, learning more about the local culture and history, and enjoying all the things the Bay has to offer!",
     skillsAndTools: {
         title: "Skills & Tools",
         list: {

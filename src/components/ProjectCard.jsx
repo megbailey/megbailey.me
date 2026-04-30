@@ -43,13 +43,12 @@ const ProjectCard = ( props ) => {
             }}
         >     
         <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
-            <Image
-                style={{
-                    
-                }}
-                preview={false}
-                src={src.includes('http') ? src : asyncImage.image}
-            ></Image>
+            <div className="card-image-container">
+                <Image
+                    preview={false}
+                    src={src.includes('http') ? src : asyncImage.image}
+                />
+            </div>
             <div>
                 <Text>{description}</Text>
                 <hr 
@@ -60,41 +59,38 @@ const ProjectCard = ( props ) => {
                 <Space 
                     direction="horizontal" 
                     size="middle" 
-                    style={{ display: 'flex', height: '50px' }}
+                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}
                 >
                     <Button 
-                        size={'small'}
+                        size={'middle'}
                         type="link"
                         shape="circle"
                         href={githubURL}
                         target={'_blank'}
                         icon={<Avatar 
-                            size={50} 
+                            size={32} 
                             src={theme.mode === "light" ? OctocatLight: OctocatDark} 
                         />}
-                        block
                     />
                     {liveDemoURL && (
                         <Button 
-                            size={'small'}
+                            size={'middle'}
                             type="link"
                             shape="circle"
                             href={liveDemoURL}
                             target={'_blank'}
-                            icon={<DesktopOutlined/>}
-                            block
+                            icon={<DesktopOutlined style={{ fontSize: '18px' }}/>}
                         />
                     )}
                     <Button 
-                        size={'small'}
+                        size={'middle'}
                         type="link"
                         shape="circle"
                         href={`/projects/post?id=${id}`}
                         icon={<Avatar 
-                            size={64} 
+                            size={32} 
                             src={theme.mode === 'dark' ? blogLight : blogDark} 
                         />}
-                        block
                     />
                 </Space>
                 </div>
