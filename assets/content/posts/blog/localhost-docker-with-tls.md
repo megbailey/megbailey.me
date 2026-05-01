@@ -1,181 +1,166 @@
-# Setting up Local Development Containers with TLS Certificates
+# Local Development Environment with Containers
 
 Posted: June 20, 2024
 
-Containers are an essential tool for building modern software especially for local development. I wanted to share my simple and repeatable process for creating a secure development environment using only Docker and Docker Compose for those who may be looking to secure their current local envionment or just starting out with containers.
+Local development environments have a funny way of becoming tribal knowledge. One person knows which repositories need to sit next to each other. Another person remembers which SQL files need to run first. Someone else has the magic command in their shell history, and a new developer is left trying to reconstruct the whole thing from hints.
 
-If you have a pre-existing docker-compose.yml, you can skip to step 3 to start setting up the pre-requisite networks.
+The project is an attempt to make the development setup of a microservice archtecture easier. Collections of custom Docker images and segmented Docker Compose files can re-create any server environment locally. Instead of every project to maintain individual docker-compose files or deployment details, there is a way to structure the like-envionrments to re-use shared building blocks that can be combined for the project you are actually working on.
 
-If you need a deep dive into containers, their uses, and comparison to VMs, I recommend these sources:
+## The core idea
 
-- <https://www.docker.com/resources/what-container/>
-- <https://aws.amazon.com/compare/the-difference-between-docker-vm/>
+The repository is built around a base Compose file, and project-specific Compose files are merged together. The base file defines the common local environment: the shared network, ports, containers, and minimal configuration that most projects need.
 
-## Docker commands
+Project-specific Compose files then layer on top of it with the details that vary from project to project, usually bind mounts and dependency-specific volumes. That gives each project a smaller, clearer setup file. Developers can commit a Compose file for their project without duplicating the entire environment definition every time. Furthermore, changes to the base compose or images will eventually propogate to other developers without the use of an image registry.
 
-- `docker compose up` - launches the docker containers, will build them if needed.
-- `docker compose up --build` - Forces a rebuild of the containers.
-- `docker-compose up -d <service> <service>` will launch only those containers you specify.
-- `docker ps` - provides a listing and information for all the containers running in your docker because it is used in many docker commands.
-- `docker exec -it <container_name> bash` - equivalent of SSHing to the server as root and can move around the container as you would any of our live servers.
+### Working Example
 
-## Choosing your Docker images
+Below is a sample base Compose file which defines 3 services: a webserver, an api server, and a database server. Each are attached to the same network, have custom hostnames, and bind to different ports.
 
-The first step in setting up your development containers is selecting the appropriate Docker images. [Docker Hub](https://hub.docker.com/) provides a wide variety of images for different use cases.
+The database service is the only service with volumes configured in the base file. These volumes mount `../database/data` to persist data between database teardowns and `../database/initdb/` to boostrap the databse with valid sql script on first intializing ( or when `../database/data` is empty and container is restarted).
 
-- Language-Specific Images: If you are developing in a specific programming language, look for official images like python, node, ruby, java, etc.
-- Framework-Specific Images: For certain frameworks, you might find specialized images, such as django for Django projects or rails for Ruby on Rails.
-- Service Images: If you need databases or other unique applications, look for images like mysql, postgres, redis, apache, etc.
+```text
+# docker-compose.yml
 
-If I'm building a web project, I'm partial to using an apache image. Below is an example of how to pull the latest of the image.
-
-```bash
-docker pull httpd
-```
-
-The purpose of this guide is to demonstrate inter-containter communication, so you'll want to pull one or more different kinds of images. Once you have your image(s) picked out, create a new file, named docker-compose.yml, and begin editing. Docker compose instructs the docker engine how we want to use the images and with what configurations. In a Docker compose, we define a service per image. Here is a very simple Docker compose with 3 services that you can copy and update with your own image names. We will fill in and update this file for the rest of the guide.
-
-```yaml
-version: '3.2'
 services:
-  webserver:
-    image: httpd
-  apiserver:
-    image: httpd
-  database:
-    image: mysql
-```
-
-## 2. Choosing volumes
-
-Volumes are essential for persisting data and sharing files between your host and containers. You will need to define volumes for your project's build files and any assets.
-
-Continuing with our web project example, I've added volumes to my respective services. webserver and apiserver require that any html and proxies files be mounted where the server will serve them to the user and other server code be mounted separately. The database service's first volume intializes a container with sql scripts that run on first load. The second volume persists the database's data between container teardowns.
-
-```yaml
-version: '3.2'
-services:
-  webserver:
-    image: httpd
-    volumes:
-        - ./web_project/html:/var/www/html/web_project
-        - ./web_project/includes:/var/www/includes/web_project
-  apiserver:
-    image: httpd
-     volumes:
-       - ./api_web_project/html:/var/www/html/api_web_project
-        - ./api_web_project/includes:/var/www/includes/api_web_project
-  database:
-    image: mysql
-    volumes:
-        - ./containers/initdb:/docker-entrypoint-initdb.d
-        - ./containers/data:/var/lib/mysql
-```
-
-## 3. Determine hostnames and ports
-
-Next, determine the hostnames and ports you'll use for each container. This will be unique to your chosen images, and you'll need to do research on your image processes.
-
-Contininuing with our web example, I've added hostnames and the ports on which they will listen. As you likely know, for HTTP the default port is 80 and for HTTPS it is 443. Without a reverse proxy, containers cannot utilize the same port, so we will utilize 80 and 443 ports for our webserver and 8080 and 8443 for our api server on our local machine.
-
-```yaml
-version: '3.2'
-services:
-  webserver:
-    image: httpd
-    hostname: local.megbailey.me
+  webapi:
+    build:
+      context: $PWD/development-images/webapi
+    hostname: localhost-webapi.megbailey.me
     ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-        - ./web_project/html:/var/www/html/web_project
-        - ./web_project/includes:/var/www/includes/web_project
-  apiserver:
-    image: httpd
-    hostname: local-api.megbailey.me
+      - "8888:80"
+      - "8444:443"
+    networks:
+      - developmentNetwork
+  webserver:
+    build:
+      context: $PWD/development-images/webserver
+    hostname: localhost.megbailey.me
     ports:
       - "8080:80"
       - "8443:443"
-     volumes:
-       - ./api_web_project/html:/var/www/html/api_web_project
-        - ./api_web_project/includes:/var/www/includes/api_web_project
+    networks:
+      - developmentNetwork
   database:
     image: mysql
-    hostname: local-db.megbailey.me
+    hostname: localhost-database.megbailey.me
     ports:
       - "3306:3306"
-    volumes:
-        - ./containers/initdb:/docker-entrypoint-initdb.d
-        - ./containers/data:/var/lib/mysql
+    volumes:  
+      - ../database/data:/var/lib/mysql
+      - ../database/initdb/:/docker-entrypoint-initdb.d
+    restart: always
+    networks:
+      - developmentNetwork
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+networks:
+  developmentNetwork:
+    ipam:
+      driver: default
 ```
 
-## 4. Update /etc/hosts
+### Why segmented Compose files help
 
-In order to reach these containers via hostname from your local machine, you will need to update your /etc/hosts file to loopback to localhost. Open up a terminal and `sudo vim /etc/hosts`, and update the file to include your custom hostnames.
+The main benefit is continuity. A developer should be able to clone a project, clone the repository beside it, and find a project Compose file that explains how to run that project locally.
+
+This approach helps with:
+
+- reducing duplicated Docker configuration across projects
+- making local setup more consistent between developers
+- isolatating project-specific volumes to the project that needs them
+- making local testing possible without memorizing every environment detail
+
+For smaller projects, one Compose file is usually enough. For projects with several dependencies, multiple Compose files can be merged at runtime.
+
+## Repository requirements
+
+To use the project, you need:
+
+- Docker Desktop installed locally
+- TLS artifacts generated for the containers
+- local `/etc/hosts` entries for container hostnames
+- all dependent repositories are in the same parent directory / are sibling directories
+
+That sibling-directory convention matters because it is easiest if Compose files commonly bind mount code from neighboring repositories.
+
+A typical local workspace might look like this:
+
+```text
+git/
+  development-images/
+  some-cool-project/
+  oauth/
+  some-api-project/
+```
+
+## Structuring segmented Compose files
+
+Docker Compose can merge multiple Compose files from left to right. The base environment comes first, followed by dependency Compose files, followed by the project-specific Compose file.
+
+The command looks like this:
 
 ```bash
-127.0.0.1       localhost
-::1             localhost
-255.255.255.255 broadcasthost
-127.0.0.1       local.megbailey.me
-127.0.0.1       local-api.megbailey.me
-127.0.0.1       local-db.megbailey.me
-# Added by Docker Desktop
-# To allow the same kube context to work on the host and the container:
-127.0.0.1 kubernetes.docker.internal
-# End of section
+docker compose \
+  -f development-images/docker-compose.yml \
+  -f docker-compose-api-oauth.yml \
+  -f docker-compose-project.yml \
+  up -d
 ```
 
-## 6. Adding networks
+- `development-images/docker-compose.yml` defines the shared base
+- `docker-compose-api-oauth.yml` is some important shared library
+- `docker-compose-project.yml` is project-specific files
 
-To enable inter-container communication, we need to a define network in the compose file and add it to each container. Containers on the same network can communicate to others their service names. Using our ongoing example, when on webserver container, you'll be able to resolve to the api server using "apiserver".
+Usually complex projects are needed to deploy multiple places. Front-end React code and API database-interaction code at least. The `docker-compose-project.yml` can either reference each service or be split up individually one per file.
 
-```yaml
-version: '3.2'
+```yml
+# docker-compose-project.yml
+
 services:
   webserver:
-    image: httpd
-    hostname: local.megbailey.me
-    ports:
-        - "80:80"
-        - "443:443"
     volumes:
-        - ./web_project/html:/var/www/html/web_project
-        - ./web_project/includes:/var/www/includes/web_project
-    networks:
-        - customNetwork
-  apiserver:
-    image: httpd
-    hostname: local-api.megbailey.me
-    ports:
-        - "8080:80"
-        - "8443:443"
+      - $PWD/../example-project/integration/:/var/www/www.megbailey.me/html/example-project/
+  webapi:
     volumes:
-        - ./api_web_project/html:/var/www/html/api_web_project
-        - ./api_web_project/includes:/var/www/includes/api_web_project
-    networks:
-        - customNetwork
+      # API endpoints
+      - $PWD/../example-project/html/app-api:/var/www/localhost-webapi.megbailey.me/htm/example-project-api/endpoints
+      # API logic
+      - $PWD/../example-project/includes/example-project-api:/var/www/includes/example-project-api
   database:
-    image: mysql
-    hostname: local-db.megbailey.me
-    ports:
-      - "3306:3306"
     volumes:
-        - ./containers/initdb:/docker-entrypoint-initdb.d
-        - ./containers/data:/var/lib/mysql
-    networks:
-      - customNetwork
-networks:
-    customNetwork:
-        ipam:
-        driver: default
+      # Optionally, overloading where data is loaded and stored so that its local to the repo
+      - $PWD/../example-project/containers/data:/var/lib/mysql
+      - $PWD/../example-project/containers/initdb:/docker-entrypoint-initdb.d
 ```
 
-Next, we'll transition from docker setup to TLS.
+### Database behavior
 
-## 7. Using mkcert to generate local certificates
+The database container uses two important volumes:
 
-mkcert is a tool for making locally-trusted development certificates. It makes it really easy to create a local Certificate Authority (CA) and generate local-trusted certificates that are perfect for development. Run the commands in terminal to install mkcert, install a local root CA, and print the location where the root CA was installed.
+```text
+./database/data:/var/lib/mysql
+./database/initdb:/docker-entrypoint-initdb.d
+```
+
+The `data` volume persists database state between container restarts. The `initdb` volume contains SQL files that run when the database initializes.
+
+That persistence is helpful, but it also means changing SQL files in `database/initdb` will not automatically re-run them against an existing database. To reinitialize the database, stop the container and delete the stored database state:
+
+```bash
+rm -rf ./database/data
+```
+
+Then rebuild or restart the database container.
+
+## Local TLS and hostnames
+
+You can further level up your envionment by installing and creating locally trusted certificates. These certificates are trusted ONLY by the the developer's machine and not by outside systems. This keeps local HTTPS behavior closer to production without pretending the containers are public services.
+
+A dependency is that local hostnames need to resolve through `/etc/hosts`, so that the browser will not return a warning that certificate hostname does not match the server hostname.
+
+### Generating local TLS certificates
+
+For macOS, `mkcert` is the friendliest way to create locally trusted development certificates:
 
 ```bash
 brew install mkcert
@@ -183,94 +168,59 @@ mkcert -install
 mkcert -CAROOT
 ```
 
-Next, we will create private keys for each container using the new root CA. For each service,
+`mkcert -install` creates a local development Certificate Authority on your machine. Certificates created with that CA are trusted only by your local machine, which is exactly what we want for development.
 
-- Run `openssl genrsa -out ./CONTAINER_HOSTNAME.key 204` to generate a unique private key where CONTAINER_HOSTNAME is the hostname of the container.
-- Run `openssl req -new -key ./CONTAINER_HOSTNAME.key  \
-  -subj "/C=US/ST=California/L=San Diego/O=MB Development/OU=Website/CN=CONTAINER_HOSTNAME" \
-  -out ./CONTAINER_HOSTNAME.csr` to generate a certificate signing request (CSR) using the key. Update 'CONTAINER_HOSTNAME' to the hostname of a container, and update the subj[ect] line for your current location and organization
-- Run `mkcert -csr ./CONTAINER_HOSTNAME.csr` to create a certificate using CSR and CA.
+After locating the root CA with `mkcert -CAROOT`, copy `rootCA.pem` into each image's `tls` directory:
 
-## 8. Adding certificates to containers
-
-Next, we need to add the generated certificates and rootCA to each container. You can accomplish this either by using volumes like in step 2 or create a new Dockerfile to configure the image more before the its used in the docker-compose. Different images have specific TLS configuration requirements which means you'll need to research how to add certs for your chosen image, but I can give a few tips.
-
-I recommend using an additional DockerFile because we can also do any configuring that maybe application or image-specific. Volumes will put the file in the correct place, but it may persist things we don't want, we are unable to dictate the keys permissions, and we can't easily do more configuration for the volume.
-
-Start by creating folders and Dockerfile for each unique image you're using.
-
-```docker
-FROM httpd
+```bash
+cp ~/Library/Application\ Support/mkcert/rootCA.pem ~/git/devcontainer/development-images/webserver/tls/rootCA.pem
+cp ~/Library/Application\ Support/mkcert/rootCA.pem ~/git/devcontainer/development-images/webapi/tls/rootCA.pem
 ```
 
-Then, update the docker compose to reference your custom build/ Dockerfile of each image. Also, add an ARG, a local variable, to each service that requires a TLS certificate. This ARG will hold the name of the certificate (without any extensions like .pem, .crt, etc). My TLS artifacts almost always the same name as the hostname of the machine, but yours will be different if you decided not use the container hostname in step 7.
+I like creating a temporary working directory for the certificate artifacts:
 
-```yaml
-version: '3.2'
-services:
-  webserver:
-    build:
-      context: ../httpd
-      args:
-        TLSFilename: local.megbailey.me
-    hostname: local.megbailey.me
-    ports:
-        - "80:80"
-        - "443:443"
-    volumes:
-        - ./web_project/html:/var/www/html/web_project
-        - ./web_project/includes:/var/www/includes/web_project
-    networks:
-        - customNetwork
-  apiserver:
-    build:
-      context: ../httpd
-      args:
-        TLSFilename: local-api.megbailey.me
-    hostname: local-api.megbailey.me
-    ports:
-        - "8080:80"
-        - "8443:443"
-    volumes:
-        - ./api_web_project/html:/var/www/html/api_web_project
-        - ./api_web_project/includes:/var/www/includes/api_web_project
-    networks:
-        - customNetwork
-  database:
-    image: mysql
-    hostname: local-db.megbailey.me
-    ports:
-      - "3306:3306"
-    volumes:
-        - ./containers/initdb:/docker-entrypoint-initdb.d
-        - ./containers/data:/var/lib/mysql
-    networks:
-      - customNetwork
-networks:
-    customNetwork:
-        ipam:
-        driver: default
+```bash
+cd ~/Desktop
+mkdir tls
+cd tls
 ```
 
-Now, within the Dockerfile for each image, You can use the ARG TLSFilename to copy the cert for each container.
+For each container that needs a locally-trusted certificate, generate a private key, create a certificate signing request, and sign it with the local Certifcate Authority:
 
-```docker
-ARG TLSFilename # the variable set in the compose file
-
-# Copy private key and cert created with a development root CA
-COPY --chmod=600 "tls/${TLSFilename:-localhost}.key" /etc/ssl/private/
-COPY "tls/${TLSFilename:-localhost}.pem" /etc/ssl/certs/
-
-# Copy the development root CA and update cert store
-COPY tls/rootCA.pem  /usr/local/share/ca-certificates/rootCA.crt
-RUN chmod 644 /usr/local/share/ca-certificates/rootCA.crt && update-ca-certificates
+```bash
+openssl genrsa -out ./containerCanonicalHostname.key 2048
 ```
 
-Continuing with our example, apache requires additional configiration for HTTPS specifically updating default-ssl.conf file to contain a path to the certs.
-
-```docker
-ADD 000-default.conf /etc/apache2/sites-available/000-default.conf
-ADD default-ssl.conf /etc/apache2/sites-enabled/default-ssl.conf
-RUN sed -i "s/localhost.key/${TLSFilename:-localhost}.key/" /etc/apache2/sites-enabled/default-ssl.conf && \
-    sed -i "s/localhost.crt/${TLSFilename:-localhost}.pem/" /etc/apache2/sites-enabled/default-ssl.conf
+```bash
+openssl req \
+  -new \
+  -key ./containerCanonicalHostname.key \
+  -subj "/C=US/ST=California/L=San Diego/O=megbailey.me/OU=megbailey.me Development/CN=containerCanonicalHostname" \
+  -out ./containerCanonicalHostname.csr
 ```
+
+```bash
+mkcert -csr ./containerCanonicalHostname.csr
+```
+
+Replace `containerCanonicalHostname` with the actual hostname for the container. If you are using separate `webapi`, `webserver` containers, repeat this process for each unique hostname.
+
+Then, move the generated files into the matching image directory to live alongside the Dockerfile.
+
+```bash
+mv containerCanonicalHostname.key ~/git/development-images/[imageName]/tls/
+mv containerCanonicalHostname.csr ~/git/development-images/[imageName]/tls/
+mv containerCanonicalHostname.pem ~/git/development-images/[imageName]/tls/
+```
+
+In this setup, `imageName` is the image folder for the container, such as `webserver`, `webapi`.
+
+These TLS artifacts should stay local to each developer. The repository's `.gitignore` should exclude them so private keys and generated certificates are not committed.
+
+Once the files are in place, rebuild the images and start the containers:
+
+```bash
+docker compose up --build
+```
+
+If Docker already has images with the same names, remove the old images first so the new TLS files are included in the rebuild. When the containers are running, open the container hostname in the browser. If the hostname, certificate, and `/etc/hosts` entry all line up, the page should load without certificate warnings.

@@ -5,12 +5,12 @@
         "filename": "butterdb.md",
         "publish_date": "06/05/23",
         "description": "An ORM for using Google Sheets as a relational database",
-        "image":{ 
+        "image": {
             "src": "25673_adobe_express.svg",
             "height": "100",
             "width": "200"
         },
-        "githubURL": "https://github.com/megbailey/ButterDB"  
+        "githubURL": "https://github.com/megbailey/ButterDB"
     },
     {
         "name": "megbailey.me",
@@ -18,10 +18,10 @@
         "filename": "megbaileyme.md",
         "publish_date": "04/30/26",
         "description": "Developer's portfolio built with React",
-        "image":{ 
+        "image": {
             "src": "website-preview.png"
         },
-        "githubURL": "https://github.com/megbailey/megbailey.me"        
+        "githubURL": "https://github.com/megbailey/megbailey.me"
     },
     {
         "name": "React Poke-Platformer",
@@ -29,10 +29,10 @@
         "filename": "react-poke-platformer.md",
         "publish_date": "04/30/26",
         "description": "16-bit pokemon-inspired platformer built with javscript",
-        "image":{ 
+        "image": {
             "src": "platformer-preview-hz.png"
         },
-        "githubURL": "https://github.com/megbailey/react-poke-platformer"        
+        "githubURL": "https://github.com/megbailey/react-poke-platformer"
     },
     {
         "name": "React Links Tree",
@@ -40,10 +40,10 @@
         "filename": "react-accessible-links-tree.md",
         "publish_date": "",
         "description": "Accessible Tree of links",
-        "image":{ 
+        "image": {
             "src": "http://placehold.it/200x100"
         },
-        "githubURL": "https://github.com/megbailey/ProjectName"        
+        "githubURL": "https://github.com/megbailey/ProjectName"
     },
     {
         "name": "All About Relational DBs",
@@ -51,7 +51,7 @@
         "filename": "blogPost.md",
         "publish_date": "",
         "description": "A meaningful short description",
-        "image":{ 
+        "image": {
             "src": "http://placehold.it/200x100"
         }
     },
@@ -59,10 +59,10 @@
         "name": "LocalHost Docker with TLS!",
         "type": "blog",
         "filename": "localhost-docker-with-tls.md",
-        "publish_date": "",
+        "publish_date": "06/20/24",
         "description": "Guide to setting up a local development environment with docker and TLS certifications",
-        "image":{ 
-            "src": "http://placehold.it/200x100"
+        "image": {
+            "src": "tls-docker.jpeg"
         }
     },
     {
@@ -71,7 +71,7 @@
         "filename": "webpack-setup.md",
         "publish_date": "",
         "description": "Guide to setting up webpack project within another wepback project",
-        "image":{ 
+        "image": {
             "src": "http://placehold.it/200x100"
         }
     },
@@ -81,7 +81,7 @@
         "filename": "stay-safe-online.md",
         "publish_date": "",
         "description": "A guide to taking precautions online for different level paranoia-types",
-        "image":{ 
+        "image": {
             "src": "http://placehold.it/200x100"
         }
     }
