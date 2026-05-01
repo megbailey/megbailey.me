@@ -29,7 +29,6 @@
     "react-redux": "^9.1.1",
     "react-responsive": "^10.0.0",
     "react-router-dom": "^6.18.0",
-    "react-scripts": "5.0.1",
     "remark-gfm": "^3.0.1",
     "require-from-string": "^2.0.2",
     "typescript": "^4.9.5",
@@ -45,15 +44,14 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^13.5.0",
-    "check-dependencies": "^1.1.0",
+    "babel-loader": "^10.1.1",
+    "css-loader": "^7.1.4",
+    "html-webpack-plugin": "^5.6.7",
+    "mini-css-extract-plugin": "^2.10.2",
+    "style-loader": "^4.0.0",
     "webpack": "^5.89.0",
-    "webpack-cli": "^5.1.4"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.2.3"
   },
   "browserslist": {
     "production": [
