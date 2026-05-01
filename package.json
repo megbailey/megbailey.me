@@ -1,7 +1,7 @@
 {
   "name": "megbailey.me",
   "homepage": "https://megbailey.me",
-  "version": "0.1.1",
+  "version": "1.1.0",
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "engines": {
     "npm": ">=9.0.0",
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
