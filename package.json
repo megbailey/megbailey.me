@@ -5,8 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "start": "npm run start:webpack",
-    "start:webpack": "webpack serve --config webpack.config.js --mode=development",
+    "start": "webpack serve --config webpack.config.js --mode=development",
     "build": "npm i && webpack --mode=production && echo '/* /index.html  200' | cat > build/_redirects",
     "build:dev": "npm i && webpack --mode=development"
   },
@@ -20,6 +19,7 @@
     "antd": "^5.10.3",
     "chart.js": "^4.4.0",
     "date-fns": "^2.30.0",
+    "poke-platformer": "https://github.com/megbailey/react-poke-platformer.git",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",

@@ -20,6 +20,8 @@ import blogContent from '../assets/content/blog.js'
 /* Projects */
 import Projects from "./pages/Projects.jsx";
 import projectContent from '../assets/content/projects.js'
+import Game from "./pages/Game.jsx";
+
 /* Posts */
 import Post from "./pages/Post.jsx";
 import postContent from '../assets/content/posts/posts.json'
@@ -72,6 +74,14 @@ function App() {
               element={ 
                 <Template 
                   content={ <Projects {...projectContent} posts={postContent.filter((post) => post.type === 'project')} /> } 
+                /> 
+              } 
+            />
+            <Route 
+              path="/projects/game" 
+              element={ 
+                <Template 
+                  content={ <Game /> } 
                 /> 
               } 
             />

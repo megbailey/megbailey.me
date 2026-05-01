@@ -30,9 +30,9 @@
         "publish_date": "04/30/26",
         "description": "16-bit pokemon-inspired platformer built with javscript",
         "image":{ 
-            "src": "http://placehold.it/200x100"
+            "src": "platformer-preview-hz.png"
         },
-        "githubURL": "https://github.com/megbailey/ProjectName"        
+        "githubURL": "https://github.com/megbailey/react-poke-platformer"        
     },
     {
         "name": "React Links Tree",
