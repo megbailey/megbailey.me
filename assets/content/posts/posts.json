@@ -35,27 +35,6 @@
         "githubURL": "https://github.com/megbailey/react-poke-platformer"
     },
     {
-        "name": "React Links Tree",
-        "type": "project",
-        "filename": "react-accessible-links-tree.md",
-        "publish_date": "",
-        "description": "Accessible Tree of links",
-        "image": {
-            "src": "http://placehold.it/200x100"
-        },
-        "githubURL": "https://github.com/megbailey/ProjectName"
-    },
-    {
-        "name": "All About Relational DBs",
-        "type": "blog",
-        "filename": "blogPost.md",
-        "publish_date": "",
-        "description": "A meaningful short description",
-        "image": {
-            "src": "http://placehold.it/200x100"
-        }
-    },
-    {
         "name": "LocalHost Docker with TLS!",
         "type": "blog",
         "filename": "localhost-docker-with-tls.md",
@@ -63,26 +42,6 @@
         "description": "Guide to setting up a local development environment with docker and TLS certifications",
         "image": {
             "src": "tls-docker.jpeg"
-        }
-    },
-    {
-        "name": "Setting up a Webpack Project",
-        "type": "blog",
-        "filename": "webpack-setup.md",
-        "publish_date": "",
-        "description": "Guide to setting up webpack project within another wepback project",
-        "image": {
-            "src": "http://placehold.it/200x100"
-        }
-    },
-    {
-        "name": "Protecting yourself on the web",
-        "type": "blog",
-        "filename": "stay-safe-online.md",
-        "publish_date": "",
-        "description": "A guide to taking precautions online for different level paranoia-types",
-        "image": {
-            "src": "http://placehold.it/200x100"
         }
     }
 ]
