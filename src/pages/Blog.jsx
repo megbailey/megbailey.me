@@ -29,9 +29,8 @@ const Blog = ({ title, posts }) => {
                 xxl: 4
             }}
             dataSource={posts}
-            renderItem={(item, index) => (
+            renderItem={(item) => (
                 <BlogCard 
-                    id={index}                    
                     { ...item }
                 />
             )}

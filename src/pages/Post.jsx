@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { Navigate, useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from "remark-gfm";
 import '../../assets/styles/post.css';
 
 const Post = ({ type, posts }) => {
+    const { slug } = useParams()
     const [ md, setMd ] = useState('')
-    const params = new URLSearchParams(document.location.search);
-    const id = parseInt(params.get("id"), 10);
     
-    /* the post's id must exist in posts.json and have markdown file in the path*/
-    const post = posts[id]
+    /* the post's slug must exist in posts.json and have markdown file in the path */
+    const post = posts.find((entry) => entry.slug === slug)
 
     useEffect(() => {
         if (!post) return;
 
+        setMd('')
         import(`../../assets/content/posts/${type}/${post.filename}`)
             .then( result => {
                 fetch( result.default )
@@ -23,6 +24,10 @@ const Post = ({ type, posts }) => {
             })
             .catch( error => console.log(error) )
     }, [type, post]);
+
+    if (!post) {
+        return <Navigate to={type === 'project' ? '/projects' : '/knowledge'} replace />
+    }
 
     return (
         <div className='reactmd'>

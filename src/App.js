@@ -75,7 +75,7 @@ function App() {
               } 
             />
             <Route 
-              path="/projects/post" 
+              path="/projects/:slug" 
               element={ 
                 <Template 
                   content={ <Post type={'project'} posts={postContent.filter((post) => post.type === 'project')} /> } 
@@ -91,7 +91,7 @@ function App() {
               } 
             />
             <Route 
-              path="/blog/post" 
+              path="/knowledge/:slug" 
               element={ 
                 <Template 
                   content={ <Post type={'blog'} posts={postContent.filter((post) => post.type === 'blog')} /> } 

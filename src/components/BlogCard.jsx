@@ -8,13 +8,14 @@ import useImage from "../utils/useImage.js";
 import '../../assets/styles/cards.css'
 
 const BlogCard = (props) => {
-    const { id, name, description, image: { src, width, height } } = props
+    const { slug, name, description, image: { src, width, height } } = props
     const theme = useSelector(state => state.theme.value)
     const asyncImage = useImage(src)
 
     return (
-        <a href={`/blog/post?id=${id}`}>
+        <a href={`/knowledge/${slug}`}>
             <Card
+                className={`ant-card--${theme.mode}`}
                 title={ <Title size={2}>{name}</Title> } 
                 bordered={true}
                 size={"medium"}

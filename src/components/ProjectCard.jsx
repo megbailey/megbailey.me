@@ -16,7 +16,7 @@ import '../../assets/styles/cards.css'
 
 const ProjectCard = ( props ) => { 
     const { 
-        id, 
+        slug, 
         name, 
         description, 
         image: { src, width, height }, 
@@ -26,9 +26,10 @@ const ProjectCard = ( props ) => {
     
     const theme = useSelector(state => state.theme.value)
     const asyncImage = useImage(src)
+    const postHref = `/projects/${slug}`
 
     return (
-        <a href={`/projects/post?id=${id}`}>
+        <a href={postHref}>
         <Card
             className={`ant-card--${theme.mode}`}
             title={ <Title size={2}>{name}</Title> } 
@@ -86,7 +87,7 @@ const ProjectCard = ( props ) => {
                         size={'middle'}
                         type="link"
                         shape="circle"
-                        href={`/projects/post?id=${id}`}
+                        href={postHref}
                         icon={<Avatar 
                             size={32} 
                             src={theme.mode === 'dark' ? blogLight : blogDark} 
