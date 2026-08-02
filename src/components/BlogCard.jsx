@@ -19,10 +19,8 @@ const BlogCard = (props) => {
                 bordered={true}
                 size={"medium"}
                 styles={{
-                    width: 300,
-                    height: 400,
                     header: theme.style,
-                    body: theme.styl
+                    body: theme.style
                 }}
                 style={{ 
                     margin: '5%',
