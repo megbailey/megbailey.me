@@ -34,21 +34,23 @@ const Projects = ({ title, text, projectSpotlight, posts }) => {
             </Col>
         </Row >
         <List
-            style={{ margin: '2%' }}
+            style={{ margin: '1.5% 0' }}
             grid={{
-                gutter: [48, 16],
+                gutter: [24, 24],
                 xs: 1,
                 sm: 2,
                 md: 2,
                 lg: 3,
                 xl: 3,
-                xxl: 4
+                xxl: 3
             }}
             dataSource={posts}
             renderItem={(item) => (
-                <ProjectCard 
-                    { ...item }
-                />
+                <List.Item style={{ height: '100%' }}>
+                    <ProjectCard 
+                        { ...item }
+                    />
+                </List.Item>
             )}
         />
         </>
