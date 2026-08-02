@@ -26,12 +26,7 @@ import Game from "./pages/Game.jsx";
 import Post from "./pages/Post.jsx";
 import postContent from '../assets/content/posts/posts.json'
 
-import { updateTheme } from './utils/reducers';
-import store from './utils/store';
 import "../assets/styles/app.css";
-
-/* prior to app load get previosly loaded theme if stored on client */
-let prevTheme = localStorage.getItem('theme')
 
 function App() {
   const theme = useSelector(state => state.theme.value)
@@ -39,12 +34,6 @@ function App() {
   const { backgroundColor } = theme.style
 
   /* persist chosen theme between page loads */
-  useEffect(() => {
-    /* get previosly loaded theme if stored on client */
-    let prevTheme = localStorage.getItem('theme')
-    store.dispatch( updateTheme( prevTheme) )
-  }, [])
-
   useEffect(() => {
     localStorage.setItem('theme', theme.mode)
   }, [theme.mode])

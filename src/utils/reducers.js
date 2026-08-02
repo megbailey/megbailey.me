@@ -11,35 +11,32 @@ const darkStyle = {
     backgroundColor: '#001529'
 }
 
+const resolveTheme = (mode) => {
+    if (mode === 'light') {
+        return {
+            mode: 'light',
+            style: lightStyle
+        }
+    }
+
+    return {
+        mode: 'dark',
+        style: darkStyle
+    }
+}
+
+const storedTheme = typeof localStorage !== 'undefined'
+    ? localStorage.getItem('theme')
+    : null
 
 export const themeSlice = createSlice({
     name: "theme",
     initialState: { 
-        value: { 
-            mode: 'dark',
-            style: darkStyle
-        }
+        value: resolveTheme(storedTheme)
     },
     reducers: {
         updateTheme: (state, action) => {
-            let theme, respectiveStyle;
-            switch( action.payload ) {
-                case 'light':
-                    theme = action.payload
-                    respectiveStyle = lightStyle
-                    break;
-                case 'dark': 
-                    theme = action.payload
-                    respectiveStyle = darkStyle
-                    break;
-                                    
-            }
-
-            state.value = {
-                ...state.value,
-                mode: theme,
-                style: respectiveStyle
-            }
+            state.value = resolveTheme(action.payload)
         },
     }
 })
