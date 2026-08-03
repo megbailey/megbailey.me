@@ -47,5 +47,16 @@
         "image": {
             "src": "tls-docker.jpeg"
         }
+    },
+    {
+        "name": "Publishing My First Packages to npm",
+        "slug": "publishing-to-npm",
+        "type": "blog",
+        "filename": "publishing-to-npm.md",
+        "publish_date": "07/05/26",
+        "description": "Announcing @megbailey/ui and @megbailey/utils, my first packages published to npm from the megbailey-core monorepo",
+        "image": {
+            "src": "npm-logo.svg"
+        }
     }
 ]
