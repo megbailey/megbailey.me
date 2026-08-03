@@ -9,6 +9,8 @@ import OctocatDark from '../../assets/img/github-48-dark.png'
 import LinkedInLight from '../../assets/img/linkedin-50-light.png'
 import LinkedInDark from '../../assets/img/linkedin-50-dark.png'
 
+import '../../assets/styles/footer.css'
+
 const { Footer: LayoutFooter } = Layout;
 
 
@@ -16,7 +18,7 @@ const Footer = () => {
      const theme = useSelector(state => state.theme.value)
 
      return (
-          <LayoutFooter style={theme.style}>
+          <LayoutFooter className="site-footer" style={theme.style}>
                <Space 
                     style={{ display: 'flex' , justifyContent: 'center' }}
                     split={<Divider type="vertical" />}
@@ -37,7 +39,7 @@ const Footer = () => {
                          icon={<Avatar size={24} src={theme.mode === "light" ? LinkedInLight: LinkedInDark} />}
                          block
                     /> */}
-                    <Text>© Megan Bailey</Text>
+                    <Text className="site-footer__copy">© Megan Bailey</Text>
                </Space>
           </LayoutFooter>
      )

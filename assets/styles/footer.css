@@ -1,0 +1,4 @@
+.site-footer,
+.site-footer__copy.ant-typography {
+  font-size: var(--site-ui-font-size);
+}

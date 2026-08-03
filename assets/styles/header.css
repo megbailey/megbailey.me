@@ -1,0 +1,97 @@
+.theme-switch.ant-switch {
+  min-width: 55px;
+  height: 28px;
+  line-height: 26px;
+  background: transparent !important;
+  border: 1px solid rgba(0, 21, 41, 0.28);
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+.theme-switch--dark.ant-switch {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.theme-switch.ant-switch:hover:not(.ant-switch-disabled) {
+  background: rgba(0, 21, 41, 0.04) !important;
+}
+
+.theme-switch--dark.ant-switch:hover:not(.ant-switch-disabled) {
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+.theme-switch.ant-switch.ant-switch-checked {
+  background: transparent !important;
+  border-color: rgba(0, 21, 41, 0.55);
+}
+
+.theme-switch--dark.ant-switch.ant-switch-checked {
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.theme-switch.ant-switch .ant-switch-handle {
+  width: 20px;
+  height: 20px;
+  top: 3px;
+  inset-inline-start: 4px;
+  border-radius: 2px;
+}
+
+.theme-switch.ant-switch.ant-switch-checked .ant-switch-handle {
+  inset-inline-start: calc(100% - 24px);
+}
+
+.theme-switch.ant-switch .ant-switch-handle::before {
+  border-radius: 2px;
+  background-color: #001529;
+  box-shadow: none;
+}
+
+.theme-switch--dark.ant-switch .ant-switch-handle::before {
+  background-color: #ffffff;
+}
+
+.theme-switch.ant-switch .ant-switch-inner {
+  overflow: hidden;
+  padding-inline: 28px 8px;
+  font-size: 15px;
+}
+
+.theme-switch.ant-switch.ant-switch-checked .ant-switch-inner {
+  padding-inline: 8px 28px;
+}
+
+.theme-switch.ant-switch .ant-switch-inner,
+.theme-switch.ant-switch .ant-switch-inner .ant-switch-inner-unchecked,
+.theme-switch.ant-switch .ant-switch-inner .ant-switch-inner-checked,
+.theme-switch.ant-switch .ant-switch-inner .anticon {
+  color: #001529 !important;
+}
+
+.theme-switch--dark.ant-switch .ant-switch-inner,
+.theme-switch--dark.ant-switch .ant-switch-inner .ant-switch-inner-unchecked,
+.theme-switch--dark.ant-switch .ant-switch-inner .ant-switch-inner-checked,
+.theme-switch--dark.ant-switch .ant-switch-inner .anticon {
+  color: #ffffff !important;
+}
+
+.theme-switch.ant-switch .ant-switch-inner .anticon {
+  font-size: 15px;
+  vertical-align: -0.05em;
+}
+
+/* Fully hide the inactive icon so it can't peek past the handle */
+.theme-switch.ant-switch:not(.ant-switch-checked) .ant-switch-inner-checked,
+.theme-switch.ant-switch.ant-switch-checked .ant-switch-inner-unchecked {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.theme-switch.ant-switch:focus-visible {
+  outline: 2px solid #001529;
+  outline-offset: 3px;
+}
+
+.theme-switch--dark.ant-switch:focus-visible {
+  outline-color: #ffffff;
+}

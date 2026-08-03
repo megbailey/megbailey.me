@@ -1,38 +1,23 @@
-import React, { useState } from "react";
-import { Menu as AntMenu } from 'antd';
+import React from "react";
 import { useSelector } from 'react-redux';
 import '../../assets/styles/menu.css'
 
-
-const Menu = (props) => {
-  const [currentMenuItem, setCurrentMenuItem] = useState(null);
-  const { items } = props
-
+const Menu = ({ items }) => {
   const theme = useSelector(state => state.theme.value)
-  
-  const onMenuClick = (e) => {
-      setCurrentMenuItem(e.key);
-  };
 
-  
   return (
-    <AntMenu 
-        className={`ant-menu`}
-        onClick={onMenuClick} 
-        selectedKeys={[currentMenuItem]}
-        mode="horizontal" 
-        style={theme.style}
-        theme={theme.mode}
-        items={ items.map( item => {
-            const { text, link } = item
-            return {
-                label: <a href={`${link}`} rel="noopener noreferrer">{text}</a>,
-                key: `nav-${text}`
-            }
-        })} 
-    />
+    <nav className={`site-nav site-nav--${theme.mode}`} aria-label="Primary">
+      <ul className="site-nav__list">
+        {items.map(({ text, link }) => (
+          <li key={`nav-${text}`} className="site-nav__item">
+            <a className="site-nav__link" href={link} rel="noopener noreferrer">
+              {text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
-
 }
 
 export default Menu;

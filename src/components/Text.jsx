@@ -40,14 +40,17 @@ const Paragraph = ( { style, children } ) => {
      )
 }
 
-const Text = ( { style, children } ) => {  
+const Text = ( { style, className, children } ) => {  
      const theme = useSelector(state => state.theme.value)
      return (
-          <TypographyText style={{ 
-               ...style,
-               ...theme.style,
-               wordBreak: 'normal'
-          }} >
+          <TypographyText
+               className={className}
+               style={{ 
+                    ...style,
+                    ...theme.style,
+                    wordBreak: 'normal'
+               }}
+          >
                { children }
           </TypographyText>
      )

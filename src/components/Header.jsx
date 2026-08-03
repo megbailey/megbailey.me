@@ -1,16 +1,16 @@
 import React, { useRef } from 'react';
 import { Layout, Col, Row, Button, Avatar, Switch } from 'antd';
+import { SunOutlined, MoonOutlined } from '@ant-design/icons';
 import { useSelector } from 'react-redux'
 
 import Menu from './Menu';
 
 import LogoWhiteOnBlue from '../../assets/img/MeganLogo-38.png'
-import Sun from '../../assets/img/sun-emoji.png';
-import Moon from  '../../assets/img/moon-emoji.png';
 
 import { updateTheme } from '../utils/reducers';
 import store from '../utils/store';
 
+import '../../assets/styles/header.css'
 
 const { Header: LayoutHeader } = Layout;
 
@@ -36,13 +36,14 @@ const menuItems = [
 const Header = () => { 
 const theme =  useSelector(state => state.theme.value)
 const ref = useRef(null);
+const isDark = theme.mode === 'dark'
 
   return (
       <LayoutHeader 
         ref={ref}
         style={theme.style}
       >
-      <Row justify="start">
+      <Row justify="start" align="middle">
         <Col xs={3} sm={2} md={2} lg={1} xl={1} xxl={1}>
           <Button 
             type="link"
@@ -56,12 +57,14 @@ const ref = useRef(null);
           <Menu items={menuItems} />
         </Col>
         <Col xs={2} sm={2} md={1} lg={1} xl={1} xxl={1}>
-        <Switch
-          checkedChildren={<Avatar size={18} src={Moon} />}
-          unCheckedChildren={<Avatar size={20} src={Sun} />}
-          defaultChecked={ theme.mode === 'dark' ? true : false }
-          onChange={ () => store.dispatch( updateTheme( theme.mode === 'light' ? `dark` : `light`) ) }
-        />
+          <Switch
+            className={`theme-switch theme-switch--${theme.mode}`}
+            checked={isDark}
+            checkedChildren={<MoonOutlined />}
+            unCheckedChildren={<SunOutlined />}
+            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+            onChange={(checked) => store.dispatch(updateTheme(checked ? 'dark' : 'light'))}
+          />
         </Col>
       </Row>
     </LayoutHeader>
