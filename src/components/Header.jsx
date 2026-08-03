@@ -41,10 +41,11 @@ const isDark = theme.mode === 'dark'
   return (
       <LayoutHeader 
         ref={ref}
+        className="site-header"
         style={theme.style}
       >
-      <Row justify="start" align="middle">
-        <Col xs={3} sm={2} md={2} lg={1} xl={1} xxl={1}>
+      <Row justify="start" align="middle" className="site-header__row" wrap={false}>
+        <Col flex="none" className="site-header__logo">
           <Button 
             type="link"
             shape="circle"
@@ -53,10 +54,10 @@ const isDark = theme.mode === 'dark'
             block
           />
         </Col>
-        <Col xs={16} sm={16} md={20} lg={21} xl={21} xxl={21}>
+        <Col flex="auto" className="site-header__nav">
           <Menu items={menuItems} />
         </Col>
-        <Col xs={2} sm={2} md={1} lg={1} xl={1} xxl={1}>
+        <Col flex="none" className="site-header__theme">
           <Switch
             className={`theme-switch theme-switch--${theme.mode}`}
             checked={isDark}
