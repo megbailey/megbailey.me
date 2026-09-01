@@ -8,14 +8,21 @@ const {
      Paragraph: TypographyParagraph,
 } = Typography;
 
+const textStyle = {
+     color: 'var(--site-text-color)',
+     backgroundColor: 'transparent',
+}
 
 
-const Title = ( { size, style, children } ) => {  
+
+const Title = ( { size, style, className, children } ) => {  
      const theme = useSelector(state => state.theme.value)
      return (
           <TypographyTitle 
+               className={className}
                style={{
-                    ...theme.style,
+                    ...textStyle,
+                    color: theme.style.color,
                     ...style
                }}
                level={size}
@@ -26,12 +33,12 @@ const Title = ( { size, style, children } ) => {
 }
 
 
-const Paragraph = ( { style, children } ) => {  
-     const theme = useSelector(state => state.theme.value)
+const Paragraph = ( { style, className, children } ) => {  
      return (
           <TypographyParagraph 
+               className={className}
                style={{ 
-                    ...theme.style,
+                    ...textStyle,
                     ...style,
                     wordBreak: 'normal'
                }} >
@@ -41,13 +48,12 @@ const Paragraph = ( { style, children } ) => {
 }
 
 const Text = ( { style, className, children } ) => {  
-     const theme = useSelector(state => state.theme.value)
      return (
           <TypographyText
                className={className}
                style={{ 
+                    ...textStyle,
                     ...style,
-                    ...theme.style,
                     wordBreak: 'normal'
                }}
           >

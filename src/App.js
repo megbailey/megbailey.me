@@ -40,9 +40,9 @@ function App() {
 
 
   return (
-    <div className="App" id='app' >
+    <div className={`App app--${theme.mode}`} id='app' >
       <Helmet>
-        <style>{`body { background-color: ${backgroundColor}; }`}</style>
+        <style>{`body { background-color: ${backgroundColor}; color: var(--site-text-color); }`}</style>
       </Helmet>
         <BrowserRouter> 
           <Routes>

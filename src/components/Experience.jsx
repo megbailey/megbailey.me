@@ -26,6 +26,7 @@ const group = ( data ) => {
 const IconList = ({ items }) => {
    return (
         <List
+            className="experience-skill-grid"
             grid={{
                 gutter: [16, 8],
                 xs: 2,
@@ -67,16 +68,16 @@ const TabContent = (items) => {
                const { position, employer, startDate, endDate, languageList, libraryFrameworkList, 
                     toolsList, environmentList, descriptionList } = items[index]
                return (
-                    <div key={`${employer}-item-${index}`}>
-                        <Title size={3}>{position}</Title>
+                    <div key={`${employer}-item-${index}`} className="experience-role">
+                        <Title className="experience-role__title" size={3}>{position}</Title>
                         { isValid(startDate) && isValid(endDate) && (
-                            <Paragraph>{`${formatDate(startDate)} - ${formatDate(endDate)}`}</Paragraph>
+                            <Paragraph className="experience-role__dates">{`${formatDate(startDate)} - ${formatDate(endDate)}`}</Paragraph>
                         )}
                         { isValid(startDate) && !isValid(endDate) && (
-                            <Paragraph>{ `Since ${formatDate(startDate)}` }</Paragraph>
+                            <Paragraph className="experience-role__dates">{ `Since ${formatDate(startDate)}` }</Paragraph>
                         )}
                         { descriptionList.length !== 0 && (
-                            <Paragraph>
+                            <Paragraph className="experience-role__description">
                                 <ul>
                                 { descriptionList.map((item, descriptIndex ) => {
                                     return (
@@ -90,25 +91,25 @@ const TabContent = (items) => {
                         )}
                         { languageList && (
                             <>
-                            <Title size={4}>Languages</Title>
+                            <Title className="experience-role__skills-title" size={4}>Languages</Title>
                             <IconList items={languageList}/>
                             </>
                         )}
                         { toolsList && (
                             <>
-                            <Title size={4}>Tools</Title>
+                            <Title className="experience-role__skills-title" size={4}>Tools</Title>
                             <IconList items={toolsList}/>
                             </>
                         )}
                         { libraryFrameworkList && (
                             <>
-                            <Title size={4}>Libraries & Frameworks</Title>
+                            <Title className="experience-role__skills-title" size={4}>Libraries & Frameworks</Title>
                             <IconList items={libraryFrameworkList}/>
                             </>
                         )}
                         { environmentList && (
                             <>
-                            <Title size={4}>Environments</Title>
+                            <Title className="experience-role__skills-title" size={4}>Environments</Title>
                             <IconList items={environmentList}/>
                             </>
                         )}
@@ -127,7 +128,7 @@ const Experience = ({ data }) => {
 
     return (
         <Tabs
-            className={`tabs--${theme.mode}`}
+            className={`experience-tabs experience-tabs--${theme.mode}`}
             tabPosition={device === 'mobile' ? 'top' : 'left'}
             items={Object.keys(grouped).map(index => {
                 return {

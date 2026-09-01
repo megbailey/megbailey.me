@@ -6,41 +6,41 @@ import { Title, Paragraph } from "../components/Text.jsx";
 import RadarChart from "../components/RadarChart.jsx";
 import Experience from "../components/Experience.jsx";
 
+import '../../assets/styles/about.css'
+
 
 const About = ({ title, text, skillsAndTools, experience }) => { 
     const theme = useSelector(state => state.theme.value)
     const { color } = theme.style
 
     return (
-        <>
-         <Row >
-            <Col>
-                <Title>{title}</Title> 
-                <Divider style={{backgroundColor: color }}/>
-            </Col>
-        </Row>
-        <Row>
-            <Col flex="1 0 25%" >
-                <Paragraph>
-                    <div dangerouslySetInnerHTML={{ __html: text }} ></div>
-                </Paragraph>
-            </Col>
-            <Col flex="1 0 15%">
-                <RadarChart {...skillsAndTools.chart} />
-            </Col>
-        </Row>
-        <Row  >
-            <Col>
-                <Title size={2}>{experience.title}</Title>
-                <Divider style={{backgroundColor: color }}/>
-            </Col>
-        </Row>
-        <Row >
-            <Col>
-              <Experience {...experience} />
-            </Col>
-        </Row>
-        </>
+        <div className={`about-page about-page--${theme.mode}`}>
+            <section className="about-page__section">
+                <div className="about-page__section-title">
+                    <Title>{title}</Title>
+                    <Divider style={{ backgroundColor: color }} />
+                </div>
+            </section>
+
+            <section className="about-page__intro">
+                <div className="about-page__intro-copy">
+                    <Paragraph>
+                        <div dangerouslySetInnerHTML={{ __html: text }} />
+                    </Paragraph>
+                </div>
+                <div className="about-page__chart">
+                    <RadarChart {...skillsAndTools.chart} />
+                </div>
+            </section>
+
+            <section className="about-page__section">
+                <div className="about-page__section-title">
+                    <Title size={2}>{experience.title}</Title>
+                    <Divider style={{ backgroundColor: color }} />
+                </div>
+                <Experience {...experience} />
+            </section>
+        </div>
     )
 }
 

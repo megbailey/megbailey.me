@@ -1,9 +1,182 @@
-
-/* tab title in dark mode should be white if not the active element */
-.ant-tabs.tabs--dark .ant-tabs-tab .ant-tabs-tab-btn {
-    color: white;
+.experience-tabs {
+  --tab-fg: #001529;
+  --tab-muted: rgba(0, 21, 41, 0.62);
+  --tab-border: rgba(0, 21, 41, 0.12);
+  --tab-surface: rgba(255, 255, 255, 0.72);
+  --tab-accent: #001529;
+  --tab-hover-bg: rgba(0, 21, 41, 0.04);
 }
-.ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-    color: #1677ff;
-    text-shadow: 0 0 0.25px currentcolor;
-} 
+
+.experience-tabs--dark {
+  --tab-fg: var(--site-text-color);
+  --tab-muted: var(--site-text-muted);
+  --tab-border: rgba(255, 255, 255, 0.16);
+  --tab-surface: transparent;
+  --tab-accent: #ffffff;
+  --tab-hover-bg: rgba(255, 255, 255, 0.06);
+}
+
+.experience-tabs.ant-tabs {
+  color: var(--tab-fg);
+}
+
+/* Left tab rail */
+.experience-tabs.ant-tabs-left > .ant-tabs-nav {
+  min-width: 11rem;
+  margin-right: 1.25rem;
+}
+
+.experience-tabs.ant-tabs-left > .ant-tabs-nav .ant-tabs-nav-wrap {
+  padding: 0.35rem;
+  border: 1px solid var(--tab-border);
+  border-radius: 12px;
+  background: var(--tab-surface);
+}
+
+.experience-tabs.ant-tabs-top > .ant-tabs-nav {
+  margin-bottom: 1rem;
+}
+
+.experience-tabs.ant-tabs-top > .ant-tabs-nav .ant-tabs-nav-wrap {
+  padding: 0.25rem;
+  border: 1px solid var(--tab-border);
+  border-radius: 12px;
+  background: var(--tab-surface);
+}
+
+.experience-tabs .ant-tabs-tab {
+  margin: 0 !important;
+  padding: 0.55rem 0.85rem !important;
+  border-radius: 8px;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease;
+}
+
+.experience-tabs .ant-tabs-tab .ant-tabs-tab-btn {
+  font-size: var(--site-ui-font-size);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--tab-muted);
+  text-shadow: none;
+  transition: color 180ms ease;
+}
+
+.experience-tabs .ant-tabs-tab:hover {
+  background: var(--tab-hover-bg);
+}
+
+.experience-tabs .ant-tabs-tab:hover .ant-tabs-tab-btn {
+  color: var(--tab-fg);
+}
+
+.experience-tabs .ant-tabs-tab.ant-tabs-tab-active {
+  background: var(--tab-hover-bg);
+}
+
+.experience-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: var(--tab-accent) !important;
+  font-weight: 600;
+  text-shadow: none;
+}
+
+.experience-tabs .ant-tabs-ink-bar {
+  display: none;
+}
+
+.experience-tabs > .ant-tabs-content-holder {
+  border: 1px solid var(--tab-border);
+  border-radius: 14px;
+  background: var(--tab-surface);
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.experience-tabs > .ant-tabs-content-holder > .ant-tabs-content > .ant-tabs-tabpane {
+  padding: 0;
+}
+
+/* Tab panel content */
+.experience-role + .experience-role {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--tab-border);
+}
+
+.experience-role__title.ant-typography {
+  margin: 0 0 0.35rem;
+  font-size: 1.125rem;
+  line-height: 1.3;
+}
+
+.experience-role__dates.ant-typography {
+  margin: 0 0 1rem;
+  color: var(--tab-muted);
+  font-size: var(--site-ui-font-size);
+  line-height: 1.4;
+}
+
+.experience-role__description.ant-typography {
+  margin: 0 0 1.25rem;
+  font-size: var(--site-ui-font-size);
+  line-height: 1.65;
+}
+
+.experience-role__description ul {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.experience-role__description li {
+  margin-bottom: 0.55rem;
+}
+
+.experience-role__description li:last-child {
+  margin-bottom: 0;
+}
+
+.experience-role__skills-title.ant-typography {
+  margin: 1.25rem 0 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--tab-muted);
+}
+
+.experience-skill-grid .ant-list-item {
+  padding: 0.5rem 0.25rem;
+}
+
+.experience-tabs .ant-tabs-tab .ant-tabs-tab-btn,
+.experience-role .ant-typography,
+.experience-skill-grid .ant-typography {
+  background: transparent;
+}
+
+.experience-role__dates.ant-typography,
+.experience-role__skills-title.ant-typography {
+  color: var(--site-text-muted);
+}
+
+.experience-skill-grid .ant-avatar {
+  margin-bottom: 0.35rem;
+  background: transparent;
+}
+
+.experience-skill-grid .ant-typography {
+  font-size: 0.8125rem;
+  line-height: 1.3;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .experience-tabs.ant-tabs-left > .ant-tabs-nav {
+    min-width: 0;
+    margin-right: 0;
+  }
+
+  .experience-tabs .ant-tabs-tab {
+    padding: 0.5rem 0.7rem !important;
+  }
+}
