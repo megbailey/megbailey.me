@@ -1,15 +1,15 @@
 import React from "react";
-import { Row, Col, Divider } from 'antd';
+import { Divider } from 'antd';
 import { useSelector } from 'react-redux';
 
 import { Title, Paragraph } from "../components/Text.jsx";
-import RadarChart from "../components/RadarChart.jsx";
+import AboutCarousel from "../components/AboutCarousel.jsx";
 import Experience from "../components/Experience.jsx";
 
 import '../../assets/styles/about.css'
 
 
-const About = ({ title, text, skillsAndTools, experience }) => { 
+const About = ({ title, text, photos, experience }) => { 
     const theme = useSelector(state => state.theme.value)
     const { color } = theme.style
 
@@ -28,8 +28,8 @@ const About = ({ title, text, skillsAndTools, experience }) => {
                         <div dangerouslySetInnerHTML={{ __html: text }} />
                     </Paragraph>
                 </div>
-                <div className="about-page__chart">
-                    <RadarChart {...skillsAndTools.chart} />
+                <div className="about-page__carousel">
+                    <AboutCarousel photos={photos} />
                 </div>
             </section>
 

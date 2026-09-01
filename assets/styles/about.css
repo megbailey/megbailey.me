@@ -47,15 +47,10 @@
   color: #7eb6ff;
 }
 
-.about-page__chart {
+.about-page__carousel {
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 280px;
-}
-
-.about-page__chart > div {
-  width: min(100%, 360px);
+  align-items: flex-start;
 }
 
 .about-page__section-title .ant-typography {
@@ -71,7 +66,7 @@
     grid-template-columns: 1fr;
   }
 
-  .about-page__chart {
-    min-height: 240px;
+  .about-page__carousel {
+    order: -1;
   }
 }

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Placeholder portrait 1">
+  <rect width="800" height="1000" fill="#e8eef4"/>
+  <rect x="80" y="120" width="640" height="760" rx="24" fill="#cfd9e6"/>
+  <circle cx="400" cy="360" r="96" fill="#b8c5d6"/>
+  <rect x="220" y="500" width="360" height="220" rx="110" fill="#b8c5d6"/>
+  <text x="400" y="940" text-anchor="middle" fill="#6b7c93" font-family="ui-sans-serif, system-ui, sans-serif" font-size="28">Photo placeholder 1</text>
+</svg>

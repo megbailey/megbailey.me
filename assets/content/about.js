@@ -151,11 +151,6 @@ const toolsData = {
         level: 10,
         imageSrc: 'linux-logo.png'
     },
-    'Teamwork': {
-        name: 'Teamwork',
-        tag: [ 'Teamwork' ],
-        level: 10,
-    },
 }
 
 
@@ -243,7 +238,7 @@ const positionsHeld = [
         ]
     },
     {
-        position: 'Visting Research Student / Tech Temp',
+        position: 'Visiting Research Student / Tech Temp',
         employer: 'Georgia Tech Research Institute',
         startDate: '2019-06-01',
         endDate: '2020-06-20',
@@ -260,7 +255,7 @@ const positionsHeld = [
             { name: 'Windows', imageSrc: 'windows-logo.png' }
         ],
         descriptionList: [ 
-            'I developed custom PowerShell scripts such as one to analyze company users in Windows Active Directory against a Box-shared spreadsheet generating reports on discrepancies in data like-phone and like-email for rectification.',
+            'I developed custom PowerShell scripts such as one to analyze company users in Windows Active Directory against a Box-shared spreadsheet, generating reports on discrepancies in phone and email data for rectification.',
             'As a research temp, I assisted FTEs with OS updates for 150 VMs in an on-prem environment, contributing to and creating Ansible scripts to accelerate tasks.',
             'I assisted in deploying new workstations to FTEs and resolved office technology issues.'
         ]
@@ -303,102 +298,26 @@ const positionsHeld = [
     },
 ]
 
-function groupItemsByType( items ) {
-    let cardData = []
-    
-    Object.values(items).forEach((item) => {
-        const type = item.type
-        if ( type && cardData[type] ) 
-            cardData[type] = {
-                title: type,
-                items: [
-                    ...cardData[type].items,
-                    item.name
-                ]
-            }
-        else if ( type )
-            cardData[type] = {
-                title: type,
-                items: [
-                    item.name
-                ]
-            }
-    })
-    return Object.values(cardData);
-}
-
-function groupItemsByTag( items ) {
-    let chartData = { }
-    Object.values(items).forEach((item) => {
-        item.tag.forEach( tagItem => {
-            if ( chartData[tagItem] === undefined ) {
-                chartData[tagItem] = [ ]
-            } 
-            chartData[tagItem].push(item )
-            
-        })
-    })
-    return chartData;
-}
-
-function afterBodyContent( items ) {
-    let chartData = { }
-    let content = { }
-    Object.keys(items).forEach(( key ) => {
-        if ( chartData[key] === undefined ) {
-            chartData[key] = [ ]
-        }
-        chartData[key].push(items[key].name)     
-        
-    })
-    Object.keys(chartData).forEach(( key) => {
-        content[key] = chartData[key].join(', ')
-    })
-
-    return content;
-}
-
-function calculateSkillLevel ( items ) {
-    const calculatedSkill =  []
-    Object.keys(items).forEach( key => {
-        const numOfItems = items[key].length;
-        let totalSkill = 0;
-        items[key].forEach( item => {
-            totalSkill += item.level
-        })
-        if ( numOfItems !== 0 ) {
-            calculatedSkill.push(totalSkill / numOfItems)
-        } else {
-            calculatedSkill.push(0)
-        }
-    })
-    return calculatedSkill;
-}
-
-const itemsGroupedByType = groupItemsByType( toolsData )
-const itemsGroupedByTag = groupItemsByTag( toolsData )
-
 const aboutContent = {
     title: "About Me",
     text: "I’m a software engineer, and I specialize in backend services and web application development. \n \
-    I am a life-long learner, and I enjoy utilizing software to solving complex problems and expressing my creativity through my work. \n \
-    I graduated from the University of San Diego, and I lived in San Diego for about 5-years post-college. \n \
-    Now, I'm giving Bay-area a try! I enjoy walking around my bustling neighborhood and <a href='https://en.wikipedia.org/wiki/Guadalupe_River_(California)' target='_blank'>Guadalupe River</a>, antique shopping, learning more about the local culture and history, and enjoying all the things the Bay has to offer!",
-    skillsAndTools: {
-        title: "Skills & Tools",
-        list: {
-            data: Object.values( itemsGroupedByType )
+    I am a lifelong learner, and I enjoy utilizing software to solve complex problems and express my creativity through my work. \n \
+    I graduated from the University of San Diego, and I lived in San Diego for about 5 years post-college. \n \
+    Now, I'm giving the Bay Area a try! I enjoy walking around my bustling neighborhood and <a href='https://en.wikipedia.org/wiki/Guadalupe_River_(California)' target='_blank'>Guadalupe River</a>, antique shopping, learning more about the local culture and history, and enjoying all the things the Bay has to offer!",
+    photos: [
+        {
+            src: 'about/placeholder-1.svg',
+            caption: 'Placeholder photo at the Guadalupe River trail',
         },
-        chart: {
-            label: 'Developer Skills',
-            showLabel: false,
-            dataLabels: Object.keys( itemsGroupedByTag ),
-            data: calculateSkillLevel( itemsGroupedByTag ),
-            tooltip: {
-                afterBodyContent: afterBodyContent( itemsGroupedByTag )
-            }
-        }
-    },
+        {
+            src: 'about/placeholder-2.svg',
+            caption: 'Placeholder photo exploring the neighborhood',
+        },
+        {
+            src: 'about/placeholder-3.svg',
+            caption: 'Placeholder photo from a Bay Area weekend',
+        },
+    ],
     experience: {
         title: "Experience",
         data: positionsHeld

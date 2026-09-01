@@ -1,0 +1,101 @@
+.about-carousel {
+  --carousel-border: rgba(0, 21, 41, 0.12);
+  --carousel-surface: rgba(255, 255, 255, 0.72);
+  --carousel-muted: rgba(0, 21, 41, 0.62);
+  --carousel-accent: #001529;
+
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.about-carousel--dark {
+  --carousel-border: rgba(255, 255, 255, 0.16);
+  --carousel-surface: rgba(255, 255, 255, 0.03);
+  --carousel-muted: var(--site-text-muted);
+  --carousel-accent: #ffffff;
+}
+
+.about-carousel .ant-carousel {
+  border: 1px solid var(--carousel-border);
+  border-radius: 14px;
+  background: var(--carousel-surface);
+  overflow: hidden;
+}
+
+.about-carousel__slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.85rem 0.85rem 1rem;
+}
+
+.about-carousel__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 10px;
+  background: rgba(0, 21, 41, 0.04);
+}
+
+.about-carousel--dark .about-carousel__image {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.about-carousel__caption {
+  margin: 0.75rem 0 0;
+  font-size: var(--site-ui-font-size);
+  line-height: 1.45;
+  text-align: center;
+  color: var(--carousel-muted);
+}
+
+.about-carousel .slick-dots {
+  bottom: 0.35rem;
+}
+
+.about-carousel .slick-dots li button {
+  background: var(--carousel-muted);
+  opacity: 0.35;
+}
+
+.about-carousel .slick-dots li.slick-active button {
+  background: var(--carousel-accent);
+  opacity: 1;
+}
+
+.about-carousel .slick-prev,
+.about-carousel .slick-next {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--carousel-border);
+  border-radius: 999px;
+  background: var(--carousel-surface);
+  color: var(--carousel-accent);
+  z-index: 2;
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.about-carousel .slick-prev:hover,
+.about-carousel .slick-next:hover {
+  border-color: var(--carousel-accent);
+  transform: translateY(-1px);
+}
+
+.about-carousel .slick-prev {
+  left: 0.5rem;
+}
+
+.about-carousel .slick-next {
+  right: 0.5rem;
+}
+
+.about-carousel .slick-prev::before,
+.about-carousel .slick-next::before {
+  color: var(--carousel-accent);
+  font-size: 14px;
+  opacity: 1;
+}

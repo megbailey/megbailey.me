@@ -31,7 +31,7 @@
         "type": "project",
         "filename": "react-poke-platformer.md",
         "publish_date": "04/30/26",
-        "description": "16-bit pokemon-inspired platformer built with javscript",
+        "description": "16-bit Pokemon-inspired platformer built with JavaScript",
         "image": {
             "src": "platformer-preview-hz.png"
         },
@@ -43,7 +43,7 @@
         "type": "blog",
         "filename": "localhost-docker-with-tls.md",
         "publish_date": "06/20/24",
-        "description": "Guide to setting up a local development environment with docker and TLS certifications",
+        "description": "Guide to setting up a local development environment with Docker and TLS certificates",
         "image": {
             "src": "tls-docker.jpeg"
         }

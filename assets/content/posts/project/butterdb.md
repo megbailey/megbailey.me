@@ -17,7 +17,7 @@ usage limitations. See [Limitations](./ReadMe.md#Limitations) to perform the cal
 POJOs that implement the ObjectModel interface inherit the ability to be serialized/deserialized into/from JSON which allows ButterDB to read & write any custom object. 
 
 ButterDB deserializes JSON into ObjectModel subclasses and, thus, the JSON must contain additional type information denoted by the property "@class". The 
-annotation `@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS)` at the top of your ObjectModel implementations instruct `com.fasterxml.jackson` to include this property on seralization.
+annotation `@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS)` at the top of your ObjectModel implementations instruct `com.fasterxml.jackson` to include this property on serialization.
 
 For example, here is a payload to send to the /{ objectStorage }/create endpoint which stores a new object.
 ```
