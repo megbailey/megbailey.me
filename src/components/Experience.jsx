@@ -1,9 +1,9 @@
 import React from 'react';
-import { Tabs, List, Avatar } from 'antd';
+import { Tabs } from 'antd';
 import { isMatch, parse, format } from 'date-fns'
 import { useSelector } from 'react-redux';
 
-import { Text, Title, Paragraph } from './Text';
+import { Title, Paragraph } from './Text';
 import useImage from "../utils/useImage.js";
 import useDevice from '../utils/useDevice';
 import '../../assets/styles/experience.css'
@@ -23,38 +23,33 @@ const group = ( data ) => {
     return groupedByEmployer;
 }
 
+const SkillItem = ({ name, imageSrc }) => {
+    const asyncImage = useImage(imageSrc)
+
+    return (
+        <div className="experience-skill">
+            <div className="experience-skill__icon">
+                {asyncImage.image && (
+                    <img src={asyncImage.image} alt="" />
+                )}
+            </div>
+            <span className="experience-skill__label">{name}</span>
+        </div>
+    )
+}
+
 const IconList = ({ items }) => {
    return (
-        <List
-            className="experience-skill-grid"
-            grid={{
-                gutter: [16, 8],
-                xs: 2,
-                sm: 2,
-                med: 3,
-                lg: 4
-            }}
-            dataSource={items}
-            renderItem={(item) => {
-                const asyncImage = useImage(item.imageSrc)
-                return (
-                    <List.Item 
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'column'
-                        }}
-                    >
-                        <Avatar 
-                            size={48} 
-                            src={asyncImage.image} 
-                        />
-                        <Text>{item.name}</Text>
-                    </List.Item>
-                )
-            }}
-        />
+        <div className="experience-skill-grid">
+            {items.map((item) => (
+                <SkillItem
+                    key={item.name}
+                    name={item.name}
+                    imageSrc={item.imageSrc}
+                />
+            ))}
+        </div>
    )
-    
 }
 
 const TabContent = (items) => {
@@ -90,28 +85,28 @@ const TabContent = (items) => {
                             </Paragraph>
                         )}
                         { languageList && (
-                            <>
-                            <Title className="experience-role__skills-title" size={4}>Languages</Title>
-                            <IconList items={languageList}/>
-                            </>
+                            <section className="experience-role__skills">
+                                <Title className="experience-role__skills-title" size={4}>Languages</Title>
+                                <IconList items={languageList}/>
+                            </section>
                         )}
                         { toolsList && (
-                            <>
-                            <Title className="experience-role__skills-title" size={4}>Tools</Title>
-                            <IconList items={toolsList}/>
-                            </>
+                            <section className="experience-role__skills">
+                                <Title className="experience-role__skills-title" size={4}>Tools</Title>
+                                <IconList items={toolsList}/>
+                            </section>
                         )}
                         { libraryFrameworkList && (
-                            <>
-                            <Title className="experience-role__skills-title" size={4}>Libraries & Frameworks</Title>
-                            <IconList items={libraryFrameworkList}/>
-                            </>
+                            <section className="experience-role__skills">
+                                <Title className="experience-role__skills-title" size={4}>Libraries & Frameworks</Title>
+                                <IconList items={libraryFrameworkList}/>
+                            </section>
                         )}
                         { environmentList && (
-                            <>
-                            <Title className="experience-role__skills-title" size={4}>Environments</Title>
-                            <IconList items={environmentList}/>
-                            </>
+                            <section className="experience-role__skills">
+                                <Title className="experience-role__skills-title" size={4}>Environments</Title>
+                                <IconList items={environmentList}/>
+                            </section>
                         )}
                     </div>
                 )
