@@ -90,6 +90,18 @@ Skills are defined in `assets/content/about.js` with:
 - Proficiency level (1-10 scale)
 - Logo/image reference
 
+### About Carousel Photos
+Carousel images live in `assets/img/about/carousel/`. To add new photos from HEIC originals:
+
+1. Drop the `.heic` files into `assets/img/about/carousel/`
+2. Run:
+
+```bash
+npm run convert-carousel
+```
+
+This converts them to `.jpg`, strips metadata, resizes for the web, and syncs the photo list in `assets/content/about.js`.
+
 ## 🚀 Getting Started
 
 ### Prerequisites

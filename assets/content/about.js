@@ -7,91 +7,91 @@ const toolsData = {
         name: 'Java',
         tag: [ 'Backend' ],
         level: 7,
-        imageSrc: 'java-logo.png'
+        imageSrc: 'about/logos/java-logo.png'
     },
     'PHP': {
         type: 'Languages',
         name: 'PHP',
         tag: [ 'Backend', 'Scripting' ],
         level: 9,
-        imageSrc: 'php-logo.png'
+        imageSrc: 'about/logos/php-logo.png'
     },
     'Javascript': {
         type: 'Languages',
         name: 'Javascript',
         tag: [ 'Frontend' ],
         level: 8,
-        imageSrc: 'javascript-logo.png'
+        imageSrc: 'about/logos/javascript-logo.png'
     },
     'Python': {
         type: 'Languages',
         name: 'Python',
         tag: [ 'Scripting' ],
         level: 6,
-        imageSrc: 'python-logo.png'
+        imageSrc: 'about/logos/python-logo.png'
     },
     'SQL': {
         type: 'Languages',
         name: 'SQL',
         tag: [ 'Backend' ],
         level: 8,
-        imageSrc: 'sql-logo.png'
+        imageSrc: 'about/logos/sql-logo.png'
     },
     'Bash': {
         type: 'Languages',
         name: 'Bash / ZSH',
         tag: [ 'Scripting' ],
         level: 5,
-        imageSrc: 'cmdline-logo.png'
+        imageSrc: 'about/logos/cmdline-logo.png'
     },
     /* Tools */
     'Jira': {
         type: 'Tools',
         name: 'Jira',
         tag: [ ],
-        imageSrc: 'jira-logo.png'
+        imageSrc: 'about/logos/jira-logo.png'
     },
     'Gitlab Jobs': {
         type: 'Tools',
         name: 'Gitlab Jobs',
         tag: [ 'CI/CD' ],
         level: 6,
-        imageSrc: 'gitlab-logo.png'
+        imageSrc: 'about/logos/gitlab-logo.png'
     },
     'Github Actions': {
         type: 'Tools',
         name: 'Github Actions',
         tag: [ 'CI/CD' ],
         level: 5,
-        imageSrc: 'github-lord-logo.png'
+        imageSrc: 'about/logos/github-lord-logo.png'
     },
     'Apache JMeter': {
         type: 'Tools',
         name: 'Apache JMeter',
         tag: [ 'Backend', 'Infrastructure' ],
         level: 7,
-        imageSrc: 'apache-logo.png'
+        imageSrc: 'about/logos/apache-logo.png'
     },
     'Postman': {
         type: 'Tools',
         name: 'Postman',
         tag: [ 'Backend' ],
         level: 8,
-        imageSrc: 'postman-logo.png'
+        imageSrc: 'about/logos/postman-logo.png'
     },
     'Packer': {
         type: 'Tools',
         name: 'Packer',
         tag: [ 'Infrastructure' ],
         level: 7,
-        imageSrc: 'hashicorp-packer-logo.png'
+        imageSrc: 'about/logos/hashicorp-packer-logo.png'
     },
     'Ansible': {
         type: 'Tools',
         name: 'Ansible',
         tag: [ 'Infrastructure', 'Scripting' ],
         level: 6,
-        imageSrc: 'ansible-logo.png'
+        imageSrc: 'about/logos/ansible-logo.png'
     },
     /* Libraries */
     'React': {
@@ -99,28 +99,28 @@ const toolsData = {
         name: 'React',
         tag: [ 'Frontend' ],
         level: 9,
-        imageSrc: 'react-logo.png'
+        imageSrc: 'about/logos/react-logo.png'
     },
     'GraphQL': {
         type: 'Libraries',
         name: 'GraphQL',
         tag: [ 'Backend' ],
         level: 10,
-        imageSrc: 'graphql-logo.png'
+        imageSrc: 'about/logos/graphql-logo.png'
     },
     'Storybook': {
         type: 'Libraries',
         name: 'Storybook',
         tag: [ 'Frontend' ],
         level: 9,
-        imageSrc: 'storybook-logo.png'
+        imageSrc: 'about/logos/storybook-logo.png'
     },
     'Google Protobuf': {
         type: 'Libraries',
         name: 'Google Protobuf',
         tag: [ 'Backend' ],
         level: 7,
-        imageSrc: 'google-logo.png'
+        imageSrc: 'about/logos/google-logo.png'
     },
     /* Running environments */
     'Docker': {
@@ -128,28 +128,28 @@ const toolsData = {
         name: 'Docker',
         tag: [ 'Infrastructure' ],
         level: 8,
-        imageSrc: 'docker-logo.png'
+        imageSrc: 'about/logos/docker-logo.png'
     },
     'AWS EC2': {
         type: 'Platforms',
         name: 'AWS EC2',
         tag: [ 'Infrastructure' ],
         level: 6,
-        imageSrc: 'aws-logo.png'
+        imageSrc: 'about/logos/aws-logo.png'
     },
     'VMWare VSphere / ESXI': {
         type: 'Platforms',
         name: 'VMWare VSphere / ESXI',
         tag: [ 'Infrastructure' ],
         level: 7,
-        imageSrc: 'vmware-logo.png'
+        imageSrc: 'about/logos/vmware-logo.png'
     },
     'Linux / Unix': {
         type: 'Platforms',
         name: 'Linux / Unix',
         tag: [ 'Infrastructure' ],
         level: 10,
-        imageSrc: 'linux-logo.png'
+        imageSrc: 'about/logos/linux-logo.png'
     },
 }
 
@@ -172,7 +172,7 @@ const positionsHeld = [
         ],
         toolsList: [ 
             toolsData['Postman'],
-            { name: 'Rich Results Test', imageSrc: 'google-logo.png' }
+            { name: 'Rich Results Test', imageSrc: 'about/logos/google-logo.png' }
         ],
         environmentList: [ 
             toolsData['Docker'], 
@@ -218,8 +218,8 @@ const positionsHeld = [
             toolsData['VMWare VSphere / ESXI'], 
             toolsData['AWS EC2'], 
             toolsData['Linux / Unix'], 
-            { name: 'Windows', imageSrc: 'windows-logo.png'},
-            { name: 'KVM', imageSrc: 'linux-logo.png'} 
+            { name: 'Windows', imageSrc: 'about/logos/windows-logo.png'},
+            { name: 'KVM', imageSrc: 'about/logos/linux-logo.png'} 
         ],
         descriptionList: [ 
             'I contributed to a San Diego Field Office project building and maintaining a multi-level security (MLS) environment for USAF live training data. This MLS environment supports WarRoom software tools, funded by the LMOC Program Office.',
@@ -245,14 +245,14 @@ const positionsHeld = [
         languageList: [ 
             toolsData['Ansible'], 
             toolsData['Python'], 
-            { name: 'Powershell', imageSrc: 'powershell-logo.png' } 
+            { name: 'Powershell', imageSrc: 'about/logos/powershell-logo.png' } 
         ],
         toolsList: [ 
             toolsData['Jira'],
         ],
         environmentList: [ 
             toolsData['Linux / Unix'], 
-            { name: 'Windows', imageSrc: 'windows-logo.png' }
+            { name: 'Windows', imageSrc: 'about/logos/windows-logo.png' }
         ],
         descriptionList: [ 
             'I developed custom PowerShell scripts such as one to analyze company users in Windows Active Directory against a Box-shared spreadsheet, generating reports on discrepancies in phone and email data for rectification.',
@@ -282,8 +282,8 @@ const positionsHeld = [
         languageList: [ 
             toolsData['Java'], 
             toolsData['Python'], 
-            { name: 'C', imageSrc: 'c-logo.png' }, 
-            { name: 'C++', imageSrc: 'c++-logo.png' } 
+            { name: 'C', imageSrc: 'about/logos/c-logo.png' }, 
+            { name: 'C++', imageSrc: 'about/logos/c++-logo.png' } 
         ],
         environmentList: [ 
             toolsData['Docker'], 
@@ -303,19 +303,147 @@ const aboutContent = {
     text: "I’m a software engineer, and I specialize in backend services and web application development. \n \
     I am a lifelong learner, and I enjoy utilizing software to solve complex problems and express my creativity through my work. \n \
     I graduated from the University of San Diego, and I lived in San Diego for about 5 years post-college. \n \
-    Now, I'm giving the Bay Area a try! I enjoy walking around my bustling neighborhood and <a href='https://en.wikipedia.org/wiki/Guadalupe_River_(California)' target='_blank'>Guadalupe River</a>, antique shopping, learning more about the local culture and history, and enjoying all the things the Bay has to offer!",
+    Now, I'm giving the Bay Area a try! I enjoy walking around my neighborhood and <a href='https://en.wikipedia.org/wiki/Guadalupe_River_(California)' target='_blank'>Guadalupe River</a>, thrift and antique shopping, learning more about the local culture and history, and enjoying all the things the Bay has to offer!",
     photos: [
         {
-            src: 'about/placeholder-1.svg',
-            caption: 'Placeholder photo at the Guadalupe River trail',
+            src: 'about/carousel/2022_1.jpg',
+            caption: 'My professional headshot, 2022',
         },
         {
-            src: 'about/placeholder-2.svg',
-            caption: 'Placeholder photo exploring the neighborhood',
+            src: 'about/carousel/2026_engaged.jpg',
+            caption: 'My fiancé and I minutes after our engagement at CordeValle Winery in San Martin, 2026',
         },
         {
-            src: 'about/placeholder-3.svg',
-            caption: 'Placeholder photo from a Bay Area weekend',
+            src: 'about/carousel/2026_engaged_family.jpg',
+            caption: 'Celebrating our engagement with family at CordeValle Winery in San Martin, 2026',
+        },
+        {
+            src: 'about/carousel/2026_1.jpg',
+            caption: 'Enjoing a sunny day at a Pokemon Go event at Pier 39 in San Francisco, 2026',
+        },
+        {
+            src: 'about/carousel/2026_2.jpg',
+            caption: 'My soon-to-be father-in-law and I at San Diego Comic-Con, 2026',
+        },
+        {
+            src: 'about/carousel/2026_3.jpg',
+            caption: 'Showing off San Francisco to my sister and her fiancé, 2026',
+        },
+        {
+            src: 'about/carousel/2026_4.jpg',
+            caption: 'Throwing an invisible poke-ball at Pokemon World Championships in San Francisco, 2026',
+        },
+        {
+            src: 'about/carousel/2026_5.jpg',
+            caption: 'Cosplaying as Vault-Dwellers from Fallout at San Diego Comic-Con, 2026',
+        },
+        {
+            src: 'about/carousel/2026_6.jpg',
+            caption: 'Crabbing under the Golden Gate bridge with friends and colleagues, 2026',
+        },
+        {
+            src: 'about/carousel/2026_7.jpg',
+            caption: 'A successful catch featuring the Golden Gate bridge, 2026',
+        },
+        {
+            src: 'about/carousel/2026_8.jpg',
+            caption: 'Random Mr. Jelly Belly sighting in Monterey, 2026',
+        },
+        {
+            src: 'about/carousel/2025_1.png',
+            caption: 'My best friend for 17 years! One of my childhood cats, Columbus, who has since passed, and I\'ve featured on the homepage of this site, 2025',
+        },
+        {
+            src: 'about/carousel/2025_2.jpg',
+            caption: 'Taking pictures with an amazing cosplayer at San Diego Comic-Con, 2025',
+        },
+        {
+            src: 'about/carousel/2025_3.jpg',
+            caption: 'Thats a big fish! At the Califonia Academy of Sciences, 2025',
+        },
+        {
+            src: 'about/carousel/2025_4.jpg',
+            caption: 'Sharing my love of Lee\'s Bahn Mis with my mom, 2025',
+        },
+        {
+            src: 'about/carousel/2025_5.jpg',
+            caption: 'Ikea\'s vegetarian meatballs are the best! 2025',
+        },
+        {
+            src: 'about/carousel/2025_6.jpg',
+            caption: 'Enjoing Falafel Drive-In in San Jose, 2025',
+        },
+        {
+            src: 'about/carousel/2025_7.jpg',
+            caption: 'Showing my love to the droids at San Diego Comic-Con, 2025',
+        },
+        {
+            src: 'about/carousel/2025_8.jpg',
+            caption: 'Hanging out with Charlie Brown at my first Great America experience, 2025',
+        },
+        {
+            src: 'about/carousel/2025_9.jpg',
+            caption: 'Secretly wearing San Diego Padres colors at a Giants game in Oracle park in San Francisco, 2025',
+        },
+        {
+            src: 'about/carousel/2025_10.jpg',
+            caption: 'Successfully escaping a fairy-tale-themed Escape Room in San Jose. Game designers used my name for one of the props/answers! 2025',
+        },
+        {
+            src: 'about/carousel/2025_11.jpg',
+            caption: 'Another successful escape from an Italian mafia-themed Escape Room. This time with family in Chandler, Arizona, 2025',
+        },
+        {
+            src: 'about/carousel/2025_12.jpg',
+            caption: 'Enjoining renowed Irish coffees and clam chowder in San Francisco with friends, 2025',
+        },
+        {
+            src: 'about/carousel/2025_13.jpg',
+            caption: 'My mom\'s wedding in Coronado, California, 2025',
+        },
+        {
+            src: 'about/carousel/2025_14.jpg',
+            caption: 'Playing JENGA during a going-away party for a friend in San Diego, 2025',
+        },
+        {
+            src: 'about/carousel/2024_1.jpg',
+            caption: 'Friends and I at a San Diego Padres game on a very sunny day, 2024',
+        },
+        {
+            src: 'about/carousel/2024_2.jpg',
+            caption: 'Being silly at a San Diego Padres game, 2024',
+        },
+        {
+            src: 'about/carousel/2024_3.jpg',
+            caption: 'My fiancé and I at a Pokemon Go event at the Rose Bowl Stadium in Pasadena, 2024',
+        },
+        {
+            src: 'about/carousel/2024_4.jpg',
+            caption: 'Yet another successful escape from a spooky-cabin-themed Escape Room in Chandler, Arizona with family, 2024',
+        },
+        {
+            src: 'about/carousel/2024_5.jpg',
+            caption: 'Found Ahsoka Tano at a Star War\'s Galexy Edge at Disneyland in Anaheim, 2024',
+        },
+        {
+            src: 'about/carousel/2023_1.jpg',
+            caption: 'My fiancé and I at our first Pokemon Go events in Las Vegas, 2023',
+        },
+        {
+            src: 'about/carousel/2023_2.jpg',
+            caption: 'Celebrating my friends birthday at a box at a San Diego Padres game, 2023',
+        },
+        {
+            src: 'about/carousel/2023_3.jpg',
+            caption: 'Snowboarding at Big Bear Mountain with friends for my Birthday, 2023',
+        },
+        {
+            src: 'about/carousel/2023_4.jpg',
+            caption: 'Hanging out with the ATLA gang at my first San Diego Comic-Con, 2023.',
+        },
+        {
+            src: 'about/carousel/2022_2.jpg',
+            caption: 'On a bayou tour in New Orleans, Louisiana with my family. This was my first time visiting the city and originally was planned as my graduation trip, but was two years late because of COVID-19. Ironically, I got COVID on this trip, 2022.',
         },
     ],
     experience: {

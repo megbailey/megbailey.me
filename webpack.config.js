@@ -105,7 +105,7 @@ const config = {
             },
             {
                 // https://webpack.js.org/guides/asset-modules/
-                test: /\.(png|jp(e*)g|svg|gif)$/,
+                test: /\.(png|jpe?g|svg|gif)$/i,
                 type: "asset/inline",
             },
             {

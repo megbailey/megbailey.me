@@ -4,9 +4,17 @@
   --carousel-muted: rgba(0, 21, 41, 0.62);
   --carousel-accent: #001529;
 
+  /* Fill the allotted intro column only — never grow into the copy column */
   width: 100%;
-  max-width: 360px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
+  min-width: 0;
+  outline: none;
+}
+
+.about-carousel:focus-visible {
+  box-shadow: 0 0 0 2px var(--carousel-accent);
+  border-radius: 14px;
 }
 
 .about-carousel--dark {
@@ -27,14 +35,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.85rem 0.85rem 1rem;
+  padding: 0.5rem 0.5rem 0.85rem;
 }
 
 .about-carousel__image {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
+  /* Landscape-friendly frame within the column; contain avoids cropping */
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
   border-radius: 10px;
   background: rgba(0, 21, 41, 0.04);
 }
@@ -53,22 +64,50 @@
 
 .about-carousel .slick-dots {
   bottom: 0.35rem;
+  left: 50%;
+  right: auto;
+  width: auto;
+  max-width: calc(100% - 2.5rem);
+  margin: 0;
+  padding: 0;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  box-sizing: border-box;
+}
+
+.about-carousel .slick-dots li {
+  width: 9px;
+  height: 9px;
+  margin: 0;
+  flex: 0 0 auto;
 }
 
 .about-carousel .slick-dots li button {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
   background: var(--carousel-muted);
   opacity: 0.35;
 }
 
+.about-carousel .slick-dots li.slick-active {
+  width: 9px;
+}
+
 .about-carousel .slick-dots li.slick-active button {
+  width: 9px;
   background: var(--carousel-accent);
   opacity: 1;
 }
 
 .about-carousel .slick-prev,
 .about-carousel .slick-next {
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border: 1px solid var(--carousel-border);
   border-radius: 999px;
   background: var(--carousel-surface);
@@ -96,6 +135,6 @@
 .about-carousel .slick-prev::before,
 .about-carousel .slick-next::before {
   color: var(--carousel-accent);
-  font-size: 14px;
+  font-size: 18px;
   opacity: 1;
 }

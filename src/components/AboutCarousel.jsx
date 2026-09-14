@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useRef } from 'react';
 import { Carousel } from 'antd';
 import { useSelector } from 'react-redux';
 
@@ -24,14 +24,38 @@ const CarouselSlide = ({ src, caption }) => {
 
 const AboutCarousel = ({ photos }) => {
     const theme = useSelector(state => state.theme.value)
+    const carouselRef = useRef(null)
+    const containerRef = useRef(null)
+
+    const focusCarousel = useCallback(() => {
+        containerRef.current?.focus({ preventScroll: true })
+    }, [])
+
+    const handleKeyDown = useCallback((event) => {
+        if (event.key === 'ArrowLeft') {
+            event.preventDefault()
+            carouselRef.current?.prev()
+        } else if (event.key === 'ArrowRight') {
+            event.preventDefault()
+            carouselRef.current?.next()
+        }
+    }, [])
 
     if (!photos?.length) {
         return null
     }
 
     return (
-        <div className={`about-carousel about-carousel--${theme.mode}`}>
-            <Carousel arrows dots>
+        <div
+            ref={containerRef}
+            className={`about-carousel about-carousel--${theme.mode}`}
+            tabIndex={0}
+            role="region"
+            aria-label="Photo carousel. Use left and right arrow keys to navigate."
+            onClick={focusCarousel}
+            onKeyDown={handleKeyDown}
+        >
+            <Carousel ref={carouselRef} arrows dots>
                 {photos.map(({ src, caption }) => (
                     <CarouselSlide
                         key={`${src}-${caption}`}
