@@ -66,7 +66,7 @@
   bottom: 0.35rem;
   left: 50%;
   right: auto;
-  width: auto;
+  width: calc(100% - 2.5rem);
   max-width: calc(100% - 2.5rem);
   margin: 0;
   padding: 0;
@@ -79,27 +79,27 @@
   box-sizing: border-box;
 }
 
-.about-carousel .slick-dots li {
-  width: 9px;
-  height: 9px;
+.about-carousel .slick-dots li,
+.about-carousel .slick-dots li.slick-active {
+  flex: 1 1 0;
+  min-width: 0;
+  width: auto;
+  max-width: 11px;
+  height: auto;
+  aspect-ratio: 1 / 1;
   margin: 0;
-  flex: 0 0 auto;
 }
 
-.about-carousel .slick-dots li button {
-  width: 9px;
-  height: 9px;
+.about-carousel .slick-dots li button,
+.about-carousel .slick-dots li.slick-active button {
+  width: 100%;
+  height: 100%;
   border-radius: 999px;
   background: var(--carousel-muted);
   opacity: 0.35;
 }
 
-.about-carousel .slick-dots li.slick-active {
-  width: 9px;
-}
-
 .about-carousel .slick-dots li.slick-active button {
-  width: 9px;
   background: var(--carousel-accent);
   opacity: 1;
 }
@@ -137,4 +137,19 @@
   color: var(--carousel-accent);
   font-size: 18px;
   opacity: 1;
+}
+
+/* Mobile: tighter inset; same fill behavior with a slightly smaller max size */
+@media (max-width: 700px) {
+  .about-carousel .slick-dots {
+    width: calc(100% - 0.75rem);
+    max-width: calc(100% - 0.75rem);
+    gap: 0.14rem;
+    bottom: 0.25rem;
+  }
+
+  .about-carousel .slick-dots li,
+  .about-carousel .slick-dots li.slick-active {
+    max-width: 9px;
+  }
 }
