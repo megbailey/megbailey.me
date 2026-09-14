@@ -42,6 +42,8 @@ function App() {
   return (
     <div className={`App app--${theme.mode}`} id='app' >
       <Helmet>
+        <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
         <style>{`body { background-color: ${backgroundColor}; color: var(--site-text-color); }`}</style>
       </Helmet>
         <BrowserRouter> 

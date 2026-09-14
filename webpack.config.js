@@ -46,6 +46,40 @@ class CopyPokePlatformerChunksPlugin {
     }
 }
 
+class CopyPublicAssetsPlugin {
+    apply(compiler) {
+        compiler.hooks.thisCompilation.tap('CopyPublicAssetsPlugin', (compilation) => {
+            const { Compilation, sources } = compiler.webpack;
+            const publicDir = path.resolve(__dirname, 'public');
+
+            compilation.hooks.processAssets.tap(
+                {
+                    name: 'CopyPublicAssetsPlugin',
+                    stage: Compilation.PROCESS_ASSETS_STAGE_ADDITIONAL,
+                },
+                () => {
+                    if (!fs.existsSync(publicDir)) {
+                        return;
+                    }
+
+                    fs.readdirSync(publicDir)
+                        .filter((file) => file !== 'index.html')
+                        .forEach((file) => {
+                            const sourcePath = path.join(publicDir, file);
+                            if (!fs.statSync(sourcePath).isFile()) {
+                                return;
+                            }
+                            compilation.emitAsset(
+                                file,
+                                new sources.RawSource(fs.readFileSync(sourcePath))
+                            );
+                        });
+                }
+            );
+        });
+    }
+}
+
 const config = {
     entry: './src/index.js',
     output: {
@@ -58,6 +92,11 @@ const config = {
         historyApiFallback: true,
         static: [
             {
+                directory: path.resolve(__dirname, 'public'),
+                publicPath: '/',
+                watch: true,
+            },
+            {
                 directory: pokePlatformerDist,
                 publicPath: '/',
                 watch: true,
@@ -69,6 +108,7 @@ const config = {
             template: './public/index.html',
         }),
         new CopyPokePlatformerChunksPlugin(),
+        new CopyPublicAssetsPlugin(),
         // Add your plugins here
         // Learn more about plugins from https://webpack.js.org/configuration/plugins/
     ],

@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "start": "webpack serve --config webpack.config.js --mode=development",
-    "build": "webpack --mode=production && echo '/* /index.html  200' | cat > build/_redirects",
+    "build": "webpack --mode=production && printf '%s\\n' '/favicon.ico  /favicon.ico  200' '/apple-touch-icon.png  /apple-touch-icon.png  200' '/*    /index.html   200' > build/_redirects",
     "build:dev": "webpack --mode=development",
     "convert-carousel": "bash scripts/convert-carousel-heic.sh && node scripts/sync-carousel-photos.js",
     "sync-carousel": "node scripts/sync-carousel-photos.js"
