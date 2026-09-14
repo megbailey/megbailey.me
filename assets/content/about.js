@@ -93,6 +93,20 @@ const toolsData = {
         level: 6,
         imageSrc: 'about/logos/ansible-logo.png'
     },
+    'Chrome Dev Protocol': {
+        type: 'Tools',
+        name: 'Chrome DevTools Protocol (CDP)',
+        tag: [ 'Frontend' ],
+        level: 7,
+        imageSrc: 'about/logos/chrome-devtools-logo.png'
+    },
+    'Cursor': {
+        type: 'Tools',
+        name: 'Cursor',
+        tag: [ 'Frontend', 'Backend' ],
+        level: 8,
+        imageSrc: 'about/logos/cursor-logo.png'
+    },
     /* Libraries */
     'React': {
         type: 'Libraries',
@@ -114,6 +128,20 @@ const toolsData = {
         tag: [ 'Frontend' ],
         level: 9,
         imageSrc: 'about/logos/storybook-logo.png'
+    },
+    'Eloquent': {
+        type: 'Libraries',
+        name: 'Eloquent',
+        tag: [ 'Backend' ],
+        level: 8,
+        imageSrc: 'about/logos/eloquent-logo.png'
+    },
+    'PHPUnit': {
+        type: 'Libraries',
+        name: 'PHPUnit',
+        tag: [ 'Backend' ],
+        level: 8,
+        imageSrc: 'about/logos/phpunit-logo.png'
     },
     'Google Protobuf': {
         type: 'Libraries',
@@ -156,40 +184,46 @@ const toolsData = {
 
 const positionsHeld = [
     {
-        position: 'Web Developer / Programmer',
+        position: 'Full Stack Web Developer',
         employer: 'University of San Diego',
         startDate: '2022-06-10',
         endDate: null,
         languageList: [ 
             toolsData['PHP'], 
             toolsData['Javascript'], 
-            toolsData['SQL'] 
+            toolsData['SQL'],
+            toolsData['Bash'],
+            toolsData['Java'],
         ],
         libraryFrameworkList: [ 
             toolsData['React'], 
             toolsData['Storybook'], 
-            toolsData['GraphQL'] 
+            toolsData['GraphQL'],
+            toolsData['Eloquent'],
+            toolsData['PHPUnit'],
         ],
         toolsList: [ 
             toolsData['Postman'],
-            { name: 'Rich Results Test', imageSrc: 'about/logos/google-logo.png' }
+            { name: 'Rich Results Test', imageSrc: 'about/logos/google-logo.png' },
+            toolsData['Chrome Dev Protocol'],
+            toolsData['Cursor'],
         ],
         environmentList: [ 
             toolsData['Docker'], 
             toolsData['Linux / Unix'] 
         ],
         descriptionList: [
-            'I contribute to our React monorepo, Camino, which provides React components for the sandiego.edu domain. I\'m responsible for half of our 60 components and handle feature requests and bug fixes.',
-            'I collaborate with my team to maintain open-source technologies like Storybook and Webpack, performing updates, fixes, and staying current with GitHub communities.',
-            'I assist in integrating Camino and custom web applications with Hannon Hill\'s Cascade CMS, using Velocity scripts for user-side integration and Hannon Hill\'s Java features.',
-            'I design, develop, and maintain custom web applications for the USD community, handling frontend React, APIs, and database design. Notable projects include:' +
+            'Contribute to the evolution of the university’s atomic web design system, reusable components for sandiego.edu. Responsible for 50% of 70+ of the components in the system handling feature requests and bug fixes.',
+            'I collaborate with my team to maintain open-source technologies like Storybook and Webpack, performing updates, fixes, and staying current with GitHub communities and AI workflows.',
+            'I assist in integrating Camino and custom web applications with Hannon Hill\'s Cascade CMS, using Velocity (Java) scripts for user-side integration.',
+            'I spearheaded and maintain development Docker containers mirroring our build, staging, and production environments for project use.',
+            'I design, develop, and maintain custom web applications for the USD community, handling frontend React, APIs, and database design. My notable projects include:' +
                 '<ul>' +
-                '<li><a href="https://www.sandiego.edu/osp/research-expertise/">Expertise Database</a>: Enables USD staff and faculty to create profiles promoting research collaboration. It received high praise; Dr. Truc Ngo and I submitted an abstract to NORDP, though not selected.</li>' +
-                '<li>Component Inventory app: Uses Hannon Hill\'s APIs to scrape the sandiego.edu website (160 sites) and collect data on Camino components (~60,000). This internal tool has transformed quality assurance and decision-making.</li>' +
-                '<li>Sidebar redesign: Implemented the Disclosure pattern for intuitive navigation after user research. It\'s a reusable component and app for CMS users.</li>' +
-                '<li>MyPostings 2.0 (in progress): A unified publish-subscribe app for posting news, events, etc., across sites. Replacing a 10-year-old system with features like live preview, drag-and-drop modules, notifications, and a new Newscenter.</li>' +
+                '<li><a href="https://www.sandiego.edu/osp/research-expertise/">Expertise Database</a>: Enables USD staff and faculty to create profiles promoting research collaboration. It received high praise; Dr. Truc Ngo, and I submitted an abstract to NORDP.</li>' +
+                '<li>Sidebar Navigation: Implemented <a href="https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/">WAI W3 Disclosure pattern</a> for intuitive navigation for all of <a href="https://www.sandiego.edu/">sandiego.edu</a>. Sidebar is both a reusable tree-like component and a page-level application that can be enabled for any of the 12,000+ webpages across our 170+ sites.</li>' +
+                '<li>Component Inventory: Led the development of the Component Inventory system built on top of our enterprise CMS. Designed the sidecar application to recursively scan 170+ sites, generating design system usage reports with 800,000+ data points on 40,000+ components across 12,000+ webpages, informing decisions on feature support, deprecation, and user impact.</li>' +
+                '<li>MyPostings 2.0: Led the ground-up modernization of <a href="https://www.sandiego.edu/newscenter/105010">MyPostings2</a>, transforming a 15+ year-old legacy system into a university-wide content platform serving hundreds of faculty, staff, and student users. Scaled the platform to support 600+ integrations across 170+ university websites and campus digital panels through RSS feeds, while integrating multiple internal and external APIs. I translated stakeholder needs into a modern, flexible publishing experience with live previews, drag-and-drop content creation, multimedia support, and workflows. MyPostings2 has since launched, but work is ongoing. Next steps include server-side rendering conversion for better AI readability, better search engine optimization, and mixed-typed feeds.</li>' +
                 '</ul>',
-            'I spearheaded and maintain development containers mirroring our build, staging, and production environments for project use.'
         ]
     },
     {
