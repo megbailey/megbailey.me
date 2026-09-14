@@ -184,7 +184,7 @@ const toolsData = {
 
 const positionsHeld = [
     {
-        position: 'Full Stack Web Developer',
+        position: 'Full Stack Software Developer',
         employer: 'University of San Diego',
         startDate: '2022-06-10',
         endDate: null,
@@ -213,11 +213,11 @@ const positionsHeld = [
             toolsData['Linux / Unix'] 
         ],
         descriptionList: [
-            'Contribute to the evolution of the university’s atomic web design system, reusable components for sandiego.edu. Responsible for 50% of 70+ of the components in the system handling feature requests and bug fixes.',
+            'Contribute to the evolution of the <a href="https://camino.sandiego.edu/storybook/">university’s atomic web design system</a>, reusable components for sandiego.edu. Responsible for 50% of 70+ of the components in the system handling feature requests and bug fixes.',
             'I collaborate with my team to maintain open-source technologies like Storybook and Webpack, performing updates, fixes, and staying current with GitHub communities and AI workflows.',
-            'I assist in integrating Camino and custom web applications with Hannon Hill\'s Cascade CMS, using Velocity (Java) scripts for user-side integration.',
-            'I spearheaded and maintain development Docker containers mirroring our build, staging, and production environments for project use.',
-            'I design, develop, and maintain custom web applications for the USD community, handling frontend React, APIs, and database design. My notable projects include:' +
+            'I assist in integrating Camino and custom web applications with Hannon Hill\'s Cascade CMS, using Velocity (Java) scripts for integration.',
+            'I spearheaded and maintain an environment of Docker containers mirroring our build, staging, and production environments for project use.',
+            'I design, develop, and maintain custom web applications and scripts for the USD community, handling frontend React, APIs, and database design. My notable projects include:' +
                 '<ul>' +
                 '<li><a href="https://www.sandiego.edu/osp/research-expertise/">Expertise Database</a>: Enables USD staff and faculty to create profiles promoting research collaboration. It received high praise; Dr. Truc Ngo, and I submitted an abstract to NORDP.</li>' +
                 '<li>Sidebar Navigation: Implemented <a href="https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/">WAI W3 Disclosure pattern</a> for intuitive navigation for all of <a href="https://www.sandiego.edu/">sandiego.edu</a>. Sidebar is both a reusable tree-like component and a page-level application that can be enabled for any of the 12,000+ webpages across our 170+ sites.</li>' +
@@ -421,7 +421,7 @@ const aboutContent = {
         },
         {
             src: 'about/carousel/2025_10.jpg',
-            caption: 'Successfully escaping a fairy-tale-themed Escape Room in San Jose. Game designers used my name for one of the props/answers! 2025',
+            caption: 'Successfully escaping a fairy-tale-themed Escape Room in San Jose. Game designers used my name for one of the props! 2025',
         },
         {
             src: 'about/carousel/2025_11.jpg',
@@ -434,10 +434,6 @@ const aboutContent = {
         {
             src: 'about/carousel/2025_13.jpg',
             caption: 'My mom\'s wedding in Coronado, California, 2025',
-        },
-        {
-            src: 'about/carousel/2025_14.jpg',
-            caption: 'Playing JENGA during a going-away party for a friend in San Diego, 2025',
         },
         {
             src: 'about/carousel/2024_1.jpg',
@@ -457,15 +453,15 @@ const aboutContent = {
         },
         {
             src: 'about/carousel/2024_5.jpg',
-            caption: 'Found Ahsoka Tano at a Star War\'s Galexy Edge at Disneyland in Anaheim, 2024',
+            caption: 'Found Ahsoka Tano at a Star War\'s Galaxy\'s Edge at Disneyland in Anaheim, 2024',
         },
         {
             src: 'about/carousel/2023_1.jpg',
-            caption: 'My fiancé and I at our first Pokemon Go events in Las Vegas, 2023',
+            caption: 'My fiancé and I at our first Pokemon Go event in Las Vegas, 2023',
         },
         {
             src: 'about/carousel/2023_2.jpg',
-            caption: 'Celebrating my friends birthday at a box at a San Diego Padres game, 2023',
+            caption: 'Celebrating my friend\'s birthday in a box at a San Diego Padres game, 2023',
         },
         {
             src: 'about/carousel/2023_3.jpg',
@@ -477,7 +473,7 @@ const aboutContent = {
         },
         {
             src: 'about/carousel/2022_2.jpg',
-            caption: 'On a bayou tour in New Orleans, Louisiana with my family. This was my first time visiting the city and originally was planned as my graduation trip, but was two years late because of COVID-19. Ironically, I got COVID on this trip, 2022.',
+            caption: 'On a bayou tour in New Orleans, Louisiana with my family. Originally, this was planned as my graduation trip, but it was two years late because of COVID-19. Ironically, I got COVID for the first time on this trip, 2022.',
         },
     ],
     experience: {
