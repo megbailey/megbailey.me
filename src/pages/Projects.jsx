@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Divider, Button, List } from 'antd';
+import { Divider, List } from 'antd';
 
 import { Title, Paragraph } from "../components/Text.jsx";
 import ProjectCard from "../components/ProjectCard.jsx";
@@ -16,39 +16,35 @@ const Projects = ({ title, text, projectSpotlight, posts }) => {
     } */
 
     return (
-        <>
-        <Row >
-            <Col>
-                <Title>{title}</Title>
-                <Divider />
-            </Col>
-        </Row>
-        <Row >
-            <Col>
-                <Paragraph>{text}</Paragraph>
-            </Col>
-        </Row >
-        <List
-            style={{ margin: '1.5% 0' }}
-            grid={{
-                gutter: [24, 24],
-                xs: 1,
-                sm: 2,
-                md: 2,
-                lg: 3,
-                xl: 3,
-                xxl: 3
-            }}
-            dataSource={posts}
-            renderItem={(item) => (
-                <List.Item style={{ height: '100%' }}>
-                    <ProjectCard 
-                        { ...item }
-                    />
-                </List.Item>
-            )}
-        />
-        </>
+        <div className="page-stack">
+            <section className="page-stack__section">
+                <div className="page-stack__header">
+                    <Title>{title}</Title>
+                    <Divider />
+                </div>
+                <Paragraph className="page-stack__intro">{text}</Paragraph>
+                <List
+                    className="page-stack__list"
+                    grid={{
+                        gutter: [24, 24],
+                        xs: 1,
+                        sm: 2,
+                        md: 2,
+                        lg: 3,
+                        xl: 3,
+                        xxl: 3
+                    }}
+                    dataSource={posts}
+                    renderItem={(item) => (
+                        <List.Item style={{ height: '100%' }}>
+                            <ProjectCard 
+                                { ...item }
+                            />
+                        </List.Item>
+                    )}
+                />
+            </section>
+        </div>
     )
 }
 

@@ -1,10 +1,13 @@
 .about-page {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: var(--site-section-gap);
 }
 
 .about-page__section {
+  display: flex;
+  flex-direction: column;
+  gap: inherit;
   width: 100%;
 }
 

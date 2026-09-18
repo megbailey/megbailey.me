@@ -8,6 +8,7 @@
   --site-text-muted: rgba(0, 21, 41, 0.62);
   --site-line-width: 1px;
   --site-line-color: rgba(0, 21, 41, 0.24);
+  --site-section-gap: 2.5rem;
 }
 
 .app--dark {
@@ -60,4 +61,38 @@ html, body, #root {
 .app--dark .ant-typography {
   color: var(--site-text-color);
   background: transparent;
+}
+
+.page-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--site-section-gap);
+}
+
+.page-stack__section {
+  display: flex;
+  flex-direction: column;
+  gap: inherit;
+  width: 100%;
+}
+
+.page-stack__header .ant-typography {
+  margin-bottom: 0.35rem;
+}
+
+.page-stack__header .ant-divider-horizontal {
+  margin: 0.5rem 0 0;
+}
+
+.page-stack__intro.ant-typography {
+  margin-bottom: 0;
+  max-width: none;
+  font-size: var(--site-ui-font-size);
+  line-height: 1.65;
+  color: var(--site-text-color);
+  background: transparent;
+}
+
+.page-stack__list {
+  margin: 0;
 }
