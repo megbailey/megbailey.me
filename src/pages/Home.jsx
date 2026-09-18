@@ -31,7 +31,7 @@ const Home = () => {
             </p>
 
             <Row justify="center" className="home__nav">
-                <Space size={32} wrap className="home__nav-space">
+                <Space size={32} className="home__nav-space">
                     <Button
                         className="home__link"
                         size="large"
