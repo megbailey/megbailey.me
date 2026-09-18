@@ -4,7 +4,17 @@
   height: auto;
 }
 
-.site-header__row {
+@media (max-width: 600px) {
+  .site-header.ant-layout-header {
+    padding-inline: clamp(0.5rem, 3vw, 1.25rem);
+  }
+}
+
+.site-header .site-header__row.ant-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas: "logo nav theme";
+  align-items: center;
   width: 100%;
   min-height: 64px;
 }
@@ -12,13 +22,23 @@
 .site-header__logo {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
+  grid-area: logo;
+}
+
+.site-header__logo .ant-btn {
+  width: auto;
+  height: auto;
+  padding: 0;
 }
 
 .site-header__nav {
   display: flex;
   align-items: center;
+  grid-area: nav;
   /* Push nav start away from the logo; logo stays on the content left edge */
-  padding-left: clamp(1.5rem, 4vw, 3.5rem);
+  /* Shrinks with the viewport so the four links stay on one line */
+  padding-left: clamp(0.25rem, calc((100vw - 280px) / 20), 3.5rem);
   min-width: 0;
 }
 
@@ -26,7 +46,29 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-left: 0.75rem;
+  flex-shrink: 0;
+  grid-area: theme;
+  margin-left: clamp(0.2rem, 1.5vw, 0.75rem);
+}
+
+@media (max-width: 360px) {
+  .site-header .site-header__row.ant-row {
+    grid-template-areas:
+      "logo . theme"
+      "nav nav nav";
+    row-gap: 0.1rem;
+  }
+
+  .site-header__nav {
+    justify-content: center;
+    padding-left: 0;
+    min-width: 0;
+    overflow-x: auto;
+  }
+
+  .site-header__theme {
+    margin-left: 0.5rem;
+  }
 }
 
 .theme-switch.ant-switch {
