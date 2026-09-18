@@ -13,10 +13,35 @@
   --site-text-muted: rgba(255, 255, 255, 0.82);
 }
 
-html, body {
+html, body, #root {
     margin: 0;
     padding: 0;
+    height: 100%;
     color: var(--site-text-color);
+}
+
+.App,
+.template {
+  min-height: 100%;
+}
+
+.template__shell.ant-space,
+.template__shell > .ant-space-item {
+  width: 100%;
+  min-height: 100%;
+}
+
+.template .ant-layout {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.template .ant-layout-content {
+  flex: 1 1 auto;
+}
+
+.site-footer.ant-layout-footer {
+  flex-shrink: 0;
 }
 
 .app--dark .ant-typography {

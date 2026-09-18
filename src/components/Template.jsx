@@ -9,12 +9,13 @@ const Template = ({ content }) => {
     
     return (
       <div className={`template`}>
-          <Space 
-            direction="vertical" 
+          <Space
+            className="template__shell"
+            direction="vertical"
             size={"small"}
-            style={{ 
-              width: '100%' 
-            }} 
+            style={{
+              width: '100%'
+            }}
           >
             <Layout>
               <Header />
