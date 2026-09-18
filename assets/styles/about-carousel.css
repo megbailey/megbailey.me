@@ -1,5 +1,5 @@
 .about-carousel {
-  --carousel-border: rgba(0, 21, 41, 0.12);
+  --carousel-border: var(--site-line-color);
   --carousel-surface: rgba(255, 255, 255, 0.72);
   --carousel-muted: rgba(0, 21, 41, 0.62);
   --carousel-accent: #001529;
@@ -18,14 +18,14 @@
 }
 
 .about-carousel--dark {
-  --carousel-border: rgba(255, 255, 255, 0.16);
+  --carousel-border: var(--site-line-color);
   --carousel-surface: rgba(255, 255, 255, 0.03);
   --carousel-muted: var(--site-text-muted);
   --carousel-accent: #ffffff;
 }
 
 .about-carousel .ant-carousel {
-  border: 1px solid var(--carousel-border);
+  border: var(--site-line-width) solid var(--carousel-border);
   border-radius: 14px;
   background: var(--carousel-surface);
   overflow: hidden;
@@ -108,7 +108,7 @@
 .about-carousel .slick-next {
   width: 2.5rem;
   height: 2.5rem;
-  border: 1px solid var(--carousel-border);
+  border: var(--site-line-width) solid var(--carousel-border);
   border-radius: 999px;
   background: var(--carousel-surface);
   color: var(--carousel-accent);

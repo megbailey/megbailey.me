@@ -2,14 +2,7 @@
   display: inline-block;
   max-width: 100%;
   vertical-align: middle;
-}
-
-.site-nav--light {
-  border-bottom: 1px solid rgba(0, 21, 41, 0.18);
-}
-
-.site-nav--dark {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  border-bottom: var(--site-line-width) solid var(--site-line-color);
 }
 
 .site-nav__list {

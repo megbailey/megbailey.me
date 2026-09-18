@@ -1,7 +1,7 @@
 .experience-tabs {
   --tab-fg: #001529;
   --tab-muted: rgba(0, 21, 41, 0.62);
-  --tab-border: rgba(0, 21, 41, 0.12);
+  --tab-border: var(--site-line-color);
   --tab-surface: rgba(255, 255, 255, 0.72);
   --tab-accent: #001529;
   --tab-hover-bg: rgba(0, 21, 41, 0.04);
@@ -10,7 +10,7 @@
 .experience-tabs--dark {
   --tab-fg: var(--site-text-color);
   --tab-muted: var(--site-text-muted);
-  --tab-border: rgba(255, 255, 255, 0.16);
+  --tab-border: var(--site-line-color);
   --tab-surface: transparent;
   --tab-accent: #ffffff;
   --tab-hover-bg: rgba(255, 255, 255, 0.06);
@@ -28,7 +28,7 @@
 
 .experience-tabs.ant-tabs-left > .ant-tabs-nav .ant-tabs-nav-wrap {
   padding: 0.35rem;
-  border: 1px solid var(--tab-border);
+  border: var(--site-line-width) solid var(--tab-border);
   border-radius: 12px;
   background: var(--tab-surface);
 }
@@ -39,7 +39,7 @@
 
 .experience-tabs.ant-tabs-top > .ant-tabs-nav .ant-tabs-nav-wrap {
   padding: 0.25rem;
-  border: 1px solid var(--tab-border);
+  border: var(--site-line-width) solid var(--tab-border);
   border-radius: 12px;
   background: var(--tab-surface);
 }
@@ -86,7 +86,7 @@
 }
 
 .experience-tabs > .ant-tabs-content-holder {
-  border: 1px solid var(--tab-border);
+  border: var(--site-line-width) solid var(--tab-border);
   border-radius: 14px;
   background: var(--tab-surface);
   padding: clamp(1rem, 2.5vw, 1.5rem);
@@ -100,7 +100,7 @@
 .experience-role + .experience-role {
   margin-top: 2rem;
   padding-top: 2rem;
-  border-top: 1px solid var(--tab-border);
+  border-top: var(--site-line-width) solid var(--tab-border);
 }
 
 .experience-role__title.ant-typography {
@@ -160,7 +160,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 0.5rem;
-  border: 1px solid var(--tab-border);
+  border: var(--site-line-width) solid var(--tab-border);
   border-radius: 12px;
   background: var(--tab-hover-bg);
   transition:

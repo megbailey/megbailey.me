@@ -95,5 +95,5 @@
 .reactmd th,
 .reactmd td {
     padding: 8px 16px;
-    border: 1px solid #f0f0f0;
+    border: var(--site-line-width) solid var(--site-line-color);
 }

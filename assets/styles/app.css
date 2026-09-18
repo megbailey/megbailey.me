@@ -6,11 +6,14 @@
   --site-ui-font-size: 14px;
   --site-text-color: #001529;
   --site-text-muted: rgba(0, 21, 41, 0.62);
+  --site-line-width: 1px;
+  --site-line-color: rgba(0, 21, 41, 0.24);
 }
 
 .app--dark {
   --site-text-color: #ffffff;
   --site-text-muted: rgba(255, 255, 255, 0.82);
+  --site-line-color: rgba(255, 255, 255, 0.28);
 }
 
 html, body, #root {
@@ -42,6 +45,16 @@ html, body, #root {
 
 .site-footer.ant-layout-footer {
   flex-shrink: 0;
+}
+
+.App .ant-divider-horizontal {
+  border-block-start: var(--site-line-width) solid var(--site-line-color);
+  background: none;
+}
+
+.App .ant-divider-vertical {
+  border-inline-start: var(--site-line-width) solid var(--site-line-color);
+  background: none;
 }
 
 .app--dark .ant-typography {

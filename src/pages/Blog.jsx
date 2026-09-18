@@ -1,20 +1,16 @@
 import React from "react";
 import { Row, Col, Divider, List } from 'antd';
-import { useSelector } from 'react-redux';
 
 import { Title } from "../components/Text.jsx";
 import BlogCard from "../components/BlogCard.jsx";
 
 const Blog = ({ title, posts }) => {
-    const theme = useSelector(state => state.theme.value)
-    const { color } = theme.style
-
     return (
         <>
         <Row>
             <Col>
                 <Title>{title}</Title>
-                <Divider style={{ backgroundColor: color }} />
+                <Divider />
             </Col>
         </Row>
         <List

@@ -2,3 +2,8 @@
 .site-footer__copy.ant-typography {
   font-size: var(--site-ui-font-size);
 }
+
+.site-footer .ant-divider-vertical {
+  border-inline-start: var(--site-line-width) solid var(--site-line-color);
+  background: none;
+}

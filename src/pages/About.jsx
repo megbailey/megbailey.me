@@ -11,14 +11,13 @@ import '../../assets/styles/about.css'
 
 const About = ({ title, text, photos, experience }) => { 
     const theme = useSelector(state => state.theme.value)
-    const { color } = theme.style
 
     return (
         <div className={`about-page about-page--${theme.mode}`}>
             <section className="about-page__section">
                 <div className="about-page__section-title">
                     <Title>{title}</Title>
-                    <Divider style={{ backgroundColor: color }} />
+                    <Divider />
                 </div>
             </section>
 
@@ -36,7 +35,7 @@ const About = ({ title, text, photos, experience }) => {
             <section className="about-page__section">
                 <div className="about-page__section-title">
                     <Title size={2}>{experience.title}</Title>
-                    <Divider style={{ backgroundColor: color }} />
+                    <Divider />
                 </div>
                 <Experience {...experience} />
             </section>

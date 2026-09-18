@@ -1,15 +1,10 @@
 import React from "react";
 import { Row, Col, Divider, Button, List } from 'antd';
-import { useSelector } from 'react-redux';
 
 import { Title, Paragraph } from "../components/Text.jsx";
 import ProjectCard from "../components/ProjectCard.jsx";
 
 const Projects = ({ title, text, projectSpotlight, posts }) => {
-    
-    const theme = useSelector(state => state.theme.value)
-    const { color } = theme.style
-
     let spotlightedProjects = []
 
     /* for (const id of projectSpotlight) {
@@ -25,7 +20,7 @@ const Projects = ({ title, text, projectSpotlight, posts }) => {
         <Row >
             <Col>
                 <Title>{title}</Title>
-                <Divider style={{backgroundColor: color }}/>
+                <Divider />
             </Col>
         </Row>
         <Row >

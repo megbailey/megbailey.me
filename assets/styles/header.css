@@ -76,13 +76,13 @@
   height: 28px;
   line-height: 26px;
   background: transparent !important;
-  border: 1px solid rgba(0, 21, 41, 0.28);
+  border: var(--site-line-width) solid var(--site-line-color);
   border-radius: 4px;
   box-shadow: none;
 }
 
 .theme-switch--dark.ant-switch {
-  border-color: rgba(255, 255, 255, 0.35);
+  border-color: var(--site-line-color);
 }
 
 .theme-switch.ant-switch:hover:not(.ant-switch-disabled) {
@@ -95,11 +95,11 @@
 
 .theme-switch.ant-switch.ant-switch-checked {
   background: transparent !important;
-  border-color: rgba(0, 21, 41, 0.55);
+  border-color: var(--site-line-color);
 }
 
 .theme-switch--dark.ant-switch.ant-switch-checked {
-  border-color: rgba(255, 255, 255, 0.7);
+  border-color: var(--site-line-color);
 }
 
 .theme-switch.ant-switch .ant-switch-handle {
