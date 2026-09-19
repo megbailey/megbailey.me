@@ -5,7 +5,8 @@ import { useSelector } from 'react-redux'
 
 import Menu from './Menu';
 
-import LogoWhiteOnBlue from '../../assets/img/MeganLogo-38.png'
+import LogoDark from '../../assets/img/MeganLogo-38.png'
+import LogoLight from '../../assets/img/MeganLogo-38-light.png'
 
 import { updateTheme } from '../utils/reducers';
 import store from '../utils/store';
@@ -50,7 +51,7 @@ const isDark = theme.mode === 'dark'
             type="link"
             shape="circle"
             href={'/'}
-            icon={<Avatar size={64} src={LogoWhiteOnBlue} />}
+            icon={<Avatar size={64} src={isDark ? LogoDark : LogoLight} />}
             block
           />
         </Col>
