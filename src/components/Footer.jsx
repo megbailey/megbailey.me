@@ -28,18 +28,20 @@ const Footer = () => {
                          type="link"
                          shape="circle"
                          href={'https://github.com/megbailey'}
+                         aria-label="Megan Bailey on GitHub"
                          icon={<Avatar size={24} src={theme.mode === "light" ? OctocatLight: OctocatDark} />}
                          block
                     />
-                    {/* <Button 
+                    <Button 
                          size={'small'}
                          type="link"
                          shape="circle"
-                         href={'/'}
+                         href={'https://www.linkedin.com/in/megan-bailey-87a222414/'}
+                         aria-label="Megan Bailey on LinkedIn"
                          icon={<Avatar size={24} src={theme.mode === "light" ? LinkedInLight: LinkedInDark} />}
                          block
-                    /> */}
-                    <Text className="site-footer__copy">© Megan Bailey</Text>
+                    />
+                    <Text className="site-footer__copy">© 2026 Megan Bailey</Text>
                </Space>
           </LayoutFooter>
      )

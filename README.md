@@ -145,4 +145,6 @@ Visit the site at: https://megbailey.me
 
 ## 📝 License
 
-This project is the personal portfolio of Megan Bailey. All rights reserved unless otherwise specified.
+Copyright © 2026 Megan Bailey. All rights reserved.
+
+See [COPYRIGHT.md](COPYRIGHT.md) for the full notice.
