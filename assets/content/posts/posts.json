@@ -1,5 +1,18 @@
 [
     {
+        "name": "GVault",
+        "slug": "gvault",
+        "type": "project",
+        "filename": "gvault.md",
+        "publish_date": "09/20/26",
+        "description": "Chrome extension that encrypts files on-device and stores ciphertext in Google Drive",
+        "image": {
+            "src": "gvault-logo.png",
+            "fit": "contain"
+        },
+        "githubURL": "https://github.com/megbailey/gvault"
+    },
+    {
         "name": "ButterDB",
         "slug": "butterdb",
         "type": "project",

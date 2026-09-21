@@ -21,7 +21,7 @@ const ArticleCard = ({
     name,
     description,
     publish_date: publishDateRaw,
-    image: { src } = {},
+    image: { src, fit } = {},
     eyebrow,
     cta,
     actions,
@@ -34,7 +34,7 @@ const ArticleCard = ({
     return (
         <article className={`content-card content-card--${theme.mode}`}>
             <a href={href} className="content-card__link">
-                <div className="content-card__media">
+                <div className={`content-card__media${fit === 'contain' ? ' content-card__media--contain' : ''}`}>
                     {imageSrc && (
                         <img src={imageSrc} alt="" />
                     )}
@@ -68,6 +68,7 @@ ArticleCard.propTypes = {
     publish_date: PropTypes.string,
     image: PropTypes.shape({
         src: PropTypes.string,
+        fit: PropTypes.oneOf(['cover', 'contain']),
     }),
     eyebrow: PropTypes.string.isRequired,
     cta: PropTypes.string.isRequired,

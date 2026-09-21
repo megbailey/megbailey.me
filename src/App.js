@@ -24,6 +24,7 @@ import Game from "./pages/Game.jsx";
 
 /* Posts */
 import Post from "./pages/Post.jsx";
+import RemoteDoc from "./pages/RemoteDoc.jsx";
 import postContent from '../assets/content/posts/posts.json'
 
 import "../assets/styles/app.css";
@@ -75,6 +76,14 @@ function App() {
                   content={ <Game /> } 
                 /> 
               } 
+            />
+            <Route
+              path="/projects/:slug/:doc"
+              element={
+                <Template
+                  content={ <RemoteDoc /> }
+                />
+              }
             />
             <Route 
               path="/projects/:slug" 

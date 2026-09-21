@@ -74,6 +74,11 @@
   transition: transform 320ms ease;
 }
 
+.content-card__media--contain img {
+  object-fit: contain;
+  padding: 1.25rem;
+}
+
 .content-card:hover .content-card__media img,
 .content-card:focus-within .content-card__media img {
   transform: scale(1.04);

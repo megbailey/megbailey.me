@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { Navigate, useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from "remark-gfm";
@@ -38,9 +37,5 @@ const Post = ({ type, posts }) => {
     )
 }
 
-
-Post.propTypes = {
-    type: PropTypes.oneOf([ 'blog', 'project' ]).isRequired,
-}
 
 export default Post

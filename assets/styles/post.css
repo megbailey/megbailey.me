@@ -84,6 +84,25 @@
     margin: 1.5rem auto;
 }
 
+.reactmd a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+.reactmd__source,
+.reactmd__status,
+.reactmd__error {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--site-text-muted);
+    margin: 0 0 1.5rem;
+}
+
+.reactmd__error {
+    color: var(--site-text-color);
+}
+
 .reactmd table {
     display: block;
     width: 100%;
