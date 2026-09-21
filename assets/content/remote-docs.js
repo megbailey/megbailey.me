@@ -1,7 +1,7 @@
 const remoteDocs = [
     {
         project: 'gvault',
-        slug: 'security-policy',
+        slug: 'security',
         title: 'GVault Security Policy',
         source: {
             owner: 'megbailey',
