@@ -44,7 +44,7 @@ The popup and Drive overlay also use [`@megbailey/ui`](https://www.npmjs.com/pac
 ## Links
 
 - [GitHub repository](https://github.com/megbailey/gvault)
-- [Security policy](/projects/gvault/security-policy)
+- [Security policy](/projects/gvault/security)
 - [Terms of service](/projects/gvault/terms)
 - [Privacy policy](/projects/gvault/privacy)
 - [Vault file format](https://github.com/megbailey/gvault/blob/main/docs/GVAULT_FILE_FORMAT.md)
