@@ -39,8 +39,6 @@ The Drive page uses two content scripts: a MAIN-world interceptor that cancels n
 
 Manifest V3 · TypeScript · React · Webpack · `chrome.identity` · AES-256-GCM · Argon2id · Google Drive API · Vitest
 
-The popup and Drive overlay also use [`@megbailey/ui`](https://www.npmjs.com/package/@megbailey/ui), the accessible React components I published from the megbailey-core monorepo.
-
 ## Links
 
 - [GitHub repository](https://github.com/megbailey/gvault)
