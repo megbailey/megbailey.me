@@ -123,7 +123,7 @@ const config = {
         rules: [
             {
                 test: /\.(js|jsx)$/i,
-                exclude: /nodeModules/,
+                exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
                     options: {
@@ -133,8 +133,7 @@ const config = {
                         ],
                         plugins:[
                             "@babel/plugin-transform-class-properties",
-                            "@babel/plugin-transform-runtime",
-                            "@babel/plugin-proposal-private-property-in-object"
+                            "@babel/plugin-transform-runtime"
                         ],
                     }
                 },
@@ -158,7 +157,23 @@ const config = {
     },
 };
 
-module.exports = () => {
+module.exports = (env, argv) => {
+    const mode = argv.mode === 'production' || argv.mode === 'development'
+        ? argv.mode
+        : (isProduction ? 'production' : 'development');
+    const babelOptions = config.module.rules[0].use.options;
+    // Webpack's mode selects React's production runtime, where jsxDEV is unset.
+    // Babel 8 otherwise follows NODE_ENV and emits jsxDEV whenever that is unset.
+    babelOptions.envName = mode;
+    babelOptions.presets = [
+        "@babel/preset-env",
+        ["@babel/preset-react", {
+            runtime: "automatic",
+            development: mode !== "production",
+            developmentSourceSelf: true,
+        }],
+    ];
+
     if (isProduction) {
         config.mode = 'production';
         
