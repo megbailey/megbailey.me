@@ -18,7 +18,7 @@ const toolsData = {
     },
     'Javascript': {
         type: 'Languages',
-        name: 'Javascript',
+        name: 'JavaScript',
         tag: [ 'Frontend' ],
         level: 8,
         imageSrc: 'about/logos/javascript-logo.png'
@@ -39,7 +39,7 @@ const toolsData = {
     },
     'Bash': {
         type: 'Languages',
-        name: 'Bash / ZSH',
+        name: 'Bash',
         tag: [ 'Scripting' ],
         level: 5,
         imageSrc: 'about/logos/cmdline-logo.png'
@@ -53,21 +53,21 @@ const toolsData = {
     },
     'Gitlab Jobs': {
         type: 'Tools',
-        name: 'Gitlab Jobs',
+        name: 'Gitlab',
         tag: [ 'CI/CD' ],
         level: 6,
         imageSrc: 'about/logos/gitlab-logo.png'
     },
     'Github Actions': {
         type: 'Tools',
-        name: 'Github Actions',
+        name: 'Github',
         tag: [ 'CI/CD' ],
         level: 5,
         imageSrc: 'about/logos/github-lord-logo.png'
     },
     'Apache JMeter': {
         type: 'Tools',
-        name: 'Apache JMeter',
+        name: 'JMeter',
         tag: [ 'Backend', 'Infrastructure' ],
         level: 7,
         imageSrc: 'about/logos/apache-logo.png'
@@ -87,7 +87,7 @@ const toolsData = {
         imageSrc: 'about/logos/hashicorp-packer-logo.png'
     },
     'Ansible': {
-        type: 'Tools',
+        type: 'Languages',
         name: 'Ansible',
         tag: [ 'Infrastructure', 'Scripting' ],
         level: 6,
@@ -131,7 +131,7 @@ const toolsData = {
     },
     'Eloquent': {
         type: 'Libraries',
-        name: 'Eloquent',
+        name: 'Laravel’s Eloquent',
         tag: [ 'Backend' ],
         level: 8,
         imageSrc: 'about/logos/eloquent-logo.png'
@@ -167,7 +167,7 @@ const toolsData = {
     },
     'VMWare VSphere / ESXI': {
         type: 'Platforms',
-        name: 'VMWare VSphere / ESXI',
+        name: 'VMWare ESXI/VCenter',
         tag: [ 'Infrastructure' ],
         level: 7,
         imageSrc: 'about/logos/vmware-logo.png'
@@ -184,7 +184,7 @@ const toolsData = {
 
 const positionsHeld = [
     {
-        position: 'Full Stack Software Developer',
+        position: 'Full-Stack Software Developer',
         employer: 'University of San Diego',
         startDate: '2022-06-10',
         endDate: null,
@@ -213,32 +213,31 @@ const positionsHeld = [
             toolsData['Linux / Unix'] 
         ],
         descriptionList: [
-            'Contribute to the evolution of the <a href="https://camino.sandiego.edu/storybook/">university’s atomic web design system</a>, reusable components for sandiego.edu. Responsible for 50% of 70+ of the components in the system handling feature requests and bug fixes.',
+            'Contribute to the evolution of the <a href="https://camino.sandiego.edu/storybook/">university’s atomic web design system</a>, reusable components for sandiego.edu. Responsible for 50% of 70+ of the components in the system.',
             'I collaborate with my team to maintain open-source technologies like Storybook and Webpack, performing updates, fixes, and staying current with GitHub communities and AI workflows.',
             'I assist in integrating Camino and custom web applications with Hannon Hill\'s Cascade CMS, using Velocity (Java) scripts for integration.',
             'I spearheaded and maintain an environment of Docker containers mirroring our build, staging, and production environments for project use.',
-            'I design, develop, and maintain custom web applications and scripts for the USD community, handling frontend React, APIs, and database design. My notable projects include:' +
+            'I design, build, and maintain custom web applications for the USD community, both public-facing and internal. I am responsible for React front-end development, API design, and relational database architecture, and I lead the application lifecycle from conception through launch and future iterations. High-impact applications include:' +
                 '<ul>' +
                 '<li><a href="https://www.sandiego.edu/osp/research-expertise/">Expertise Database</a>: Enables USD staff and faculty to create profiles promoting research collaboration. It received high praise; Dr. Truc Ngo, and I submitted an abstract to NORDP.</li>' +
                 '<li>Sidebar Navigation: Implemented <a href="https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/">WAI W3 Disclosure pattern</a> for intuitive navigation for all of <a href="https://www.sandiego.edu/">sandiego.edu</a>. Sidebar is both a reusable tree-like component and a page-level application that can be enabled for any of the 12,000+ webpages across our 170+ sites.</li>' +
                 '<li>Component Inventory: Led the development of the Component Inventory system built on top of our enterprise CMS. Designed the sidecar application to recursively scan 170+ sites, generating design system usage reports with 800,000+ data points on 40,000+ components across 12,000+ webpages, informing decisions on feature support, deprecation, and user impact.</li>' +
-                '<li>MyPostings 2.0: Led the ground-up modernization of <a href="https://www.sandiego.edu/newscenter/105010">MyPostings2</a>, transforming a 15+ year-old legacy system into a university-wide content platform serving hundreds of faculty, staff, and student users. Scaled the platform to support 600+ integrations across 170+ university websites and campus digital panels through RSS feeds, while integrating multiple internal and external APIs. I translated stakeholder needs into a modern, flexible publishing experience with live previews, drag-and-drop content creation, multimedia support, and workflows. MyPostings2 has since launched, but work is ongoing. Next steps include server-side rendering conversion for better AI readability, better search engine optimization, and mixed-typed feeds.</li>' +
+                '<li>MyPostings2: Led the ground-up modernization of <a href="https://www.sandiego.edu/newscenter/105010">MyPostings2</a>, transforming a 15+ year-old legacy system into a university-wide content platform serving hundreds of faculty, staff, and student users. Scaled the platform to support 600+ integrations across 170+ university websites and campus digital panels through RSS feeds, while integrating multiple internal and external APIs. I translated stakeholder needs into a modern, flexible publishing experience with live previews, drag-and-drop content creation, multimedia support, and workflows. MyPostings2 has since launched, but work is ongoing. Next steps include server-side rendering conversion for better AI readability, better search engine optimization, and mixed-typed feeds.</li>' +
                 '</ul>',
         ]
     },
     {
-        position: 'Solutions Architect, Research Scientist I',
+        position: 'Research Scientist I, Solutions Architect',
         employer: 'Georgia Tech Research Institute',
         startDate: '2020-06-20',
         endDate: '2022-6-10',
         languageList: [ 
+            toolsData['Java'],
+            toolsData['Ansible'],
             toolsData['Bash'], 
-            toolsData['Java'], 
             toolsData['Python'] 
         ],
         libraryFrameworkList: [ 
-            toolsData['Ansible'],
-            toolsData['Apache JMeter'], 
             toolsData['Google Protobuf'] 
         ],
         toolsList: [ 
@@ -256,19 +255,19 @@ const positionsHeld = [
             { name: 'KVM', imageSrc: 'about/logos/linux-logo.png'} 
         ],
         descriptionList: [ 
-            'I contributed to a San Diego Field Office project building and maintaining a multi-level security (MLS) environment for USAF live training data. This MLS environment supports WarRoom software tools, funded by the LMOC Program Office.',
+            'I was the lead developer of a low-latency, &lt; 2ms, high fidelity security classification tagging engine prototype to serve as a Multi-Level Security (MLS) Cross Domain Solution (CDS) for secure data sharing between US Air Force networks of different security classifications, consolidating data from USAF range equipment and fighter jets.',
             'I designed and implemented networks, configuring routers, adapters, subnets and subinterfaces.',
-            'I contributed to a monorepo of Ansible playbooks and Bash scripts for Linux and Windows configuration. Notable contributions:' 
+            'I contributed to DevOps infrastructure utilizing Ansible, Docker, Packer, and Bash. Notable contributions:' 
             + '<ul>' 
             + '<li>Ansible playbook for configuring a Linux host as a KVM Hypervisor.</li>'
             + '<li>Ansible playbook for setting up a Linux host with Nexus OSS Repository Manager for yum, PyPI, Docker, and custom repositories.</li>'
             + '<li>Ansible playbook for scanning for and remediating security vulnerabilities.</li>'
             + '<li>Ansible playbook to systematically snapshot and update Windows machines in a virtual environment.</li>'
             + '</ul>',
-            'I developed a Docker-in-Docker build pipeline that creates custom images in a containerized GitLab runner and pushes them to a private repository on success.',
+            'I created and maintained CI/CD infrastructure using GitLab Runners and Docker-in-Docker.',
+            'I performed application benchmarking, unit and integration testing, and extended Apache JMeter for custom benchmarking.',
             'I participated in a Red Team for the IRAD project \'Red Lighting,\' exploring the effects and military implications of Terrestrial Gamma-Ray Flashes (TGFs).',
-            'I led development of the live classification engine for the MLS environment, creating a method to translate Security Classification Guides into machine-readable formats.',
-            'I met frequently with stakeholders from USAF, Navy, and other agencies, leading technical discussions to develop requirements for a government-owned, re-configurable, re-deployable MLS Cross Domain Solution.'
+            'I met frequently with stakeholders from USAF, Navy, and other agencies, leading technical discussions to develop requirements for a government-owned, re-configurable, re-deployable Multi-Level Security (MLS) Cross Domain Solution (CDS).'
         ]
     },
     {
@@ -324,8 +323,8 @@ const positionsHeld = [
             toolsData['Linux / Unix'] 
         ],
         descriptionList: [
-            '3.9 major GPA and 3.7 overall GPA',
-            'Minors in Mathematics and Classical Studies (Latin and Ancient Western history)',
+            'B.S. in Computer Science, Shiley–Marcos School of Engineering. Major GPA: 3.9',
+            'Minors in Mathematics and Classical Studies',
             'I participated in the Summer Undergraduate Research Experience (S.U.R.E.) Scholar program. I met with Dr. Saturnino Garcia to explore GDPR\'s impact on US users and began developing a web app to analyze users\' online footprints for digital privacy education.',
             'I served as Vice President (2019) and Marketing Chair (2018) of USD\'s ACM student chapter.',
         ]
@@ -334,7 +333,7 @@ const positionsHeld = [
 
 const aboutContent = {
     title: "About Me",
-    text: "I’m a software engineer, and I specialize in backend services and web application development. \n \
+    text: "I’m a software engineer, and I specialize in React front-end development, API design, and relational database architecture. \n \
     I am a lifelong learner, and I enjoy utilizing software to solve complex problems and express my creativity through my work. \n \
     I graduated from the University of San Diego, and I lived in San Diego for about 5 years post-college. \n \
     Now, I'm giving the Bay Area a try! I enjoy walking around my neighborhood and <a href='https://en.wikipedia.org/wiki/Guadalupe_River_(California)' target='_blank'>Guadalupe River</a>, thrift and antique shopping, learning more about the local culture and history, and enjoying all the things the Bay has to offer!",

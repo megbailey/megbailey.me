@@ -92,7 +92,7 @@ const TabContent = (items) => {
                         )}
                         { toolsList && (
                             <section className="experience-role__skills">
-                                <Title className="experience-role__skills-title" size={4}>Tools</Title>
+                                <Title className="experience-role__skills-title" size={4}>Software Tools</Title>
                                 <IconList items={toolsList}/>
                             </section>
                         )}
