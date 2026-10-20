@@ -52,9 +52,12 @@ const IconList = ({ items }) => {
    )
 }
 
+const EXPERIENCE_DATE_FORMAT = 'yyyy-M-d'
+
 const TabContent = (items) => {
-    const formatDate = (date) => format( parse( date, 'yyyy-mm-dd', new Date() ), 'MMMM yyyy');
-    const isValid = (dateStr) => isMatch(dateStr, 'yyyy-mm-dd');
+    const formatDate = (date) => format(parse(date, EXPERIENCE_DATE_FORMAT, new Date()), 'MMMM yyyy')
+    // date-fns 4 reads the raw value with String#match and throws when it is null.
+    const isValid = (dateStr) => typeof dateStr === 'string' && isMatch(dateStr, EXPERIENCE_DATE_FORMAT)
 
     //console.log(items)
     return (

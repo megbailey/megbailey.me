@@ -121,7 +121,8 @@
 .about-carousel .slick-prev:hover,
 .about-carousel .slick-next:hover {
   border-color: var(--carousel-accent);
-  transform: translateY(-1px);
+  /* Keep antd's vertical centering (translateY(-50%)) while nudging up */
+  transform: translateY(calc(-50% - 1px));
 }
 
 .about-carousel .slick-prev {
@@ -137,6 +138,24 @@
   color: var(--carousel-accent);
   font-size: 18px;
   opacity: 1;
+}
+
+/* antd 6 draws the chevron with ::after, sized for a 16px arrow.
+   Center that mark inside the larger circular button. */
+.about-carousel .slick-prev::after,
+.about-carousel .slick-next::after {
+  top: 50%;
+  left: 50%;
+  inset-inline-start: 50%;
+  margin: 0;
+}
+
+.about-carousel .slick-prev::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.about-carousel .slick-next::after {
+  transform: translate(-50%, -50%) rotate(135deg);
 }
 
 /* Mobile: tighter inset; same fill behavior with a slightly smaller max size */
