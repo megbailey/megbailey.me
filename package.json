@@ -18,7 +18,7 @@
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
     "@babel/runtime": "^8.0.7",
-    "@reduxjs/toolkit": "^2.2.3",
+    "@reduxjs/toolkit": "^2.13.0",
     "antd": "^6.6.5",
     "date-fns": "^4.4.0",
     "poke-platformer": "https://github.com/megbailey/react-poke-platformer.git",
